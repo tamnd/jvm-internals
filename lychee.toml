@@ -11,6 +11,12 @@ exclude = [
   # The advisory form 404s for anyone without write access, including the
   # checker, so a working link and a broken one look the same from here.
   "^https://github\\.com/tamnd/jvm-internals/security/advisories/new",
+  # A Colab badge points at the notebook's path on main, which on the pull
+  # request that adds the lesson does not exist yet. The link is correct and
+  # unresolvable at the same time, and it becomes resolvable on merge. That the
+  # path is right is checked in tools/test_build.py instead, which can check it
+  # without asking Google.
+  "^https://colab\\.research\\.google\\.com",
 ]
 
 max_retries = 3

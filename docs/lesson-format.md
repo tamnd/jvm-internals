@@ -58,10 +58,31 @@ jvx.run("-XX:+UseCompactObjectHeaders", () -> ClassLayout.parseClass(Object.clas
 | `tags=[...]` | Any of `predict`, `bake`, `slow`, `solution`, `skip-ci` |
 | `env=` | `E0`, `E1` or `E2`. Defaults to `E0` |
 | `replay=` | The recorded transcript a tier 0 reader steps through instead of running an `E1` cell |
+| `generated=` | `badge` or `bootstrap`. The build writes the cell's body, the lesson only says where it goes |
 
 Anything else on the marker line is an error rather than something ignored, because a silently ignored directive is a lesson that does not do what its author thinks it does.
 
 Give an `id=` to any cell a claim depends on, and then never change it. The claim ledger cites cells by id, so renaming one breaks the ledger entry without breaking the build. Ids are additive. Name them for what they show, so `header_size_compact` rather than `cell_7`.
+
+## Generated cells
+
+Two cells in every lesson are written by the build rather than by the author. The lesson source declares where they go and leaves them empty:
+
+```python
+# %% [markdown] id=badge generated=badge
+
+# %% id=bootstrap generated=bootstrap env=E0
+```
+
+Writing anything in the body of a generated cell is an error, not a warning. The build would overwrite it, and losing somebody's work silently is worse than refusing it loudly.
+
+`badge` is the Open in Colab badge, the lesson's question and a line saying which pin the numbers on the page came from.
+
+`bootstrap` is the cell every reader runs first. It inlines every file in `jvx/` in filename order, then calls `jvx.banner()`. The mark word bit positions inside it are filled in from `docs/generated/markword.json`, which `tools/gen_markword.py` reads out of HotSpot's own `markWord.hpp` at the pinned tag, so no bit position is typed by hand anywhere between the header file and the reader's screen.
+
+Inlining rather than fetching a jar is the right shape for now for one reason: a reader who clicks a badge should not be waiting on Maven Central, and a project with no release yet should not pretend it has one. When `jvx` is published this cell becomes a `%maven` line and nothing else changes, because every lesson already goes through `jvx.` rather than through the classes underneath.
+
+A generated cell's id is a hash of what ships, not of the empty placeholder in the source. So editing anything in `jvx/` moves the bootstrap cell's id in every lesson at once, which is the honest answer: the cell really did change in every one of them.
 
 ## Tags
 
@@ -95,7 +116,9 @@ Beyond the byte comparison, `build.py check` enforces the caps and the structura
 
 A lesson with `status: draft` in its front matter is exempt from the prediction gate rule and the grader rule, which is what lets a work in progress live on a branch without turning CI red for a week.
 
-`tools/prosecheck.py` reads the markdown cells out of `lesson.py` and applies the prose rules to them, reported against their real line numbers in that file.
+It also checks the generated cells: exactly one `generated=badge` and one `generated=bootstrap` per lesson, an empty body on both, and the bootstrap being the first code cell. That last one matters because the bootstrap is what defines `jvx`, so a code cell above it runs against a kernel that does not have it yet, and that failure reads as "the lesson is broken" to a reader who has done nothing wrong.
+
+`tools/prosecheck.py` reads the markdown cells out of `lesson.py` and the comments out of `jvx/*.jsh`, and applies the prose rules to them, reported against their real line numbers in the file they came from. The jvx comments are checked because they are inlined verbatim into the bootstrap cell, so they are the first thing a reader sees. The wrap rule is the one exception there: hard wrapping a code comment is what every reader expects, and the rule exists to keep prose diffs readable rather than to forbid wrapping as such.
 
 ## Running the tests
 
@@ -103,4 +126,6 @@ A lesson with `status: draft` in its front matter is exempt from the prediction 
 python tools/test_build.py
 ```
 
-Thirty one tests, standard library only. The two that matter most are `test_three_builds_are_byte_identical` and `test_check_catches_a_one_character_edit`, because those two are the promise the pipeline rests on.
+Forty one tests, standard library only. The two that matter most are `test_three_builds_are_byte_identical` and `test_check_catches_a_one_character_edit`, because those two are the promise the pipeline rests on.
+
+The harness copies the real `jvx/` and the real `docs/generated/markword.json` into its temporary directory rather than using a fixture, so the generated cell tests build against the sources that actually ship.

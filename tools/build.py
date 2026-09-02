@@ -63,7 +63,18 @@ CELL_TYPES = {"code", "markdown", "raw"}
 # Directives a cell may carry. Anything else is a typo and is rejected rather than
 # ignored, because a silently ignored directive is a lesson that does not do what
 # its author thinks it does.
-KNOWN_DIRECTIVES = {"id", "tags", "env", "replay"}
+KNOWN_DIRECTIVES = {"id", "tags", "env", "replay", "generated"}
+
+# A cell whose body build.py writes. The lesson source declares where it goes and
+# leaves it empty, so the badge and the helper surface cannot drift lesson by lesson
+# and nobody has to remember to update 112 copies of the same block.
+KNOWN_GENERATED = {"badge", "bootstrap"}
+
+# Where the notebooks are read from when a badge is clicked. Colab fetches from a
+# GitHub path rather than from the repository it happens to have been opened from,
+# so this is the one place in the build that knows the repository's name.
+REPO = "tamnd/jvm-internals"
+DEFAULT_BRANCH = "main"
 
 KNOWN_TAGS = {"predict", "bake", "slow", "solution", "skip-ci"}
 
@@ -203,8 +214,13 @@ class Cell:
     def env(self) -> str:
         return self.directives.get("env", "E0")
 
-    def digest(self, salt: int = 0) -> str:
+    def digest(self, salt: int = 0, text: str | None = None) -> str:
         """A content hash over everything that decides what the cell renders as.
+
+        `text` is the source as it ends up in the notebook, which is the same thing as
+        `self.source` for an ordinary cell and the filled in version for a generated
+        one. Hashing what ships rather than what was written is what makes a change to
+        jvx show up as a changed bootstrap cell instead of an invisible one.
 
         The salt only ever moves off zero when two cells in one lesson are byte for
         byte identical, which nbformat forbids because cell ids must be unique.
@@ -212,7 +228,7 @@ class Cell:
         parts = [
             self.cell_type,
             json.dumps(self.directives, sort_keys=True, separators=(",", ":")),
-            self.source,
+            self.source if text is None else text,
         ]
         if salt:
             parts.append(f"#{salt}")
@@ -268,6 +284,11 @@ def parse_directives(rest: str, path: pathlib.Path, lineno: int) -> tuple[str, d
             f"{path}:{lineno}: a cell id is lower case letters, digits and underscores, "
             f"got {directives['id']!r}"
         )
+    if "generated" in directives and directives["generated"] not in KNOWN_GENERATED:
+        raise LessonError(
+            f"{path}:{lineno}: generated is one of {sorted(KNOWN_GENERATED)}, "
+            f"got {directives['generated']!r}"
+        )
 
     return cell_type, directives
 
@@ -301,7 +322,9 @@ def parse_cells(lines: list[str], start: int, path: pathlib.Path) -> list[Cell]:
             pending.append(raw)
 
     flush()
-    return [c for c in cells if c.source.strip()]
+    # An empty cell is a stray marker and gets dropped, except for a generated one,
+    # where empty is the correct and required state: build.py fills it in.
+    return [c for c in cells if c.source.strip() or c.directives.get("generated")]
 
 
 def strip_comment_prefix(source: str) -> str:
@@ -381,6 +404,168 @@ def load_all(root: pathlib.Path) -> list[Lesson]:
 
 
 # ---------------------------------------------------------------------------
+# Generated cells
+# ---------------------------------------------------------------------------
+
+
+def java_string(text: str) -> str:
+    """Quote a string for Java source.
+
+    JSON string escaping and Java string escaping agree on everything that can appear
+    here, so this borrows the standard library's rather than hand rolling a second one.
+    """
+    return json.dumps(text, ensure_ascii=True)
+
+
+def markword_java(root: pathlib.Path) -> str:
+    """The mark word field table, as Java, from what gen_markword.py read out of HotSpot.
+
+    This is the join between the two halves. `gen_markword.py` reads `markWord.hpp` at
+    the pinned tag and writes JSON; this turns that JSON into the constants a reader's
+    cell actually calls. Nobody types a bit position anywhere along the way.
+    """
+    path = root / "docs" / "generated" / "markword.json"
+    if not path.is_file():
+        raise LessonError(
+            f"{path} is not there. Run `python tools/gen_markword.py` first: the "
+            f"bootstrap cell needs the bit positions and this build will not invent them."
+        )
+    data = json.loads(path.read_text(encoding="utf-8"))
+
+    lines = [
+        f'static final String SOURCE_PATH = {java_string(data["source"]["path"])};',
+        f'static final String SOURCE_TAG = {java_string(data["source"]["tag"])};',
+        f'static final String SOURCE_SHA256 = {java_string(data["source"]["sha256"])};',
+        "",
+        "static final Field[] FIELDS = {",
+    ]
+    for field in data["fields"]:
+        lines.append(
+            "    new Field({name}, {shift}, {bits},".format(
+                name=java_string(field["name"]), shift=field["shift"], bits=field["bits"]
+            )
+        )
+        lines.append(f'        {java_string(field["meaning"])},')
+        lines.append(f'        {java_string(field["defined_at"]["shift"])}),')
+    lines.append("};")
+    lines.append("")
+    lines.append(
+        "static final String[] LOCK_BITS = {"
+        + ", ".join(java_string(s["bits"]) for s in data["lock_states"])
+        + "};"
+    )
+    lines.append("static final String[] LOCK_MEANING = {")
+    for state in data["lock_states"]:
+        lines.append(f'    {java_string(state["name"] + ", " + state["meaning"])},')
+    lines.append("};")
+
+    return "\n".join("    " + line if line else "" for line in lines)
+
+
+class Context:
+    """Everything the build needs that is not the lesson itself.
+
+    Read once per run rather than once per lesson, because 112 lessons reading the
+    same three files is 336 reads to produce identical bytes, and because reading them
+    once is also what guarantees every lesson gets the same helper surface.
+    """
+
+    def __init__(self, root: pathlib.Path):
+        self.root = root
+        self.pin = load_pin(root)
+        self._bootstrap: str | None = None
+
+    @property
+    def jdk_tag(self) -> str:
+        return str(self.pin.get("jdk_tag", "unpinned"))
+
+    def jvx_sources(self) -> list[pathlib.Path]:
+        jvx = self.root / "jvx"
+        if not jvx.is_dir():
+            raise LessonError("jvx/ is not there, and the bootstrap cell is built from it")
+        found = sorted(jvx.glob("*.jsh"))
+        if not found:
+            raise LessonError("jvx/ has no .jsh files, so there is no helper surface to inline")
+        return found
+
+    def bootstrap(self) -> str:
+        """The one cell every lesson runs first.
+
+        It inlines `jvx/*.jsh` rather than fetching a jar. That is the right shape for
+        now for one reason: a reader in Colab clicking a badge should not be waiting on
+        Maven Central, and a project with no release yet should not be pretending it
+        has one. When jvx is published this cell becomes a `%maven` line and nothing
+        else in the build changes, because everything above it already goes through
+        `jvx.` rather than through the classes underneath.
+        """
+        if self._bootstrap is not None:
+            return self._bootstrap
+
+        sources = self.jvx_sources()
+        names = ", ".join(f"jvx/{p.name}" for p in sources)
+
+        header = [
+            "// Generated by tools/build.py. Do not edit this cell, it is overwritten on",
+            "// every build. Edit the sources and run `python tools/build.py notebooks`.",
+            "//",
+            f"// helper surface   {names}",
+            "// bit positions    docs/generated/markword.json, read by tools/gen_markword.py",
+            f"//                  from src/hotspot/share/oops/markWord.hpp at {self.jdk_tag}",
+            "//",
+            "// This cell assumes a Java kernel is already running. Installing the pinned",
+            "// JDK from a cold Colab runtime is a separate step that is still being",
+            "// measured, and it goes here when it is. See issue #1.",
+        ]
+
+        blocks = ["\n".join(header)]
+        for path in sources:
+            body = path.read_text(encoding="utf-8").strip("\n")
+            body = body.replace("@jvx:pin@", self.jdk_tag)
+            body = body.replace("@jvx:sources@", names)
+            if "@jvx:markword_fields@" in body:
+                generated = markword_java(self.root)
+                body = "\n".join(
+                    generated if line.strip() == "// @jvx:markword_fields@" else line
+                    for line in body.split("\n")
+                )
+            leftover = re.search(r"@jvx:\w+@", body)
+            if leftover:
+                raise LessonError(
+                    f"{path}: nothing filled in {leftover.group(0)}, so the bootstrap "
+                    f"would ship a placeholder to a reader"
+                )
+            blocks.append(body)
+
+        blocks.append("jvx.banner()")
+        self._bootstrap = "\n\n".join(blocks)
+        return self._bootstrap
+
+    def badge(self, lesson: Lesson) -> str:
+        url = (
+            f"https://colab.research.google.com/github/{REPO}/blob/"
+            f"{DEFAULT_BRANCH}/notebooks/{lesson.id}/lesson.ipynb"
+        )
+        return "\n".join(
+            [
+                f"[![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)]({url})",
+                "",
+                f"**{lesson.front['question']}**",
+                "",
+                f"Run the cell below first. Everything after it assumes `jvx` is loaded, and "
+                f"the numbers on this page came from `{self.jdk_tag}`.",
+            ]
+        )
+
+    def generate(self, lesson: Lesson, cell: Cell) -> str:
+        kind = cell.directives["generated"]
+        if kind == "bootstrap":
+            return self.bootstrap()
+        if kind == "badge":
+            return self.badge(lesson)
+        raise LessonError(f"{lesson.path}: no generator for {kind!r}")
+
+
+# ---------------------------------------------------------------------------
 # Notebook generation
 # ---------------------------------------------------------------------------
 
@@ -416,7 +601,7 @@ def load_baked(lesson: Lesson, cell: Cell) -> list:
     return recorded
 
 
-def cell_to_json(lesson: Lesson, cell: Cell, cell_id: str) -> dict:
+def cell_to_json(lesson: Lesson, cell: Cell, cell_id: str, source_text: str) -> dict:
     metadata: dict = {}
     if cell.name:
         metadata["jvx_id"] = cell.name
@@ -424,10 +609,12 @@ def cell_to_json(lesson: Lesson, cell: Cell, cell_id: str) -> dict:
         metadata["jvx_env"] = cell.env
     if cell.directives.get("replay"):
         metadata["jvx_replay"] = cell.directives["replay"]
+    if cell.directives.get("generated"):
+        metadata["jvx_generated"] = cell.directives["generated"]
     if cell.tags:
         metadata["tags"] = cell.tags
 
-    source = cell.source.split("\n")
+    source = source_text.split("\n")
     source = [line + "\n" for line in source[:-1]] + [source[-1]]
 
     out: dict = {
@@ -444,17 +631,21 @@ def cell_to_json(lesson: Lesson, cell: Cell, cell_id: str) -> dict:
     return out
 
 
-def build_notebook(lesson: Lesson) -> str:
+def build_notebook(lesson: Lesson, ctx: Context) -> str:
     seen: dict[str, int] = {}
     cells = []
     for cell in lesson.cells:
+        text = ctx.generate(lesson, cell) if cell.directives.get("generated") else cell.source
+        # The id hashes the built source, not the source file's placeholder, so a
+        # change to jvx moves the bootstrap cell's id in every lesson at once. That
+        # is the honest answer: the cell really did change in every one of them.
         salt = 0
-        digest = cell.digest()
+        digest = cell.digest(text=text)
         while digest in seen:
             salt += 1
-            digest = cell.digest(salt)
+            digest = cell.digest(salt, text=text)
         seen[digest] = 1
-        cells.append(cell_to_json(lesson, cell, digest))
+        cells.append(cell_to_json(lesson, cell, digest, text))
 
     notebook = {
         "cells": cells,
@@ -527,8 +718,33 @@ def check_structure(root: pathlib.Path, lessons: list[Lesson]) -> list[str]:
                 problems.append(
                     f"{path}:{cell.lineno}: a predict gate is a code cell, it renders a widget"
                 )
+            if cell.directives.get("generated") and cell.source.strip():
+                problems.append(
+                    f"{path}:{cell.lineno}: a generated cell has an empty body in the source, "
+                    f"because build.py overwrites it. What is written here would be lost "
+                    f"silently, which is worse than losing it loudly"
+                )
 
-        e0_cells = [c for c in lesson.cells if c.cell_type == "code" and c.env == "E0"]
+        for kind in sorted(KNOWN_GENERATED):
+            found = [c for c in lesson.cells if c.directives.get("generated") == kind]
+            if len(found) != 1:
+                problems.append(
+                    f"{path}: {len(found)} cells with generated={kind}, every lesson has "
+                    f"exactly one"
+                )
+
+        # The bootstrap defines jvx, so a code cell above it runs against a kernel that
+        # does not have it yet. That failure reads as "the lesson is broken" to a reader
+        # who has done nothing wrong, which is the worst kind.
+        code = [c for c in lesson.cells if c.cell_type == "code"]
+        boot = [i for i, c in enumerate(code) if c.directives.get("generated") == "bootstrap"]
+        if boot and boot[0] != 0:
+            problems.append(
+                f"{path}:{code[boot[0]].lineno}: the bootstrap is not the first code cell. "
+                f"Everything above it would run before jvx exists"
+            )
+
+        e0_cells =[c for c in lesson.cells if c.cell_type == "code" and c.env == "E0"]
         if len(e0_cells) > CAP_E0_CELLS:
             problems.append(
                 f"{path}: {len(e0_cells)} tier 0 code cells, the cap is {CAP_E0_CELLS}. "
@@ -644,14 +860,14 @@ SCAFFOLD = '''\
 #   expert: null
 # ---
 
+# %% [markdown] id=badge generated=badge
+
 # %% [markdown] id=hook
 # Under 150 words, and it contains a surprise the reader can run in the next cell.
 # If there is no surprise, this is the wrong lesson or the interesting part has not
 # been found yet.
 
-# %% id=bootstrap tags=[bake] env=E0
-// Generated by build.py. Do not hand write this cell.
-jvx.banner.print()
+# %% id=bootstrap generated=bootstrap tags=[bake] env=E0
 
 # %% [markdown] id=tour
 # The prose. Where the mechanism lives, what it does, why it is that way. Every claim
@@ -714,10 +930,11 @@ def cmd_notebooks(root: pathlib.Path) -> int:
     if not lessons:
         print("no lessons yet")
         return 0
+    ctx = Context(root)
     for lesson in lessons:
         path = notebook_path(root, lesson)
         path.parent.mkdir(parents=True, exist_ok=True)
-        built = build_notebook(lesson)
+        built = build_notebook(lesson, ctx)
         before = path.read_text(encoding="utf-8") if path.is_file() else None
         if before == built:
             print(f"  unchanged  {path.relative_to(root)}")
@@ -736,10 +953,17 @@ def cmd_check(root: pathlib.Path) -> int:
         return 1
 
     problems = check_structure(root, lessons)
+    ctx = Context(root)
 
     for lesson in lessons:
         path = notebook_path(root, lesson)
-        built = build_notebook(lesson)
+        try:
+            built = build_notebook(lesson, ctx)
+        except LessonError as err:
+            # A generator that cannot run is a problem to report next to the others,
+            # not a traceback. The reader of this output is usually looking at CI.
+            problems.append(str(err))
+            continue
         if not path.is_file():
             problems.append(
                 f"{path.relative_to(root)}: not committed. Run build.py notebooks"
