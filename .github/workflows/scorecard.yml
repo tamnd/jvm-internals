@@ -34,12 +34,8 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 15
     permissions:
-      # To upload the result to the code scanning tab, where a finding shows up
-      # next to the line that caused it rather than in a log nobody opens.
-      security-events: write
-      # To publish the result to the public OpenSSF API, which is what the badge
-      # in the README reads.
-      id-token: write
+      security-events: write # to upload the result to the code scanning tab, where a finding sits next to the line that caused it
+      id-token: write # to publish the result to the public OpenSSF API, which is what the badge reads
       contents: read # to read the workflows, the branch rules and the pinned actions
       actions: read # to read the workflow run history the dangerous-workflow audit needs
     steps:
