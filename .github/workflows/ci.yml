@@ -53,6 +53,7 @@ jobs:
           python tools/test_hprof_count.py
           python tools/test_gen_noise_chart.py
           python tools/test_gen_capability_matrix.py
+          python tools/test_gen_malformed_table.py
           python tools/test_fetch_jdk.py
       - name: rebuild and compare
         run: python tools/build.py check
@@ -70,6 +71,11 @@ jobs:
       # so the only thing keeping it true is this.
       - name: the capability matrix matches the measured results
         run: python tools/gen_capability_matrix.py --check
+      # The malformed class file table and its picture come from the same three
+      # results files, so they can disagree with each other as well as with the
+      # measurements. Regenerating both from one command is what stops that.
+      - name: the malformed class file table matches the measured results
+        run: python tools/gen_malformed_table.py --check
       - name: three builds are byte identical
         run: |
           set -euo pipefail

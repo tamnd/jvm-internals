@@ -68,7 +68,7 @@ class TestTheTable(unittest.TestCase):
         self.assertEqual(matrix.show(None), "not asked")
 
     def test_no_machine_is_identified(self):
-        for word in ["Users", "/root", "/home/", "MacBook", "vmi", "gopher"]:
+        for word in ["Users", "/root", "/home/", "AppData", "Temp", "@"]:
             self.assertNotIn(word, self.text)
 
     def test_no_process_id_survives_into_the_notes(self):

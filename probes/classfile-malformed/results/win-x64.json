@@ -1,0 +1,88 @@
+{
+  "cases": {
+    "final_and_abstract": {
+      "api": "built",
+      "bytes": "336",
+      "error": "java.lang.ClassFormatError: Illegal class modifiers in class FinalAndAbstract: 0x411",
+      "stage": "parse"
+    },
+    "max_stack_too_small": {
+      "api": "refused",
+      "api_note": "max_stack is computed by the builder and cannot be set",
+      "bytes": "342",
+      "error": "java.lang.VerifyError: Operand stack overflow Exception Details:   Location:     MaxStackTooSmall.go()I @2: bipush   Reason:     Exceeded max stack size.   Current Frame:     bci: @2     flags: { }     locals: { }     stack: { integer }   Bytecode:     0000000: 102a 102b 60ac",
+      "measured_max_stack": "2",
+      "patched": "max_stack lowered to 1 for a body that needs 2",
+      "stage": "link"
+    },
+    "method_ref_descriptor_mismatch": {
+      "api": "built",
+      "bytes": "402",
+      "error": "java.lang.NoSuchMethodError: 'int java.lang.String.length(int)'",
+      "stage": "run"
+    },
+    "pool_index_past_end": {
+      "api": "refused",
+      "api_error": "java.lang.classfile.constantpool.ConstantPoolException: Bad CP index: 9999",
+      "api_note": "the builder issues entries, so an index is never named",
+      "bytes": "388",
+      "error": "java.lang.VerifyError: Illegal constant pool index 129 in class PoolIndexPastEnd Exception Details:   Location:     PoolIndexPastEnd.go()I @0: invokestatic   Reason:     Constant pool index 129 is invalid   Bytecode:     0000000: b800 81ac",
+      "patched": "invokestatic operand set to 129, pool has 28 entries",
+      "stage": "link"
+    },
+    "stack_map_int_where_reference": {
+      "api": "built",
+      "bytes": "387",
+      "error": "java.lang.VerifyError: Inconsistent stackmap frames at branch target 8 Exception Details:   Location:     StackMapLies.go()Ljava/lang/Object; @8: aload_0   Reason:     Type null (current frame, locals[0]) is not assignable to integer (stack map, locals[0])   Current Frame:     bci: @3     flags: { }     locals: { null }     stack: { integer }   Stackmap Frame:     bci: @8     flags: { }     locals: { integer }     stack: { }   Bytecode:     0000000: 014b 0499 0005 2ab0 2ab0                  Stackmap Table:     append_frame(@8,Integer)",
+      "stage": "link"
+    },
+    "version_above_the_pin": {
+      "api": "built",
+      "bytes": "333",
+      "error": "java.lang.UnsupportedClassVersionError: FromTheFuture has been compiled by a more recent version of the Java Runtime (class file version 72.0), this version of the Java Runtime only recognizes class file versions up to 71.0",
+      "stage": "parse",
+      "version": "72"
+    }
+  },
+  "java_build": "27+35-2325",
+  "javap": {
+    "final_and_abstract": "shows the file",
+    "max_stack_too_small": "shows the file",
+    "method_ref_descriptor_mismatch": "shows the file",
+    "pool_index_past_end": "shows the file",
+    "stack_map_int_where_reference": "shows the file",
+    "version_above_the_pin": "refused: Error: Fatal error: Unsupported class file version: 72"
+  },
+  "loaded_unverified": {
+    "final_and_abstract": {
+      "runs": 10
+    },
+    "max_stack_too_small": {
+      "runs": 10
+    },
+    "method_ref_descriptor_mismatch": {
+      "Exception in thread \"main\" java.lang.NoSuchMethodError: 'int java.lang.String.length(int)'": 10
+    },
+    "pool_index_past_end": {
+      "runs": 7,
+      "the VM died: EXCEPTION_ACCESS_VIOLATION": 3
+    },
+    "stack_map_int_where_reference": {
+      "runs": 10
+    },
+    "version_above_the_pin": {
+      "Error: LinkageError occurred while loading main class FromTheFuture": 10
+    }
+  },
+  "measured": "2026-09-02",
+  "platform": "windows-amd64",
+  "probe": {
+    "probe.class_file_major": "71"
+  },
+  "verifier_off": {
+    "-XX:-BytecodeVerificationLocal": "with the diagnostic unlock: accepted",
+    "-XX:-BytecodeVerificationRemote": "with the diagnostic unlock: accepted",
+    "-Xverify:none": "rejected: Unrecognized verification option: -Xverify:none",
+    "-noverify": "rejected: Unrecognized option: -noverify"
+  }
+}
