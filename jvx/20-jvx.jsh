@@ -33,6 +33,9 @@ class jvx {
 
     private static Object unsafe;
     private static Method getLongMethod;
+    private static Method fieldOffsetMethod;
+    private static Method arrayBaseMethod;
+    private static boolean fieldOffsetTakesAField;
     private static String markRoute = "not tried yet";
 
     private static void openUnsafe() {
@@ -41,6 +44,12 @@ class jvx {
             Class<?> c = Class.forName("jdk.internal.misc.Unsafe");
             unsafe = c.getMethod("getUnsafe").invoke(null);
             getLongMethod = c.getMethod("getLong", Object.class, long.class);
+            // This one names the field with a string. The older door wants a
+            // reflected Field object instead, which is why the two are not
+            // interchangeable and why fieldOffset below has to know which it got.
+            fieldOffsetMethod = c.getMethod("objectFieldOffset", Class.class, String.class);
+            arrayBaseMethod = c.getMethod("arrayBaseOffset", Class.class);
+            fieldOffsetTakesAField = false;
             markRoute = "jdk.internal.misc.Unsafe";
             return;
         } catch (Throwable ignored) {
@@ -52,6 +61,9 @@ class jvx {
             f.setAccessible(true);
             unsafe = f.get(null);
             getLongMethod = c.getMethod("getLong", Object.class, long.class);
+            fieldOffsetMethod = c.getMethod("objectFieldOffset", Field.class);
+            arrayBaseMethod = c.getMethod("arrayBaseOffset", Class.class);
+            fieldOffsetTakesAField = true;
             markRoute = "sun.misc.Unsafe (deprecated for removal, expect a warning)";
             return;
         } catch (Throwable t) {
@@ -115,6 +127,114 @@ class jvx {
     /** Where every bit position jvx believes in came from. */
     static void provenance() {
         System.out.print(MarkWord.provenance());
+    }
+
+    // -- measuring layout ------------------------------------------------------------
+    //
+    // There is a library for this, JOL, and it is a good one. These four methods are
+    // here anyway, because reaching for a download is the difference between a lesson
+    // a reader can start in thirty seconds and one they cannot, and because the whole
+    // trick fits in a sentence: the header is the thing your first field comes after,
+    // so the offset of the first field is the size of the header. Nothing is being
+    // hidden here. Read the four methods and you have the technique.
+
+    /** The byte offset of one field within an instance. */
+    static long fieldOffset(Class<?> owner, String name) {
+        openUnsafe();
+        try {
+            if (fieldOffsetTakesAField) {
+                Field f = owner.getDeclaredField(name);
+                return (Long) fieldOffsetMethod.invoke(unsafe, f);
+            }
+            return (Long) fieldOffsetMethod.invoke(unsafe, owner, name);
+        } catch (NoSuchFieldException e) {
+            throw new IllegalArgumentException(owner.getName() + " has no field called " + name);
+        } catch (Exception e) {
+            throw new RuntimeException("could not read the offset of " + name, e);
+        }
+    }
+
+    /**
+     * Where the header stops, in bytes, for instances of this class.
+     *
+     * This is the offset of the earliest field, which is the same thing. A class with
+     * no fields at all has no first field to point at, so it has to say so rather than
+     * return a number it does not know.
+     */
+    static long headerSize(Class<?> type) {
+        long earliest = Long.MAX_VALUE;
+        for (Class<?> c = type; c != null; c = c.getSuperclass()) {
+            for (Field f : c.getDeclaredFields()) {
+                if (!Modifier.isStatic(f.getModifiers())) {
+                    earliest = Math.min(earliest, fieldOffset(c, f.getName()));
+                }
+            }
+        }
+        if (earliest == Long.MAX_VALUE) {
+            throw new IllegalArgumentException(
+                type.getName() + " has no instance fields, so there is no first field offset "
+                + "to measure the header with. Add one field and measure that class instead.");
+        }
+        return earliest;
+    }
+
+    /** Where an array's elements start, which is the size of an array header. */
+    static long arrayBase(Class<?> arrayType) {
+        openUnsafe();
+        try {
+            return ((Number) arrayBaseMethod.invoke(unsafe, arrayType)).longValue();
+        } catch (Exception e) {
+            throw new RuntimeException("could not read the array base offset", e);
+        }
+    }
+
+    /**
+     * Wrap a class declaration in a program that measures it, ready for jvx.run.
+     *
+     * The declaration has to be called Candidate. The launcher class has to come first
+     * in the file and has to match the file name, which is how the single file source
+     * launcher decides what to run, so the reader's class cannot be the first one.
+     */
+    static String sizeProbe(String candidateSource) {
+        return """
+            import jdk.internal.misc.Unsafe;
+            import java.lang.reflect.Field;
+            import java.lang.reflect.Modifier;
+
+            public class Answer {
+                public static void main(String[] args) {
+                    Unsafe u = Unsafe.getUnsafe();
+                    long first = Long.MAX_VALUE;
+                    long end = 0;
+                    for (Class<?> c = Candidate.class; c != null; c = c.getSuperclass()) {
+                        for (Field f : c.getDeclaredFields()) {
+                            if (Modifier.isStatic(f.getModifiers())) continue;
+                            long off = u.objectFieldOffset(c, f.getName());
+                            first = Math.min(first, off);
+                            end = Math.max(end, off + width(u, f.getType()));
+                        }
+                    }
+                    if (first == Long.MAX_VALUE) {
+                        System.out.println("Candidate has no instance fields, so give it one");
+                        return;
+                    }
+                    long size = (end + 7) / 8 * 8;
+                    System.out.printf("header stops at %d, fields end at %d, object is %d bytes%n",
+                        first, end, size);
+                }
+
+                static int width(Unsafe u, Class<?> t) {
+                    if (t == long.class || t == double.class) return 8;
+                    if (t == int.class || t == float.class) return 4;
+                    if (t == short.class || t == char.class) return 2;
+                    if (t == byte.class || t == boolean.class) return 1;
+                    // A reference is as wide as one slot of an Object[], which is where
+                    // compressed oops show up as 4 rather than 8.
+                    return u.arrayIndexScale(Object[].class);
+                }
+            }
+
+            """ + candidateSource + "\n";
     }
 
     // -- asking the VM about itself -----------------------------------------------

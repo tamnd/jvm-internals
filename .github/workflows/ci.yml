@@ -50,6 +50,19 @@ jobs:
         run: |
           python tools/test_build.py
           python tools/test_gen_diagram.py
+      # Graders are per lesson. The runner has a JDK on PATH but not the pinned
+      # one, so the tests that measure a real object skip here and the ones that
+      # read source still run. A grader is the one piece of a lesson a reader
+      # argues with, so the parts that can be checked without the pinned JDK are
+      # worth checking on every push. Setting up JDK 27 here is #11.
+      - name: lesson grader tests
+        run: |
+          for test in lessons/*/test_*.py; do
+            # An unmatched glob comes back as itself, so check before running it.
+            [ -e "$test" ] || continue
+            echo "== $test"
+            python "$test"
+          done
       - name: rebuild and compare
         run: python tools/build.py check
       # The diagram is drawn from the committed layout file and touches no
