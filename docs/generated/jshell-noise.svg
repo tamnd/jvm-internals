@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="712" viewBox="0 0 1000 712" role="img" aria-label="How much noise each Java substrate adds, as a multiple of a plain run">
+  <rect width="1000" height="712" fill="#ffffff"/>
+  <text x="40.0" y="42.0" font-family="system-ui, -apple-system, Segoe UI, Roboto, sans-serif" font-size="22" fill="#212529" font-weight="600" text-anchor="start">What the substrate brings with it</text>
+  <text x="40.0" y="66.0" font-family="system-ui, -apple-system, Segoe UI, Roboto, sans-serif" font-size="13" fill="#868e96" font-weight="normal" text-anchor="start">Same workload, four ways to run it. Bars are multiples of a plain javac then java run.</text>
+  <text x="40.0" y="98.0" font-family="system-ui, -apple-system, Segoe UI, Roboto, sans-serif" font-size="14" fill="#212529" font-weight="600" text-anchor="start">objects in the heap, workload's own excluded</text>
+  <text x="250.0" y="128.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="12" fill="#212529" font-weight="normal" text-anchor="end">javac then java</text>
+  <rect x="262.0" y="114.0" width="30.3" height="20.0" rx="3" fill="#dee2e6" stroke="#212529" stroke-width="1.2"/>
+  <text x="302.3" y="128.0" font-family="system-ui, -apple-system, Segoe UI, Roboto, sans-serif" font-size="12" fill="#868e96" font-weight="normal" text-anchor="start">27,512, the floor</text>
+  <text x="250.0" y="154.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="12" fill="#212529" font-weight="normal" text-anchor="end">java Workload.java</text>
+  <rect x="262.0" y="140.0" width="63.9" height="20.0" rx="3" fill="#a5d8ff" stroke="#212529" stroke-width="1.2"/>
+  <text x="335.9" y="154.0" font-family="system-ui, -apple-system, Segoe UI, Roboto, sans-serif" font-size="12" fill="#868e96" font-weight="normal" text-anchor="start">58,110 (2.1 times)</text>
+  <text x="250.0" y="180.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="12" fill="#212529" font-weight="normal" text-anchor="end">jshell, default</text>
+  <rect x="262.0" y="166.0" width="32.4" height="20.0" rx="3" fill="#b2f2bb" stroke="#212529" stroke-width="1.2"/>
+  <text x="304.4" y="180.0" font-family="system-ui, -apple-system, Segoe UI, Roboto, sans-serif" font-size="12" fill="#868e96" font-weight="normal" text-anchor="start">29,493 (1.1 times)</text>
+  <text x="250.0" y="206.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="12" fill="#212529" font-weight="normal" text-anchor="end">jshell --execution local</text>
+  <rect x="262.0" y="192.0" width="428.0" height="20.0" rx="3" fill="#ffc9c9" stroke="#212529" stroke-width="1.2"/>
+  <text x="700.0" y="206.0" font-family="system-ui, -apple-system, Segoe UI, Roboto, sans-serif" font-size="12" fill="#868e96" font-weight="normal" text-anchor="start">389,035 (14.1 times)</text>
+  <text x="40.0" y="236.0" font-family="system-ui, -apple-system, Segoe UI, Roboto, sans-serif" font-size="14" fill="#212529" font-weight="600" text-anchor="start">classes loaded</text>
+  <text x="250.0" y="266.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="12" fill="#212529" font-weight="normal" text-anchor="end">javac then java</text>
+  <rect x="262.0" y="252.0" width="30.3" height="20.0" rx="3" fill="#dee2e6" stroke="#212529" stroke-width="1.2"/>
+  <text x="302.3" y="266.0" font-family="system-ui, -apple-system, Segoe UI, Roboto, sans-serif" font-size="12" fill="#868e96" font-weight="normal" text-anchor="start">1,562, the floor</text>
+  <text x="250.0" y="292.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="12" fill="#212529" font-weight="normal" text-anchor="end">java Workload.java</text>
+  <rect x="262.0" y="278.0" width="63.3" height="20.0" rx="3" fill="#a5d8ff" stroke="#212529" stroke-width="1.2"/>
+  <text x="335.3" y="292.0" font-family="system-ui, -apple-system, Segoe UI, Roboto, sans-serif" font-size="12" fill="#868e96" font-weight="normal" text-anchor="start">3,269 (2.1 times)</text>
+  <text x="250.0" y="318.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="12" fill="#212529" font-weight="normal" text-anchor="end">jshell, default</text>
+  <rect x="262.0" y="304.0" width="34.1" height="20.0" rx="3" fill="#b2f2bb" stroke="#212529" stroke-width="1.2"/>
+  <text x="306.1" y="318.0" font-family="system-ui, -apple-system, Segoe UI, Roboto, sans-serif" font-size="12" fill="#868e96" font-weight="normal" text-anchor="start">1,759 (1.1 times)</text>
+  <text x="250.0" y="344.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="12" fill="#212529" font-weight="normal" text-anchor="end">jshell --execution local</text>
+  <rect x="262.0" y="330.0" width="78.4" height="20.0" rx="3" fill="#ffc9c9" stroke="#212529" stroke-width="1.2"/>
+  <text x="350.4" y="344.0" font-family="system-ui, -apple-system, Segoe UI, Roboto, sans-serif" font-size="12" fill="#868e96" font-weight="normal" text-anchor="start">4,048 (2.6 times)</text>
+  <text x="40.0" y="374.0" font-family="system-ui, -apple-system, Segoe UI, Roboto, sans-serif" font-size="14" fill="#212529" font-weight="600" text-anchor="start">methods the JIT compiled</text>
+  <text x="250.0" y="404.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="12" fill="#212529" font-weight="normal" text-anchor="end">javac then java</text>
+  <rect x="262.0" y="390.0" width="30.3" height="20.0" rx="3" fill="#dee2e6" stroke="#212529" stroke-width="1.2"/>
+  <text x="302.3" y="404.0" font-family="system-ui, -apple-system, Segoe UI, Roboto, sans-serif" font-size="12" fill="#868e96" font-weight="normal" text-anchor="start">1,304, the floor</text>
+  <text x="250.0" y="430.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="12" fill="#212529" font-weight="normal" text-anchor="end">java Workload.java</text>
+  <rect x="262.0" y="416.0" width="85.5" height="20.0" rx="3" fill="#a5d8ff" stroke="#212529" stroke-width="1.2"/>
+  <text x="357.5" y="430.0" font-family="system-ui, -apple-system, Segoe UI, Roboto, sans-serif" font-size="12" fill="#868e96" font-weight="normal" text-anchor="start">3,684 (2.8 times)</text>
+  <text x="250.0" y="456.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="12" fill="#212529" font-weight="normal" text-anchor="end">jshell, default</text>
+  <rect x="262.0" y="442.0" width="32.7" height="20.0" rx="3" fill="#b2f2bb" stroke="#212529" stroke-width="1.2"/>
+  <text x="304.7" y="456.0" font-family="system-ui, -apple-system, Segoe UI, Roboto, sans-serif" font-size="12" fill="#868e96" font-weight="normal" text-anchor="start">1,408 (1.1 times)</text>
+  <text x="250.0" y="482.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="12" fill="#212529" font-weight="normal" text-anchor="end">jshell --execution local</text>
+  <rect x="262.0" y="468.0" width="125.1" height="20.0" rx="3" fill="#ffc9c9" stroke="#212529" stroke-width="1.2"/>
+  <text x="397.1" y="482.0" font-family="system-ui, -apple-system, Segoe UI, Roboto, sans-serif" font-size="12" fill="#868e96" font-weight="normal" text-anchor="start">5,390 (4.1 times)</text>
+  <text x="40.0" y="512.0" font-family="system-ui, -apple-system, Segoe UI, Roboto, sans-serif" font-size="14" fill="#212529" font-weight="600" text-anchor="start">class metadata, megabytes</text>
+  <text x="250.0" y="542.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="12" fill="#212529" font-weight="normal" text-anchor="end">javac then java</text>
+  <rect x="262.0" y="528.0" width="30.3" height="20.0" rx="3" fill="#dee2e6" stroke="#212529" stroke-width="1.2"/>
+  <text x="302.3" y="542.0" font-family="system-ui, -apple-system, Segoe UI, Roboto, sans-serif" font-size="12" fill="#868e96" font-weight="normal" text-anchor="start">5.0, the floor</text>
+  <text x="250.0" y="568.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="12" fill="#212529" font-weight="normal" text-anchor="end">java Workload.java</text>
+  <rect x="262.0" y="554.0" width="82.4" height="20.0" rx="3" fill="#a5d8ff" stroke="#212529" stroke-width="1.2"/>
+  <text x="354.4" y="568.0" font-family="system-ui, -apple-system, Segoe UI, Roboto, sans-serif" font-size="12" fill="#868e96" font-weight="normal" text-anchor="start">13.7 (2.7 times)</text>
+  <text x="250.0" y="594.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="12" fill="#212529" font-weight="normal" text-anchor="end">jshell, default</text>
+  <rect x="262.0" y="580.0" width="30.8" height="20.0" rx="3" fill="#b2f2bb" stroke="#212529" stroke-width="1.2"/>
+  <text x="302.8" y="594.0" font-family="system-ui, -apple-system, Segoe UI, Roboto, sans-serif" font-size="12" fill="#868e96" font-weight="normal" text-anchor="start">5.1 (1.0 times)</text>
+  <text x="250.0" y="620.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="12" fill="#212529" font-weight="normal" text-anchor="end">jshell --execution local</text>
+  <rect x="262.0" y="606.0" width="103.1" height="20.0" rx="3" fill="#ffc9c9" stroke="#212529" stroke-width="1.2"/>
+  <text x="375.1" y="620.0" font-family="system-ui, -apple-system, Segoe UI, Roboto, sans-serif" font-size="12" fill="#868e96" font-weight="normal" text-anchor="start">17.1 (3.4 times)</text>
+  <line x1="40.0" y1="668.0" x2="960.0" y2="668.0" stroke="#868e96" stroke-width="1.0"/>
+  <text x="40.0" y="690.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="11" fill="#868e96" font-weight="normal" text-anchor="start">darwin-arm64, 10 cores, java 27+35-2325, pinned to jdk-27+35, measured 2026-09-02</text>
+</svg>
