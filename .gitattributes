@@ -1,0 +1,15 @@
+# Notebooks are build output. Marking them generated keeps them collapsed in pull
+# request diffs and out of the language statistics, so a review shows the lesson
+# source somebody actually wrote rather than a few thousand lines of JSON.
+notebooks/**/*.ipynb linguist-generated=true
+
+# Recorded outputs are produced by CI on the pinned JDK, for the same reason.
+lessons/*/baked/*.json linguist-generated=true
+
+# Keep line endings stable, because a cell id is a hash of the source and CRLF
+# would silently change every id on a Windows checkout.
+* text=auto eol=lf
+*.png binary
+*.jpg binary
+*.mp4 binary
+*.gif binary
