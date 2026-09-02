@@ -8,6 +8,14 @@ Everything is written against one JDK tag and one specification edition, both re
 
 The tag is `jdk-27+35`. It is the release candidate, it is the newest tag in the 27 line on `openjdk/jdk`, and the GA binaries published at jdk.java.net report the same commit it resolves to. The pin is a tag that exists rather than a name for a stage, because a citation is only checkable if the thing it names can be fetched. When `jdk-27-ga` is tagged the pin moves to it, and the first task of that move is confirming the two tags point at the same commit.
 
+Getting that JDK onto your machine is one command, and it is the same command CI runs.
+
+```
+export JAVA_HOME=$(python tools/fetch_jdk.py)
+```
+
+It reads the URL and the SHA256 out of `docs/pin.json`, checks the download against the hash before unpacking anything, installs into `~/.cache/jvx` and prints the path. A hash that does not match is a hard stop with nothing unpacked. Running it again when the right build is already there does nothing and still prints the path, so it is safe in a script. Use `--dir` to put it somewhere else and `--where` to ask where it would go without installing.
+
 Citations come in two forms and CI resolves both.
 
 ```

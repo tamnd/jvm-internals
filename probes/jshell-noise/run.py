@@ -134,8 +134,8 @@ class Arm:
             extra, prefix = ["--execution", "local"], "-J"
         else:
             # The default JDI handshake gives the agent JVM a few seconds to call back,
-            # and on server3 starting a flight recording takes eight seconds all by
-            # itself, so the agent misses the deadline and JShell reports that every
+            # and on a slow Linux box starting a flight recording takes eight seconds all
+            # by itself, so the agent misses the deadline and JShell reports that every
             # provider failed. The deadline is not part of what this probe measures, so
             # it is raised here rather than worked around, and raised on every machine
             # so that the arms stay comparable.
