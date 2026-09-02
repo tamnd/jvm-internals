@@ -54,6 +54,7 @@ jobs:
           python tools/test_gen_noise_chart.py
           python tools/test_gen_capability_matrix.py
           python tools/test_gen_malformed_table.py
+          python tools/test_gen_widget_matrix.py
           python tools/test_fetch_jdk.py
       - name: rebuild and compare
         run: python tools/build.py check
@@ -76,6 +77,10 @@ jobs:
       # measurements. Regenerating both from one command is what stops that.
       - name: the malformed class file table matches the measured results
         run: python tools/gen_malformed_table.py --check
+      # The widget grid decides how every widget in the project gets built, so a
+      # stale one sends somebody off to write a style tag that will be thrown away.
+      - name: the widget delivery grid matches the measured results
+        run: python tools/gen_widget_matrix.py --check
       - name: three builds are byte identical
         run: |
           set -euo pipefail

@@ -1,0 +1,98 @@
+{
+  "display_ids_echoed": 12,
+  "java_build": "27+35-2325",
+  "measured": "2026-09-02",
+  "platform": "darwin-arm64",
+  "techniques": {
+    "html_checked_css": {
+      "kernel": "emitted",
+      "lab_live": "clicks and highlights",
+      "lab_saved": "input disabled",
+      "mime": "text/html",
+      "nbconvert": "clicks and highlights"
+    },
+    "html_details": {
+      "kernel": "emitted",
+      "lab_live": "opens and closes",
+      "lab_saved": "opens and closes",
+      "mime": "text/html",
+      "nbconvert": "opens and closes"
+    },
+    "html_iframe_srcdoc": {
+      "kernel": "emitted",
+      "lab_live": "iframe kept",
+      "lab_saved": "iframe removed",
+      "mime": "text/html",
+      "nbconvert": "iframe kept"
+    },
+    "html_img_data_uri": {
+      "kernel": "emitted",
+      "lab_live": "image renders",
+      "lab_saved": "image renders",
+      "mime": "text/html",
+      "nbconvert": "image renders"
+    },
+    "html_inline_script": {
+      "kernel": "emitted",
+      "lab_live": "script ran",
+      "lab_saved": "script blocked",
+      "mime": "text/html",
+      "nbconvert": "script ran"
+    },
+    "html_inline_style": {
+      "kernel": "emitted",
+      "lab_live": "style attribute kept",
+      "lab_saved": "style attribute kept",
+      "mime": "text/html",
+      "nbconvert": "style attribute kept"
+    },
+    "html_onclick": {
+      "kernel": "emitted",
+      "lab_live": "onclick ran",
+      "lab_saved": "onclick stripped",
+      "mime": "text/html",
+      "nbconvert": "onclick ran"
+    },
+    "html_plain": {
+      "kernel": "emitted",
+      "lab_live": "renders, id kept",
+      "lab_saved": "renders, id moved to data-jupyter-id",
+      "mime": "text/html",
+      "nbconvert": "renders, id kept"
+    },
+    "html_style_tag": {
+      "kernel": "emitted",
+      "lab_live": "css applied",
+      "lab_saved": "style tag dropped",
+      "mime": "text/html",
+      "nbconvert": "css applied"
+    },
+    "javascript_mime": {
+      "kernel": "emitted",
+      "lab_live": "executed",
+      "lab_saved": "not executed",
+      "mime": "application/javascript",
+      "nbconvert": "executed"
+    },
+    "markdown": {
+      "kernel": "emitted",
+      "lab_live": "rendered as markdown",
+      "lab_saved": "rendered as markdown",
+      "mime": "text/markdown",
+      "nbconvert": "rendered as markdown"
+    },
+    "svg_mime": {
+      "kernel": "emitted",
+      "lab_live": "drawn as an image",
+      "lab_saved": "shown as source text",
+      "mime": "image/svg+xml",
+      "nbconvert": "drawn as an image"
+    }
+  },
+  "versions": {
+    "jjava": "1.0a8",
+    "jupyterlab": "4.6.3",
+    "nbclient": "0.11.0",
+    "nbconvert": "7.17.1"
+  }
+}

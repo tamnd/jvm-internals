@@ -64,6 +64,22 @@ The kernel is JShell, which wraps every snippet in a synthetic class with a gene
 
 So any observation that a synthetic class would contaminate is taken in a `jvx.run` subprocess with a declared flag set, and never in the kernel. That covers class histograms, compilation logs, JFR recordings, heap dumps and anything derived from them. The kernel is for analysis of the results. Taking one of those measurements in the kernel is a review finding, not a style preference.
 
+## Probes
+
+A probe is a script under `probes/` that answers one question by measuring rather than by reasoning, writes a JSON file per machine into `probes/<name>/results/`, and gets read by a `tools/gen_*.py` that turns those files into a table and a picture. The report in `docs/probes/` is the prose. Nothing in that chain is written by hand twice, which is why a number in a report cannot drift away from the measurement that produced it.
+
+Most probes need only the pinned JDK. The widget one needs a Jupyter stack and a headless browser as well, because it asks what a front end does to your output and that cannot be answered by reading a file.
+
+```
+python -m venv .venv
+.venv/bin/pip install jupyterlab nbclient nbconvert jjava playwright
+.venv/bin/playwright install chromium
+```
+
+`jjava` is the kernel, a JShell behind the Jupyter protocol, and installing the wheel registers it as `java` with no further setup. Add `--with-deps` to the playwright line on a fresh Linux box, and drop it again if your apt sources are in a state that makes it fail, because the headless shell runs without them often enough to try.
+
+Probes are not in CI. Their generators and the generators' tests are, so a stale table or a picture that disagrees with the results is caught on every push, and the measurement itself is rerun by a person on a named machine and committed with the date on it.
+
 ## Prose rules
 
 These are checked by `tools/prosecheck.py` where they can be, and by a human where they cannot.
