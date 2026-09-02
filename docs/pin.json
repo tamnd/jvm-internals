@@ -1,0 +1,11 @@
+{
+  "jdk_tag": "jdk-27+RC",
+  "jdk_ga_tag": "jdk-27-ga",
+  "jdk_ga_date": "2026-09-15",
+  "jvms_edition": "SE25",
+  "jls_edition": "SE25",
+  "class_file_major": 69,
+  "citation_suffix": "@jdk-27-ga",
+  "spec_citation_suffix": "@SE25",
+  "note": "Every claim, citation, generated blueprint section and shipped JDK in this repository is written against these values. Moving them is a milestone, not a commit. See ROADMAP.md, M6."
+}

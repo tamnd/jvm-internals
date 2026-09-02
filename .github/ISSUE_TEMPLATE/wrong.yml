@@ -1,0 +1,57 @@
+name: Something is wrong
+description: A claim, a citation, a number or an observation that does not hold
+labels: ["kind/bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        These are the most valuable issues this project gets. Every claim here is supposed to be checkable, so a claim that fails a check is exactly the thing we want to hear about.
+
+        A claim marked `[JVMS]` that turns out to be HotSpot's choice is the most serious kind and gets fixed first, because it is the one error that will cause somebody to write production code on a guarantee that does not exist.
+  - type: input
+    id: where
+    attributes:
+      label: Where
+      description: Lesson id, blueprint id, or a file and line
+      placeholder: O01, or BP-HEADER section 4b
+    validations:
+      required: true
+  - type: textarea
+    id: claim
+    attributes:
+      label: What it says
+      description: Quote it, including its marker
+    validations:
+      required: true
+  - type: textarea
+    id: reality
+    attributes:
+      label: What actually happens
+      description: The command you ran and the output you got. A paste beats a description.
+      render: shell
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Which JVM
+      description: The banner cell prints this, or run `java -Xinternalversion`
+      placeholder: jdk-27-ga, release build, x86-64
+    validations:
+      required: true
+  - type: textarea
+    id: flags
+    attributes:
+      label: Which flags
+      description: Almost everything here is configuration dependent, so a report without the flags usually cannot be reproduced. `java -XX:+PrintFlagsFinal -version` if you are not sure.
+      render: shell
+  - type: dropdown
+    id: env
+    attributes:
+      label: Where you ran it
+      options:
+        - E0, Colab
+        - E1, devcontainer or a local build
+        - E2, reading the pre executed page
+    validations:
+      required: true

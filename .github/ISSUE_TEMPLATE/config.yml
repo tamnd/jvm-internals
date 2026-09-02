@@ -1,0 +1,11 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Something in a lesson is wrong
+    url: https://github.com/tamnd/jvm-internals/issues/new?template=wrong.yml
+    about: A claim, a citation or a number that does not hold. These are the most valuable issues this project gets.
+  - name: The JVM itself
+    url: https://bugs.openjdk.org/
+    about: A bug in HotSpot or the JDK belongs in JBS. If a lesson helped you find it, say so there and link it here.
+  - name: The specification
+    url: https://docs.oracle.com/javase/specs/
+    about: The JVMS and the JLS are normative and they are not ours. If we have misread one, that is our bug and belongs here instead.

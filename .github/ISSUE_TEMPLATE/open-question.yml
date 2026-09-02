@@ -1,0 +1,31 @@
+name: Open question
+description: A decision the specification deliberately left open
+labels: ["kind/open-question", "status/needs-decision"]
+body:
+  - type: textarea
+    id: question
+    attributes:
+      label: The question
+    validations:
+      required: true
+  - type: textarea
+    id: blocks
+    attributes:
+      label: What it blocks
+      description: Which milestone, and what changes if it goes each way
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: The proposed answer
+      description: The proposal is not the answer. Say what you think and why, then say what evidence would change it.
+    validations:
+      required: true
+  - type: textarea
+    id: decides
+    attributes:
+      label: What settles it
+      description: A measurement, a beginner test, a retrospective with real data, or a decision somebody has to make and record. If nothing settles it, it is not an open question, it is a preference.
+    validations:
+      required: true

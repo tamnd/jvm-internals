@@ -1,0 +1,64 @@
+name: Lesson
+description: Write or rewrite a chapter
+labels: ["kind/lesson"]
+body:
+  - type: input
+    id: id
+    attributes:
+      label: Lesson id
+      description: From the curriculum. Ids are stable forever and are never reused.
+      placeholder: O01
+    validations:
+      required: true
+  - type: input
+    id: question
+    attributes:
+      label: The question
+      description: One sentence, phrased as something a reader would actually wonder. Not a topic.
+      placeholder: How big is an object, and why is the answer different from last year?
+    validations:
+      required: true
+  - type: textarea
+    id: hook
+    attributes:
+      label: The surprise
+      description: What does the JVM do here that a reader would not have guessed? A lesson with no surprise is either the wrong lesson or one where nobody has found the interesting part yet.
+    validations:
+      required: true
+  - type: textarea
+    id: observable
+    attributes:
+      label: What makes it observable
+      description: The flags, logs, JFR events, jcmd commands or tools that let a reader watch this happen rather than be told about it.
+    validations:
+      required: true
+  - type: textarea
+    id: jshell
+    attributes:
+      label: What has to run in a subprocess
+      description: Which observations JShell's synthetic per snippet classes would contaminate, and therefore run under jvx.run rather than in the kernel.
+  - type: textarea
+    id: markers
+    attributes:
+      label: The mandate and choice split
+      description: Which claims in this lesson are [JVMS] with a section, and which are [HOTSPOT] with a source line. If they are all one or all the other, say why.
+    validations:
+      required: true
+  - type: textarea
+    id: boss
+    attributes:
+      label: The boss fight
+      description: The task, and how the grader decides pass or fail. The failure message has to name the input. Where jcstress, jtreg, the class file fuzzer or VerifyBeforeGC can grade it, they should.
+  - type: checkboxes
+    id: bar
+    attributes:
+      label: Quality bar
+      options:
+        - label: Runs cold, top to bottom, from the Colab badge, under six minutes
+        - label: Every claim in the ledger with a marker, evidence, a citation and a configuration
+        - label: At most two unobservable claims, each with a stated reason
+        - label: Every nondeterministic cell tagged bake and visibly marked
+        - label: Every E1 cell has a replay recording
+        - label: Every widget has a static fallback
+        - label: Beginner review
+        - label: Expert review

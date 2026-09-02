@@ -1,0 +1,18 @@
+# Links are checked on every pull request. A dead link in this project is a
+# broken promise rather than a cosmetic problem, because the whole pitch is that
+# a reader can go and check.
+
+exclude_path = [".git", "build", "site"]
+
+exclude = [
+  # Not yet created. They are linked from the README and the roadmap on purpose
+  # so that the links start working the day the repository has issues on it.
+  "^https://github\\.com/tamnd/jvm-internals/issues",
+  # openjdk.org returns 403 to anything that is not a browser, so a checker
+  # cannot tell a moved page from a bot block and the result is noise.
+  "^https://openjdk\\.org",
+]
+
+max_retries = 3
+timeout = 20
+accept = [200, 206, 429]

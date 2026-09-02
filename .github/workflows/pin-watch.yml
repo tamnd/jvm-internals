@@ -1,0 +1,156 @@
+name: pin-watch
+
+# The JDK ships every six months, in March and September, and puts out update
+# releases in between. Every citation, every claim, every generated blueprint
+# section and every shipped tarball in this repository is written against one
+# tag, so the question "has upstream moved" needs asking on a schedule rather
+# than whenever somebody happens to look.
+#
+# This is the small half of the drift machinery. The large half is driftbot,
+# which resolves every citation daily, re runs every blueprint generator against
+# master, and diffs globals.hpp, jvmti.xml and the JFR metadata for flags,
+# functions and events that came or went. It arrives with M2, when there are
+# citations to resolve.
+
+on:
+  schedule:
+    # 07:00 UTC daily. Nothing here is urgent, and a tag that landed overnight
+    # can wait until morning.
+    - cron: "0 7 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}
+  cancel-in-progress: false
+
+jobs:
+  check:
+    name: has upstream moved past the pin
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read # to read docs/pin.json out of the checkout
+      issues: write # to file the triage issue when the pin has fallen behind
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
+        with:
+          script: |
+            const fs = require('fs')
+            const pin = JSON.parse(fs.readFileSync('docs/pin.json', 'utf8'))
+            const gaTag = pin.jdk_ga_tag
+            const major = Number(gaTag.match(/^jdk-(\d+)-ga$/)[1])
+
+            // Ask upstream only about the two majors that can matter: the one
+            // we are pinned to, and the one after it. openjdk/jdk carries a tag
+            // for every build, so listing them all would be thousands of refs
+            // to answer a question about three.
+            const tagsFor = async (prefix) => {
+              try {
+                const refs = await github.paginate(github.rest.git.listMatchingRefs, {
+                  owner: 'openjdk', repo: 'jdk', ref: `tags/${prefix}`, per_page: 100,
+                })
+                return refs.map(r => r.ref.replace('refs/tags/', ''))
+              } catch (e) {
+                core.warning(`could not list tags for ${prefix}: ${e.message}`)
+                return []
+              }
+            }
+
+            const current = await tagsFor(`jdk-${major}`)
+            const next = await tagsFor(`jdk-${major + 1}`)
+
+            const file = async (title, labels, body) => {
+              const open = await github.paginate(github.rest.issues.listForRepo, {
+                owner: context.repo.owner, repo: context.repo.repo,
+                state: 'open', per_page: 100,
+              })
+              if (open.some(i => i.title === title)) {
+                core.info(`already filed: ${title}`)
+                return
+              }
+              await github.rest.issues.create({
+                owner: context.repo.owner, repo: context.repo.repo,
+                title, labels, body: body.join('\n'),
+              })
+              core.info(`filed: ${title}`)
+            }
+
+            // 1. The pin is still on a release candidate and GA has landed.
+            if (pin.jdk_tag !== gaTag && current.includes(gaTag)) {
+              await file(
+                `The pin can move to ${gaTag}`,
+                ['kind/chore', 'priority/p1', 'area/build'],
+                [
+                  `\`${gaTag}\` is tagged upstream and \`docs/pin.json\` still says \`${pin.jdk_tag}\`.`,
+                  ``,
+                  `This one is expected and cheap. The release candidate and the GA tag are the same content in the normal case, so the work is to move the pin, re run refcheck, regenerate every generated blueprint section, and confirm nothing moved.`,
+                  ``,
+                  `- [ ] Move \`jdk_tag\` to \`${gaTag}\` in \`docs/pin.json\``,
+                  `- [ ] refcheck clean against the new tag`,
+                  `- [ ] Every generated section regenerates with no diff`,
+                  `- [ ] The Colab bootstrap resolves the GA build`,
+                  ``,
+                  `Filed by \`.github/workflows/pin-watch.yml\`.`,
+                ],
+              )
+            }
+
+            // 2. An update release. These are absorbed rather than planned for,
+            // and most of them change nothing we have written, but "most" is
+            // not "all" and the check is what tells the difference.
+            const updates = current
+              .filter(t => new RegExp(`^jdk-${major}\\.\\d+\\.\\d+-ga$`).test(t))
+              .sort()
+            const newest = updates[updates.length - 1]
+            if (newest && newest !== pin.jdk_tag) {
+              await file(
+                `Update release: ${newest}`,
+                ['kind/chore', 'priority/p2', 'area/build'],
+                [
+                  `\`${newest}\` is tagged upstream and the pin is \`${pin.jdk_tag}\`.`,
+                  ``,
+                  `An update release is absorbed rather than rehearsed. Rebuild, re run the observations, and file an issue for anything that changed. Most of the time nothing does.`,
+                  ``,
+                  `- [ ] Rebuild the pinned trees`,
+                  `- [ ] e0-full and matrix re run, diff the recorded baselines`,
+                  `- [ ] Any observation that changed gets its own issue and a dated lesson changelog`,
+                  ``,
+                  `Filed by \`.github/workflows/pin-watch.yml\`.`,
+                ],
+              )
+            }
+
+            // 3. A feature release. This is a project event, not a maintenance
+            // task, and the issue exists to start the triage rather than to ask
+            // anyone to bump anything.
+            const nextGa = `jdk-${major + 1}-ga`
+            if (next.includes(nextGa)) {
+              await file(
+                `Upstream moved: ${nextGa} is out and the pin is ${pin.jdk_tag}`,
+                ['kind/chore', 'kind/milestone', 'priority/p1', 'area/build'],
+                [
+                  `\`${nextGa}\` is tagged upstream and \`docs/pin.json\` still says \`${pin.jdk_tag}\`.`,
+                  ``,
+                  `This is not a request to bump the pin. Moving to a new feature release is a milestone because every citation, every generated blueprint section, every recorded baseline and every shipped tarball is written against one tag. What this issue asks for is the triage: read the release notes, work out how many claims are at risk, and write the number down.`,
+                  ``,
+                  `- [ ] Read the release notes and the JEP list, and list every entry that touches material we have written`,
+                  `- [ ] Run refcheck against the new tag and count the citations that moved`,
+                  `- [ ] Regenerate every generated blueprint section and diff it`,
+                  `- [ ] Diff globals.hpp for flags added, deprecated and obsoleted`,
+                  `- [ ] Diff jvmti.xml and the JFR metadata for functions and events`,
+                  `- [ ] Sort every alert into breaks a claim, moves a citation, changes a generated section, or informational`,
+                  `- [ ] Measure the total person hours and publish the number`,
+                  ``,
+                  `The cost threshold is three person weeks. Above that, the generation ratio is too low and the answer is to generate more rather than to write faster.`,
+                  ``,
+                  `Filed by \`.github/workflows/pin-watch.yml\`.`,
+                ],
+              )
+            }

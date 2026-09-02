@@ -1,0 +1,44 @@
+name: Probe
+description: Go and measure something the plan depends on
+labels: ["kind/research"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        A probe is not an investigation. It is one measurement, with a number written down before it runs, that decides whether a piece of the plan survives.
+  - type: textarea
+    id: question
+    attributes:
+      label: The question
+    validations:
+      required: true
+  - type: textarea
+    id: blocks
+    attributes:
+      label: What it blocks
+      description: Which milestone, which lessons, and what changes if the answer comes back the wrong way
+    validations:
+      required: true
+  - type: textarea
+    id: experiment
+    attributes:
+      label: The experiment
+      description: The command, the environment, and how many times it runs. Say it precisely enough that somebody else could run it and get a comparable number.
+      render: shell
+    validations:
+      required: true
+  - type: input
+    id: threshold
+    attributes:
+      label: The threshold
+      description: The value at which the plan changes, written down before the measurement
+      placeholder: Under 40 seconds is fine, over 90 seconds and beginners start skipping lessons
+    validations:
+      required: true
+  - type: textarea
+    id: fallback
+    attributes:
+      label: The fallback
+      description: What happens if the threshold is missed. A probe with no fallback is a probe that cannot fail, which means it is not measuring anything.
+    validations:
+      required: true

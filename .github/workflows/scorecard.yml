@@ -1,0 +1,61 @@
+name: scorecard
+
+# This repository will eventually ask readers to run code it publishes: a
+# bootstrap cell that installs a kernel, a jar from Maven Central, a JVMTI agent
+# as a shared library, and a container image. That is a supply chain, and a
+# project whose whole pitch is "you can check everything" does not get to make
+# an exception for its own release process.
+#
+# OpenSSF Scorecard grades the parts of that a machine can grade: pinned
+# dependencies, token permissions, branch protection, dangerous workflow
+# patterns, and whether anything here is published without provenance. The score
+# is public on the badge, which is the point, because a private score is a score
+# nobody acts on.
+
+on:
+  branch_protection_rule:
+  schedule:
+    - cron: "30 5 * * 1"
+  push:
+    branches: [main]
+
+permissions: read-all
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  analysis:
+    name: scorecard analysis
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      # To upload the result to the code scanning tab, where a finding shows up
+      # next to the line that caused it rather than in a log nobody opens.
+      security-events: write
+      # To publish the result to the public OpenSSF API, which is what the badge
+      # in the README reads.
+      id-token: write
+      contents: read
+      actions: read
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - uses: ossf/scorecard-action@2d1146689b8cda280b9bc96326124645441f03bc # v2.4.4
+        with:
+          results_file: results.sarif
+          results_format: sarif
+          publish_results: true
+
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: scorecard-results
+          path: results.sarif
+          retention-days: 5
+
+      - uses: github/codeql-action/upload-sarif@cdf488f595d80d6e07e03d4674febd5ab45fa938 # v4.37.9
+        with:
+          sarif_file: results.sarif

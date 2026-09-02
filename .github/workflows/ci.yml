@@ -1,0 +1,123 @@
+name: ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  merge_group:
+
+# Nothing in this workflow writes anything. Set at the top so a job that gets
+# added later has to ask for a permission out loud rather than inheriting one.
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  # The prose rules from CONTRIBUTING.md that a machine can check. Standard
+  # library Python and no install step, because a lint that takes ninety seconds
+  # to set up is a lint people stop running locally.
+  prose:
+    name: prose rules
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: "3.14"
+      - run: python tools/prosecheck.py .
+
+  # Workflow files get the same treatment as everything else here. actionlint
+  # catches the shell and expression mistakes, zizmor catches the security ones,
+  # and the reason both run is that a workflow is the part of a repository
+  # nobody reviews carefully and the part that holds a token.
+  workflows:
+    name: actionlint and zizmor
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: actionlint
+        run: |
+          bash <(curl -fsSL https://raw.githubusercontent.com/rhysd/actionlint/v1.7.12/scripts/download-actionlint.bash) 1.7.12
+          ./actionlint -color
+      - uses: zizmorcore/zizmor-action@70fb788f84895a7701f5643d103d587e460b5c99 # v0.6.3
+        with:
+          # Findings are the point of running this, so a finding fails the run
+          # rather than filing a code scanning alert nobody opens.
+          advanced-security: false
+          persona: pedantic
+
+  # Every link in the repository, resolved. This project's entire pitch is that
+  # a reader can go and check, so a dead link is a broken promise rather than a
+  # cosmetic problem.
+  links:
+    name: every link resolves
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: lycheeverse/lychee-action@e7477775783ea5526144ba13e8db5eec57747ce8 # v2.9.0
+        with:
+          args: --no-progress --cache --max-cache-age 1d --accept 200,206,429 .
+          fail: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  # The jobs below do not exist yet and are listed here rather than in a
+  # planning document so that whoever adds one can see where it goes. The number
+  # after each is its wall clock budget. A job that exceeds its budget by half
+  # is a bug filed against the job rather than a tolerated slowdown.
+  #
+  #   Every push
+  #     lint          2m   ruff, black, spotless, markdown, YAML front matter
+  #     structure     3m   build.py check: directives, the requires DAG, flag
+  #                        caps, no hand edited notebooks, no GPL header outside
+  #                        patches/ and vendor/
+  #     refcheck      4m   every path:line@tag against the pinned tree's hashes,
+  #                        every JVMS section reference against the section index
+  #     markers       1m   rule 7: every claim carries [JVMS] or [HOTSPOT], and
+  #                        at most two unobservable claims per lesson
+  #     bpc           6m   bpc build then bpc check, so no generated blueprint
+  #                        section is stale and no coverage item is unowned
+  #     notebooks     8m   rebuild every notebook, fail if a committed .ipynb
+  #                        differs from its rebuild
+  #     e0-fast      25m   the tier 0 cells of changed lessons, in the Colab
+  #                        parity image. Expensive, and the one that must not be
+  #                        cut, because a lesson whose observations quietly
+  #                        stopped being true is worse than no lesson
+  #
+  #   Nightly
+  #     e0-full      90m   every tier 0 cell of every lesson, cold
+  #     colab-image  40m   rebuild the Colab parity image and time the bootstrap
+  #     jdk-build    60m   release, fastdebug and slowdebug from the pin
+  #     e1          120m   every tier 1 cell, and re record every replay
+  #     matrix       45m   the workloads under all fifteen configurations
+  #
+  #   Weekly
+  #     jcstress      6h   on the self hosted runner, because a shared two core
+  #                        cloud runner does not merely make the outcome
+  #                        distributions noisy, it makes them wrong
+  #     jtreg         4h   the selected subsets, to keep the classification
+  #                        file honest
+  #     capstone      5h   all three tracks, and the scorecard regenerated
+  #     driftbot     30m   diff openjdk/jdk master against the pin, file issues
+  #
+  #   On change
+  #     anim         50m   re render animations, assert byte identical output
+  #                        for unchanged scenes
+  #     site         12m   pre execute, convert, build, deploy with mike
+  #
+  # A dependency review job and a dependabot ecosystem for Gradle, Maven, pip
+  # and cargo arrive with the first manifest, which is M0.
+  #
+  # They arrive with M0 and M2. See ROADMAP.md.

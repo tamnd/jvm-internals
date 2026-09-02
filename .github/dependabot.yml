@@ -1,0 +1,29 @@
+version: 2
+
+updates:
+  # Actions are pinned to a commit SHA rather than a tag, which is the only way
+  # a pinned action is actually pinned. That makes them invisible to a human
+  # reading the diff, so dependabot is the thing that keeps them current.
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+      day: monday
+    open-pull-requests-limit: 5
+    # Wait a week before proposing a bump. A compromised release usually gets
+    # yanked within days, and nothing here is urgent enough to be worth being
+    # the first repository to pull a brand new version of an action.
+    cooldown:
+      default-days: 7
+    groups:
+      actions:
+        patterns: ["*"]
+    labels:
+      - kind/chore
+      - priority/p2
+      - area/build
+
+  # Gradle, Maven, pip and cargo ecosystems arrive with the first manifest,
+  # which is M0. They are left out until then rather than configured against
+  # directories that do not exist, because a dependabot config that silently
+  # matches nothing is worse than no config: it looks like coverage.

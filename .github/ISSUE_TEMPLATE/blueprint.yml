@@ -1,0 +1,46 @@
+name: Blueprint
+description: Write or regenerate a normative specification fragment
+labels: ["kind/blueprint"]
+body:
+  - type: input
+    id: id
+    attributes:
+      label: Blueprint id
+      placeholder: BP-HEADER
+    validations:
+      required: true
+  - type: textarea
+    id: scope
+    attributes:
+      label: Scope
+      description: What it covers and what it deliberately excludes
+    validations:
+      required: true
+  - type: textarea
+    id: generated
+    attributes:
+      label: What can be generated
+      description: Which sections come from the Serviceability Agent type database, globals.hpp, bytecodes.cpp, jvmti.xml, the JFR metadata, vmIntrinsics.hpp, the .ad files or the JVMS section index, and which have to be written by hand. Generated sections are never hand edited, so getting this split right up front is most of the work.
+    validations:
+      required: true
+  - type: textarea
+    id: section4
+    attributes:
+      label: Section 4, the three way split
+      description: 4a is what the JVMS mandates, each clause citing a section. 4b is what HotSpot chose, each clause citing a source line. 4c is the ordering obligations. A clause in the wrong subsection is the one defect that makes this project worse than useless, so this field is where the review happens.
+      render: shell
+    validations:
+      required: true
+  - type: checkboxes
+    id: bar
+    attributes:
+      label: Quality bar
+      options:
+        - label: All nine sections present, and an empty section says why it is empty
+        - label: No reference to the chapter, no motivation, no analogies
+        - label: Section 6, the edge cases, written before section 3
+        - label: Section 6 covers malformed input, resource exhaustion and the concurrent case
+        - label: Section 5 is non empty, so every specified behaviour has an observation and a tool
+        - label: Section 8.2 is a checklist the capstone harness can consume
+        - label: bpc check passes and nothing hand written duplicates a generated section
+        - label: Expert review
