@@ -19,7 +19,10 @@ on:
   push:
     branches: [main]
 
-permissions: read-all
+# Scorecard needs a handful of read scopes and two write ones, and it asks for
+# them per job below rather than inheriting a blanket read-all here.
+permissions:
+  contents: read
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -37,8 +40,8 @@ jobs:
       # To publish the result to the public OpenSSF API, which is what the badge
       # in the README reads.
       id-token: write
-      contents: read
-      actions: read
+      contents: read # to read the workflows, the branch rules and the pinned actions
+      actions: read # to read the workflow run history the dangerous-workflow audit needs
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
