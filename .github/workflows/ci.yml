@@ -50,6 +50,8 @@ jobs:
         run: |
           python tools/test_build.py
           python tools/test_gen_diagram.py
+          python tools/test_hprof_count.py
+          python tools/test_gen_noise_chart.py
       # Graders are per lesson. The runner has a JDK on PATH but not the pinned
       # one, so the tests that measure a real object skip here and the ones that
       # read source still run. A grader is the one piece of a lesson a reader
@@ -70,6 +72,11 @@ jobs:
       # generator that fetches markWord.hpp.
       - name: the diagrams match the committed layout
         run: python tools/gen_diagram.py --check
+      # Same idea for the probe chart, which is drawn from a committed results
+      # file. A picture that has drifted from its measurements is worse than no
+      # picture, because nobody rereads a chart they have already believed.
+      - name: the noise chart matches the measured results
+        run: python tools/gen_noise_chart.py --check
       - name: three builds are byte identical
         run: |
           set -euo pipefail

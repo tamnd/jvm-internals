@@ -64,6 +64,8 @@ Specification stage. Nothing is built yet.
 
 The current milestone is M0, which exists to measure the assumptions this design rests on, and it is the one milestone allowed to fail. Can a free Colab runtime become a pinned JDK 27 kernel in under 90 seconds. How much do JShell's synthetic per snippet classes distort a class histogram, a compilation log or a JFR recording. Can `bpc` pull struct layouts out of the Serviceability Agent's type database. Do the widgets survive Colab's output sandbox. If the answers come back wrong, M0 ends with a written re plan rather than with M1, and finding that out in week one is the point.
 
+The second of those is answered. [How much does JShell distort what a lesson can observe](docs/probes/jshell-noise.md) measures the same workload four ways and draws the line: anything about one object you are holding is safe in the notebook kernel, anything that counts, totals or names classes has to run in a subprocess.
+
 See the [milestone issues](https://github.com/tamnd/jvm-internals/issues?q=is%3Aissue+label%3Akind%2Fmilestone) for the plan and [ROADMAP.md](ROADMAP.md) for the short version.
 
 ## Licence
