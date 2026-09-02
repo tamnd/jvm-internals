@@ -47,9 +47,16 @@ jobs:
         with:
           python-version: "3.14"
       - name: unit tests
-        run: python tools/test_build.py
+        run: |
+          python tools/test_build.py
+          python tools/test_gen_diagram.py
       - name: rebuild and compare
         run: python tools/build.py check
+      # The diagram is drawn from the committed layout file and touches no
+      # network, so it belongs in the offline job rather than next to the
+      # generator that fetches markWord.hpp.
+      - name: the diagrams match the committed layout
+        run: python tools/gen_diagram.py --check
       - name: three builds are byte identical
         run: |
           set -euo pipefail

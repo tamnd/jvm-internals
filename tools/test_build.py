@@ -301,6 +301,27 @@ class TestScaffold(Harness):
     def test_new_refuses_to_overwrite(self) -> None:
         self.assertEqual(build.cmd_new(self.root, "X01"), 1)
 
+    def test_a_fresh_lesson_passes_the_prose_rules(self) -> None:
+        # The scaffold used to hard wrap its own placeholder paragraphs, so the first
+        # thing a new lesson did was fail prosecheck before anybody had written a word.
+        # A template that starts out failing the checks teaches the author to ignore
+        # them.
+        import prosecheck
+
+        self.assertEqual(build.cmd_new(self.root, "X02"), 0)
+        path = self.root / "lessons" / "X02" / "lesson.py"
+        tags, editions = prosecheck.load_pin(self.root)
+        self.assertEqual(
+            prosecheck.check(path, tags, editions), [], "the scaffold does not pass prosecheck"
+        )
+
+    def test_a_fresh_lesson_builds_a_notebook(self) -> None:
+        self.assertEqual(build.cmd_new(self.root, "X02"), 0)
+        lesson = build.load_lesson(self.root / "lessons" / "X02" / "lesson.py")
+        notebook = json.loads(build.build_notebook(lesson, self.ctx()))
+        self.assertEqual(notebook["cells"][0]["metadata"]["jvx_generated"], "badge")
+        self.assertEqual(notebook["cells"][2]["metadata"]["jvx_generated"], "bootstrap")
+
 
 class TestGenerated(Harness):
     """The badge and the bootstrap are written by the build, not by the author.
@@ -323,7 +344,23 @@ class TestGenerated(Harness):
             self.assertIn(marker, body, f"{marker} is not named in the header")
         self.assertIn("class jvx {", body)
         self.assertIn("class MarkWord {", body)
-        self.assertTrue(body.rstrip().endswith("jvx.banner()"))
+        self.assertIn("class Gate {", body)
+
+    def test_the_bootstrap_ends_in_a_newline(self) -> None:
+        # It ended in `jvx.banner()` with nothing after it, which a notebook cell does
+        # not mind and a file piped into jshell very much does: the next line runs
+        # straight into it and the whole bootstrap fails to parse. Anybody debugging
+        # the bootstrap does exactly that, so it is worth a test.
+        body = self.source_of("bootstrap")
+        self.assertTrue(body.endswith("\n"), "the bootstrap does not end in a newline")
+        self.assertTrue(body.rstrip().endswith(";"), "the last statement has no semicolon")
+
+    def test_gate_is_defined_before_jvx_uses_it(self) -> None:
+        # JShell evaluates the bootstrap top to bottom. jvx.gate forwards to Gate, so
+        # Gate has to already be there. The file names carry the ordering, which is
+        # easy to undo by renaming one of them.
+        body = self.source_of("bootstrap")
+        self.assertLess(body.index("class Gate {"), body.index("class jvx {"))
 
     def test_the_bit_positions_come_from_the_generated_json(self) -> None:
         body = self.source_of("bootstrap")

@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="560" viewBox="0 0 1000 560" role="img" aria-label="The HotSpot object header, in bytes and in bits">
+  <rect width="1000" height="560" fill="#ffffff"/>
+  <text x="40.0" y="34.0" font-family="system-ui, -apple-system, Segoe UI, Roboto, sans-serif" font-size="18" fill="#1e1e1e" font-weight="700" text-anchor="start">How big is an object</text>
+  <text x="40.0" y="54.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="12" fill="#868e96" font-weight="normal" text-anchor="start">class Two { int a; int b; }   the same class, laid out by the same VM, two ways</text>
+  <line x1="120.0" y1="74.0" x2="120.0" y2="79.0" stroke="#868e96" stroke-width="1.0"/>
+  <text x="120.0" y="70.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#868e96" font-weight="normal" text-anchor="middle">0</text>
+  <line x1="240.0" y1="74.0" x2="240.0" y2="79.0" stroke="#868e96" stroke-width="1.0"/>
+  <text x="240.0" y="70.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#868e96" font-weight="normal" text-anchor="middle">4</text>
+  <line x1="360.0" y1="74.0" x2="360.0" y2="79.0" stroke="#868e96" stroke-width="1.0"/>
+  <text x="360.0" y="70.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#868e96" font-weight="normal" text-anchor="middle">8</text>
+  <line x1="480.0" y1="74.0" x2="480.0" y2="79.0" stroke="#868e96" stroke-width="1.0"/>
+  <text x="480.0" y="70.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#868e96" font-weight="normal" text-anchor="middle">12</text>
+  <line x1="600.0" y1="74.0" x2="600.0" y2="79.0" stroke="#868e96" stroke-width="1.0"/>
+  <text x="600.0" y="70.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#868e96" font-weight="normal" text-anchor="middle">16</text>
+  <line x1="720.0" y1="74.0" x2="720.0" y2="79.0" stroke="#868e96" stroke-width="1.0"/>
+  <text x="720.0" y="70.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#868e96" font-weight="normal" text-anchor="middle">20</text>
+  <line x1="840.0" y1="74.0" x2="840.0" y2="79.0" stroke="#868e96" stroke-width="1.0"/>
+  <text x="840.0" y="70.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#868e96" font-weight="normal" text-anchor="middle">24</text>
+  <text x="106.0" y="70.0" font-family="system-ui, -apple-system, Segoe UI, Roboto, sans-serif" font-size="10" fill="#868e96" font-weight="normal" text-anchor="end">byte</text>
+  <text x="106.0" y="114.0" font-family="system-ui, -apple-system, Segoe UI, Roboto, sans-serif" font-size="13" fill="#1e1e1e" font-weight="600" text-anchor="end">compact</text>
+  <rect x="120.0" y="88.0" width="240.0" height="42.0" rx="3" fill="#ced4da" stroke="#1e1e1e" stroke-width="1.5"/>
+  <text x="240.0" y="108.0" font-family="system-ui, -apple-system, Segoe UI, Roboto, sans-serif" font-size="11" fill="#1e1e1e" font-weight="normal" text-anchor="middle">mark word, class pointer inside</text>
+  <text x="240.0" y="122.0" font-family="system-ui, -apple-system, Segoe UI, Roboto, sans-serif" font-size="10" fill="#868e96" font-weight="normal" text-anchor="middle">8 bytes</text>
+  <rect x="360.0" y="88.0" width="120.0" height="42.0" rx="3" fill="#b2f2bb" stroke="#1e1e1e" stroke-width="1.5"/>
+  <text x="420.0" y="108.0" font-family="system-ui, -apple-system, Segoe UI, Roboto, sans-serif" font-size="11" fill="#1e1e1e" font-weight="normal" text-anchor="middle">int a</text>
+  <text x="420.0" y="122.0" font-family="system-ui, -apple-system, Segoe UI, Roboto, sans-serif" font-size="10" fill="#868e96" font-weight="normal" text-anchor="middle">4 bytes</text>
+  <rect x="480.0" y="88.0" width="120.0" height="42.0" rx="3" fill="#b2f2bb" stroke="#1e1e1e" stroke-width="1.5"/>
+  <text x="540.0" y="108.0" font-family="system-ui, -apple-system, Segoe UI, Roboto, sans-serif" font-size="11" fill="#1e1e1e" font-weight="normal" text-anchor="middle">int b</text>
+  <text x="540.0" y="122.0" font-family="system-ui, -apple-system, Segoe UI, Roboto, sans-serif" font-size="10" fill="#868e96" font-weight="normal" text-anchor="middle">4 bytes</text>
+  <line x1="606.0" y1="88.0" x2="606.0" y2="130.0" stroke="#1e1e1e" stroke-width="1.0"/>
+  <text x="614.0" y="114.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="13" fill="#1e1e1e" font-weight="600" text-anchor="start">16 bytes</text>
+  <text x="106.0" y="178.0" font-family="system-ui, -apple-system, Segoe UI, Roboto, sans-serif" font-size="13" fill="#1e1e1e" font-weight="600" text-anchor="end">legacy</text>
+  <rect x="120.0" y="152.0" width="240.0" height="42.0" rx="3" fill="#ced4da" stroke="#1e1e1e" stroke-width="1.5"/>
+  <text x="240.0" y="172.0" font-family="system-ui, -apple-system, Segoe UI, Roboto, sans-serif" font-size="11" fill="#1e1e1e" font-weight="normal" text-anchor="middle">mark word</text>
+  <text x="240.0" y="186.0" font-family="system-ui, -apple-system, Segoe UI, Roboto, sans-serif" font-size="10" fill="#868e96" font-weight="normal" text-anchor="middle">8 bytes</text>
+  <rect x="360.0" y="152.0" width="120.0" height="42.0" rx="3" fill="#a5d8ff" stroke="#1e1e1e" stroke-width="1.5"/>
+  <text x="420.0" y="172.0" font-family="system-ui, -apple-system, Segoe UI, Roboto, sans-serif" font-size="11" fill="#1e1e1e" font-weight="normal" text-anchor="middle">class pointer</text>
+  <text x="420.0" y="186.0" font-family="system-ui, -apple-system, Segoe UI, Roboto, sans-serif" font-size="10" fill="#868e96" font-weight="normal" text-anchor="middle">4 bytes</text>
+  <rect x="480.0" y="152.0" width="120.0" height="42.0" rx="3" fill="#b2f2bb" stroke="#1e1e1e" stroke-width="1.5"/>
+  <text x="540.0" y="172.0" font-family="system-ui, -apple-system, Segoe UI, Roboto, sans-serif" font-size="11" fill="#1e1e1e" font-weight="normal" text-anchor="middle">int a</text>
+  <text x="540.0" y="186.0" font-family="system-ui, -apple-system, Segoe UI, Roboto, sans-serif" font-size="10" fill="#868e96" font-weight="normal" text-anchor="middle">4 bytes</text>
+  <rect x="600.0" y="152.0" width="120.0" height="42.0" rx="3" fill="#b2f2bb" stroke="#1e1e1e" stroke-width="1.5"/>
+  <text x="660.0" y="172.0" font-family="system-ui, -apple-system, Segoe UI, Roboto, sans-serif" font-size="11" fill="#1e1e1e" font-weight="normal" text-anchor="middle">int b</text>
+  <text x="660.0" y="186.0" font-family="system-ui, -apple-system, Segoe UI, Roboto, sans-serif" font-size="10" fill="#868e96" font-weight="normal" text-anchor="middle">4 bytes</text>
+  <rect x="720.0" y="152.0" width="120.0" height="42.0" rx="3" fill="#f1f3f5" stroke="#1e1e1e" stroke-width="1.5"/>
+  <text x="780.0" y="172.0" font-family="system-ui, -apple-system, Segoe UI, Roboto, sans-serif" font-size="11" fill="#1e1e1e" font-weight="normal" text-anchor="middle">padding</text>
+  <text x="780.0" y="186.0" font-family="system-ui, -apple-system, Segoe UI, Roboto, sans-serif" font-size="10" fill="#868e96" font-weight="normal" text-anchor="middle">4 bytes</text>
+  <line x1="846.0" y1="152.0" x2="846.0" y2="194.0" stroke="#1e1e1e" stroke-width="1.0"/>
+  <text x="854.0" y="178.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="13" fill="#1e1e1e" font-weight="600" text-anchor="start">24 bytes</text>
+  <text x="120.0" y="224.0" font-family="system-ui, -apple-system, Segoe UI, Roboto, sans-serif" font-size="11" fill="#868e96" font-weight="normal" text-anchor="start">compact is the default from JDK 27. Turn it off with -XX:-UseCompactObjectHeaders and the</text>
+  <text x="120.0" y="239.0" font-family="system-ui, -apple-system, Segoe UI, Roboto, sans-serif" font-size="11" fill="#868e96" font-weight="normal" text-anchor="start">class pointer moves out of the mark word into four bytes of its own. Objects are 8 byte aligned,</text>
+  <text x="120.0" y="254.0" font-family="system-ui, -apple-system, Segoe UI, Roboto, sans-serif" font-size="11" fill="#868e96" font-weight="normal" text-anchor="start">so the four bytes saved are not always four bytes kept. Here they are. For Integer they are not.</text>
+  <text x="40.0" y="300.0" font-family="system-ui, -apple-system, Segoe UI, Roboto, sans-serif" font-size="18" fill="#1e1e1e" font-weight="700" text-anchor="start">Inside the mark word</text>
+  <text x="40.0" y="320.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="12" fill="#868e96" font-weight="normal" text-anchor="start">64 bits, with compact headers on, at jdk-27+35</text>
+  <line x1="960.0" y1="344.0" x2="960.0" y2="356.0" stroke="#868e96" stroke-width="1.0"/>
+  <line x1="845.0" y1="344.0" x2="845.0" y2="356.0" stroke="#868e96" stroke-width="1.0"/>
+  <text x="847.0" y="340.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#868e96" font-weight="normal" text-anchor="start">7</text>
+  <line x1="730.0" y1="344.0" x2="730.0" y2="356.0" stroke="#868e96" stroke-width="1.0"/>
+  <text x="732.0" y="340.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#868e96" font-weight="normal" text-anchor="start">15</text>
+  <line x1="615.0" y1="344.0" x2="615.0" y2="356.0" stroke="#868e96" stroke-width="1.0"/>
+  <text x="617.0" y="340.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#868e96" font-weight="normal" text-anchor="start">23</text>
+  <line x1="500.0" y1="344.0" x2="500.0" y2="356.0" stroke="#868e96" stroke-width="1.0"/>
+  <text x="502.0" y="340.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#868e96" font-weight="normal" text-anchor="start">31</text>
+  <line x1="385.0" y1="344.0" x2="385.0" y2="356.0" stroke="#868e96" stroke-width="1.0"/>
+  <text x="387.0" y="340.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#868e96" font-weight="normal" text-anchor="start">39</text>
+  <line x1="270.0" y1="344.0" x2="270.0" y2="356.0" stroke="#868e96" stroke-width="1.0"/>
+  <text x="272.0" y="340.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#868e96" font-weight="normal" text-anchor="start">47</text>
+  <line x1="155.0" y1="344.0" x2="155.0" y2="356.0" stroke="#868e96" stroke-width="1.0"/>
+  <text x="157.0" y="340.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#868e96" font-weight="normal" text-anchor="start">55</text>
+  <line x1="40.0" y1="344.0" x2="40.0" y2="356.0" stroke="#868e96" stroke-width="1.0"/>
+  <text x="42.0" y="340.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#868e96" font-weight="normal" text-anchor="start">63</text>
+  <text x="960.0" y="340.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#868e96" font-weight="normal" text-anchor="end">0</text>
+  <rect x="931.2" y="356.0" width="28.8" height="48.0" rx="3" fill="#ffc9c9" stroke="#1e1e1e" stroke-width="1.5"/>
+  <rect x="916.9" y="356.0" width="14.4" height="48.0" rx="3" fill="#d0bfff" stroke="#1e1e1e" stroke-width="1.5"/>
+  <rect x="859.4" y="356.0" width="57.5" height="48.0" rx="3" fill="#ffec99" stroke="#1e1e1e" stroke-width="1.5"/>
+  <rect x="801.9" y="356.0" width="57.5" height="48.0" rx="3" fill="#e9ecef" stroke="#1e1e1e" stroke-width="1.5"/>
+  <rect x="356.2" y="356.0" width="445.6" height="48.0" rx="3" fill="#b2f2bb" stroke="#1e1e1e" stroke-width="1.5"/>
+  <text x="579.1" y="378.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="13" fill="#1e1e1e" font-weight="600" text-anchor="middle">hash</text>
+  <text x="579.1" y="394.0" font-family="system-ui, -apple-system, Segoe UI, Roboto, sans-serif" font-size="11" fill="#868e96" font-weight="normal" text-anchor="middle">bits 41..11, 31 wide</text>
+  <rect x="40.0" y="356.0" width="316.2" height="48.0" rx="3" fill="#a5d8ff" stroke="#1e1e1e" stroke-width="1.5"/>
+  <text x="198.1" y="378.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="13" fill="#1e1e1e" font-weight="600" text-anchor="middle">klass</text>
+  <text x="198.1" y="394.0" font-family="system-ui, -apple-system, Segoe UI, Roboto, sans-serif" font-size="11" fill="#868e96" font-weight="normal" text-anchor="middle">bits 63..42, 22 wide</text>
+  <line x1="830.6" y1="404.0" x2="830.6" y2="422.0" stroke="#868e96" stroke-width="1.0"/>
+  <line x1="830.6" y1="422.0" x2="710.4" y2="422.0" stroke="#868e96" stroke-width="1.0"/>
+  <text x="702.4" y="426.0" font-family="system-ui, -apple-system, Segoe UI, Roboto, sans-serif" font-size="11" fill="#1e1e1e" font-weight="normal" text-anchor="end">valhalla   bits 10..7   reserved for Valhalla, unused today</text>
+  <line x1="888.1" y1="404.0" x2="888.1" y2="442.0" stroke="#868e96" stroke-width="1.0"/>
+  <line x1="888.1" y1="442.0" x2="710.4" y2="442.0" stroke="#868e96" stroke-width="1.0"/>
+  <text x="702.4" y="446.0" font-family="system-ui, -apple-system, Segoe UI, Roboto, sans-serif" font-size="11" fill="#1e1e1e" font-weight="normal" text-anchor="end">age   bits 6..3   how many collections the object has survived</text>
+  <line x1="924.1" y1="404.0" x2="924.1" y2="462.0" stroke="#868e96" stroke-width="1.0"/>
+  <line x1="924.1" y1="462.0" x2="710.4" y2="462.0" stroke="#868e96" stroke-width="1.0"/>
+  <text x="702.4" y="466.0" font-family="system-ui, -apple-system, Segoe UI, Roboto, sans-serif" font-size="11" fill="#1e1e1e" font-weight="normal" text-anchor="end">self_fwd   bit 2   set when a collector forwarded the object in place</text>
+  <line x1="945.6" y1="404.0" x2="945.6" y2="482.0" stroke="#868e96" stroke-width="1.0"/>
+  <line x1="945.6" y1="482.0" x2="710.4" y2="482.0" stroke="#868e96" stroke-width="1.0"/>
+  <text x="702.4" y="486.0" font-family="system-ui, -apple-system, Segoe UI, Roboto, sans-serif" font-size="11" fill="#1e1e1e" font-weight="normal" text-anchor="end">lock   bits 1..0   the lock state, and whether a collector has marked or forwarded the object</text>
+  <line x1="40.0" y1="520.0" x2="960.0" y2="520.0" stroke="#dee2e6" stroke-width="1.0"/>
+  <text x="40.0" y="538.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#868e96" font-weight="normal" text-anchor="start">drawn by tools/gen_diagram.py from src/hotspot/share/oops/markWord.hpp at jdk-27+35</text>
+  <text x="960.0" y="538.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#868e96" font-weight="normal" text-anchor="end">sha256 c249a091cf7dcae4</text>
+</svg>

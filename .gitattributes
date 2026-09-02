@@ -6,6 +6,11 @@ notebooks/**/*.ipynb linguist-generated=true
 # Recorded outputs are produced by CI on the pinned JDK, for the same reason.
 lessons/*/baked/*.json linguist-generated=true
 
+# So is everything under docs/generated. The layout comes out of HotSpot's headers
+# and the drawings come out of the layout, so a diff of any of them is a report that
+# something moved upstream rather than a change somebody made and should defend.
+docs/generated/** linguist-generated=true
+
 # Keep line endings stable, because a cell id is a hash of the source and CRLF
 # would silently change every id on a Windows checkout.
 * text=auto eol=lf

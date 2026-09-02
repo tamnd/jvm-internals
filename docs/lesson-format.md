@@ -84,6 +84,42 @@ Inlining rather than fetching a jar is the right shape for now for one reason: a
 
 A generated cell's id is a hash of what ships, not of the empty placeholder in the source. So editing anything in `jvx/` moves the bootstrap cell's id in every lesson at once, which is the honest answer: the cell really did change in every one of them.
 
+The bootstrap is not baked. The banner prints the reader's own VM version, platform and flag values, and baking somebody else's would put a laptop in California at the top of every lesson, labelled as if it were the reader's machine. That is exactly the confusion the banner exists to prevent.
+
+## Prediction gates
+
+A gate is three calls, and no lesson ever names the class underneath them:
+
+```java
+jvx.gate("gate_1", "How many bytes is a bare Object on JDK 27?",
+    "a) 8", "b) 12", "c) 16", "d) 24");
+jvx.answer("gate_1", "c");
+jvx.reveal("gate_1", "a");
+```
+
+`gate` asks and shows nothing. `answer` records and marks nothing. `reveal` marks it, and it goes in a cell after the measurement, not before. The explanation of why the wrong answers are wrong belongs in the markdown cell under the reveal rather than in a Java string.
+
+A reader who runs the reveal without answering is told the answer anyway, along with a note that they got less out of it than they could have. Refusing would be truer to the idea and would also strand anybody who hit Run All in a cell that will not talk to them.
+
+This is the text version. It works in a notebook with no widgets, in a terminal and in a printed transcript. The `PredictGate` widget replaces `Gate` when probe #4 has an answer, and no lesson changes when it does.
+
+## Diagrams
+
+`tools/gen_diagram.py` draws the object header from `docs/generated/markword.json` and writes two files:
+
+```
+docs/generated/markword.svg          what a page or a notebook shows
+docs/generated/markword.excalidraw   the same drawing, editable at excalidraw.com
+```
+
+![The object header in bytes and in bits, drawn from the pinned layout](generated/markword.svg)
+
+Nothing in either one is typed by hand. There is a mark word diagram in a lot of blog posts and most of them are wrong now, because they were drawn once by somebody who read `markWord.hpp` on the day and the file moved twice since. A picture is the most convincing wrong thing a page can have: nobody re-derives a diagram, they believe it. Here a field that moves fails CI, the JSON is regenerated and the drawing moves with it.
+
+The excalidraw file exists so the drawing can be opened and adjusted. Move things around in it, but fix a bit position in the generator rather than in the file, because the next regeneration overwrites it.
+
+Colour never carries meaning on its own. Every box is labelled in words as well, so the drawing reads the same in greyscale and to a reader who cannot separate two of the hues.
+
 ## Tags
 
 `predict` is a prediction gate. It is a code cell because it renders a widget.
@@ -124,8 +160,10 @@ It also checks the generated cells: exactly one `generated=badge` and one `gener
 
 ```
 python tools/test_build.py
+python tools/test_gen_markword.py
+python tools/test_gen_diagram.py
 ```
 
-Forty one tests, standard library only. The two that matter most are `test_three_builds_are_byte_identical` and `test_check_catches_a_one_character_edit`, because those two are the promise the pipeline rests on.
+Seventy five tests, standard library only. The two that matter most are `test_three_builds_are_byte_identical` and `test_check_catches_a_one_character_edit`, because those two are the promise the pipeline rests on.
 
 The harness copies the real `jvx/` and the real `docs/generated/markword.json` into its temporary directory rather than using a fixture, so the generated cell tests build against the sources that actually ship.
