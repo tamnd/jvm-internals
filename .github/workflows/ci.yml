@@ -53,15 +53,22 @@ jobs:
       - name: three builds are byte identical
         run: |
           set -euo pipefail
-          python tools/build.py notebooks >/dev/null
-          find notebooks -name '*.ipynb' -print0 2>/dev/null | sort -z | xargs -0 -r shasum -a 256 > /tmp/pass1
-          python tools/build.py notebooks >/dev/null
-          find notebooks -name '*.ipynb' -print0 2>/dev/null | sort -z | xargs -0 -r shasum -a 256 > /tmp/pass2
-          python tools/build.py notebooks >/dev/null
-          find notebooks -name '*.ipynb' -print0 2>/dev/null | sort -z | xargs -0 -r shasum -a 256 > /tmp/pass3
+          # An empty notebooks/ is a real state: it is what the repository looks
+          # like before the first lesson lands. Three passes over nothing is a
+          # pass, so the hashing has to tolerate the directory not existing yet
+          # rather than take set -e down with it.
+          hashes() {
+            if [ -d notebooks ]; then
+              find notebooks -name '*.ipynb' | LC_ALL=C sort | xargs -r shasum -a 256
+            fi
+          }
+          for pass in 1 2 3; do
+            python tools/build.py notebooks > /dev/null
+            hashes > "/tmp/pass${pass}"
+          done
           diff /tmp/pass1 /tmp/pass2
           diff /tmp/pass2 /tmp/pass3
-          echo "three builds, same bytes"
+          echo "three builds, $(wc -l < /tmp/pass1) notebooks, same bytes"
 
   # Workflow files get the same treatment as everything else here. actionlint
   # catches the shell and expression mistakes, zizmor catches the security ones,
