@@ -1,11 +1,14 @@
 {
-  "jdk_tag": "jdk-27+RC",
+  "jdk_tag": "jdk-27+35",
+  "jdk_tag_commit": "815ff4dc327fe17f2433c7d115a5a503af10f3c4",
+  "jdk_tag_date": "2026-08-19",
+  "jdk_build": "27+35-2325",
   "jdk_ga_tag": "jdk-27-ga",
   "jdk_ga_date": "2026-09-15",
   "jvms_edition": "SE25",
   "jls_edition": "SE25",
   "class_file_major": 69,
-  "citation_suffix": "@jdk-27-ga",
+  "citation_suffix": "@jdk-27+35",
   "spec_citation_suffix": "@SE25",
-  "note": "Every claim, citation, generated blueprint section and shipped JDK in this repository is written against these values. Moving them is a milestone, not a commit. See ROADMAP.md, M6."
+  "note": "Every claim, citation, generated blueprint section and shipped JDK in this repository is written against these values. Moving them is a milestone, not a commit. See ROADMAP.md, M6. jdk-27+35 is the release candidate: it is the newest tag on openjdk/jdk in the 27 line, it resolves to commit 815ff4dc327f, and the GA binaries published at jdk.java.net/27 report that same commit in their release file. When jdk-27-ga is tagged it is expected to point at the same commit, and confirming that is the first task of the pin move."
 }

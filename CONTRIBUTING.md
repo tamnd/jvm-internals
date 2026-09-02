@@ -6,10 +6,12 @@ The whole point of this project is that a reader can check everything, so most o
 
 Everything is written against one JDK tag and one specification edition, both recorded in `docs/pin.json`. Nothing anywhere else names a version.
 
+The tag is `jdk-27+35`. It is the release candidate, it is the newest tag in the 27 line on `openjdk/jdk`, and the GA binaries published at jdk.java.net report the same commit it resolves to. The pin is a tag that exists rather than a name for a stage, because a citation is only checkable if the thing it names can be fetched. When `jdk-27-ga` is tagged the pin moves to it, and the first task of that move is confirming the two tags point at the same commit.
+
 Citations come in two forms and CI resolves both.
 
 ```
-src/hotspot/share/oops/markWord.hpp:48@jdk-27-ga
+src/hotspot/share/oops/markWord.hpp:48@jdk-27+35
 JVMS §5.4.3.1@SE25
 ```
 
@@ -21,7 +23,7 @@ Every claim carries a marker. Either `[JVMS]` with the section, or `[HOTSPOT]` w
 
 ```markdown
 The class must be initialized before its first static field access {[JVMS §5.5]}.
-The initialization lock is per class and is implemented as a recursive monitor on the mirror {[HOTSPOT src/hotspot/share/oops/instanceKlass.cpp:1084@jdk-27-ga]}.
+The initialization lock is per class and is implemented as a recursive monitor on the mirror {[HOTSPOT src/hotspot/share/oops/instanceKlass.cpp:1084@jdk-27+35]}.
 ```
 
 Three rules about the markers. When in doubt it is `[HOTSPOT]`, because claiming something is guaranteed when it is not is the failure that harms readers, and claiming something is an implementation detail when it is actually specified merely makes them cautious. A `[JVMS]` marker names the section and not the chapter, so `[JVMS §5.4.3.1]` and never `[JVMS §5]`. And where the two disagree in an interesting way, that disagreement is the lesson, because the best paragraphs in this project are the ones that say the specification permits this, HotSpot does that, OpenJ9 does something else, and here is why it matters to you.

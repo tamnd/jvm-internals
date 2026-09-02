@@ -2,7 +2,7 @@
 
 A complete visual teardown of the JVM, taught from zero, where you run a real JDK 27 from a notebook cell and the notebook is running on the machine you are studying.
 
-Pinned to `jdk-27+RC`, moving to `jdk-27-ga` on 15 September 2026.
+Pinned to `jdk-27+35`, the release candidate, moving to `jdk-27-ga` when that tag lands on 15 September 2026.
 
 [![ci](https://github.com/tamnd/jvm-internals/actions/workflows/ci.yml/badge.svg)](https://github.com/tamnd/jvm-internals/actions/workflows/ci.yml) [![OpenSSF Scorecard](https://api.scorecard.dev/projects/github.com/tamnd/jvm-internals/badge)](https://scorecard.dev/viewer/?uri=github.com/tamnd/jvm-internals)
 
