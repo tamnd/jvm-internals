@@ -3,9 +3,9 @@
 
 Two kinds of test live here. The first kind reads source and needs nothing installed,
 so it runs everywhere including CI. The second kind actually starts a JVM, so it skips
-when there is no java to be found. The skip is deliberate rather than a fixture: a
-grader that measures is only honest if it is tested by measuring, and faking a JVM here
-would test the fake.
+unless the java it finds is new enough to know `UseCompactObjectHeaders`. The skip is
+deliberate rather than a fixture: a grader that measures is only honest if it is tested
+by measuring, and faking a JVM here would test the fake.
 
   python lessons/O01/test_grade.py
 """
@@ -27,19 +27,24 @@ ROOT = pathlib.Path(__file__).resolve().parents[2]
 
 
 def have_java() -> bool:
-    """Run it rather than look for it.
+    """Ask the JVM the question these tests need answered, rather than looking for a file.
 
-    macOS ships a `/usr/bin/java` that exists, is executable, and does nothing except
-    tell you there is no Java runtime. A guard that only checks the path is therefore
-    true on a laptop with no JDK, and every measuring test below fails instead of
-    skipping. The only honest question is whether the thing starts.
+    Two ways a naive guard gets this wrong, both of them seen. macOS ships a
+    `/usr/bin/java` that exists, is executable, and does nothing except tell you there
+    is no Java runtime. The GitHub runner has a real JDK on PATH that starts perfectly
+    well and has never heard of `UseCompactObjectHeaders`, so every measuring test
+    below fails instead of skipping. The precondition is not that java exists, or even
+    that it runs, but that it is new enough to have the flag the whole lesson turns on.
     """
     binary = grade.java()
     if binary is None:
         return False
     try:
         done = subprocess.run(
-            [binary, "-version"], capture_output=True, text=True, timeout=60
+            [binary, "-XX:+UseCompactObjectHeaders", "-version"],
+            capture_output=True,
+            text=True,
+            timeout=60,
         )
     except OSError:
         return False
@@ -47,7 +52,9 @@ def have_java() -> bool:
 
 
 HAVE_JAVA = have_java()
-NEEDS_JAVA = unittest.skipUnless(HAVE_JAVA, "no working java on PATH and no JAVA_HOME")
+NEEDS_JAVA = unittest.skipUnless(
+    HAVE_JAVA, "no java that knows UseCompactObjectHeaders, so nothing can be measured"
+)
 
 
 def write(source: str) -> str:
@@ -198,5 +205,9 @@ class TestMeasuring(unittest.TestCase):
 
 if __name__ == "__main__":
     if not HAVE_JAVA:
-        print("no java found, so the measuring tests will skip", file=sys.stderr)
+        print(
+            "no java that knows UseCompactObjectHeaders, so the measuring tests will "
+            "skip. Point JAVA_HOME at the pinned JDK to run them.",
+            file=sys.stderr,
+        )
     unittest.main(verbosity=2)
