@@ -4,6 +4,8 @@ A complete visual teardown of the JVM, taught from zero, where you run a real JD
 
 Pinned to `jdk-27+RC`, moving to `jdk-27-ga` on 15 September 2026.
 
+[![ci](https://github.com/tamnd/jvm-internals/actions/workflows/ci.yml/badge.svg)](https://github.com/tamnd/jvm-internals/actions/workflows/ci.yml) [![OpenSSF Scorecard](https://api.scorecard.dev/projects/github.com/tamnd/jvm-internals/badge)](https://scorecard.dev/viewer/?uri=github.com/tamnd/jvm-internals)
+
 ## Why this exists
 
 There are five kinds of JVM material in the world and none of them get you from "I have typed `-Xmx4g` a thousand times" to "I can read a deoptimization trace, write a JVMTI agent, and open a pull request against `openjdk/jdk`".
@@ -67,6 +69,10 @@ See the [milestone issues](https://github.com/tamnd/jvm-internals/issues?q=is%3A
 ## Licence
 
 Prose, diagrams and animations are CC BY 4.0. Code is Apache-2.0. Anything derived from OpenJDK source is GPLv2 with the Classpath Exception and lives in `patches/` and `vendor/`, isolated and badged, and nowhere else. The Classpath Exception is why ordinary lesson code that merely uses the JDK carries no obligation at all. See [LICENSE.md](LICENSE.md).
+
+## Security
+
+This project asks you to run things: a bootstrap cell, a kernel from Maven Central, a JVMTI agent as a shared library, a container image, and eventually a JDK you built yourself. [SECURITY.md](SECURITY.md) says what is pinned, what is verified, what is published, and how to report it when one of those turns out to be a way to run code a reader did not ask for.
 
 ## Related
 

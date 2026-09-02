@@ -5,12 +5,12 @@
 exclude_path = [".git", "build", "site"]
 
 exclude = [
-  # Not yet created. They are linked from the README and the roadmap on purpose
-  # so that the links start working the day the repository has issues on it.
-  "^https://github\\.com/tamnd/jvm-internals/issues",
   # openjdk.org returns 403 to anything that is not a browser, so a checker
   # cannot tell a moved page from a bot block and the result is noise.
   "^https://openjdk\\.org",
+  # The advisory form 404s for anyone without write access, including the
+  # checker, so a working link and a broken one look the same from here.
+  "^https://github\\.com/tamnd/jvm-internals/security/advisories/new",
 ]
 
 max_retries = 3

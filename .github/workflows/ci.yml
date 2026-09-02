@@ -45,8 +45,21 @@ jobs:
         with:
           persist-credentials: false
       - name: actionlint
+        env:
+          ACTIONLINT_VERSION: 1.7.12
+          # From the checksums file in the upstream release. The tarball is
+          # verified before anything in it is executed, because a download that
+          # nobody checks is not pinned, it is merely versioned. Dependabot does
+          # not watch this one, so the version and the hash move together by
+          # hand and the hash is what makes that safe.
+          ACTIONLINT_SHA256: 8aca8db96f1b94770f1b0d72b6dddcb1ebb8123cb3712530b08cc387b349a3d8
         run: |
-          bash <(curl -fsSL https://raw.githubusercontent.com/rhysd/actionlint/v1.7.12/scripts/download-actionlint.bash) 1.7.12
+          set -euo pipefail
+          tarball="actionlint_${ACTIONLINT_VERSION}_linux_amd64.tar.gz"
+          curl -fsSL --retry 3 -o "$tarball" \
+            "https://github.com/rhysd/actionlint/releases/download/v${ACTIONLINT_VERSION}/${tarball}"
+          echo "${ACTIONLINT_SHA256}  ${tarball}" | sha256sum --check --strict -
+          tar -xzf "$tarball" actionlint
           ./actionlint -color
       - uses: zizmorcore/zizmor-action@70fb788f84895a7701f5643d103d587e460b5c99 # v0.6.3
         with:
