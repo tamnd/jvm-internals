@@ -70,6 +70,8 @@ So is the question of whether the curriculum has to fork by platform. [What a ma
 
 The verification lessons have their raw material. [Six class files that are wrong on purpose](docs/probes/classfile-malformed.md) tries to build each malformation B11 needs and records where the JVM notices, and four of the six come straight out of `java.lang.classfile` while the other two need about five lines of byte patching. The one with a constant pool index past the end of the pool is worth the trip on its own: with the verifier turned off it kills the VM ten times out of ten on Linux, three times out of ten on Windows and once out of ten on a Mac, which is what undefined behaviour looks like when you measure it instead of describing it.
 
+The widget question came back with an answer to a different question. [What a Java kernel can put on the screen](docs/probes/widgets.md) tries twelve ways of getting something interactive in front of a reader and checks each one in four places, and the thing that decides the answer turns out not to be Colab's sandbox at all. It is Jupyter's trust model: a saved notebook nobody has run gets its style tags removed, its ids renamed, its form controls disabled and its scripts dropped, so only four of the twelve survive the state most readers will meet the page in. That is a smaller budget than the design assumed and it is enough, because `<details>` and an SVG in an `<img>` are both on the list that always works.
+
 See the [milestone issues](https://github.com/tamnd/jvm-internals/issues?q=is%3Aissue+label%3Akind%2Fmilestone) for the plan and [ROADMAP.md](ROADMAP.md) for the short version.
 
 ## Licence
