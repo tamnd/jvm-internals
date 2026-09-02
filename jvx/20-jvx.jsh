@@ -164,6 +164,80 @@ class jvx {
         }
     }
 
+    // -- running something in a different JVM -------------------------------------
+
+    /**
+     * Compile and run a single Java file in a fresh JVM, with the flags you give it,
+     * and hand back everything it printed.
+     *
+     * Two quite different jobs need this and it is worth being clear about both.
+     *
+     * The first is that a lot of what this project teaches is only visible by
+     * comparison, and the two things being compared are two JVMs started differently.
+     * You cannot turn UseCompactObjectHeaders off in a running VM. The objects are
+     * already laid out.
+     *
+     * The second is that the kernel you are typing into is a JShell, and JShell
+     * changes some of what a lesson wants to observe. It wraps every snippet in a
+     * synthetic class, which shows up in class histograms and compilation logs, and it
+     * touches the objects you assign to variables. A subprocess has none of that,
+     * because it is a plain JVM running a plain program.
+     *
+     * No javac step and no classpath, because a single .java file passed to `java` is
+     * compiled in memory and run. That has been standard since JEP 330 in Java 11, and
+     * it is why the source in a lesson cell is the whole program rather than the
+     * interesting half of one.
+     */
+    static String run(String className, String source, String... vmArgs) {
+        try {
+            Path dir = Files.createTempDirectory("jvx");
+            Path file = dir.resolve(className + ".java");
+            Files.writeString(file, source);
+
+            List<String> command = new ArrayList<>();
+            command.add(Path.of(System.getProperty("java.home"), "bin", "java").toString());
+            for (String arg : vmArgs) command.add(arg);
+            command.add(file.toString());
+
+            // Merged, and on purpose. A VM that refuses a flag says so on stderr, and a
+            // reader who gets silence and no output has been told nothing at all.
+            Process p = new ProcessBuilder(command).redirectErrorStream(true).start();
+            String out = new String(p.getInputStream().readAllBytes());
+            p.waitFor();
+
+            Files.deleteIfExists(file);
+            Files.deleteIfExists(dir);
+            return out;
+        } catch (Exception e) {
+            throw new RuntimeException("could not run " + className + " in a fresh JVM", e);
+        }
+    }
+
+    /** The same thing, printed rather than returned, which is what a cell usually wants. */
+    static void show(String className, String source, String... vmArgs) {
+        System.out.print(run(className, source, vmArgs));
+    }
+
+    // -- prediction gates -----------------------------------------------------------
+    //
+    // Three calls, forwarded to Gate. A lesson never names Gate, so the day the text
+    // version is replaced by a widget, no lesson changes.
+
+    /** Ask a question and stop. Nothing here shows the answer. */
+    static void gate(String id, String question, String... options) {
+        Gate.ask(id, question, options);
+    }
+
+    /** Write your answer down. It is not marked yet. */
+    static void answer(String id, String choice) {
+        Gate.answer(id, choice);
+    }
+
+    /** Mark it. Run this after you have measured, not before. */
+    static void reveal(String id, String correct) {
+        Gate.reveal(id, correct);
+    }
+
     // -- what am I running on -----------------------------------------------------
 
     /**

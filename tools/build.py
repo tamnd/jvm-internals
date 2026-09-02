@@ -536,7 +536,11 @@ class Context:
                 )
             blocks.append(body)
 
-        blocks.append("jvx.banner()")
+        # Semicolon and newline, both on purpose. A notebook runs this as a cell and
+        # would not care, but the same text gets piped into jshell from a file when
+        # anybody debugs the bootstrap, and there the missing newline runs `jvx.banner()`
+        # into whatever comes next and the whole thing fails to parse.
+        blocks.append("jvx.banner();\n")
         self._bootstrap = "\n\n".join(blocks)
         return self._bootstrap
 
@@ -863,19 +867,19 @@ SCAFFOLD = '''\
 # %% [markdown] id=badge generated=badge
 
 # %% [markdown] id=hook
-# Under 150 words, and it contains a surprise the reader can run in the next cell.
-# If there is no surprise, this is the wrong lesson or the interesting part has not
-# been found yet.
+# Under 150 words, and it contains a surprise the reader can run in the next cell. If there is no surprise then this is the wrong lesson, or the interesting part has not been found yet.
 
-# %% id=bootstrap generated=bootstrap tags=[bake] env=E0
+# %% id=bootstrap generated=bootstrap env=E0
 
 # %% [markdown] id=tour
-# The prose. Where the mechanism lives, what it does, why it is that way. Every claim
-# carries a citation and a marker, either {{[JVMS x.y@SE25]}} or
-# {{[HOTSPOT path/to/file.cpp:123@{pin}]}}.
+# The prose. Where the mechanism lives, what it does, why it is that way. Every claim carries a citation and a marker, either {{[JVMS x.y@SE25]}} or {{[HOTSPOT path/to/file.cpp:123@{pin}]}}.
 
 # %% id=gate_1 tags=[predict] env=E0
-jvx.gate("gate_1")
+jvx.gate("gate_1",
+    "The question, phrased so that a reader has to commit to a number.",
+    "a) one plausible answer",
+    "b) another, wrong for a reason worth knowing",
+    "c) the right one")
 
 # %% [markdown] id=what_you_now_know
 # Three to six bullets, each a capability rather than a topic.
