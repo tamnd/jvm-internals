@@ -32,6 +32,37 @@ jobs:
           python-version: "3.14"
       - run: python tools/prosecheck.py .
 
+  # The notebook is build output, so the only thing keeping it honest is a job that
+  # rebuilds it and compares. Without this, a hand edited notebook and a lesson
+  # source say different things and the reader gets whichever one they opened.
+  notebooks:
+    name: notebooks match their source
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: "3.14"
+      - name: unit tests
+        run: python tools/test_build.py
+      - name: rebuild and compare
+        run: python tools/build.py check
+      - name: three builds are byte identical
+        run: |
+          set -euo pipefail
+          python tools/build.py notebooks >/dev/null
+          find notebooks -name '*.ipynb' -print0 2>/dev/null | sort -z | xargs -0 -r shasum -a 256 > /tmp/pass1
+          python tools/build.py notebooks >/dev/null
+          find notebooks -name '*.ipynb' -print0 2>/dev/null | sort -z | xargs -0 -r shasum -a 256 > /tmp/pass2
+          python tools/build.py notebooks >/dev/null
+          find notebooks -name '*.ipynb' -print0 2>/dev/null | sort -z | xargs -0 -r shasum -a 256 > /tmp/pass3
+          diff /tmp/pass1 /tmp/pass2
+          diff /tmp/pass2 /tmp/pass3
+          echo "three builds, same bytes"
+
   # Workflow files get the same treatment as everything else here. actionlint
   # catches the shell and expression mistakes, zizmor catches the security ones,
   # and the reason both run is that a workflow is the part of a repository
@@ -93,17 +124,16 @@ jobs:
   #
   #   Every push
   #     lint          2m   ruff, black, spotless, markdown, YAML front matter
-  #     structure     3m   build.py check: directives, the requires DAG, flag
-  #                        caps, no hand edited notebooks, no GPL header outside
-  #                        patches/ and vendor/
+  #     structure     3m   the rest of build.py check: no GPL header outside
+  #                        patches/ and vendor/, glossary uniqueness. The
+  #                        directives, the caps and the requires DAG are already
+  #                        in the notebooks job above
   #     refcheck      4m   every path:line@tag against the pinned tree's hashes,
   #                        every JVMS section reference against the section index
   #     markers       1m   rule 7: every claim carries [JVMS] or [HOTSPOT], and
   #                        at most two unobservable claims per lesson
   #     bpc           6m   bpc build then bpc check, so no generated blueprint
   #                        section is stale and no coverage item is unowned
-  #     notebooks     8m   rebuild every notebook, fail if a committed .ipynb
-  #                        differs from its rebuild
   #     e0-fast      25m   the tier 0 cells of changed lessons, in the Colab
   #                        parity image. Expensive, and the one that must not be
   #                        cut, because a lesson whose observations quietly

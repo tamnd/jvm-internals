@@ -35,13 +35,18 @@ You edit `lessons/<id>/lesson.py`, which is percent format Python with one cell 
 This means two things in practice. Notebook JSON is never reviewed, so review stays sane. And hidden execution state is unrepresentable, because cells are emitted in source order with no execution counts.
 
 ```
-python build.py new o01           # scaffold
-python build.py notebooks         # regenerate
-python build.py run --only o01    # execute headlessly
-python build.py check             # what CI runs
+python tools/build.py new O02     # scaffold
+python tools/build.py notebooks   # regenerate
+python tools/build.py check       # what CI runs
+python tools/build.py list        # the lesson index
+python tools/build.py run O01     # execute, if a Jupyter runtime is here
 ```
 
-Prototype in Colab as much as you like, that is where you notice the bug, then port the fix back into the `.py`. Editing a generated notebook loses the change on the next build and `build.py check` catches you either way.
+Prototype in Colab as much as you like, that is where you notice the bug, then port the fix back into the `.py`. Editing a generated notebook loses the change on the next build and `build.py check` catches you either way, by name: it tells you which cell differs and whether its id moved.
+
+`docs/lesson-format.md` is the full reference for the front matter, the directives and the tags. Install the hook with `git config core.hooksPath tools/hooks` and you find out about an out of sync notebook in a second rather than six minutes later from a red check.
+
+One rule about generated output is worth stating here rather than only in the format document. A cell tagged `bake` reads its output from `lessons/<id>/baked/<cell-id>.json`, recorded by CI on the pinned JDK. When that recording does not exist, the notebook says so in the cell. Nobody writes a plausible looking output by hand to fill the gap. A project whose first rule is that nothing is asserted the reader cannot watch happen does not get to invent the thing they were supposed to watch.
 
 ## The JShell trap
 

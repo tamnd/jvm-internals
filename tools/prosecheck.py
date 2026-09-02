@@ -21,6 +21,11 @@ Five rules:
 A line ending in the comment <!-- prose-ok --> is exempt from em-dash and
 banned, which is how a document quotes a rule in order to state it.
 
+Every .md file is checked, and so are the markdown cells inside
+lessons/<id>/lesson.py, reported against their real line in that file. Lesson prose
+is the prose readers actually read, so exempting it because it lives in a .py file
+would be exempting the part that matters.
+
 The marker rule, meaning that every claim carries [JVMS] or [HOTSPOT], is not
 checked here. It needs the lesson front matter and the claim ledger, so it lives
 in build.py and arrives with the first lesson.
@@ -67,11 +72,42 @@ def load_pin(root: pathlib.Path) -> tuple[set[str], set[str]]:
     return tags, editions
 
 
+def markdown_of_lesson(path: pathlib.Path) -> list[tuple[int, str]]:
+    """Pull the markdown cells out of a lesson source, keeping their real line numbers.
+
+    A lesson's prose lives in `lessons/<id>/lesson.py` rather than in a `.md` file, so
+    without this the rules would apply to every document in the repository except the
+    ones readers actually read.
+    """
+    out: list[tuple[int, str]] = []
+    in_markdown = False
+    for i, line in enumerate(path.read_text(encoding="utf-8").splitlines(), start=1):
+        if line.startswith("# %%"):
+            in_markdown = "[markdown]" in line
+            continue
+        if not in_markdown:
+            continue
+        if line.startswith("# "):
+            out.append((i, line[2:]))
+        elif line.strip() in {"#", ""}:
+            out.append((i, ""))
+    return out
+
+
+def numbered(path: pathlib.Path) -> list[tuple[int, str]]:
+    return list(enumerate(path.read_text(encoding="utf-8").splitlines(), start=1))
+
+
 def check(path: pathlib.Path, tags: set[str], editions: set[str]) -> list[str]:
     problems: list[str] = []
-    lines = path.read_text(encoding="utf-8").splitlines()
+    if path.suffix == ".py":
+        numbered_lines = markdown_of_lesson(path)
+    else:
+        numbered_lines = numbered(path)
+
+    lines = [text for _, text in numbered_lines]
     fenced = False
-    for i, line in enumerate(lines, start=1):
+    for index, (i, line) in enumerate(numbered_lines):
         stripped = line.strip()
         if stripped.startswith("```") or stripped.startswith("~~~"):
             fenced = not fenced
@@ -116,7 +152,7 @@ def check(path: pathlib.Path, tags: set[str], editions: set[str]) -> list[str]:
         # is the one somebody has to go and join.
         if NOT_PROSE.match(line):
             continue
-        nxt = lines[i] if i < len(lines) else ""
+        nxt = lines[index + 1] if index + 1 < len(lines) else ""
         if nxt.strip().startswith("```") or nxt.strip().startswith("~~~"):
             continue
         if not NOT_PROSE.match(nxt):
@@ -135,7 +171,8 @@ def main() -> int:
         p = pathlib.Path(raw)
         if p.is_dir():
             targets.extend(sorted(q for q in p.rglob("*.md") if ".git" not in q.parts))
-        elif p.suffix == ".md":
+            targets.extend(sorted(p.glob("lessons/*/lesson.py")))
+        elif p.suffix == ".md" or p.name == "lesson.py":
             targets.append(p)
 
     root = pathlib.Path(__file__).resolve().parent.parent
