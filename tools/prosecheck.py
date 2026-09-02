@@ -22,9 +22,16 @@ A line ending in the comment <!-- prose-ok --> is exempt from em-dash and
 banned, which is how a document quotes a rule in order to state it.
 
 Every .md file is checked, and so are the markdown cells inside
-lessons/<id>/lesson.py, reported against their real line in that file. Lesson prose
-is the prose readers actually read, so exempting it because it lives in a .py file
-would be exempting the part that matters.
+lessons/<id>/lesson.py and the comments in jvx/*.jsh, reported against their real line
+in the file they came from. Lesson prose is the prose readers actually read, and the
+jvx comments are inlined verbatim into the bootstrap cell of every notebook, so
+exempting either because it does not live in a .md file would be exempting the part
+that matters.
+
+The wrap rule does not apply to .jsh comments. It exists so a one word change to a
+paragraph does not rewrap six lines and make the review unreadable, and that reasoning
+does not carry over to code, where wrapping a comment at a sensible width is what every
+reader expects to see.
 
 The marker rule, meaning that every claim carries [JVMS] or [HOTSPOT], is not
 checked here. It needs the lesson front matter and the claim ledger, so it lives
@@ -94,14 +101,37 @@ def markdown_of_lesson(path: pathlib.Path) -> list[tuple[int, str]]:
     return out
 
 
+def comments_of_jsh(path: pathlib.Path) -> list[tuple[int, str]]:
+    """Pull the `//` comments out of a jvx source, keeping their real line numbers.
+
+    These are not ordinary code comments. build.py inlines every jvx source into the
+    bootstrap cell of every notebook, so a reader opening a lesson in Colab reads them
+    as the first thing on the page.
+    """
+    out: list[tuple[int, str]] = []
+    for i, line in enumerate(path.read_text(encoding="utf-8").splitlines(), start=1):
+        stripped = line.strip()
+        if stripped.startswith("//"):
+            out.append((i, stripped[2:].lstrip()))
+        elif stripped.startswith("*") or stripped.startswith("/**"):
+            out.append((i, stripped.lstrip("*/ ")))
+        else:
+            out.append((i, line))
+    return out
+
+
 def numbered(path: pathlib.Path) -> list[tuple[int, str]]:
     return list(enumerate(path.read_text(encoding="utf-8").splitlines(), start=1))
 
 
 def check(path: pathlib.Path, tags: set[str], editions: set[str]) -> list[str]:
     problems: list[str] = []
+    wrap_applies = True
     if path.suffix == ".py":
         numbered_lines = markdown_of_lesson(path)
+    elif path.suffix == ".jsh":
+        numbered_lines = comments_of_jsh(path)
+        wrap_applies = False
     else:
         numbered_lines = numbered(path)
 
@@ -143,7 +173,7 @@ def check(path: pathlib.Path, tags: set[str], editions: set[str]) -> list[str]:
                     f"{found.group(1)!r}, the pin says {sorted(editions)}"
                 )
 
-        if fenced:
+        if fenced or not wrap_applies:
             continue
 
         # The wrap rule. A prose line followed by another prose line means the
@@ -172,7 +202,8 @@ def main() -> int:
         if p.is_dir():
             targets.extend(sorted(q for q in p.rglob("*.md") if ".git" not in q.parts))
             targets.extend(sorted(p.glob("lessons/*/lesson.py")))
-        elif p.suffix == ".md" or p.name == "lesson.py":
+            targets.extend(sorted(p.glob("jvx/*.jsh")))
+        elif p.suffix in {".md", ".jsh"} or p.name == "lesson.py":
             targets.append(p)
 
     root = pathlib.Path(__file__).resolve().parent.parent
