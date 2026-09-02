@@ -66,6 +66,8 @@ The current milestone is M0, which exists to measure the assumptions this design
 
 The second of those is answered. [How much does JShell distort what a lesson can observe](docs/probes/jshell-noise.md) measures the same workload four ways and draws the line: anything about one object you are holding is safe in the notebook kernel, anything that counts, totals or names classes has to run in a subprocess.
 
+So is the question of whether the curriculum has to fork by platform. [What a machine can actually do](docs/probes/capability.md) asks a JDK and the box under it 119 questions on macOS, on Linux as root, on Linux as an ordinary user and on Windows, and 103 of the answers are the same on all four. Every one of the sixteen that differ is machine size, privilege, timing or a native tool somebody installed. None of them is a difference in what the JVM can do.
+
 See the [milestone issues](https://github.com/tamnd/jvm-internals/issues?q=is%3Aissue+label%3Akind%2Fmilestone) for the plan and [ROADMAP.md](ROADMAP.md) for the short version.
 
 ## Licence

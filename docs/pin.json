@@ -7,8 +7,17 @@
   "jdk_ga_date": "2026-09-15",
   "jvms_edition": "SE25",
   "jls_edition": "SE25",
-  "class_file_major": 69,
+  "jdk_class_file_major": 71,
+  "jvms_class_file_major": 69,
+  "jdk_download_base": "https://download.java.net/java/GA/jdk27/55ce5470a6294008af0057ff4626d0e5/35/GPL",
+  "jdk_downloads": {
+    "linux-x64": ["openjdk-27_linux-x64_bin.tar.gz", "95fc37eb3a18a27a26d5904c2d89d52bace8dafa9a078ca27f4747fbc4bf070b"],
+    "linux-aarch64": ["openjdk-27_linux-aarch64_bin.tar.gz", "da4e9dde1fff90204739e969187bab4751bd59a2a1c479672e1a1810f7dd23ea"],
+    "macos-aarch64": ["openjdk-27_macos-aarch64_bin.tar.gz", "ff42134c1bc5ac81c5a91a95fd4df87479db5d0499ba875d6adb5bda5626c3e8"],
+    "windows-x64": ["openjdk-27_windows-x64_bin.zip", "41172837168dd25a8d9fe5eb253ac1efc568c5f9ff608144bcacadfdf50f876c"]
+  },
   "citation_suffix": "@jdk-27+35",
   "spec_citation_suffix": "@SE25",
-  "note": "Every claim, citation, generated blueprint section and shipped JDK in this repository is written against these values. Moving them is a milestone, not a commit. See ROADMAP.md, M6. jdk-27+35 is the release candidate: it is the newest tag on openjdk/jdk in the 27 line, it resolves to commit 815ff4dc327f, and the GA binaries published at jdk.java.net/27 report that same commit in their release file. When jdk-27-ga is tagged it is expected to point at the same commit, and confirming that is the first task of the pin move."
+  "note": "Every claim, citation, generated blueprint section and shipped JDK in this repository is written against these values. Moving them is a milestone, not a commit. See ROADMAP.md, M6. jdk-27+35 is the release candidate: it is the newest tag on openjdk/jdk in the 27 line, it resolves to commit 815ff4dc327f, and the GA binaries published at jdk.java.net/27 report that same commit in their release file. When jdk-27-ga is tagged it is expected to point at the same commit, and confirming that is the first task of the pin move.",
+  "class_file_note": "There used to be one class_file_major here and it said 69, which is the number JVMS SE25 describes and is not the number the pinned javac writes. The pinned javac writes 71, measured on four platforms by probes/capability/run.py and asserted in tools/test_gen_capability_matrix.py. Two fields now, because a project whose whole subject is the difference between what the specification says and what the implementation does cannot have one ambiguous field for both. The gap between them is real and is tracked separately: this repository cites JVMS SE25 while shipping a JDK 27 whose class files that edition does not describe."
 }

@@ -28,6 +28,7 @@ target/
 # the repository root under whatever name HotSpot chose.
 hs_err_pid*.log
 replay_pid*.log
+hotspot_pid*.log
 core.*
 *.jfr
 *.hprof
