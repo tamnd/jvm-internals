@@ -6,7 +6,7 @@
 
 - [ ] `python tools/prosecheck.py .` is clean
 - [ ] No number in the prose was typed by hand
-- [ ] Every source citation is `path:line@jdk-27-ga` and resolves at its recorded hash
+- [ ] Every source citation is `path:line@jdk-27+35` and resolves at its recorded hash
 - [ ] Every specification citation names a section, not a chapter, and the quoted text is in it
 - [ ] Every claim carries a `[JVMS]` or a `[HOTSPOT]` marker, and none of them is guessed
 - [ ] Any claim about what is default, deprecated, preview or in progress carries a date

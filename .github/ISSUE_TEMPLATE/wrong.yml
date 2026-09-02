@@ -36,7 +36,7 @@ body:
     attributes:
       label: Which JVM
       description: The banner cell prints this, or run `java -Xinternalversion`
-      placeholder: jdk-27-ga, release build, x86-64
+      placeholder: jdk-27+35, release build, x86-64
     validations:
       required: true
   - type: textarea

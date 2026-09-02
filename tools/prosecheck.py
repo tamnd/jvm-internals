@@ -47,7 +47,7 @@ BANNED = re.compile(
     re.IGNORECASE,
 )
 
-# A source citation looks like src/hotspot/share/oops/markWord.hpp:48@jdk-27-ga
+# A source citation looks like src/hotspot/share/oops/markWord.hpp:48@jdk-27+35
 # and a specification citation looks like JVMS 5.4.3.1@SE25. Both are matched on
 # the suffix rather than the whole form, because the whole form is refcheck's
 # job and this is the cheap half that catches a stale tag in a pull request

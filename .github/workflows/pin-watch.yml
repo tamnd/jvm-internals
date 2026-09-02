@@ -82,6 +82,45 @@ jobs:
               core.info(`filed: ${title}`)
             }
 
+            // 0. The pinned tag still points where it did when we pinned it.
+            // Re tagging is rare and it is the one kind of drift that leaves no
+            // trace: every citation still resolves, every line number is still
+            // there, and every one of them is now against different content.
+            if (pin.jdk_tag_commit) {
+              try {
+                const ref = await github.rest.git.getRef({
+                  owner: 'openjdk', repo: 'jdk', ref: `tags/${pin.jdk_tag}`,
+                })
+                let sha = ref.data.object.sha
+                if (ref.data.object.type === 'tag') {
+                  const annotated = await github.rest.git.getTag({
+                    owner: 'openjdk', repo: 'jdk', tag_sha: sha,
+                  })
+                  sha = annotated.data.object.sha
+                }
+                if (sha !== pin.jdk_tag_commit) {
+                  await file(
+                    `The pinned tag moved: ${pin.jdk_tag} is no longer ${pin.jdk_tag_commit.slice(0, 12)}`,
+                    ['kind/chore', 'priority/p0', 'area/build'],
+                    [
+                      `\`docs/pin.json\` records \`${pin.jdk_tag}\` at \`${pin.jdk_tag_commit}\` and upstream now has it at \`${sha}\`.`,
+                      ``,
+                      `This is the drift that leaves no trace. Every citation still resolves, every line number still exists, and every one of them is now against content nobody checked. Nothing else in this repository can be trusted until the two agree again.`,
+                      ``,
+                      `- [ ] Work out what happened upstream, since a moved tag is unusual enough to need an explanation`,
+                      `- [ ] Re run refcheck against the new commit and list every citation whose surrounding hash changed`,
+                      `- [ ] Regenerate every generated blueprint section and diff it`,
+                      `- [ ] Either update \`jdk_tag_commit\` or move the pin, and say in the commit message which and why`,
+                      ``,
+                      `Filed by \`.github/workflows/pin-watch.yml\`.`,
+                    ],
+                  )
+                }
+              } catch (e) {
+                core.warning(`could not resolve ${pin.jdk_tag}: ${e.message}`)
+              }
+            }
+
             // 1. The pin is still on a release candidate and GA has landed.
             if (pin.jdk_tag !== gaTag && current.includes(gaTag)) {
               await file(
