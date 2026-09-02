@@ -70,6 +70,27 @@ jobs:
           diff /tmp/pass2 /tmp/pass3
           echo "three builds, $(wc -l < /tmp/pass1) notebooks, same bytes"
 
+  # Numbers that came out of HotSpot's own headers have to keep coming out of
+  # them. This is a separate job from the notebooks one on purpose: it is the
+  # only thing in CI that reaches out to openjdk/jdk, so when GitHub's raw host
+  # has a bad minute the failure says "the generated file check could not reach
+  # upstream" instead of quietly discrediting the determinism check next door.
+  generated:
+    name: generated files match HotSpot
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: "3.14"
+      - name: unit tests
+        run: python tools/test_gen_markword.py
+      - name: the mark word layout is still what is committed
+        run: python tools/gen_markword.py --check
+
   # Workflow files get the same treatment as everything else here. actionlint
   # catches the shell and expression mistakes, zizmor catches the security ones,
   # and the reason both run is that a workflow is the part of a repository
@@ -140,7 +161,10 @@ jobs:
   #     markers       1m   rule 7: every claim carries [JVMS] or [HOTSPOT], and
   #                        at most two unobservable claims per lesson
   #     bpc           6m   bpc build then bpc check, so no generated blueprint
-  #                        section is stale and no coverage item is unowned
+  #                        section is stale and no coverage item is unowned. The
+  #                        first generator, the mark word layout, is already in
+  #                        the generated job above and folds into this one when
+  #                        bpc exists
   #     e0-fast      25m   the tier 0 cells of changed lessons, in the Colab
   #                        parity image. Expensive, and the one that must not be
   #                        cut, because a lesson whose observations quietly

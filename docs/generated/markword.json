@@ -1,0 +1,107 @@
+{
+  "generated_by": "tools/gen_markword.py",
+  "source": {
+    "path": "src/hotspot/share/oops/markWord.hpp",
+    "tag": "jdk-27+35",
+    "origin": "https://raw.githubusercontent.com/openjdk/jdk/jdk-27%2B35/src/hotspot/share/oops/markWord.hpp",
+    "sha256": "c249a091cf7dcae455d073a32f29d65b0bf2c1f0b452bc5705b706a6f1aba267",
+    "lines": 318
+  },
+  "word_bits": 64,
+  "fields": [
+    {
+      "name": "lock",
+      "shift": 0,
+      "bits": 2,
+      "mask": "0x0000000000000003",
+      "meaning": "the lock state, and whether a collector has marked or forwarded the object",
+      "defined_at": {
+        "shift": "src/hotspot/share/oops/markWord.hpp:124@jdk-27+35",
+        "bits": "src/hotspot/share/oops/markWord.hpp:116@jdk-27+35"
+      }
+    },
+    {
+      "name": "self_fwd",
+      "shift": 2,
+      "bits": 1,
+      "mask": "0x0000000000000004",
+      "meaning": "set when a collector forwarded the object in place",
+      "defined_at": {
+        "shift": "src/hotspot/share/oops/markWord.hpp:125@jdk-27+35",
+        "bits": "src/hotspot/share/oops/markWord.hpp:117@jdk-27+35"
+      }
+    },
+    {
+      "name": "age",
+      "shift": 3,
+      "bits": 4,
+      "mask": "0x0000000000000078",
+      "meaning": "how many collections the object has survived",
+      "defined_at": {
+        "shift": "src/hotspot/share/oops/markWord.hpp:126@jdk-27+35",
+        "bits": "src/hotspot/share/oops/markWord.hpp:118@jdk-27+35"
+      }
+    },
+    {
+      "name": "valhalla",
+      "shift": 7,
+      "bits": 4,
+      "mask": "0x0000000000000780",
+      "meaning": "reserved for Valhalla, unused today",
+      "defined_at": {
+        "shift": "src/hotspot/share/oops/markWord.hpp:127@jdk-27+35",
+        "bits": "src/hotspot/share/oops/markWord.hpp:119@jdk-27+35"
+      }
+    },
+    {
+      "name": "hash",
+      "shift": 11,
+      "bits": 31,
+      "mask": "0x000003fffffff800",
+      "meaning": "the identity hash, written the first time anything asks for it",
+      "defined_at": {
+        "shift": "src/hotspot/share/oops/markWord.hpp:128@jdk-27+35",
+        "bits": "src/hotspot/share/oops/markWord.hpp:121@jdk-27+35"
+      }
+    },
+    {
+      "name": "klass",
+      "shift": 42,
+      "bits": 22,
+      "mask": "0xfffffc0000000000",
+      "meaning": "the compressed class pointer, present only when UseCompactObjectHeaders is on",
+      "defined_at": {
+        "shift": "src/hotspot/share/oops/markWord.hpp:150@jdk-27+35",
+        "bits": "src/hotspot/share/oops/markWord.hpp:152@jdk-27+35"
+      }
+    }
+  ],
+  "total_field_bits": 64,
+  "lock_states": [
+    {
+      "bits": "00",
+      "name": "locked",
+      "meaning": "a stack lock is held, and the real header is in the lock record"
+    },
+    {
+      "bits": "01",
+      "name": "unlocked",
+      "meaning": "the ordinary state"
+    },
+    {
+      "bits": "10",
+      "name": "monitor",
+      "meaning": "the lock is inflated"
+    },
+    {
+      "bits": "11",
+      "name": "marked",
+      "meaning": "a collector is using the word, and the real header is elsewhere"
+    }
+  ],
+  "diagram_lines": {
+    "legacy": "src/hotspot/share/oops/markWord.hpp:43@jdk-27+35",
+    "compact": "src/hotspot/share/oops/markWord.hpp:47@jdk-27+35"
+  },
+  "note": "The klass field is present only when UseCompactObjectHeaders is on, which is the default on 64 bit platforms from JDK 27. With the flag off, those 22 bits are unused in the mark word and the class pointer is a separate 4 byte field after it. The C++ oopDesc struct declares that field either way, so reading the struct alone will tell you the object has one when it does not."
+}
