@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="560" viewBox="0 0 1000 560" role="img" aria-label="Where each deliberately malformed class file stops">
+  <rect width="1000" height="560" fill="#ffffff"/>
+  <text x="40.0" y="42.0" font-family="system-ui, -apple-system, Segoe UI, Roboto, sans-serif" font-size="22" fill="#212529" font-weight="600" text-anchor="start">Where a broken class file stops</text>
+  <text x="40.0" y="66.0" font-family="system-ui, -apple-system, Segoe UI, Roboto, sans-serif" font-size="13" fill="#868e96" font-weight="normal" text-anchor="start">Six malformations, and how far into a running program each one gets.</text>
+  <rect x="300.0" y="84.0" width="138.0" height="44.0" rx="4" fill="#a5d8ff" stroke="#212529" stroke-width="1.2"/>
+  <text x="369.0" y="106.0" font-family="system-ui, -apple-system, Segoe UI, Roboto, sans-serif" font-size="13" fill="#212529" font-weight="600" text-anchor="middle">parse</text>
+  <text x="369.0" y="122.0" font-family="system-ui, -apple-system, Segoe UI, Roboto, sans-serif" font-size="10" fill="#868e96" font-weight="normal" text-anchor="middle">defineClass</text>
+  <rect x="450.0" y="84.0" width="138.0" height="44.0" rx="4" fill="#b2f2bb" stroke="#212529" stroke-width="1.2"/>
+  <text x="519.0" y="106.0" font-family="system-ui, -apple-system, Segoe UI, Roboto, sans-serif" font-size="13" fill="#212529" font-weight="600" text-anchor="middle">link, the verifier</text>
+  <text x="519.0" y="122.0" font-family="system-ui, -apple-system, Segoe UI, Roboto, sans-serif" font-size="10" fill="#868e96" font-weight="normal" text-anchor="middle">first active use</text>
+  <rect x="600.0" y="84.0" width="138.0" height="44.0" rx="4" fill="#ffd8a8" stroke="#212529" stroke-width="1.2"/>
+  <text x="669.0" y="106.0" font-family="system-ui, -apple-system, Segoe UI, Roboto, sans-serif" font-size="13" fill="#212529" font-weight="600" text-anchor="middle">run, resolution</text>
+  <text x="669.0" y="122.0" font-family="system-ui, -apple-system, Segoe UI, Roboto, sans-serif" font-size="10" fill="#868e96" font-weight="normal" text-anchor="middle">the instruction runs</text>
+  <rect x="750.0" y="84.0" width="138.0" height="44.0" rx="4" fill="#ffc9c9" stroke="#212529" stroke-width="1.2"/>
+  <text x="819.0" y="106.0" font-family="system-ui, -apple-system, Segoe UI, Roboto, sans-serif" font-size="13" fill="#212529" font-weight="600" text-anchor="middle">it ran</text>
+  <text x="819.0" y="122.0" font-family="system-ui, -apple-system, Segoe UI, Roboto, sans-serif" font-size="10" fill="#868e96" font-weight="normal" text-anchor="middle">nobody objected</text>
+  <text x="280.0" y="154.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="12" fill="#212529" font-weight="normal" text-anchor="end">pool index past the end</text>
+  <line x1="300.0" y1="150.0" x2="519.0" y2="150.0" stroke="#212529" stroke-width="1.6"/>
+  <line x1="519.0" y1="150.0" x2="819.0" y2="150.0" stroke="#868e96" stroke-width="1.0" stroke-dasharray="3 4"/>
+  <rect x="510.0" y="141.0" width="18.0" height="18.0" rx="4" fill="#b2f2bb" stroke="#212529" stroke-width="1.2"/>
+  <text x="841.0" y="154.0" font-family="system-ui, -apple-system, Segoe UI, Roboto, sans-serif" font-size="11" fill="#868e96" font-weight="normal" text-anchor="start">needs a byte patch</text>
+  <text x="280.0" y="206.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="12" fill="#212529" font-weight="normal" text-anchor="end">method ref descriptor</text>
+  <line x1="300.0" y1="202.0" x2="669.0" y2="202.0" stroke="#212529" stroke-width="1.6"/>
+  <line x1="669.0" y1="202.0" x2="819.0" y2="202.0" stroke="#868e96" stroke-width="1.0" stroke-dasharray="3 4"/>
+  <rect x="660.0" y="193.0" width="18.0" height="18.0" rx="4" fill="#ffd8a8" stroke="#212529" stroke-width="1.2"/>
+  <text x="841.0" y="206.0" font-family="system-ui, -apple-system, Segoe UI, Roboto, sans-serif" font-size="11" fill="#868e96" font-weight="normal" text-anchor="start">built by the API</text>
+  <text x="280.0" y="258.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="12" fill="#212529" font-weight="normal" text-anchor="end">stack map says int</text>
+  <line x1="300.0" y1="254.0" x2="519.0" y2="254.0" stroke="#212529" stroke-width="1.6"/>
+  <line x1="519.0" y1="254.0" x2="819.0" y2="254.0" stroke="#868e96" stroke-width="1.0" stroke-dasharray="3 4"/>
+  <rect x="510.0" y="245.0" width="18.0" height="18.0" rx="4" fill="#b2f2bb" stroke="#212529" stroke-width="1.2"/>
+  <text x="841.0" y="258.0" font-family="system-ui, -apple-system, Segoe UI, Roboto, sans-serif" font-size="11" fill="#868e96" font-weight="normal" text-anchor="start">built by the API</text>
+  <text x="280.0" y="310.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="12" fill="#212529" font-weight="normal" text-anchor="end">final and abstract</text>
+  <line x1="300.0" y1="306.0" x2="369.0" y2="306.0" stroke="#212529" stroke-width="1.6"/>
+  <line x1="369.0" y1="306.0" x2="819.0" y2="306.0" stroke="#868e96" stroke-width="1.0" stroke-dasharray="3 4"/>
+  <rect x="360.0" y="297.0" width="18.0" height="18.0" rx="4" fill="#a5d8ff" stroke="#212529" stroke-width="1.2"/>
+  <text x="841.0" y="310.0" font-family="system-ui, -apple-system, Segoe UI, Roboto, sans-serif" font-size="11" fill="#868e96" font-weight="normal" text-anchor="start">built by the API</text>
+  <text x="280.0" y="362.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="12" fill="#212529" font-weight="normal" text-anchor="end">max_stack too small</text>
+  <line x1="300.0" y1="358.0" x2="519.0" y2="358.0" stroke="#212529" stroke-width="1.6"/>
+  <line x1="519.0" y1="358.0" x2="819.0" y2="358.0" stroke="#868e96" stroke-width="1.0" stroke-dasharray="3 4"/>
+  <rect x="510.0" y="349.0" width="18.0" height="18.0" rx="4" fill="#b2f2bb" stroke="#212529" stroke-width="1.2"/>
+  <text x="841.0" y="362.0" font-family="system-ui, -apple-system, Segoe UI, Roboto, sans-serif" font-size="11" fill="#868e96" font-weight="normal" text-anchor="start">needs a byte patch</text>
+  <text x="280.0" y="414.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="12" fill="#212529" font-weight="normal" text-anchor="end">version from the future</text>
+  <line x1="300.0" y1="410.0" x2="369.0" y2="410.0" stroke="#212529" stroke-width="1.6"/>
+  <line x1="369.0" y1="410.0" x2="819.0" y2="410.0" stroke="#868e96" stroke-width="1.0" stroke-dasharray="3 4"/>
+  <rect x="360.0" y="401.0" width="18.0" height="18.0" rx="4" fill="#a5d8ff" stroke="#212529" stroke-width="1.2"/>
+  <text x="841.0" y="414.0" font-family="system-ui, -apple-system, Segoe UI, Roboto, sans-serif" font-size="11" fill="#868e96" font-weight="normal" text-anchor="start">built by the API</text>
+  <line x1="40.0" y1="488.0" x2="960.0" y2="488.0" stroke="#868e96" stroke-width="1.0"/>
+  <text x="40.0" y="512.0" font-family="system-ui, -apple-system, Segoe UI, Roboto, sans-serif" font-size="12" fill="#212529" font-weight="normal" text-anchor="start">With the verifier off, five of the six load. The one with a bad pool index sometimes runs and sometimes kills the VM.</text>
+  <text x="40.0" y="534.0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="11" fill="#868e96" font-weight="normal" text-anchor="start">linux-x64, osx-arm64, win-x64, java 27+35-2325, measured 2026-09-02</text>
+</svg>
