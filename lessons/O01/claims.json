@@ -1,0 +1,92 @@
+[
+  {
+    "id": "O01-C1",
+    "claim": "The Java Virtual Machine Specification does not mandate any internal structure for objects, so header size, header contents and field order are all implementation choices.",
+    "marker": "JVMS",
+    "citation": "JVMS 2.7@SE25",
+    "observable": false,
+    "note": "This is the one JVMS claim in the lesson, and it is the claim that makes every other claim here a HOTSPOT claim. Worth checking carefully in review."
+  },
+  {
+    "id": "O01-C2",
+    "claim": "With UseCompactObjectHeaders on, the object header is 8 bytes and the compressed class pointer lives in bits 63 to 42 of the mark word.",
+    "marker": "HOTSPOT",
+    "citation": "src/hotspot/share/oops/markWord.hpp:150@jdk-27+35",
+    "observable": true,
+    "cell": "measure_1",
+    "measured": "first field offset is 8 for OneInt, OneRef, Integer, Long and Two, on osx-arm64 and linux-x64, build 27+35-2325"
+  },
+  {
+    "id": "O01-C3",
+    "claim": "With UseCompactObjectHeaders off, the header is 12 bytes: an 8 byte mark word followed by a separate 4 byte class pointer.",
+    "marker": "HOTSPOT",
+    "citation": "src/hotspot/share/oops/markWord.hpp:43@jdk-27+35",
+    "observable": true,
+    "cell": "measure_2",
+    "measured": "first field offset is 12 for Two, OneRef and Integer under -XX:-UseCompactObjectHeaders, on both machines"
+  },
+  {
+    "id": "O01-C4",
+    "claim": "UseCompactObjectHeaders is on by default on 64 bit platforms from JDK 27.",
+    "marker": "HOTSPOT",
+    "citation": "src/hotspot/share/oops/markWord.hpp:47@jdk-27+35",
+    "observable": true,
+    "cell": "bootstrap",
+    "measured": "the banner reports UseCompactObjectHeaders true with origin default"
+  },
+  {
+    "id": "O01-C5",
+    "claim": "Instance size is the end of the last field rounded up to ObjectAlignmentInBytes, which defaults to 8, so a 4 byte reduction in header size does not imply a 4 byte reduction in object size.",
+    "marker": "HOTSPOT",
+    "citation": "src/hotspot/share/oops/markWord.hpp:43@jdk-27+35",
+    "observable": true,
+    "cell": "measure_3",
+    "measured": "java.lang.Integer is 16 bytes both ways: 8+4 padded to 16, and 12+4 exactly 16",
+    "note": "This is the claim the whole lesson exists for and the one gate 3 tests. The citation is weak: it points at the layout comment rather than at the alignment code, and it should move to the real site in oopDesc or CollectedHeap when refcheck can resolve it."
+  },
+  {
+    "id": "O01-C6",
+    "claim": "The bottom two bits of the mark word are the lock state, and 01 means unlocked.",
+    "marker": "HOTSPOT",
+    "citation": "src/hotspot/share/oops/markWord.hpp:124@jdk-27+35",
+    "observable": true,
+    "cell": "header_live",
+    "measured": "every mark word read in this lesson ends in 01 unless something is holding a lock"
+  },
+  {
+    "id": "O01-C7",
+    "claim": "The identity hash occupies bits 41 to 11 of the mark word and is written the first time anything asks for it, not at allocation.",
+    "marker": "HOTSPOT",
+    "citation": "src/hotspot/share/oops/markWord.hpp:128@jdk-27+35",
+    "observable": true,
+    "cell": "hash_live",
+    "measured": "the word is 0 in that range before System.identityHashCode and equals the returned hash after"
+  },
+  {
+    "id": "O01-C8",
+    "claim": "The age field counts collections survived and is live state, so a freshly allocated object can already read a nonzero age if a young collection happened between the allocation and the read.",
+    "marker": "HOTSPOT",
+    "citation": "src/hotspot/share/oops/markWord.hpp:126@jdk-27+35",
+    "observable": true,
+    "cell": "header_live",
+    "measured": "the first jvx.freshMark of a kernel reports age 1 and the collection count goes 0 to 1 across that call, every later call reports age 0"
+  },
+  {
+    "id": "O01-C9",
+    "claim": "The value in the klass bits is an offset into the class metadata region, so it depends on load order and is not comparable between runs or machines.",
+    "marker": "HOTSPOT",
+    "citation": "src/hotspot/share/oops/markWord.hpp:150@jdk-27+35",
+    "observable": true,
+    "cell": "klass_proof",
+    "measured": "Object read 0x0017ac on osx-arm64 and 0x001774 on linux-x64, same build, while two instances of the same class always agree"
+  },
+  {
+    "id": "O01-C10",
+    "claim": "Assigning an object to a top level JShell variable causes its identity hash to be written, so an object observed across two cells is not in its allocated state.",
+    "marker": "HOTSPOT",
+    "citation": "src/hotspot/share/oops/markWord.hpp:128@jdk-27+35",
+    "observable": true,
+    "cell": "hash_note",
+    "note": "This is a JShell property rather than a HotSpot one, and the marker is on the header field it disturbs rather than on the cause. Revisit when the JShell distortion report in issue #2 is finished, because the cause deserves its own citation into the JShell sources."
+  }
+]

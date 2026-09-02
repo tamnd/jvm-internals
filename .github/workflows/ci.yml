@@ -50,6 +50,18 @@ jobs:
         run: |
           python tools/test_build.py
           python tools/test_gen_diagram.py
+      # Graders are per lesson and there is no JDK in this job, so the tests that
+      # measure a real object skip here and the ones that read source still run.
+      # A grader is the one piece of a lesson a reader argues with, so the parts
+      # that can be checked offline are worth checking on every push.
+      - name: lesson grader tests
+        run: |
+          for test in lessons/*/test_*.py; do
+            # An unmatched glob comes back as itself, so check before running it.
+            [ -e "$test" ] || continue
+            echo "== $test"
+            python "$test"
+          done
       - name: rebuild and compare
         run: python tools/build.py check
       # The diagram is drawn from the committed layout file and touches no
