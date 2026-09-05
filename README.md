@@ -72,6 +72,8 @@ The verification lessons have their raw material. [Six class files that are wron
 
 The widget question came back with an answer to a different question. [What a Java kernel can put on the screen](docs/probes/widgets.md) tries twelve ways of getting something interactive in front of a reader and checks each one in four places, and the thing that decides the answer turns out not to be Colab's sandbox at all. It is Jupyter's trust model: a saved notebook nobody has run gets its style tags removed, its ids renamed, its form controls disabled and its scripts dropped, so only four of the twelve survive the state most readers will meet the page in. That is a smaller budget than the design assumed and it is enough, because `<details>` and an SVG in an `<img>` are both on the list that always works.
 
+The generated half of every blueprint has a source. [Reading HotSpot's own struct layouts](docs/probes/sa-types.md) tries four ways into the Serviceability Agent's type database on three machines, and an ordinary user on Linux gets in three of them, because `ptrace_scope` at 1 permits attaching to a process you started yourself. Every door that opened read the same numbers, and they match what `jhsdb clhsdb` prints by hand. The database also holds less than the design assumed: `markWord` has a size and not one exported field, so the bit layout that half the object layout lessons depend on has to keep coming from the header file.
+
 See the [milestone issues](https://github.com/tamnd/jvm-internals/issues?q=is%3Aissue+label%3Akind%2Fmilestone) for the plan and [ROADMAP.md](ROADMAP.md) for the short version.
 
 ## Licence

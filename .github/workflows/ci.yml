@@ -55,6 +55,7 @@ jobs:
           python tools/test_gen_capability_matrix.py
           python tools/test_gen_malformed_table.py
           python tools/test_gen_widget_matrix.py
+          python tools/test_gen_sa_types.py
           python tools/test_fetch_jdk.py
       - name: rebuild and compare
         run: python tools/build.py check
@@ -81,6 +82,11 @@ jobs:
       # stale one sends somebody off to write a style tag that will be thrown away.
       - name: the widget delivery grid matches the measured results
         run: python tools/gen_widget_matrix.py --check
+      # The type database page is half permission matrix and half struct layouts,
+      # and both halves are things somebody will quote without rerunning the probe
+      # that takes ten minutes and a spare 300MB.
+      - name: the type database page matches the measured results
+        run: python tools/gen_sa_types.py --check
       - name: three builds are byte identical
         run: |
           set -euo pipefail

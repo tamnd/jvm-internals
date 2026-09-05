@@ -1,0 +1,319 @@
+{
+  "clhsdb_agrees": true,
+  "core_pattern": "|/usr/share/apport/apport -p%p -s%s -c%c -d%d -P%P -u%u -g%g -F%F -- %E",
+  "java_build": "27+35-2325",
+  "measured": "2026-09-05",
+  "platform": "linux-x86_64",
+  "probe": "sa-types",
+  "ptrace_scope": "1",
+  "root": true,
+  "routes": {
+    "attach_ptracer_any": {
+      "worked": true
+    },
+    "attach_running": {
+      "worked": true
+    },
+    "attach_spawned": {
+      "worked": true
+    },
+    "core_self": {
+      "error": "core_pattern pipes to /usr/share/apport/apport -p%p -s%s -c%c -d%d -P%P -u%u -g%g -F%F -- %E",
+      "worked": false
+    },
+    "jhsdb_jstack": {
+      "worked": true
+    }
+  },
+  "routes_agree": true,
+  "types": {
+    "InstanceKlass": {
+      "fields": [
+        {
+          "name": "_array_klasses",
+          "offset": 216,
+          "static": false,
+          "type": "ObjArrayKlass*"
+        },
+        {
+          "name": "_methods",
+          "offset": 400,
+          "static": false,
+          "type": "Array<Method*>*"
+        },
+        {
+          "name": "_default_methods",
+          "offset": 408,
+          "static": false,
+          "type": "Array<Method*>*"
+        },
+        {
+          "name": "_local_interfaces",
+          "offset": 416,
+          "static": false,
+          "type": "Array<InstanceKlass*>*"
+        },
+        {
+          "name": "_transitive_interfaces",
+          "offset": 424,
+          "static": false,
+          "type": "Array<InstanceKlass*>*"
+        },
+        {
+          "name": "_fieldinfo_stream",
+          "offset": 448,
+          "static": false,
+          "type": "Array<u1>*"
+        },
+        {
+          "name": "_constants",
+          "offset": 224,
+          "static": false,
+          "type": "ConstantPool*"
+        },
+        {
+          "name": "_source_debug_extension",
+          "offset": 272,
+          "static": false,
+          "type": "char*"
+        },
+        {
+          "name": "_inner_classes",
+          "offset": 232,
+          "static": false,
+          "type": "Array<jushort>*"
+        },
+        {
+          "name": "_nest_members",
+          "offset": 240,
+          "static": false,
+          "type": "Array<jushort>*"
+        },
+        {
+          "name": "_nonstatic_field_size",
+          "offset": 280,
+          "static": false,
+          "type": "int"
+        },
+        {
+          "name": "_static_field_size",
+          "offset": 284,
+          "static": false,
+          "type": "int"
+        },
+        {
+          "name": "_static_oop_field_count",
+          "offset": 300,
+          "static": false,
+          "type": "u2"
+        },
+        {
+          "name": "_nonstatic_oop_map_size",
+          "offset": 288,
+          "static": false,
+          "type": "int"
+        },
+        {
+          "name": "_init_state",
+          "offset": 304,
+          "static": false,
+          "type": "InstanceKlass::ClassState"
+        },
+        {
+          "name": "_init_thread",
+          "offset": 312,
+          "static": false,
+          "type": "JavaThread*"
+        },
+        {
+          "name": "_itable_len",
+          "offset": 292,
+          "static": false,
+          "type": "int"
+        },
+        {
+          "name": "_nest_host_index",
+          "offset": 296,
+          "static": false,
+          "type": "u2"
+        },
+        {
+          "name": "_reference_type",
+          "offset": 305,
+          "static": false,
+          "type": "u1"
+        },
+        {
+          "name": "_oop_map_cache",
+          "offset": 320,
+          "static": false,
+          "type": "OopMapCache*"
+        },
+        {
+          "name": "_jni_ids",
+          "offset": 328,
+          "static": false,
+          "type": "JNIid*"
+        },
+        {
+          "name": "_osr_nmethods_head",
+          "offset": 360,
+          "static": false,
+          "type": "nmethod*"
+        },
+        {
+          "name": "_breakpoints",
+          "offset": 368,
+          "static": false,
+          "type": "BreakpointInfo*"
+        },
+        {
+          "name": "_methods_jmethod_ids",
+          "offset": 336,
+          "static": false,
+          "type": "jmethodID*"
+        },
+        {
+          "name": "_idnum_allocated_count",
+          "offset": 302,
+          "static": false,
+          "type": "u2"
+        },
+        {
+          "name": "_annotations",
+          "offset": 200,
+          "static": false,
+          "type": "Annotations*"
+        },
+        {
+          "name": "_method_ordering",
+          "offset": 432,
+          "static": false,
+          "type": "Array<int>*"
+        },
+        {
+          "name": "_default_vtable_indices",
+          "offset": 440,
+          "static": false,
+          "type": "Array<int>*"
+        },
+        {
+          "name": "_access_flags",
+          "offset": 306,
+          "static": false,
+          "type": "AccessFlags"
+        }
+      ],
+      "size": 472,
+      "super": "Klass"
+    },
+    "Klass": {
+      "fields": [
+        {
+          "name": "_super_check_offset",
+          "offset": 16,
+          "static": false,
+          "type": "juint"
+        },
+        {
+          "name": "_secondary_super_cache",
+          "offset": 32,
+          "static": false,
+          "type": "Klass*"
+        },
+        {
+          "name": "_secondary_supers",
+          "offset": 40,
+          "static": false,
+          "type": "Array<Klass*>*"
+        },
+        {
+          "name": "_primary_supers[0]",
+          "offset": 48,
+          "static": false,
+          "type": "Klass*"
+        },
+        {
+          "name": "_java_mirror",
+          "offset": 112,
+          "static": false,
+          "type": "OopHandle"
+        },
+        {
+          "name": "_super",
+          "offset": 120,
+          "static": false,
+          "type": "Klass*"
+        },
+        {
+          "name": "_subklass",
+          "offset": 128,
+          "static": false,
+          "type": "Klass*"
+        },
+        {
+          "name": "_layout_helper",
+          "offset": 8,
+          "static": false,
+          "type": "jint"
+        },
+        {
+          "name": "_name",
+          "offset": 24,
+          "static": false,
+          "type": "Symbol*"
+        },
+        {
+          "name": "_next_sibling",
+          "offset": 136,
+          "static": false,
+          "type": "Klass*"
+        },
+        {
+          "name": "_next_link",
+          "offset": 144,
+          "static": false,
+          "type": "Klass*"
+        },
+        {
+          "name": "_vtable_len",
+          "offset": 184,
+          "static": false,
+          "type": "int"
+        },
+        {
+          "name": "_class_loader_data",
+          "offset": 152,
+          "static": false,
+          "type": "ClassLoaderData*"
+        }
+      ],
+      "size": 200,
+      "super": "Metadata"
+    },
+    "markWord": {
+      "fields": [],
+      "size": 8,
+      "super": null
+    },
+    "oopDesc": {
+      "fields": [
+        {
+          "name": "_mark",
+          "offset": 0,
+          "static": false,
+          "type": "markWord"
+        },
+        {
+          "name": "_compressed_klass",
+          "offset": 8,
+          "static": false,
+          "type": "narrowKlass"
+        }
+      ],
+      "size": 16,
+      "super": null
+    }
+  },
+  "types_from": "attach_running"
+}
