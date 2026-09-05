@@ -1,0 +1,3484 @@
+{
+  "agrees_everywhere": false,
+  "classes_asked": [
+    "JolDump$Empty",
+    "JolDump$OneBoolean",
+    "JolDump$OneInt",
+    "JolDump$OneLong",
+    "JolDump$OneRef",
+    "JolDump$TwoRefs",
+    "JolDump$MixedPrimitives",
+    "JolDump$RefsAndPrimitives",
+    "JolDump$Parent",
+    "JolDump$Child",
+    "JolDump$Grandchild",
+    "java.lang.String"
+  ],
+  "configurations": {
+    "default": {
+      "flags_asked": [],
+      "flags_reported": {
+        "ObjectAlignmentInBytes": "8",
+        "UseCompactObjectHeaders": "true",
+        "UseCompressedOops": "true",
+        "warnings": ""
+      },
+      "runs": {
+        "attach_self": {
+          "classes": {
+            "JolDump$Child": {
+              "agrees": true,
+              "differences": [],
+              "jol": {
+                "parseClass": {
+                  "fields": {
+                    "a": 8,
+                    "b": 16
+                  },
+                  "header_size": 8,
+                  "instance_size": 24
+                },
+                "parseInstance": {
+                  "fields": {
+                    "a": 8,
+                    "b": 16
+                  },
+                  "header_size": 8,
+                  "instance_size": 24
+                }
+              },
+              "jol_answered": true,
+              "vm": {
+                "fields": {
+                  "a": 8,
+                  "b": 16
+                },
+                "instance_size": 24
+              },
+              "vm_printed": true
+            },
+            "JolDump$Empty": {
+              "agrees": true,
+              "differences": [],
+              "jol": {
+                "parseClass": {
+                  "fields": {},
+                  "header_size": 8,
+                  "instance_size": 8
+                },
+                "parseInstance": {
+                  "fields": {},
+                  "header_size": 8,
+                  "instance_size": 8
+                }
+              },
+              "jol_answered": true,
+              "vm": {
+                "fields": {},
+                "instance_size": 8
+              },
+              "vm_printed": true
+            },
+            "JolDump$Grandchild": {
+              "agrees": true,
+              "differences": [],
+              "jol": {
+                "parseClass": {
+                  "fields": {
+                    "a": 8,
+                    "b": 16,
+                    "c": 12
+                  },
+                  "header_size": 8,
+                  "instance_size": 24
+                },
+                "parseInstance": {
+                  "fields": {
+                    "a": 8,
+                    "b": 16,
+                    "c": 12
+                  },
+                  "header_size": 8,
+                  "instance_size": 24
+                }
+              },
+              "jol_answered": true,
+              "vm": {
+                "fields": {
+                  "a": 8,
+                  "b": 16,
+                  "c": 12
+                },
+                "instance_size": 24
+              },
+              "vm_printed": true
+            },
+            "JolDump$MixedPrimitives": {
+              "agrees": true,
+              "differences": [],
+              "jol": {
+                "parseClass": {
+                  "fields": {
+                    "a": 8,
+                    "b": 16,
+                    "c": 20,
+                    "d": 22,
+                    "e": 24,
+                    "f": 25
+                  },
+                  "header_size": 8,
+                  "instance_size": 32
+                },
+                "parseInstance": {
+                  "fields": {
+                    "a": 8,
+                    "b": 16,
+                    "c": 20,
+                    "d": 22,
+                    "e": 24,
+                    "f": 25
+                  },
+                  "header_size": 8,
+                  "instance_size": 32
+                }
+              },
+              "jol_answered": true,
+              "vm": {
+                "fields": {
+                  "a": 8,
+                  "b": 16,
+                  "c": 20,
+                  "d": 22,
+                  "e": 24,
+                  "f": 25
+                },
+                "instance_size": 32
+              },
+              "vm_printed": true
+            },
+            "JolDump$OneBoolean": {
+              "agrees": true,
+              "differences": [],
+              "jol": {
+                "parseClass": {
+                  "fields": {
+                    "a": 8
+                  },
+                  "header_size": 8,
+                  "instance_size": 16
+                },
+                "parseInstance": {
+                  "fields": {
+                    "a": 8
+                  },
+                  "header_size": 8,
+                  "instance_size": 16
+                }
+              },
+              "jol_answered": true,
+              "vm": {
+                "fields": {
+                  "a": 8
+                },
+                "instance_size": 16
+              },
+              "vm_printed": true
+            },
+            "JolDump$OneInt": {
+              "agrees": true,
+              "differences": [],
+              "jol": {
+                "parseClass": {
+                  "fields": {
+                    "a": 8
+                  },
+                  "header_size": 8,
+                  "instance_size": 16
+                },
+                "parseInstance": {
+                  "fields": {
+                    "a": 8
+                  },
+                  "header_size": 8,
+                  "instance_size": 16
+                }
+              },
+              "jol_answered": true,
+              "vm": {
+                "fields": {
+                  "a": 8
+                },
+                "instance_size": 16
+              },
+              "vm_printed": true
+            },
+            "JolDump$OneLong": {
+              "agrees": true,
+              "differences": [],
+              "jol": {
+                "parseClass": {
+                  "fields": {
+                    "a": 8
+                  },
+                  "header_size": 8,
+                  "instance_size": 16
+                },
+                "parseInstance": {
+                  "fields": {
+                    "a": 8
+                  },
+                  "header_size": 8,
+                  "instance_size": 16
+                }
+              },
+              "jol_answered": true,
+              "vm": {
+                "fields": {
+                  "a": 8
+                },
+                "instance_size": 16
+              },
+              "vm_printed": true
+            },
+            "JolDump$OneRef": {
+              "agrees": true,
+              "differences": [],
+              "jol": {
+                "parseClass": {
+                  "fields": {
+                    "a": 8
+                  },
+                  "header_size": 8,
+                  "instance_size": 16
+                },
+                "parseInstance": {
+                  "fields": {
+                    "a": 8
+                  },
+                  "header_size": 8,
+                  "instance_size": 16
+                }
+              },
+              "jol_answered": true,
+              "vm": {
+                "fields": {
+                  "a": 8
+                },
+                "instance_size": 16
+              },
+              "vm_printed": true
+            },
+            "JolDump$Parent": {
+              "agrees": true,
+              "differences": [],
+              "jol": {
+                "parseClass": {
+                  "fields": {
+                    "a": 8
+                  },
+                  "header_size": 8,
+                  "instance_size": 16
+                },
+                "parseInstance": {
+                  "fields": {
+                    "a": 8
+                  },
+                  "header_size": 8,
+                  "instance_size": 16
+                }
+              },
+              "jol_answered": true,
+              "vm": {
+                "fields": {
+                  "a": 8
+                },
+                "instance_size": 16
+              },
+              "vm_printed": true
+            },
+            "JolDump$RefsAndPrimitives": {
+              "agrees": true,
+              "differences": [],
+              "jol": {
+                "parseClass": {
+                  "fields": {
+                    "a": 20,
+                    "b": 8,
+                    "c": 24,
+                    "d": 16
+                  },
+                  "header_size": 8,
+                  "instance_size": 32
+                },
+                "parseInstance": {
+                  "fields": {
+                    "a": 20,
+                    "b": 8,
+                    "c": 24,
+                    "d": 16
+                  },
+                  "header_size": 8,
+                  "instance_size": 32
+                }
+              },
+              "jol_answered": true,
+              "vm": {
+                "fields": {
+                  "a": 20,
+                  "b": 8,
+                  "c": 24,
+                  "d": 16
+                },
+                "instance_size": 32
+              },
+              "vm_printed": true
+            },
+            "JolDump$TwoRefs": {
+              "agrees": true,
+              "differences": [],
+              "jol": {
+                "parseClass": {
+                  "fields": {
+                    "a": 8,
+                    "b": 12
+                  },
+                  "header_size": 8,
+                  "instance_size": 16
+                },
+                "parseInstance": {
+                  "fields": {
+                    "a": 8,
+                    "b": 12
+                  },
+                  "header_size": 8,
+                  "instance_size": 16
+                }
+              },
+              "jol_answered": true,
+              "vm": {
+                "fields": {
+                  "a": 8,
+                  "b": 12
+                },
+                "instance_size": 16
+              },
+              "vm_printed": true
+            },
+            "java.lang.String": {
+              "agrees": false,
+              "differences": [
+                "parseClass has no field flags",
+                "parseInstance has no field flags"
+              ],
+              "jol": {
+                "parseClass": {
+                  "fields": {
+                    "coder": 12,
+                    "hash": 8,
+                    "hashIsZero": 13,
+                    "value": 16
+                  },
+                  "header_size": 8,
+                  "instance_size": 24
+                },
+                "parseInstance": {
+                  "fields": {
+                    "coder": 12,
+                    "hash": 8,
+                    "hashIsZero": 13,
+                    "value": 16
+                  },
+                  "header_size": 8,
+                  "instance_size": 24
+                }
+              },
+              "jol_answered": true,
+              "vm": {
+                "fields": {
+                  "coder": 12,
+                  "flags": 14,
+                  "hash": 8,
+                  "hashIsZero": 13,
+                  "value": 16
+                },
+                "instance_size": 24
+              },
+              "vm_printed": true
+            }
+          },
+          "command": [
+            "-XX:+PrintFieldLayout",
+            "-Xshare:off",
+            "-Djdk.attach.allowAttachSelf=true",
+            "-cp",
+            "/work/classes:/work/jol-core-0.17.jar",
+            "JolDump",
+            "JolDump$Empty",
+            "JolDump$OneBoolean",
+            "JolDump$OneInt",
+            "JolDump$OneLong",
+            "JolDump$OneRef",
+            "JolDump$TwoRefs",
+            "JolDump$MixedPrimitives",
+            "JolDump$RefsAndPrimitives",
+            "JolDump$Parent",
+            "JolDump$Child",
+            "JolDump$Grandchild",
+            "java.lang.String"
+          ],
+          "jol": {
+            "details": "# VM mode: 64 bits # Lilliput VM detected (experimental) # Compressed references (oops): 3-bit shift # Compressed class pointers: 3-bit shift # WARNING | Compressed references base/shifts are guessed by the experiment! # WARNING | Therefore, computed addresses are just guesses, and ARE NOT RELIABLE. # WARNING | Make sure to attach Serviceability Agent to get the reliable addresses. # Object alignment: 8 bytes #                       ref, bool, byte, char, shrt,  int,  flt,  lng,  dbl # Field sizes:            4,    1,    1,    2,    2,    4,    4,    8,    8 # Array element sizes:    4,    1,    1,    2,    2,    4,    4,    8,    8 # Array base offsets:    12,   12,   12,   12,   12,   12,   12,   16,   16",
+            "vm": {
+              "addressSize": "8",
+              "arrayHeaderSize": "12",
+              "objectAlignment": "8",
+              "objectHeaderSize": "8"
+            },
+            "warnings": [
+              "# WARNING: Unable to attach Serviceability Agent. You can try again with escalated privileges. Two options: a) use -Djol.tryWithSudo=true to try with sudo; b) echo 0 | sudo tee /proc/sys/kernel/yama/ptrace_scope",
+              "WARNING: A Java agent has been loaded dynamically (/tmp/jolAgent17071034219542663958.jar)",
+              "WARNING: If a serviceability tool is in use, please run with -XX:+EnableDynamicAgentLoading to hide this warning",
+              "WARNING: If a serviceability tool is not in use, please run with -Djdk.instrument.traceUsage for more information",
+              "WARNING: Dynamic loading of agents will be disallowed by default in a future release",
+              "WARNING: A terminally deprecated method in sun.misc.Unsafe has been called",
+              "WARNING: sun.misc.Unsafe::arrayBaseOffset has been called by org.openjdk.jol.vm.HotspotUnsafe (file:/work/jol-core-0.17.jar)",
+              "WARNING: Please consider reporting this to the maintainers of class org.openjdk.jol.vm.HotspotUnsafe",
+              "WARNING: sun.misc.Unsafe::arrayBaseOffset will be removed in a future release"
+            ]
+          },
+          "ok": true,
+          "unparsed": []
+        },
+        "no_attach": {
+          "classes": {
+            "JolDump$Child": {
+              "agrees": true,
+              "differences": [],
+              "jol": {
+                "parseClass": {
+                  "fields": {
+                    "a": 8,
+                    "b": 16
+                  },
+                  "header_size": 8,
+                  "instance_size": 24
+                },
+                "parseInstance": {
+                  "fields": {
+                    "a": 8,
+                    "b": 16
+                  },
+                  "header_size": 8,
+                  "instance_size": 24
+                }
+              },
+              "jol_answered": true,
+              "vm": {
+                "fields": {
+                  "a": 8,
+                  "b": 16
+                },
+                "instance_size": 24
+              },
+              "vm_printed": true
+            },
+            "JolDump$Empty": {
+              "agrees": true,
+              "differences": [],
+              "jol": {
+                "parseClass": {
+                  "fields": {},
+                  "header_size": 8,
+                  "instance_size": 8
+                },
+                "parseInstance": {
+                  "fields": {},
+                  "header_size": 8,
+                  "instance_size": 8
+                }
+              },
+              "jol_answered": true,
+              "vm": {
+                "fields": {},
+                "instance_size": 8
+              },
+              "vm_printed": true
+            },
+            "JolDump$Grandchild": {
+              "agrees": true,
+              "differences": [],
+              "jol": {
+                "parseClass": {
+                  "fields": {
+                    "a": 8,
+                    "b": 16,
+                    "c": 12
+                  },
+                  "header_size": 8,
+                  "instance_size": 24
+                },
+                "parseInstance": {
+                  "fields": {
+                    "a": 8,
+                    "b": 16,
+                    "c": 12
+                  },
+                  "header_size": 8,
+                  "instance_size": 24
+                }
+              },
+              "jol_answered": true,
+              "vm": {
+                "fields": {
+                  "a": 8,
+                  "b": 16,
+                  "c": 12
+                },
+                "instance_size": 24
+              },
+              "vm_printed": true
+            },
+            "JolDump$MixedPrimitives": {
+              "agrees": true,
+              "differences": [],
+              "jol": {
+                "parseClass": {
+                  "fields": {
+                    "a": 8,
+                    "b": 16,
+                    "c": 20,
+                    "d": 22,
+                    "e": 24,
+                    "f": 25
+                  },
+                  "header_size": 8,
+                  "instance_size": 32
+                },
+                "parseInstance": {
+                  "fields": {
+                    "a": 8,
+                    "b": 16,
+                    "c": 20,
+                    "d": 22,
+                    "e": 24,
+                    "f": 25
+                  },
+                  "header_size": 8,
+                  "instance_size": 32
+                }
+              },
+              "jol_answered": true,
+              "vm": {
+                "fields": {
+                  "a": 8,
+                  "b": 16,
+                  "c": 20,
+                  "d": 22,
+                  "e": 24,
+                  "f": 25
+                },
+                "instance_size": 32
+              },
+              "vm_printed": true
+            },
+            "JolDump$OneBoolean": {
+              "agrees": true,
+              "differences": [],
+              "jol": {
+                "parseClass": {
+                  "fields": {
+                    "a": 8
+                  },
+                  "header_size": 8,
+                  "instance_size": 16
+                },
+                "parseInstance": {
+                  "fields": {
+                    "a": 8
+                  },
+                  "header_size": 8,
+                  "instance_size": 16
+                }
+              },
+              "jol_answered": true,
+              "vm": {
+                "fields": {
+                  "a": 8
+                },
+                "instance_size": 16
+              },
+              "vm_printed": true
+            },
+            "JolDump$OneInt": {
+              "agrees": true,
+              "differences": [],
+              "jol": {
+                "parseClass": {
+                  "fields": {
+                    "a": 8
+                  },
+                  "header_size": 8,
+                  "instance_size": 16
+                },
+                "parseInstance": {
+                  "fields": {
+                    "a": 8
+                  },
+                  "header_size": 8,
+                  "instance_size": 16
+                }
+              },
+              "jol_answered": true,
+              "vm": {
+                "fields": {
+                  "a": 8
+                },
+                "instance_size": 16
+              },
+              "vm_printed": true
+            },
+            "JolDump$OneLong": {
+              "agrees": true,
+              "differences": [],
+              "jol": {
+                "parseClass": {
+                  "fields": {
+                    "a": 8
+                  },
+                  "header_size": 8,
+                  "instance_size": 16
+                },
+                "parseInstance": {
+                  "fields": {
+                    "a": 8
+                  },
+                  "header_size": 8,
+                  "instance_size": 16
+                }
+              },
+              "jol_answered": true,
+              "vm": {
+                "fields": {
+                  "a": 8
+                },
+                "instance_size": 16
+              },
+              "vm_printed": true
+            },
+            "JolDump$OneRef": {
+              "agrees": true,
+              "differences": [],
+              "jol": {
+                "parseClass": {
+                  "fields": {
+                    "a": 8
+                  },
+                  "header_size": 8,
+                  "instance_size": 16
+                },
+                "parseInstance": {
+                  "fields": {
+                    "a": 8
+                  },
+                  "header_size": 8,
+                  "instance_size": 16
+                }
+              },
+              "jol_answered": true,
+              "vm": {
+                "fields": {
+                  "a": 8
+                },
+                "instance_size": 16
+              },
+              "vm_printed": true
+            },
+            "JolDump$Parent": {
+              "agrees": true,
+              "differences": [],
+              "jol": {
+                "parseClass": {
+                  "fields": {
+                    "a": 8
+                  },
+                  "header_size": 8,
+                  "instance_size": 16
+                },
+                "parseInstance": {
+                  "fields": {
+                    "a": 8
+                  },
+                  "header_size": 8,
+                  "instance_size": 16
+                }
+              },
+              "jol_answered": true,
+              "vm": {
+                "fields": {
+                  "a": 8
+                },
+                "instance_size": 16
+              },
+              "vm_printed": true
+            },
+            "JolDump$RefsAndPrimitives": {
+              "agrees": true,
+              "differences": [],
+              "jol": {
+                "parseClass": {
+                  "fields": {
+                    "a": 20,
+                    "b": 8,
+                    "c": 24,
+                    "d": 16
+                  },
+                  "header_size": 8,
+                  "instance_size": 32
+                },
+                "parseInstance": {
+                  "fields": {
+                    "a": 20,
+                    "b": 8,
+                    "c": 24,
+                    "d": 16
+                  },
+                  "header_size": 8,
+                  "instance_size": 32
+                }
+              },
+              "jol_answered": true,
+              "vm": {
+                "fields": {
+                  "a": 20,
+                  "b": 8,
+                  "c": 24,
+                  "d": 16
+                },
+                "instance_size": 32
+              },
+              "vm_printed": true
+            },
+            "JolDump$TwoRefs": {
+              "agrees": true,
+              "differences": [],
+              "jol": {
+                "parseClass": {
+                  "fields": {
+                    "a": 8,
+                    "b": 12
+                  },
+                  "header_size": 8,
+                  "instance_size": 16
+                },
+                "parseInstance": {
+                  "fields": {
+                    "a": 8,
+                    "b": 12
+                  },
+                  "header_size": 8,
+                  "instance_size": 16
+                }
+              },
+              "jol_answered": true,
+              "vm": {
+                "fields": {
+                  "a": 8,
+                  "b": 12
+                },
+                "instance_size": 16
+              },
+              "vm_printed": true
+            },
+            "java.lang.String": {
+              "agrees": false,
+              "differences": [
+                "parseClass has no field flags",
+                "parseInstance has no field flags"
+              ],
+              "jol": {
+                "parseClass": {
+                  "fields": {
+                    "coder": 12,
+                    "hash": 8,
+                    "hashIsZero": 13,
+                    "value": 16
+                  },
+                  "header_size": 8,
+                  "instance_size": 24
+                },
+                "parseInstance": {
+                  "fields": {
+                    "coder": 12,
+                    "hash": 8,
+                    "hashIsZero": 13,
+                    "value": 16
+                  },
+                  "header_size": 8,
+                  "instance_size": 24
+                }
+              },
+              "jol_answered": true,
+              "vm": {
+                "fields": {
+                  "coder": 12,
+                  "flags": 14,
+                  "hash": 8,
+                  "hashIsZero": 13,
+                  "value": 16
+                },
+                "instance_size": 24
+              },
+              "vm_printed": true
+            }
+          },
+          "command": [
+            "-XX:+PrintFieldLayout",
+            "-Xshare:off",
+            "-cp",
+            "/work/classes:/work/jol-core-0.17.jar",
+            "JolDump",
+            "JolDump$Empty",
+            "JolDump$OneBoolean",
+            "JolDump$OneInt",
+            "JolDump$OneLong",
+            "JolDump$OneRef",
+            "JolDump$TwoRefs",
+            "JolDump$MixedPrimitives",
+            "JolDump$RefsAndPrimitives",
+            "JolDump$Parent",
+            "JolDump$Child",
+            "JolDump$Grandchild",
+            "java.lang.String"
+          ],
+          "jol": {
+            "details": "# VM mode: 64 bits # Lilliput VM detected (experimental) # Compressed references (oops): 3-bit shift # Compressed class pointers: 3-bit shift # WARNING | Compressed references base/shifts are guessed by the experiment! # WARNING | Therefore, computed addresses are just guesses, and ARE NOT RELIABLE. # WARNING | Make sure to attach Serviceability Agent to get the reliable addresses. # Object alignment: 8 bytes #                       ref, bool, byte, char, shrt,  int,  flt,  lng,  dbl # Field sizes:            4,    1,    1,    2,    2,    4,    4,    8,    8 # Array element sizes:    4,    1,    1,    2,    2,    4,    4,    8,    8 # Array base offsets:    12,   12,   12,   12,   12,   12,   12,   16,   16",
+            "vm": {
+              "addressSize": "8",
+              "arrayHeaderSize": "12",
+              "objectAlignment": "8",
+              "objectHeaderSize": "8"
+            },
+            "warnings": [
+              "# WARNING: Unable to get Instrumentation. Dynamic Attach failed. You may add this JAR as -javaagent manually, or supply -Djdk.attach.allowAttachSelf",
+              "# WARNING: Unable to attach Serviceability Agent. You can try again with escalated privileges. Two options: a) use -Djol.tryWithSudo=true to try with sudo; b) echo 0 | sudo tee /proc/sys/kernel/yama/ptrace_scope",
+              "WARNING: A terminally deprecated method in sun.misc.Unsafe has been called",
+              "WARNING: sun.misc.Unsafe::arrayBaseOffset has been called by org.openjdk.jol.vm.HotspotUnsafe (file:/work/jol-core-0.17.jar)",
+              "WARNING: Please consider reporting this to the maintainers of class org.openjdk.jol.vm.HotspotUnsafe",
+              "WARNING: sun.misc.Unsafe::arrayBaseOffset will be removed in a future release"
+            ]
+          },
+          "ok": true,
+          "unparsed": []
+        }
+      }
+    },
+    "heap_above_32g": {
+      "flags_asked": [
+        "-Xmx33g"
+      ],
+      "flags_reported": {
+        "ObjectAlignmentInBytes": "8",
+        "UseCompactObjectHeaders": "true",
+        "UseCompressedOops": "false",
+        "warnings": ""
+      },
+      "runs": {
+        "attach_self": {
+          "classes": {
+            "JolDump$Child": {
+              "agrees": true,
+              "differences": [],
+              "jol": {
+                "parseClass": {
+                  "fields": {
+                    "a": 8,
+                    "b": 16
+                  },
+                  "header_size": 8,
+                  "instance_size": 24
+                },
+                "parseInstance": {
+                  "fields": {
+                    "a": 8,
+                    "b": 16
+                  },
+                  "header_size": 8,
+                  "instance_size": 24
+                }
+              },
+              "jol_answered": true,
+              "vm": {
+                "fields": {
+                  "a": 8,
+                  "b": 16
+                },
+                "instance_size": 24
+              },
+              "vm_printed": true
+            },
+            "JolDump$Empty": {
+              "agrees": true,
+              "differences": [],
+              "jol": {
+                "parseClass": {
+                  "fields": {},
+                  "header_size": 8,
+                  "instance_size": 8
+                },
+                "parseInstance": {
+                  "fields": {},
+                  "header_size": 8,
+                  "instance_size": 8
+                }
+              },
+              "jol_answered": true,
+              "vm": {
+                "fields": {},
+                "instance_size": 8
+              },
+              "vm_printed": true
+            },
+            "JolDump$Grandchild": {
+              "agrees": true,
+              "differences": [],
+              "jol": {
+                "parseClass": {
+                  "fields": {
+                    "a": 8,
+                    "b": 16,
+                    "c": 24
+                  },
+                  "header_size": 8,
+                  "instance_size": 32
+                },
+                "parseInstance": {
+                  "fields": {
+                    "a": 8,
+                    "b": 16,
+                    "c": 24
+                  },
+                  "header_size": 8,
+                  "instance_size": 32
+                }
+              },
+              "jol_answered": true,
+              "vm": {
+                "fields": {
+                  "a": 8,
+                  "b": 16,
+                  "c": 24
+                },
+                "instance_size": 32
+              },
+              "vm_printed": true
+            },
+            "JolDump$MixedPrimitives": {
+              "agrees": true,
+              "differences": [],
+              "jol": {
+                "parseClass": {
+                  "fields": {
+                    "a": 8,
+                    "b": 16,
+                    "c": 20,
+                    "d": 22,
+                    "e": 24,
+                    "f": 25
+                  },
+                  "header_size": 8,
+                  "instance_size": 32
+                },
+                "parseInstance": {
+                  "fields": {
+                    "a": 8,
+                    "b": 16,
+                    "c": 20,
+                    "d": 22,
+                    "e": 24,
+                    "f": 25
+                  },
+                  "header_size": 8,
+                  "instance_size": 32
+                }
+              },
+              "jol_answered": true,
+              "vm": {
+                "fields": {
+                  "a": 8,
+                  "b": 16,
+                  "c": 20,
+                  "d": 22,
+                  "e": 24,
+                  "f": 25
+                },
+                "instance_size": 32
+              },
+              "vm_printed": true
+            },
+            "JolDump$OneBoolean": {
+              "agrees": true,
+              "differences": [],
+              "jol": {
+                "parseClass": {
+                  "fields": {
+                    "a": 8
+                  },
+                  "header_size": 8,
+                  "instance_size": 16
+                },
+                "parseInstance": {
+                  "fields": {
+                    "a": 8
+                  },
+                  "header_size": 8,
+                  "instance_size": 16
+                }
+              },
+              "jol_answered": true,
+              "vm": {
+                "fields": {
+                  "a": 8
+                },
+                "instance_size": 16
+              },
+              "vm_printed": true
+            },
+            "JolDump$OneInt": {
+              "agrees": true,
+              "differences": [],
+              "jol": {
+                "parseClass": {
+                  "fields": {
+                    "a": 8
+                  },
+                  "header_size": 8,
+                  "instance_size": 16
+                },
+                "parseInstance": {
+                  "fields": {
+                    "a": 8
+                  },
+                  "header_size": 8,
+                  "instance_size": 16
+                }
+              },
+              "jol_answered": true,
+              "vm": {
+                "fields": {
+                  "a": 8
+                },
+                "instance_size": 16
+              },
+              "vm_printed": true
+            },
+            "JolDump$OneLong": {
+              "agrees": true,
+              "differences": [],
+              "jol": {
+                "parseClass": {
+                  "fields": {
+                    "a": 8
+                  },
+                  "header_size": 8,
+                  "instance_size": 16
+                },
+                "parseInstance": {
+                  "fields": {
+                    "a": 8
+                  },
+                  "header_size": 8,
+                  "instance_size": 16
+                }
+              },
+              "jol_answered": true,
+              "vm": {
+                "fields": {
+                  "a": 8
+                },
+                "instance_size": 16
+              },
+              "vm_printed": true
+            },
+            "JolDump$OneRef": {
+              "agrees": true,
+              "differences": [],
+              "jol": {
+                "parseClass": {
+                  "fields": {
+                    "a": 8
+                  },
+                  "header_size": 8,
+                  "instance_size": 16
+                },
+                "parseInstance": {
+                  "fields": {
+                    "a": 8
+                  },
+                  "header_size": 8,
+                  "instance_size": 16
+                }
+              },
+              "jol_answered": true,
+              "vm": {
+                "fields": {
+                  "a": 8
+                },
+                "instance_size": 16
+              },
+              "vm_printed": true
+            },
+            "JolDump$Parent": {
+              "agrees": true,
+              "differences": [],
+              "jol": {
+                "parseClass": {
+                  "fields": {
+                    "a": 8
+                  },
+                  "header_size": 8,
+                  "instance_size": 16
+                },
+                "parseInstance": {
+                  "fields": {
+                    "a": 8
+                  },
+                  "header_size": 8,
+                  "instance_size": 16
+                }
+              },
+              "jol_answered": true,
+              "vm": {
+                "fields": {
+                  "a": 8
+                },
+                "instance_size": 16
+              },
+              "vm_printed": true
+            },
+            "JolDump$RefsAndPrimitives": {
+              "agrees": true,
+              "differences": [],
+              "jol": {
+                "parseClass": {
+                  "fields": {
+                    "a": 24,
+                    "b": 8,
+                    "c": 32,
+                    "d": 16
+                  },
+                  "header_size": 8,
+                  "instance_size": 40
+                },
+                "parseInstance": {
+                  "fields": {
+                    "a": 24,
+                    "b": 8,
+                    "c": 32,
+                    "d": 16
+                  },
+                  "header_size": 8,
+                  "instance_size": 40
+                }
+              },
+              "jol_answered": true,
+              "vm": {
+                "fields": {
+                  "a": 24,
+                  "b": 8,
+                  "c": 32,
+                  "d": 16
+                },
+                "instance_size": 40
+              },
+              "vm_printed": true
+            },
+            "JolDump$TwoRefs": {
+              "agrees": true,
+              "differences": [],
+              "jol": {
+                "parseClass": {
+                  "fields": {
+                    "a": 8,
+                    "b": 16
+                  },
+                  "header_size": 8,
+                  "instance_size": 24
+                },
+                "parseInstance": {
+                  "fields": {
+                    "a": 8,
+                    "b": 16
+                  },
+                  "header_size": 8,
+                  "instance_size": 24
+                }
+              },
+              "jol_answered": true,
+              "vm": {
+                "fields": {
+                  "a": 8,
+                  "b": 16
+                },
+                "instance_size": 24
+              },
+              "vm_printed": true
+            },
+            "java.lang.String": {
+              "agrees": false,
+              "differences": [
+                "parseClass has no field flags",
+                "parseInstance has no field flags"
+              ],
+              "jol": {
+                "parseClass": {
+                  "fields": {
+                    "coder": 12,
+                    "hash": 8,
+                    "hashIsZero": 13,
+                    "value": 16
+                  },
+                  "header_size": 8,
+                  "instance_size": 24
+                },
+                "parseInstance": {
+                  "fields": {
+                    "coder": 12,
+                    "hash": 8,
+                    "hashIsZero": 13,
+                    "value": 16
+                  },
+                  "header_size": 8,
+                  "instance_size": 24
+                }
+              },
+              "jol_answered": true,
+              "vm": {
+                "fields": {
+                  "coder": 12,
+                  "flags": 14,
+                  "hash": 8,
+                  "hashIsZero": 13,
+                  "value": 16
+                },
+                "instance_size": 24
+              },
+              "vm_printed": true
+            }
+          },
+          "command": [
+            "-XX:+PrintFieldLayout",
+            "-Xshare:off",
+            "-Xmx33g",
+            "-Djdk.attach.allowAttachSelf=true",
+            "-cp",
+            "/work/classes:/work/jol-core-0.17.jar",
+            "JolDump",
+            "JolDump$Empty",
+            "JolDump$OneBoolean",
+            "JolDump$OneInt",
+            "JolDump$OneLong",
+            "JolDump$OneRef",
+            "JolDump$TwoRefs",
+            "JolDump$MixedPrimitives",
+            "JolDump$RefsAndPrimitives",
+            "JolDump$Parent",
+            "JolDump$Child",
+            "JolDump$Grandchild",
+            "java.lang.String"
+          ],
+          "jol": {
+            "details": "# VM mode: 64 bits # Lilliput VM detected (experimental) # Compressed references (oops): disabled # Compressed class pointers: disabled # Object alignment: 8 bytes #                       ref, bool, byte, char, shrt,  int,  flt,  lng,  dbl # Field sizes:            8,    1,    1,    2,    2,    4,    4,    8,    8 # Array element sizes:    8,    1,    1,    2,    2,    4,    4,    8,    8 # Array base offsets:    16,   12,   12,   12,   12,   12,   12,   16,   16",
+            "vm": {
+              "addressSize": "8",
+              "arrayHeaderSize": "12",
+              "objectAlignment": "8",
+              "objectHeaderSize": "8"
+            },
+            "warnings": [
+              "# WARNING: Unable to attach Serviceability Agent. You can try again with escalated privileges. Two options: a) use -Djol.tryWithSudo=true to try with sudo; b) echo 0 | sudo tee /proc/sys/kernel/yama/ptrace_scope",
+              "WARNING: A Java agent has been loaded dynamically (/tmp/jolAgent10480401901125000747.jar)",
+              "WARNING: If a serviceability tool is in use, please run with -XX:+EnableDynamicAgentLoading to hide this warning",
+              "WARNING: If a serviceability tool is not in use, please run with -Djdk.instrument.traceUsage for more information",
+              "WARNING: Dynamic loading of agents will be disallowed by default in a future release",
+              "WARNING: A terminally deprecated method in sun.misc.Unsafe has been called",
+              "WARNING: sun.misc.Unsafe::arrayBaseOffset has been called by org.openjdk.jol.vm.HotspotUnsafe (file:/work/jol-core-0.17.jar)",
+              "WARNING: Please consider reporting this to the maintainers of class org.openjdk.jol.vm.HotspotUnsafe",
+              "WARNING: sun.misc.Unsafe::arrayBaseOffset will be removed in a future release"
+            ]
+          },
+          "ok": true,
+          "unparsed": []
+        },
+        "no_attach": {
+          "classes": {
+            "JolDump$Child": {
+              "agrees": true,
+              "differences": [],
+              "jol": {
+                "parseClass": {
+                  "fields": {
+                    "a": 8,
+                    "b": 16
+                  },
+                  "header_size": 8,
+                  "instance_size": 24
+                },
+                "parseInstance": {
+                  "fields": {
+                    "a": 8,
+                    "b": 16
+                  },
+                  "header_size": 8,
+                  "instance_size": 24
+                }
+              },
+              "jol_answered": true,
+              "vm": {
+                "fields": {
+                  "a": 8,
+                  "b": 16
+                },
+                "instance_size": 24
+              },
+              "vm_printed": true
+            },
+            "JolDump$Empty": {
+              "agrees": true,
+              "differences": [],
+              "jol": {
+                "parseClass": {
+                  "fields": {},
+                  "header_size": 8,
+                  "instance_size": 8
+                },
+                "parseInstance": {
+                  "fields": {},
+                  "header_size": 8,
+                  "instance_size": 8
+                }
+              },
+              "jol_answered": true,
+              "vm": {
+                "fields": {},
+                "instance_size": 8
+              },
+              "vm_printed": true
+            },
+            "JolDump$Grandchild": {
+              "agrees": true,
+              "differences": [],
+              "jol": {
+                "parseClass": {
+                  "fields": {
+                    "a": 8,
+                    "b": 16,
+                    "c": 24
+                  },
+                  "header_size": 8,
+                  "instance_size": 32
+                },
+                "parseInstance": {
+                  "fields": {
+                    "a": 8,
+                    "b": 16,
+                    "c": 24
+                  },
+                  "header_size": 8,
+                  "instance_size": 32
+                }
+              },
+              "jol_answered": true,
+              "vm": {
+                "fields": {
+                  "a": 8,
+                  "b": 16,
+                  "c": 24
+                },
+                "instance_size": 32
+              },
+              "vm_printed": true
+            },
+            "JolDump$MixedPrimitives": {
+              "agrees": true,
+              "differences": [],
+              "jol": {
+                "parseClass": {
+                  "fields": {
+                    "a": 8,
+                    "b": 16,
+                    "c": 20,
+                    "d": 22,
+                    "e": 24,
+                    "f": 25
+                  },
+                  "header_size": 8,
+                  "instance_size": 32
+                },
+                "parseInstance": {
+                  "fields": {
+                    "a": 8,
+                    "b": 16,
+                    "c": 20,
+                    "d": 22,
+                    "e": 24,
+                    "f": 25
+                  },
+                  "header_size": 8,
+                  "instance_size": 32
+                }
+              },
+              "jol_answered": true,
+              "vm": {
+                "fields": {
+                  "a": 8,
+                  "b": 16,
+                  "c": 20,
+                  "d": 22,
+                  "e": 24,
+                  "f": 25
+                },
+                "instance_size": 32
+              },
+              "vm_printed": true
+            },
+            "JolDump$OneBoolean": {
+              "agrees": true,
+              "differences": [],
+              "jol": {
+                "parseClass": {
+                  "fields": {
+                    "a": 8
+                  },
+                  "header_size": 8,
+                  "instance_size": 16
+                },
+                "parseInstance": {
+                  "fields": {
+                    "a": 8
+                  },
+                  "header_size": 8,
+                  "instance_size": 16
+                }
+              },
+              "jol_answered": true,
+              "vm": {
+                "fields": {
+                  "a": 8
+                },
+                "instance_size": 16
+              },
+              "vm_printed": true
+            },
+            "JolDump$OneInt": {
+              "agrees": true,
+              "differences": [],
+              "jol": {
+                "parseClass": {
+                  "fields": {
+                    "a": 8
+                  },
+                  "header_size": 8,
+                  "instance_size": 16
+                },
+                "parseInstance": {
+                  "fields": {
+                    "a": 8
+                  },
+                  "header_size": 8,
+                  "instance_size": 16
+                }
+              },
+              "jol_answered": true,
+              "vm": {
+                "fields": {
+                  "a": 8
+                },
+                "instance_size": 16
+              },
+              "vm_printed": true
+            },
+            "JolDump$OneLong": {
+              "agrees": true,
+              "differences": [],
+              "jol": {
+                "parseClass": {
+                  "fields": {
+                    "a": 8
+                  },
+                  "header_size": 8,
+                  "instance_size": 16
+                },
+                "parseInstance": {
+                  "fields": {
+                    "a": 8
+                  },
+                  "header_size": 8,
+                  "instance_size": 16
+                }
+              },
+              "jol_answered": true,
+              "vm": {
+                "fields": {
+                  "a": 8
+                },
+                "instance_size": 16
+              },
+              "vm_printed": true
+            },
+            "JolDump$OneRef": {
+              "agrees": true,
+              "differences": [],
+              "jol": {
+                "parseClass": {
+                  "fields": {
+                    "a": 8
+                  },
+                  "header_size": 8,
+                  "instance_size": 16
+                },
+                "parseInstance": {
+                  "fields": {
+                    "a": 8
+                  },
+                  "header_size": 8,
+                  "instance_size": 16
+                }
+              },
+              "jol_answered": true,
+              "vm": {
+                "fields": {
+                  "a": 8
+                },
+                "instance_size": 16
+              },
+              "vm_printed": true
+            },
+            "JolDump$Parent": {
+              "agrees": true,
+              "differences": [],
+              "jol": {
+                "parseClass": {
+                  "fields": {
+                    "a": 8
+                  },
+                  "header_size": 8,
+                  "instance_size": 16
+                },
+                "parseInstance": {
+                  "fields": {
+                    "a": 8
+                  },
+                  "header_size": 8,
+                  "instance_size": 16
+                }
+              },
+              "jol_answered": true,
+              "vm": {
+                "fields": {
+                  "a": 8
+                },
+                "instance_size": 16
+              },
+              "vm_printed": true
+            },
+            "JolDump$RefsAndPrimitives": {
+              "agrees": true,
+              "differences": [],
+              "jol": {
+                "parseClass": {
+                  "fields": {
+                    "a": 24,
+                    "b": 8,
+                    "c": 32,
+                    "d": 16
+                  },
+                  "header_size": 8,
+                  "instance_size": 40
+                },
+                "parseInstance": {
+                  "fields": {
+                    "a": 24,
+                    "b": 8,
+                    "c": 32,
+                    "d": 16
+                  },
+                  "header_size": 8,
+                  "instance_size": 40
+                }
+              },
+              "jol_answered": true,
+              "vm": {
+                "fields": {
+                  "a": 24,
+                  "b": 8,
+                  "c": 32,
+                  "d": 16
+                },
+                "instance_size": 40
+              },
+              "vm_printed": true
+            },
+            "JolDump$TwoRefs": {
+              "agrees": true,
+              "differences": [],
+              "jol": {
+                "parseClass": {
+                  "fields": {
+                    "a": 8,
+                    "b": 16
+                  },
+                  "header_size": 8,
+                  "instance_size": 24
+                },
+                "parseInstance": {
+                  "fields": {
+                    "a": 8,
+                    "b": 16
+                  },
+                  "header_size": 8,
+                  "instance_size": 24
+                }
+              },
+              "jol_answered": true,
+              "vm": {
+                "fields": {
+                  "a": 8,
+                  "b": 16
+                },
+                "instance_size": 24
+              },
+              "vm_printed": true
+            },
+            "java.lang.String": {
+              "agrees": false,
+              "differences": [
+                "parseClass has no field flags",
+                "parseInstance has no field flags"
+              ],
+              "jol": {
+                "parseClass": {
+                  "fields": {
+                    "coder": 12,
+                    "hash": 8,
+                    "hashIsZero": 13,
+                    "value": 16
+                  },
+                  "header_size": 8,
+                  "instance_size": 24
+                },
+                "parseInstance": {
+                  "fields": {
+                    "coder": 12,
+                    "hash": 8,
+                    "hashIsZero": 13,
+                    "value": 16
+                  },
+                  "header_size": 8,
+                  "instance_size": 24
+                }
+              },
+              "jol_answered": true,
+              "vm": {
+                "fields": {
+                  "coder": 12,
+                  "flags": 14,
+                  "hash": 8,
+                  "hashIsZero": 13,
+                  "value": 16
+                },
+                "instance_size": 24
+              },
+              "vm_printed": true
+            }
+          },
+          "command": [
+            "-XX:+PrintFieldLayout",
+            "-Xshare:off",
+            "-Xmx33g",
+            "-cp",
+            "/work/classes:/work/jol-core-0.17.jar",
+            "JolDump",
+            "JolDump$Empty",
+            "JolDump$OneBoolean",
+            "JolDump$OneInt",
+            "JolDump$OneLong",
+            "JolDump$OneRef",
+            "JolDump$TwoRefs",
+            "JolDump$MixedPrimitives",
+            "JolDump$RefsAndPrimitives",
+            "JolDump$Parent",
+            "JolDump$Child",
+            "JolDump$Grandchild",
+            "java.lang.String"
+          ],
+          "jol": {
+            "details": "# VM mode: 64 bits # Lilliput VM detected (experimental) # Compressed references (oops): disabled # Compressed class pointers: disabled # Object alignment: 8 bytes #                       ref, bool, byte, char, shrt,  int,  flt,  lng,  dbl # Field sizes:            8,    1,    1,    2,    2,    4,    4,    8,    8 # Array element sizes:    8,    1,    1,    2,    2,    4,    4,    8,    8 # Array base offsets:    16,   12,   12,   12,   12,   12,   12,   16,   16",
+            "vm": {
+              "addressSize": "8",
+              "arrayHeaderSize": "12",
+              "objectAlignment": "8",
+              "objectHeaderSize": "8"
+            },
+            "warnings": [
+              "# WARNING: Unable to get Instrumentation. Dynamic Attach failed. You may add this JAR as -javaagent manually, or supply -Djdk.attach.allowAttachSelf",
+              "# WARNING: Unable to attach Serviceability Agent. You can try again with escalated privileges. Two options: a) use -Djol.tryWithSudo=true to try with sudo; b) echo 0 | sudo tee /proc/sys/kernel/yama/ptrace_scope",
+              "WARNING: A terminally deprecated method in sun.misc.Unsafe has been called",
+              "WARNING: sun.misc.Unsafe::arrayBaseOffset has been called by org.openjdk.jol.vm.HotspotUnsafe (file:/work/jol-core-0.17.jar)",
+              "WARNING: Please consider reporting this to the maintainers of class org.openjdk.jol.vm.HotspotUnsafe",
+              "WARNING: sun.misc.Unsafe::arrayBaseOffset will be removed in a future release"
+            ]
+          },
+          "ok": true,
+          "unparsed": []
+        }
+      }
+    },
+    "no_compact_headers": {
+      "flags_asked": [
+        "-XX:-UseCompactObjectHeaders"
+      ],
+      "flags_reported": {
+        "ObjectAlignmentInBytes": "8",
+        "UseCompactObjectHeaders": "false",
+        "UseCompressedOops": "true",
+        "warnings": ""
+      },
+      "runs": {
+        "attach_self": {
+          "classes": {
+            "JolDump$Child": {
+              "agrees": true,
+              "differences": [],
+              "jol": {
+                "parseClass": {
+                  "fields": {
+                    "a": 12,
+                    "b": 16
+                  },
+                  "header_size": 12,
+                  "instance_size": 24
+                },
+                "parseInstance": {
+                  "fields": {
+                    "a": 12,
+                    "b": 16
+                  },
+                  "header_size": 12,
+                  "instance_size": 24
+                }
+              },
+              "jol_answered": true,
+              "vm": {
+                "fields": {
+                  "a": 12,
+                  "b": 16
+                },
+                "instance_size": 24
+              },
+              "vm_printed": true
+            },
+            "JolDump$Empty": {
+              "agrees": true,
+              "differences": [],
+              "jol": {
+                "parseClass": {
+                  "fields": {},
+                  "header_size": 12,
+                  "instance_size": 16
+                },
+                "parseInstance": {
+                  "fields": {},
+                  "header_size": 12,
+                  "instance_size": 16
+                }
+              },
+              "jol_answered": true,
+              "vm": {
+                "fields": {},
+                "instance_size": 16
+              },
+              "vm_printed": true
+            },
+            "JolDump$Grandchild": {
+              "agrees": true,
+              "differences": [],
+              "jol": {
+                "parseClass": {
+                  "fields": {
+                    "a": 12,
+                    "b": 16,
+                    "c": 24
+                  },
+                  "header_size": 12,
+                  "instance_size": 32
+                },
+                "parseInstance": {
+                  "fields": {
+                    "a": 12,
+                    "b": 16,
+                    "c": 24
+                  },
+                  "header_size": 12,
+                  "instance_size": 32
+                }
+              },
+              "jol_answered": true,
+              "vm": {
+                "fields": {
+                  "a": 12,
+                  "b": 16,
+                  "c": 24
+                },
+                "instance_size": 32
+              },
+              "vm_printed": true
+            },
+            "JolDump$MixedPrimitives": {
+              "agrees": true,
+              "differences": [],
+              "jol": {
+                "parseClass": {
+                  "fields": {
+                    "a": 16,
+                    "b": 12,
+                    "c": 24,
+                    "d": 26,
+                    "e": 28,
+                    "f": 29
+                  },
+                  "header_size": 12,
+                  "instance_size": 32
+                },
+                "parseInstance": {
+                  "fields": {
+                    "a": 16,
+                    "b": 12,
+                    "c": 24,
+                    "d": 26,
+                    "e": 28,
+                    "f": 29
+                  },
+                  "header_size": 12,
+                  "instance_size": 32
+                }
+              },
+              "jol_answered": true,
+              "vm": {
+                "fields": {
+                  "a": 16,
+                  "b": 12,
+                  "c": 24,
+                  "d": 26,
+                  "e": 28,
+                  "f": 29
+                },
+                "instance_size": 32
+              },
+              "vm_printed": true
+            },
+            "JolDump$OneBoolean": {
+              "agrees": true,
+              "differences": [],
+              "jol": {
+                "parseClass": {
+                  "fields": {
+                    "a": 12
+                  },
+                  "header_size": 12,
+                  "instance_size": 16
+                },
+                "parseInstance": {
+                  "fields": {
+                    "a": 12
+                  },
+                  "header_size": 12,
+                  "instance_size": 16
+                }
+              },
+              "jol_answered": true,
+              "vm": {
+                "fields": {
+                  "a": 12
+                },
+                "instance_size": 16
+              },
+              "vm_printed": true
+            },
+            "JolDump$OneInt": {
+              "agrees": true,
+              "differences": [],
+              "jol": {
+                "parseClass": {
+                  "fields": {
+                    "a": 12
+                  },
+                  "header_size": 12,
+                  "instance_size": 16
+                },
+                "parseInstance": {
+                  "fields": {
+                    "a": 12
+                  },
+                  "header_size": 12,
+                  "instance_size": 16
+                }
+              },
+              "jol_answered": true,
+              "vm": {
+                "fields": {
+                  "a": 12
+                },
+                "instance_size": 16
+              },
+              "vm_printed": true
+            },
+            "JolDump$OneLong": {
+              "agrees": true,
+              "differences": [],
+              "jol": {
+                "parseClass": {
+                  "fields": {
+                    "a": 16
+                  },
+                  "header_size": 12,
+                  "instance_size": 24
+                },
+                "parseInstance": {
+                  "fields": {
+                    "a": 16
+                  },
+                  "header_size": 12,
+                  "instance_size": 24
+                }
+              },
+              "jol_answered": true,
+              "vm": {
+                "fields": {
+                  "a": 16
+                },
+                "instance_size": 24
+              },
+              "vm_printed": true
+            },
+            "JolDump$OneRef": {
+              "agrees": true,
+              "differences": [],
+              "jol": {
+                "parseClass": {
+                  "fields": {
+                    "a": 12
+                  },
+                  "header_size": 12,
+                  "instance_size": 16
+                },
+                "parseInstance": {
+                  "fields": {
+                    "a": 12
+                  },
+                  "header_size": 12,
+                  "instance_size": 16
+                }
+              },
+              "jol_answered": true,
+              "vm": {
+                "fields": {
+                  "a": 12
+                },
+                "instance_size": 16
+              },
+              "vm_printed": true
+            },
+            "JolDump$Parent": {
+              "agrees": true,
+              "differences": [],
+              "jol": {
+                "parseClass": {
+                  "fields": {
+                    "a": 12
+                  },
+                  "header_size": 12,
+                  "instance_size": 16
+                },
+                "parseInstance": {
+                  "fields": {
+                    "a": 12
+                  },
+                  "header_size": 12,
+                  "instance_size": 16
+                }
+              },
+              "jol_answered": true,
+              "vm": {
+                "fields": {
+                  "a": 12
+                },
+                "instance_size": 16
+              },
+              "vm_printed": true
+            },
+            "JolDump$RefsAndPrimitives": {
+              "agrees": true,
+              "differences": [],
+              "jol": {
+                "parseClass": {
+                  "fields": {
+                    "a": 24,
+                    "b": 16,
+                    "c": 28,
+                    "d": 12
+                  },
+                  "header_size": 12,
+                  "instance_size": 32
+                },
+                "parseInstance": {
+                  "fields": {
+                    "a": 24,
+                    "b": 16,
+                    "c": 28,
+                    "d": 12
+                  },
+                  "header_size": 12,
+                  "instance_size": 32
+                }
+              },
+              "jol_answered": true,
+              "vm": {
+                "fields": {
+                  "a": 24,
+                  "b": 16,
+                  "c": 28,
+                  "d": 12
+                },
+                "instance_size": 32
+              },
+              "vm_printed": true
+            },
+            "JolDump$TwoRefs": {
+              "agrees": true,
+              "differences": [],
+              "jol": {
+                "parseClass": {
+                  "fields": {
+                    "a": 12,
+                    "b": 16
+                  },
+                  "header_size": 12,
+                  "instance_size": 24
+                },
+                "parseInstance": {
+                  "fields": {
+                    "a": 12,
+                    "b": 16
+                  },
+                  "header_size": 12,
+                  "instance_size": 24
+                }
+              },
+              "jol_answered": true,
+              "vm": {
+                "fields": {
+                  "a": 12,
+                  "b": 16
+                },
+                "instance_size": 24
+              },
+              "vm_printed": true
+            },
+            "java.lang.String": {
+              "agrees": false,
+              "differences": [
+                "parseClass has no field flags",
+                "parseInstance has no field flags"
+              ],
+              "jol": {
+                "parseClass": {
+                  "fields": {
+                    "coder": 16,
+                    "hash": 12,
+                    "hashIsZero": 17,
+                    "value": 20
+                  },
+                  "header_size": 12,
+                  "instance_size": 24
+                },
+                "parseInstance": {
+                  "fields": {
+                    "coder": 16,
+                    "hash": 12,
+                    "hashIsZero": 17,
+                    "value": 20
+                  },
+                  "header_size": 12,
+                  "instance_size": 24
+                }
+              },
+              "jol_answered": true,
+              "vm": {
+                "fields": {
+                  "coder": 16,
+                  "flags": 18,
+                  "hash": 12,
+                  "hashIsZero": 17,
+                  "value": 20
+                },
+                "instance_size": 24
+              },
+              "vm_printed": true
+            }
+          },
+          "command": [
+            "-XX:+PrintFieldLayout",
+            "-Xshare:off",
+            "-XX:-UseCompactObjectHeaders",
+            "-Djdk.attach.allowAttachSelf=true",
+            "-cp",
+            "/work/classes:/work/jol-core-0.17.jar",
+            "JolDump",
+            "JolDump$Empty",
+            "JolDump$OneBoolean",
+            "JolDump$OneInt",
+            "JolDump$OneLong",
+            "JolDump$OneRef",
+            "JolDump$TwoRefs",
+            "JolDump$MixedPrimitives",
+            "JolDump$RefsAndPrimitives",
+            "JolDump$Parent",
+            "JolDump$Child",
+            "JolDump$Grandchild",
+            "java.lang.String"
+          ],
+          "jol": {
+            "details": "# VM mode: 64 bits # Compressed references (oops): 3-bit shift # Compressed class pointers: 3-bit shift # WARNING | Compressed references base/shifts are guessed by the experiment! # WARNING | Therefore, computed addresses are just guesses, and ARE NOT RELIABLE. # WARNING | Make sure to attach Serviceability Agent to get the reliable addresses. # Object alignment: 8 bytes #                       ref, bool, byte, char, shrt,  int,  flt,  lng,  dbl # Field sizes:            4,    1,    1,    2,    2,    4,    4,    8,    8 # Array element sizes:    4,    1,    1,    2,    2,    4,    4,    8,    8 # Array base offsets:    16,   16,   16,   16,   16,   16,   16,   16,   16",
+            "vm": {
+              "addressSize": "8",
+              "arrayHeaderSize": "16",
+              "objectAlignment": "8",
+              "objectHeaderSize": "12"
+            },
+            "warnings": [
+              "# WARNING: Unable to attach Serviceability Agent. You can try again with escalated privileges. Two options: a) use -Djol.tryWithSudo=true to try with sudo; b) echo 0 | sudo tee /proc/sys/kernel/yama/ptrace_scope",
+              "WARNING: A Java agent has been loaded dynamically (/tmp/jolAgent15182914526147264591.jar)",
+              "WARNING: If a serviceability tool is in use, please run with -XX:+EnableDynamicAgentLoading to hide this warning",
+              "WARNING: If a serviceability tool is not in use, please run with -Djdk.instrument.traceUsage for more information",
+              "WARNING: Dynamic loading of agents will be disallowed by default in a future release",
+              "WARNING: A terminally deprecated method in sun.misc.Unsafe has been called",
+              "WARNING: sun.misc.Unsafe::arrayBaseOffset has been called by org.openjdk.jol.vm.HotspotUnsafe (file:/work/jol-core-0.17.jar)",
+              "WARNING: Please consider reporting this to the maintainers of class org.openjdk.jol.vm.HotspotUnsafe",
+              "WARNING: sun.misc.Unsafe::arrayBaseOffset will be removed in a future release"
+            ]
+          },
+          "ok": true,
+          "unparsed": []
+        },
+        "no_attach": {
+          "classes": {
+            "JolDump$Child": {
+              "agrees": true,
+              "differences": [],
+              "jol": {
+                "parseClass": {
+                  "fields": {
+                    "a": 12,
+                    "b": 16
+                  },
+                  "header_size": 12,
+                  "instance_size": 24
+                },
+                "parseInstance": {
+                  "fields": {
+                    "a": 12,
+                    "b": 16
+                  },
+                  "header_size": 12,
+                  "instance_size": 24
+                }
+              },
+              "jol_answered": true,
+              "vm": {
+                "fields": {
+                  "a": 12,
+                  "b": 16
+                },
+                "instance_size": 24
+              },
+              "vm_printed": true
+            },
+            "JolDump$Empty": {
+              "agrees": true,
+              "differences": [],
+              "jol": {
+                "parseClass": {
+                  "fields": {},
+                  "header_size": 12,
+                  "instance_size": 16
+                },
+                "parseInstance": {
+                  "fields": {},
+                  "header_size": 12,
+                  "instance_size": 16
+                }
+              },
+              "jol_answered": true,
+              "vm": {
+                "fields": {},
+                "instance_size": 16
+              },
+              "vm_printed": true
+            },
+            "JolDump$Grandchild": {
+              "agrees": true,
+              "differences": [],
+              "jol": {
+                "parseClass": {
+                  "fields": {
+                    "a": 12,
+                    "b": 16,
+                    "c": 24
+                  },
+                  "header_size": 12,
+                  "instance_size": 32
+                },
+                "parseInstance": {
+                  "fields": {
+                    "a": 12,
+                    "b": 16,
+                    "c": 24
+                  },
+                  "header_size": 12,
+                  "instance_size": 32
+                }
+              },
+              "jol_answered": true,
+              "vm": {
+                "fields": {
+                  "a": 12,
+                  "b": 16,
+                  "c": 24
+                },
+                "instance_size": 32
+              },
+              "vm_printed": true
+            },
+            "JolDump$MixedPrimitives": {
+              "agrees": true,
+              "differences": [],
+              "jol": {
+                "parseClass": {
+                  "fields": {
+                    "a": 16,
+                    "b": 12,
+                    "c": 24,
+                    "d": 26,
+                    "e": 28,
+                    "f": 29
+                  },
+                  "header_size": 12,
+                  "instance_size": 32
+                },
+                "parseInstance": {
+                  "fields": {
+                    "a": 16,
+                    "b": 12,
+                    "c": 24,
+                    "d": 26,
+                    "e": 28,
+                    "f": 29
+                  },
+                  "header_size": 12,
+                  "instance_size": 32
+                }
+              },
+              "jol_answered": true,
+              "vm": {
+                "fields": {
+                  "a": 16,
+                  "b": 12,
+                  "c": 24,
+                  "d": 26,
+                  "e": 28,
+                  "f": 29
+                },
+                "instance_size": 32
+              },
+              "vm_printed": true
+            },
+            "JolDump$OneBoolean": {
+              "agrees": true,
+              "differences": [],
+              "jol": {
+                "parseClass": {
+                  "fields": {
+                    "a": 12
+                  },
+                  "header_size": 12,
+                  "instance_size": 16
+                },
+                "parseInstance": {
+                  "fields": {
+                    "a": 12
+                  },
+                  "header_size": 12,
+                  "instance_size": 16
+                }
+              },
+              "jol_answered": true,
+              "vm": {
+                "fields": {
+                  "a": 12
+                },
+                "instance_size": 16
+              },
+              "vm_printed": true
+            },
+            "JolDump$OneInt": {
+              "agrees": true,
+              "differences": [],
+              "jol": {
+                "parseClass": {
+                  "fields": {
+                    "a": 12
+                  },
+                  "header_size": 12,
+                  "instance_size": 16
+                },
+                "parseInstance": {
+                  "fields": {
+                    "a": 12
+                  },
+                  "header_size": 12,
+                  "instance_size": 16
+                }
+              },
+              "jol_answered": true,
+              "vm": {
+                "fields": {
+                  "a": 12
+                },
+                "instance_size": 16
+              },
+              "vm_printed": true
+            },
+            "JolDump$OneLong": {
+              "agrees": true,
+              "differences": [],
+              "jol": {
+                "parseClass": {
+                  "fields": {
+                    "a": 16
+                  },
+                  "header_size": 12,
+                  "instance_size": 24
+                },
+                "parseInstance": {
+                  "fields": {
+                    "a": 16
+                  },
+                  "header_size": 12,
+                  "instance_size": 24
+                }
+              },
+              "jol_answered": true,
+              "vm": {
+                "fields": {
+                  "a": 16
+                },
+                "instance_size": 24
+              },
+              "vm_printed": true
+            },
+            "JolDump$OneRef": {
+              "agrees": true,
+              "differences": [],
+              "jol": {
+                "parseClass": {
+                  "fields": {
+                    "a": 12
+                  },
+                  "header_size": 12,
+                  "instance_size": 16
+                },
+                "parseInstance": {
+                  "fields": {
+                    "a": 12
+                  },
+                  "header_size": 12,
+                  "instance_size": 16
+                }
+              },
+              "jol_answered": true,
+              "vm": {
+                "fields": {
+                  "a": 12
+                },
+                "instance_size": 16
+              },
+              "vm_printed": true
+            },
+            "JolDump$Parent": {
+              "agrees": true,
+              "differences": [],
+              "jol": {
+                "parseClass": {
+                  "fields": {
+                    "a": 12
+                  },
+                  "header_size": 12,
+                  "instance_size": 16
+                },
+                "parseInstance": {
+                  "fields": {
+                    "a": 12
+                  },
+                  "header_size": 12,
+                  "instance_size": 16
+                }
+              },
+              "jol_answered": true,
+              "vm": {
+                "fields": {
+                  "a": 12
+                },
+                "instance_size": 16
+              },
+              "vm_printed": true
+            },
+            "JolDump$RefsAndPrimitives": {
+              "agrees": true,
+              "differences": [],
+              "jol": {
+                "parseClass": {
+                  "fields": {
+                    "a": 24,
+                    "b": 16,
+                    "c": 28,
+                    "d": 12
+                  },
+                  "header_size": 12,
+                  "instance_size": 32
+                },
+                "parseInstance": {
+                  "fields": {
+                    "a": 24,
+                    "b": 16,
+                    "c": 28,
+                    "d": 12
+                  },
+                  "header_size": 12,
+                  "instance_size": 32
+                }
+              },
+              "jol_answered": true,
+              "vm": {
+                "fields": {
+                  "a": 24,
+                  "b": 16,
+                  "c": 28,
+                  "d": 12
+                },
+                "instance_size": 32
+              },
+              "vm_printed": true
+            },
+            "JolDump$TwoRefs": {
+              "agrees": true,
+              "differences": [],
+              "jol": {
+                "parseClass": {
+                  "fields": {
+                    "a": 12,
+                    "b": 16
+                  },
+                  "header_size": 12,
+                  "instance_size": 24
+                },
+                "parseInstance": {
+                  "fields": {
+                    "a": 12,
+                    "b": 16
+                  },
+                  "header_size": 12,
+                  "instance_size": 24
+                }
+              },
+              "jol_answered": true,
+              "vm": {
+                "fields": {
+                  "a": 12,
+                  "b": 16
+                },
+                "instance_size": 24
+              },
+              "vm_printed": true
+            },
+            "java.lang.String": {
+              "agrees": false,
+              "differences": [
+                "parseClass has no field flags",
+                "parseInstance has no field flags"
+              ],
+              "jol": {
+                "parseClass": {
+                  "fields": {
+                    "coder": 16,
+                    "hash": 12,
+                    "hashIsZero": 17,
+                    "value": 20
+                  },
+                  "header_size": 12,
+                  "instance_size": 24
+                },
+                "parseInstance": {
+                  "fields": {
+                    "coder": 16,
+                    "hash": 12,
+                    "hashIsZero": 17,
+                    "value": 20
+                  },
+                  "header_size": 12,
+                  "instance_size": 24
+                }
+              },
+              "jol_answered": true,
+              "vm": {
+                "fields": {
+                  "coder": 16,
+                  "flags": 18,
+                  "hash": 12,
+                  "hashIsZero": 17,
+                  "value": 20
+                },
+                "instance_size": 24
+              },
+              "vm_printed": true
+            }
+          },
+          "command": [
+            "-XX:+PrintFieldLayout",
+            "-Xshare:off",
+            "-XX:-UseCompactObjectHeaders",
+            "-cp",
+            "/work/classes:/work/jol-core-0.17.jar",
+            "JolDump",
+            "JolDump$Empty",
+            "JolDump$OneBoolean",
+            "JolDump$OneInt",
+            "JolDump$OneLong",
+            "JolDump$OneRef",
+            "JolDump$TwoRefs",
+            "JolDump$MixedPrimitives",
+            "JolDump$RefsAndPrimitives",
+            "JolDump$Parent",
+            "JolDump$Child",
+            "JolDump$Grandchild",
+            "java.lang.String"
+          ],
+          "jol": {
+            "details": "# VM mode: 64 bits # Compressed references (oops): 3-bit shift # Compressed class pointers: 3-bit shift # WARNING | Compressed references base/shifts are guessed by the experiment! # WARNING | Therefore, computed addresses are just guesses, and ARE NOT RELIABLE. # WARNING | Make sure to attach Serviceability Agent to get the reliable addresses. # Object alignment: 8 bytes #                       ref, bool, byte, char, shrt,  int,  flt,  lng,  dbl # Field sizes:            4,    1,    1,    2,    2,    4,    4,    8,    8 # Array element sizes:    4,    1,    1,    2,    2,    4,    4,    8,    8 # Array base offsets:    16,   16,   16,   16,   16,   16,   16,   16,   16",
+            "vm": {
+              "addressSize": "8",
+              "arrayHeaderSize": "16",
+              "objectAlignment": "8",
+              "objectHeaderSize": "12"
+            },
+            "warnings": [
+              "# WARNING: Unable to get Instrumentation. Dynamic Attach failed. You may add this JAR as -javaagent manually, or supply -Djdk.attach.allowAttachSelf",
+              "# WARNING: Unable to attach Serviceability Agent. You can try again with escalated privileges. Two options: a) use -Djol.tryWithSudo=true to try with sudo; b) echo 0 | sudo tee /proc/sys/kernel/yama/ptrace_scope",
+              "WARNING: A terminally deprecated method in sun.misc.Unsafe has been called",
+              "WARNING: sun.misc.Unsafe::arrayBaseOffset has been called by org.openjdk.jol.vm.HotspotUnsafe (file:/work/jol-core-0.17.jar)",
+              "WARNING: Please consider reporting this to the maintainers of class org.openjdk.jol.vm.HotspotUnsafe",
+              "WARNING: sun.misc.Unsafe::arrayBaseOffset will be removed in a future release"
+            ]
+          },
+          "ok": true,
+          "unparsed": []
+        }
+      }
+    },
+    "no_compressed_oops": {
+      "flags_asked": [
+        "-XX:-UseCompressedOops"
+      ],
+      "flags_reported": {
+        "ObjectAlignmentInBytes": "8",
+        "UseCompactObjectHeaders": "true",
+        "UseCompressedOops": "false",
+        "warnings": ""
+      },
+      "runs": {
+        "attach_self": {
+          "classes": {
+            "JolDump$Child": {
+              "agrees": true,
+              "differences": [],
+              "jol": {
+                "parseClass": {
+                  "fields": {
+                    "a": 8,
+                    "b": 16
+                  },
+                  "header_size": 8,
+                  "instance_size": 24
+                },
+                "parseInstance": {
+                  "fields": {
+                    "a": 8,
+                    "b": 16
+                  },
+                  "header_size": 8,
+                  "instance_size": 24
+                }
+              },
+              "jol_answered": true,
+              "vm": {
+                "fields": {
+                  "a": 8,
+                  "b": 16
+                },
+                "instance_size": 24
+              },
+              "vm_printed": true
+            },
+            "JolDump$Empty": {
+              "agrees": true,
+              "differences": [],
+              "jol": {
+                "parseClass": {
+                  "fields": {},
+                  "header_size": 8,
+                  "instance_size": 8
+                },
+                "parseInstance": {
+                  "fields": {},
+                  "header_size": 8,
+                  "instance_size": 8
+                }
+              },
+              "jol_answered": true,
+              "vm": {
+                "fields": {},
+                "instance_size": 8
+              },
+              "vm_printed": true
+            },
+            "JolDump$Grandchild": {
+              "agrees": true,
+              "differences": [],
+              "jol": {
+                "parseClass": {
+                  "fields": {
+                    "a": 8,
+                    "b": 16,
+                    "c": 24
+                  },
+                  "header_size": 8,
+                  "instance_size": 32
+                },
+                "parseInstance": {
+                  "fields": {
+                    "a": 8,
+                    "b": 16,
+                    "c": 24
+                  },
+                  "header_size": 8,
+                  "instance_size": 32
+                }
+              },
+              "jol_answered": true,
+              "vm": {
+                "fields": {
+                  "a": 8,
+                  "b": 16,
+                  "c": 24
+                },
+                "instance_size": 32
+              },
+              "vm_printed": true
+            },
+            "JolDump$MixedPrimitives": {
+              "agrees": true,
+              "differences": [],
+              "jol": {
+                "parseClass": {
+                  "fields": {
+                    "a": 8,
+                    "b": 16,
+                    "c": 20,
+                    "d": 22,
+                    "e": 24,
+                    "f": 25
+                  },
+                  "header_size": 8,
+                  "instance_size": 32
+                },
+                "parseInstance": {
+                  "fields": {
+                    "a": 8,
+                    "b": 16,
+                    "c": 20,
+                    "d": 22,
+                    "e": 24,
+                    "f": 25
+                  },
+                  "header_size": 8,
+                  "instance_size": 32
+                }
+              },
+              "jol_answered": true,
+              "vm": {
+                "fields": {
+                  "a": 8,
+                  "b": 16,
+                  "c": 20,
+                  "d": 22,
+                  "e": 24,
+                  "f": 25
+                },
+                "instance_size": 32
+              },
+              "vm_printed": true
+            },
+            "JolDump$OneBoolean": {
+              "agrees": true,
+              "differences": [],
+              "jol": {
+                "parseClass": {
+                  "fields": {
+                    "a": 8
+                  },
+                  "header_size": 8,
+                  "instance_size": 16
+                },
+                "parseInstance": {
+                  "fields": {
+                    "a": 8
+                  },
+                  "header_size": 8,
+                  "instance_size": 16
+                }
+              },
+              "jol_answered": true,
+              "vm": {
+                "fields": {
+                  "a": 8
+                },
+                "instance_size": 16
+              },
+              "vm_printed": true
+            },
+            "JolDump$OneInt": {
+              "agrees": true,
+              "differences": [],
+              "jol": {
+                "parseClass": {
+                  "fields": {
+                    "a": 8
+                  },
+                  "header_size": 8,
+                  "instance_size": 16
+                },
+                "parseInstance": {
+                  "fields": {
+                    "a": 8
+                  },
+                  "header_size": 8,
+                  "instance_size": 16
+                }
+              },
+              "jol_answered": true,
+              "vm": {
+                "fields": {
+                  "a": 8
+                },
+                "instance_size": 16
+              },
+              "vm_printed": true
+            },
+            "JolDump$OneLong": {
+              "agrees": true,
+              "differences": [],
+              "jol": {
+                "parseClass": {
+                  "fields": {
+                    "a": 8
+                  },
+                  "header_size": 8,
+                  "instance_size": 16
+                },
+                "parseInstance": {
+                  "fields": {
+                    "a": 8
+                  },
+                  "header_size": 8,
+                  "instance_size": 16
+                }
+              },
+              "jol_answered": true,
+              "vm": {
+                "fields": {
+                  "a": 8
+                },
+                "instance_size": 16
+              },
+              "vm_printed": true
+            },
+            "JolDump$OneRef": {
+              "agrees": true,
+              "differences": [],
+              "jol": {
+                "parseClass": {
+                  "fields": {
+                    "a": 8
+                  },
+                  "header_size": 8,
+                  "instance_size": 16
+                },
+                "parseInstance": {
+                  "fields": {
+                    "a": 8
+                  },
+                  "header_size": 8,
+                  "instance_size": 16
+                }
+              },
+              "jol_answered": true,
+              "vm": {
+                "fields": {
+                  "a": 8
+                },
+                "instance_size": 16
+              },
+              "vm_printed": true
+            },
+            "JolDump$Parent": {
+              "agrees": true,
+              "differences": [],
+              "jol": {
+                "parseClass": {
+                  "fields": {
+                    "a": 8
+                  },
+                  "header_size": 8,
+                  "instance_size": 16
+                },
+                "parseInstance": {
+                  "fields": {
+                    "a": 8
+                  },
+                  "header_size": 8,
+                  "instance_size": 16
+                }
+              },
+              "jol_answered": true,
+              "vm": {
+                "fields": {
+                  "a": 8
+                },
+                "instance_size": 16
+              },
+              "vm_printed": true
+            },
+            "JolDump$RefsAndPrimitives": {
+              "agrees": true,
+              "differences": [],
+              "jol": {
+                "parseClass": {
+                  "fields": {
+                    "a": 24,
+                    "b": 8,
+                    "c": 32,
+                    "d": 16
+                  },
+                  "header_size": 8,
+                  "instance_size": 40
+                },
+                "parseInstance": {
+                  "fields": {
+                    "a": 24,
+                    "b": 8,
+                    "c": 32,
+                    "d": 16
+                  },
+                  "header_size": 8,
+                  "instance_size": 40
+                }
+              },
+              "jol_answered": true,
+              "vm": {
+                "fields": {
+                  "a": 24,
+                  "b": 8,
+                  "c": 32,
+                  "d": 16
+                },
+                "instance_size": 40
+              },
+              "vm_printed": true
+            },
+            "JolDump$TwoRefs": {
+              "agrees": true,
+              "differences": [],
+              "jol": {
+                "parseClass": {
+                  "fields": {
+                    "a": 8,
+                    "b": 16
+                  },
+                  "header_size": 8,
+                  "instance_size": 24
+                },
+                "parseInstance": {
+                  "fields": {
+                    "a": 8,
+                    "b": 16
+                  },
+                  "header_size": 8,
+                  "instance_size": 24
+                }
+              },
+              "jol_answered": true,
+              "vm": {
+                "fields": {
+                  "a": 8,
+                  "b": 16
+                },
+                "instance_size": 24
+              },
+              "vm_printed": true
+            },
+            "java.lang.String": {
+              "agrees": false,
+              "differences": [
+                "parseClass has no field flags",
+                "parseInstance has no field flags"
+              ],
+              "jol": {
+                "parseClass": {
+                  "fields": {
+                    "coder": 12,
+                    "hash": 8,
+                    "hashIsZero": 13,
+                    "value": 16
+                  },
+                  "header_size": 8,
+                  "instance_size": 24
+                },
+                "parseInstance": {
+                  "fields": {
+                    "coder": 12,
+                    "hash": 8,
+                    "hashIsZero": 13,
+                    "value": 16
+                  },
+                  "header_size": 8,
+                  "instance_size": 24
+                }
+              },
+              "jol_answered": true,
+              "vm": {
+                "fields": {
+                  "coder": 12,
+                  "flags": 14,
+                  "hash": 8,
+                  "hashIsZero": 13,
+                  "value": 16
+                },
+                "instance_size": 24
+              },
+              "vm_printed": true
+            }
+          },
+          "command": [
+            "-XX:+PrintFieldLayout",
+            "-Xshare:off",
+            "-XX:-UseCompressedOops",
+            "-Djdk.attach.allowAttachSelf=true",
+            "-cp",
+            "/work/classes:/work/jol-core-0.17.jar",
+            "JolDump",
+            "JolDump$Empty",
+            "JolDump$OneBoolean",
+            "JolDump$OneInt",
+            "JolDump$OneLong",
+            "JolDump$OneRef",
+            "JolDump$TwoRefs",
+            "JolDump$MixedPrimitives",
+            "JolDump$RefsAndPrimitives",
+            "JolDump$Parent",
+            "JolDump$Child",
+            "JolDump$Grandchild",
+            "java.lang.String"
+          ],
+          "jol": {
+            "details": "# VM mode: 64 bits # Lilliput VM detected (experimental) # Compressed references (oops): disabled # Compressed class pointers: disabled # Object alignment: 8 bytes #                       ref, bool, byte, char, shrt,  int,  flt,  lng,  dbl # Field sizes:            8,    1,    1,    2,    2,    4,    4,    8,    8 # Array element sizes:    8,    1,    1,    2,    2,    4,    4,    8,    8 # Array base offsets:    16,   12,   12,   12,   12,   12,   12,   16,   16",
+            "vm": {
+              "addressSize": "8",
+              "arrayHeaderSize": "12",
+              "objectAlignment": "8",
+              "objectHeaderSize": "8"
+            },
+            "warnings": [
+              "# WARNING: Unable to attach Serviceability Agent. You can try again with escalated privileges. Two options: a) use -Djol.tryWithSudo=true to try with sudo; b) echo 0 | sudo tee /proc/sys/kernel/yama/ptrace_scope",
+              "WARNING: A Java agent has been loaded dynamically (/tmp/jolAgent18076765777959973784.jar)",
+              "WARNING: If a serviceability tool is in use, please run with -XX:+EnableDynamicAgentLoading to hide this warning",
+              "WARNING: If a serviceability tool is not in use, please run with -Djdk.instrument.traceUsage for more information",
+              "WARNING: Dynamic loading of agents will be disallowed by default in a future release",
+              "WARNING: A terminally deprecated method in sun.misc.Unsafe has been called",
+              "WARNING: sun.misc.Unsafe::arrayBaseOffset has been called by org.openjdk.jol.vm.HotspotUnsafe (file:/work/jol-core-0.17.jar)",
+              "WARNING: Please consider reporting this to the maintainers of class org.openjdk.jol.vm.HotspotUnsafe",
+              "WARNING: sun.misc.Unsafe::arrayBaseOffset will be removed in a future release"
+            ]
+          },
+          "ok": true,
+          "unparsed": []
+        },
+        "no_attach": {
+          "classes": {
+            "JolDump$Child": {
+              "agrees": true,
+              "differences": [],
+              "jol": {
+                "parseClass": {
+                  "fields": {
+                    "a": 8,
+                    "b": 16
+                  },
+                  "header_size": 8,
+                  "instance_size": 24
+                },
+                "parseInstance": {
+                  "fields": {
+                    "a": 8,
+                    "b": 16
+                  },
+                  "header_size": 8,
+                  "instance_size": 24
+                }
+              },
+              "jol_answered": true,
+              "vm": {
+                "fields": {
+                  "a": 8,
+                  "b": 16
+                },
+                "instance_size": 24
+              },
+              "vm_printed": true
+            },
+            "JolDump$Empty": {
+              "agrees": true,
+              "differences": [],
+              "jol": {
+                "parseClass": {
+                  "fields": {},
+                  "header_size": 8,
+                  "instance_size": 8
+                },
+                "parseInstance": {
+                  "fields": {},
+                  "header_size": 8,
+                  "instance_size": 8
+                }
+              },
+              "jol_answered": true,
+              "vm": {
+                "fields": {},
+                "instance_size": 8
+              },
+              "vm_printed": true
+            },
+            "JolDump$Grandchild": {
+              "agrees": true,
+              "differences": [],
+              "jol": {
+                "parseClass": {
+                  "fields": {
+                    "a": 8,
+                    "b": 16,
+                    "c": 24
+                  },
+                  "header_size": 8,
+                  "instance_size": 32
+                },
+                "parseInstance": {
+                  "fields": {
+                    "a": 8,
+                    "b": 16,
+                    "c": 24
+                  },
+                  "header_size": 8,
+                  "instance_size": 32
+                }
+              },
+              "jol_answered": true,
+              "vm": {
+                "fields": {
+                  "a": 8,
+                  "b": 16,
+                  "c": 24
+                },
+                "instance_size": 32
+              },
+              "vm_printed": true
+            },
+            "JolDump$MixedPrimitives": {
+              "agrees": true,
+              "differences": [],
+              "jol": {
+                "parseClass": {
+                  "fields": {
+                    "a": 8,
+                    "b": 16,
+                    "c": 20,
+                    "d": 22,
+                    "e": 24,
+                    "f": 25
+                  },
+                  "header_size": 8,
+                  "instance_size": 32
+                },
+                "parseInstance": {
+                  "fields": {
+                    "a": 8,
+                    "b": 16,
+                    "c": 20,
+                    "d": 22,
+                    "e": 24,
+                    "f": 25
+                  },
+                  "header_size": 8,
+                  "instance_size": 32
+                }
+              },
+              "jol_answered": true,
+              "vm": {
+                "fields": {
+                  "a": 8,
+                  "b": 16,
+                  "c": 20,
+                  "d": 22,
+                  "e": 24,
+                  "f": 25
+                },
+                "instance_size": 32
+              },
+              "vm_printed": true
+            },
+            "JolDump$OneBoolean": {
+              "agrees": true,
+              "differences": [],
+              "jol": {
+                "parseClass": {
+                  "fields": {
+                    "a": 8
+                  },
+                  "header_size": 8,
+                  "instance_size": 16
+                },
+                "parseInstance": {
+                  "fields": {
+                    "a": 8
+                  },
+                  "header_size": 8,
+                  "instance_size": 16
+                }
+              },
+              "jol_answered": true,
+              "vm": {
+                "fields": {
+                  "a": 8
+                },
+                "instance_size": 16
+              },
+              "vm_printed": true
+            },
+            "JolDump$OneInt": {
+              "agrees": true,
+              "differences": [],
+              "jol": {
+                "parseClass": {
+                  "fields": {
+                    "a": 8
+                  },
+                  "header_size": 8,
+                  "instance_size": 16
+                },
+                "parseInstance": {
+                  "fields": {
+                    "a": 8
+                  },
+                  "header_size": 8,
+                  "instance_size": 16
+                }
+              },
+              "jol_answered": true,
+              "vm": {
+                "fields": {
+                  "a": 8
+                },
+                "instance_size": 16
+              },
+              "vm_printed": true
+            },
+            "JolDump$OneLong": {
+              "agrees": true,
+              "differences": [],
+              "jol": {
+                "parseClass": {
+                  "fields": {
+                    "a": 8
+                  },
+                  "header_size": 8,
+                  "instance_size": 16
+                },
+                "parseInstance": {
+                  "fields": {
+                    "a": 8
+                  },
+                  "header_size": 8,
+                  "instance_size": 16
+                }
+              },
+              "jol_answered": true,
+              "vm": {
+                "fields": {
+                  "a": 8
+                },
+                "instance_size": 16
+              },
+              "vm_printed": true
+            },
+            "JolDump$OneRef": {
+              "agrees": true,
+              "differences": [],
+              "jol": {
+                "parseClass": {
+                  "fields": {
+                    "a": 8
+                  },
+                  "header_size": 8,
+                  "instance_size": 16
+                },
+                "parseInstance": {
+                  "fields": {
+                    "a": 8
+                  },
+                  "header_size": 8,
+                  "instance_size": 16
+                }
+              },
+              "jol_answered": true,
+              "vm": {
+                "fields": {
+                  "a": 8
+                },
+                "instance_size": 16
+              },
+              "vm_printed": true
+            },
+            "JolDump$Parent": {
+              "agrees": true,
+              "differences": [],
+              "jol": {
+                "parseClass": {
+                  "fields": {
+                    "a": 8
+                  },
+                  "header_size": 8,
+                  "instance_size": 16
+                },
+                "parseInstance": {
+                  "fields": {
+                    "a": 8
+                  },
+                  "header_size": 8,
+                  "instance_size": 16
+                }
+              },
+              "jol_answered": true,
+              "vm": {
+                "fields": {
+                  "a": 8
+                },
+                "instance_size": 16
+              },
+              "vm_printed": true
+            },
+            "JolDump$RefsAndPrimitives": {
+              "agrees": true,
+              "differences": [],
+              "jol": {
+                "parseClass": {
+                  "fields": {
+                    "a": 24,
+                    "b": 8,
+                    "c": 32,
+                    "d": 16
+                  },
+                  "header_size": 8,
+                  "instance_size": 40
+                },
+                "parseInstance": {
+                  "fields": {
+                    "a": 24,
+                    "b": 8,
+                    "c": 32,
+                    "d": 16
+                  },
+                  "header_size": 8,
+                  "instance_size": 40
+                }
+              },
+              "jol_answered": true,
+              "vm": {
+                "fields": {
+                  "a": 24,
+                  "b": 8,
+                  "c": 32,
+                  "d": 16
+                },
+                "instance_size": 40
+              },
+              "vm_printed": true
+            },
+            "JolDump$TwoRefs": {
+              "agrees": true,
+              "differences": [],
+              "jol": {
+                "parseClass": {
+                  "fields": {
+                    "a": 8,
+                    "b": 16
+                  },
+                  "header_size": 8,
+                  "instance_size": 24
+                },
+                "parseInstance": {
+                  "fields": {
+                    "a": 8,
+                    "b": 16
+                  },
+                  "header_size": 8,
+                  "instance_size": 24
+                }
+              },
+              "jol_answered": true,
+              "vm": {
+                "fields": {
+                  "a": 8,
+                  "b": 16
+                },
+                "instance_size": 24
+              },
+              "vm_printed": true
+            },
+            "java.lang.String": {
+              "agrees": false,
+              "differences": [
+                "parseClass has no field flags",
+                "parseInstance has no field flags"
+              ],
+              "jol": {
+                "parseClass": {
+                  "fields": {
+                    "coder": 12,
+                    "hash": 8,
+                    "hashIsZero": 13,
+                    "value": 16
+                  },
+                  "header_size": 8,
+                  "instance_size": 24
+                },
+                "parseInstance": {
+                  "fields": {
+                    "coder": 12,
+                    "hash": 8,
+                    "hashIsZero": 13,
+                    "value": 16
+                  },
+                  "header_size": 8,
+                  "instance_size": 24
+                }
+              },
+              "jol_answered": true,
+              "vm": {
+                "fields": {
+                  "coder": 12,
+                  "flags": 14,
+                  "hash": 8,
+                  "hashIsZero": 13,
+                  "value": 16
+                },
+                "instance_size": 24
+              },
+              "vm_printed": true
+            }
+          },
+          "command": [
+            "-XX:+PrintFieldLayout",
+            "-Xshare:off",
+            "-XX:-UseCompressedOops",
+            "-cp",
+            "/work/classes:/work/jol-core-0.17.jar",
+            "JolDump",
+            "JolDump$Empty",
+            "JolDump$OneBoolean",
+            "JolDump$OneInt",
+            "JolDump$OneLong",
+            "JolDump$OneRef",
+            "JolDump$TwoRefs",
+            "JolDump$MixedPrimitives",
+            "JolDump$RefsAndPrimitives",
+            "JolDump$Parent",
+            "JolDump$Child",
+            "JolDump$Grandchild",
+            "java.lang.String"
+          ],
+          "jol": {
+            "details": "# VM mode: 64 bits # Lilliput VM detected (experimental) # Compressed references (oops): disabled # Compressed class pointers: disabled # Object alignment: 8 bytes #                       ref, bool, byte, char, shrt,  int,  flt,  lng,  dbl # Field sizes:            8,    1,    1,    2,    2,    4,    4,    8,    8 # Array element sizes:    8,    1,    1,    2,    2,    4,    4,    8,    8 # Array base offsets:    16,   12,   12,   12,   12,   12,   12,   16,   16",
+            "vm": {
+              "addressSize": "8",
+              "arrayHeaderSize": "12",
+              "objectAlignment": "8",
+              "objectHeaderSize": "8"
+            },
+            "warnings": [
+              "# WARNING: Unable to get Instrumentation. Dynamic Attach failed. You may add this JAR as -javaagent manually, or supply -Djdk.attach.allowAttachSelf",
+              "# WARNING: Unable to attach Serviceability Agent. You can try again with escalated privileges. Two options: a) use -Djol.tryWithSudo=true to try with sudo; b) echo 0 | sudo tee /proc/sys/kernel/yama/ptrace_scope",
+              "WARNING: A terminally deprecated method in sun.misc.Unsafe has been called",
+              "WARNING: sun.misc.Unsafe::arrayBaseOffset has been called by org.openjdk.jol.vm.HotspotUnsafe (file:/work/jol-core-0.17.jar)",
+              "WARNING: Please consider reporting this to the maintainers of class org.openjdk.jol.vm.HotspotUnsafe",
+              "WARNING: sun.misc.Unsafe::arrayBaseOffset will be removed in a future release"
+            ]
+          },
+          "ok": true,
+          "unparsed": []
+        }
+      }
+    }
+  },
+  "environment": {
+    "built_from": {
+      "commit": "815ff4dc327fe17f2433c7d115a5a503af10f3c4",
+      "commit_matches_pin": true,
+      "configure_flags": [
+        "--with-conf-name=fastdebug",
+        "--with-debug-level=fastdebug",
+        "--with-jvm-variants=server",
+        "--disable-warnings-as-errors"
+      ],
+      "jobs": 4,
+      "make_seconds": 8098.0
+    },
+    "container_image": null,
+    "java_build": "OpenJDK 64-Bit Server VM (fastdebug build 27-internal-adhoc.root.jdk-src, mixed mode)",
+    "platform": "linux-x86_64"
+  },
+  "issue": 5,
+  "jol": {
+    "sha256": "bd73d9ad265d8478ccde06130200877f3a4f0a6e2d44e7fb8cbb2e6f4104cbdc",
+    "url": "https://repo1.maven.org/maven2/org/openjdk/jol/jol-core/0.17/jol-core-0.17.jar",
+    "version": "0.17"
+  },
+  "measured": "2026-09-05T21:13:20+00:00",
+  "probe": "fieldlayout"
+}
