@@ -1,0 +1,35 @@
+{
+  "clhsdb_agrees": null,
+  "core_pattern": "/cores/core.%P",
+  "java_build": "27+35-2325",
+  "measured": "2026-09-05",
+  "platform": "darwin-arm64",
+  "probe": "sa-types",
+  "ptrace_scope": null,
+  "root": false,
+  "routes": {
+    "attach_ptracer_any": {
+      "error": "prctl(PR_SET_PTRACER) is Linux only",
+      "worked": false
+    },
+    "attach_running": {
+      "error": "ERROR: attach: task_for_pid(31752) failed: '(os/kern) failure' (5)",
+      "worked": false
+    },
+    "attach_spawned": {
+      "error": "ERROR: attach: task_for_pid(32008) failed: '(os/kern) failure' (5)",
+      "worked": false
+    },
+    "core_self": {
+      "error": "no core appeared. core goes to /cores/core.%P, the target's limit was raised, this process sees 0/9223372036854775807, /cores is writable",
+      "worked": false
+    },
+    "jhsdb_jstack": {
+      "error": "ERROR: attach: task_for_pid(32167) failed: '(os/kern) failure' (5)",
+      "worked": false
+    }
+  },
+  "routes_agree": null,
+  "types": null,
+  "types_from": null
+}
