@@ -53,6 +53,16 @@ Three rules about the markers. When in doubt it is `[HOTSPOT]`, because claiming
 
 A claim marked `[JVMS]` whose section does not say what the claim says is a P1 bug, treated more seriously than a wrong number, because it is the one error that will cause somebody to write production code on a guarantee that does not exist.
 
+Every marked claim is also written down in `lessons/<id>/claims.json`, and `tools/claimcheck.py` holds the two files to each other. A claim in the ledger whose marker appears in no sentence means the lesson is asserting something the author knew needed a citation, in a sentence that does not carry one. A marker in a sentence with no claim behind it means nobody wrote down what it is evidence for. Both of those read perfectly well, which is why a machine checks them.
+
+```
+claimcheck: O01 O01-C10 says it is observable and records nothing under measured. An assertion that sounds measured and was not is the one failure this project exists to avoid
+```
+
+A claim is `observable` or it is not. An observable one names the cell that shows it and records what came out in `measured`, and the quoted failure above is the one this project is built to prevent. An unobservable one names no cell, and there are at most two per lesson, because a lesson where a reader has to take three things on trust has stopped being a lesson where you can check. The marker and the citation have to agree about which kind of claim it is: a `[JVMS]` marker over a source line is a category error rather than a typo, since the two markers say opposite things about whether a reader can rely on the claim.
+
+Markers do not count against the prose caps in `build.py`. A budget that shrank every time somebody cited their source would price the one habit this project runs on, and the cheapest way back under it would be to delete a citation.
+
 ## Lessons are Python, notebooks are build output
 
 You edit `lessons/<id>/lesson.py`, which is percent format Python with one cell per `# %%`. `build.py` turns it into `notebooks/<id>/lesson.ipynb`. The notebook is committed, because Colab can only open a file that exists at a URL, but it is generated and it is marked as generated so it never shows up in a diff.
