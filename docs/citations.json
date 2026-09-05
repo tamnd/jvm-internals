@@ -1,0 +1,162 @@
+{
+  "accepted_tags": [
+    "jdk-27+35",
+    "jdk-27-ga"
+  ],
+  "citations": {
+    "src/hotspot/share/oops/instanceKlass.cpp:1084": {
+      "cited_at": [
+        "CONTRIBUTING.md:40"
+      ],
+      "context_sha256": "4fc27387c7f557a44f13d727c56b3599a33e2e2a3fdd078590d5524b01315f46",
+      "line": "      // also does loader constraint checking",
+      "tag": "jdk-27+35"
+    },
+    "src/hotspot/share/oops/markWord.hpp:116": {
+      "cited_at": [
+        "docs/generated/markword.json:20"
+      ],
+      "context_sha256": "44e9b7dfd17a7a083d3f99b81701d3a01e6da9a962b894e395edda723816b6df",
+      "line": "  static const int lock_bits                      = 2;",
+      "tag": "jdk-27+35"
+    },
+    "src/hotspot/share/oops/markWord.hpp:117": {
+      "cited_at": [
+        "docs/generated/markword.json:31"
+      ],
+      "context_sha256": "aa2a8c45a969552befbc661fafd638c3abfcb1b57c9716988b870e0c86642172",
+      "line": "  static const int self_fwd_bits                  = 1;",
+      "tag": "jdk-27+35"
+    },
+    "src/hotspot/share/oops/markWord.hpp:118": {
+      "cited_at": [
+        "docs/generated/markword.json:42"
+      ],
+      "context_sha256": "64caa69868fb429eb4c1af59fae52ac768bf66e95c435d8a8edc9aede19855c3",
+      "line": "  static const int age_bits                       = 4;",
+      "tag": "jdk-27+35"
+    },
+    "src/hotspot/share/oops/markWord.hpp:119": {
+      "cited_at": [
+        "docs/generated/markword.json:53"
+      ],
+      "context_sha256": "e2dd66005b551811094dfcc419da3c9ad54089e656b0cb56502176d4202595c2",
+      "line": "  static const int valhalla_reserved_bits         = LP64_ONLY(4) NOT_LP64(0);",
+      "tag": "jdk-27+35"
+    },
+    "src/hotspot/share/oops/markWord.hpp:121": {
+      "cited_at": [
+        "docs/generated/markword.json:64"
+      ],
+      "context_sha256": "1530a1f27cb055ef04a5cb575315c51fc7fce7434e9831fbfcb48e8b4f05b374",
+      "line": "  static const int hash_bits                      = max_hash_bits > 31 ? 31 : max_hash_bits;",
+      "tag": "jdk-27+35"
+    },
+    "src/hotspot/share/oops/markWord.hpp:124": {
+      "cited_at": [
+        "docs/generated/section2-object-header.md:25",
+        "lessons/O01/lesson.py:80",
+        "lessons/O01/claims.json:51",
+        "docs/generated/markword.json:19"
+      ],
+      "context_sha256": "325fbd6c17f6202fd67039598ace1c89e3f036a45c1e83feb8ac2977c6fe90be",
+      "line": "  static const int lock_shift                     = 0;",
+      "tag": "jdk-27+35"
+    },
+    "src/hotspot/share/oops/markWord.hpp:125": {
+      "cited_at": [
+        "docs/generated/section2-object-header.md:26",
+        "docs/generated/markword.json:30"
+      ],
+      "context_sha256": "d956646add4ebf02c04e736ff628b8e7dce5ee79a7238b7c574f2a0998791389",
+      "line": "  static const int self_fwd_shift                 = lock_shift + lock_bits;",
+      "tag": "jdk-27+35"
+    },
+    "src/hotspot/share/oops/markWord.hpp:126": {
+      "cited_at": [
+        "docs/generated/section2-object-header.md:27",
+        "lessons/O01/lesson.py:80",
+        "lessons/O01/claims.json:69",
+        "docs/generated/markword.json:41"
+      ],
+      "context_sha256": "8b94829ec67255ccc144963d46f24029fdeafd8cd9834a603b5111e78187af1f",
+      "line": "  static const int age_shift                      = self_fwd_shift + self_fwd_bits;",
+      "tag": "jdk-27+35"
+    },
+    "src/hotspot/share/oops/markWord.hpp:127": {
+      "cited_at": [
+        "docs/generated/section2-object-header.md:28",
+        "docs/generated/markword.json:52"
+      ],
+      "context_sha256": "d943ba4c108d146c558365f188256297617faf42eaaeb786d26445e5476a0aa5",
+      "line": "  static const int valhalla_reserved_shift        = age_shift + age_bits;",
+      "tag": "jdk-27+35"
+    },
+    "src/hotspot/share/oops/markWord.hpp:128": {
+      "cited_at": [
+        "docs/generated/section2-object-header.md:29",
+        "lessons/O01/lesson.py:80",
+        "lessons/O01/claims.json:60",
+        "lessons/O01/claims.json:87",
+        "docs/generated/markword.json:63"
+      ],
+      "context_sha256": "50f3a5ad3608b5da4f55f0f5988b20ff250d6a58ed8385fcb55260795a312b7a",
+      "line": "  static const int hash_shift                     = valhalla_reserved_shift + valhalla_reserved_bits;",
+      "tag": "jdk-27+35"
+    },
+    "src/hotspot/share/oops/markWord.hpp:150": {
+      "cited_at": [
+        "docs/generated/section2-object-header.md:30",
+        "lessons/O01/lesson.py:82",
+        "lessons/O01/lesson.py:325",
+        "lessons/O01/claims.json:14",
+        "lessons/O01/claims.json:78",
+        "docs/generated/markword.json:74"
+      ],
+      "context_sha256": "529a3ada39af136ad2c47779808bae4a60a1393e6adc9b0f6584756dbb0cdcbe",
+      "line": "  static constexpr int klass_shift                = hash_shift + hash_bits;",
+      "tag": "jdk-27+35"
+    },
+    "src/hotspot/share/oops/markWord.hpp:152": {
+      "cited_at": [
+        "CONTRIBUTING.md:22",
+        "docs/generated/markword.json:75"
+      ],
+      "context_sha256": "fb0035b29dc0b6a298db2b77a495df136b19d863731c578cd8bbf6c0f6c0e7ab",
+      "line": "  static constexpr int klass_bits                 = 22;",
+      "tag": "jdk-27+35"
+    },
+    "src/hotspot/share/oops/markWord.hpp:43": {
+      "cited_at": [
+        "lessons/O01/claims.json:23",
+        "lessons/O01/claims.json:41",
+        "docs/generated/markword.json:103"
+      ],
+      "context_sha256": "a17c3a09b672cbad3ce42f790c93ae49c8778b4267d563caf26f3f8d6ec01081",
+      "line": "//  64 bits (without compact headers):",
+      "tag": "jdk-27+35"
+    },
+    "src/hotspot/share/oops/markWord.hpp:47": {
+      "cited_at": [
+        "lessons/O01/claims.json:32",
+        "docs/generated/markword.json:104"
+      ],
+      "context_sha256": "a8956b6e38f097bb6767975ca006d98afe060788b7747cc7a560b564ab6e3f01",
+      "line": "//  64 bits (with compact headers):",
+      "tag": "jdk-27+35"
+    },
+    "src/utils/hsdis/README.md:73": {
+      "cited_at": [
+        "docs/generated/hsdis.md:132",
+        "docs/probes/hsdis.md:11"
+      ],
+      "context_sha256": "6f3bc98b702db25935505b3eae2dde82df3b4230a2aa2e1f7c3164fdd4051729",
+      "line": "**NOTE:** If you do this using the binutils backend, the resulting build may not",
+      "tag": "jdk-27+35"
+    }
+  },
+  "context_lines": 2,
+  "generated_by": "tools/refcheck.py --update",
+  "note": "Keyed on path:line without the tag, so that moving the pin re-resolves every citation against the new tree and the ones whose content changed come out as a list. That list is the cost of the version bump.",
+  "updated": "2026-09-05"
+}
