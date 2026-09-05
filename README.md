@@ -74,6 +74,8 @@ The widget question came back with an answer to a different question. [What a Ja
 
 The generated half of every blueprint has a source. [Reading HotSpot's own struct layouts](docs/probes/sa-types.md) tries four ways into the Serviceability Agent's type database on three machines, and an ordinary user on Linux gets in three of them, because `ptrace_scope` at 1 permits attaching to a process you started yourself. Every door that opened read the same numbers, and they match what `jhsdb clhsdb` prints by hand. The database also holds less than the design assumed: `markWord` has a size and not one exported field, so the bit layout that half the object layout lessons depend on has to keep coming from the header file.
 
+The JIT lessons can show instructions. [A disassembler for the JIT lessons](docs/probes/hsdis.md) builds hsdis from the pinned JDK source three ways, and all three work, load from a directory on `LD_LIBRARY_PATH` without touching the JDK, and print the same 293 instructions in three syntaxes. Building one takes about a minute, so the choice between them is a licence question rather than a technical one, and the generated page prints what each backend's packages declare rather than a conclusion. The fallback the issue hoped for is not one: `-XX:+PrintOptoAssembly` on a product build prints 330 headings and no bodies.
+
 See the [milestone issues](https://github.com/tamnd/jvm-internals/issues?q=is%3Aissue+label%3Akind%2Fmilestone) for the plan and [ROADMAP.md](ROADMAP.md) for the short version.
 
 ## Licence
