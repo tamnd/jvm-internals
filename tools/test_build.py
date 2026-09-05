@@ -454,5 +454,44 @@ class TestGenerated(Harness):
         self.assertIn("tools/gen_markword.py", str(caught.exception))
 
 
+class TestTheWordCount(unittest.TestCase):
+    """The prose budget, which is what decides whether a lesson is too long to read.
+
+    Rule 7 puts a citation marker on every claim, so a counter that treated markers as
+    prose would shrink the budget every time somebody cited a source, and the cheapest
+    way back under the cap would be to delete a citation. That is the opposite of what
+    the cap is for.
+    """
+
+    def test_plain_prose_counts_its_words(self):
+        self.assertEqual(build.words("one two three"), 3)
+
+    def test_a_hotspot_marker_costs_nothing(self):
+        plain = "The lock state is the bottom two bits."
+        marked = ("The lock state is the bottom two bits "
+                  "{[HOTSPOT src/hotspot/share/oops/markWord.hpp:124@jdk-27+35]}.")
+        self.assertEqual(build.words(marked), build.words(plain))
+
+    def test_a_specification_marker_costs_nothing(self):
+        plain = "The specification mandates no layout."
+        marked = "The specification mandates no layout {[JVMS §2.7@SE25]}."
+        self.assertEqual(build.words(marked), build.words(plain))
+
+    def test_two_markers_in_one_sentence_cost_nothing(self):
+        plain = "Until JDK 27 it was separate, and now it is not."
+        marked = ("Until JDK 27 it was separate {[HOTSPOT "
+                  "src/hotspot/share/oops/markWord.hpp:43@jdk-27+35]}, and now it is "
+                  "not {[HOTSPOT src/hotspot/share/oops/markWord.hpp:150@jdk-27+35]}.")
+        self.assertEqual(build.words(marked), build.words(plain))
+
+    def test_a_marker_does_not_leave_its_punctuation_behind_as_a_word(self):
+        """`bits {[JVMS §2.7@SE25]}.` is one sentence, not one sentence and a full stop."""
+        self.assertEqual(build.words("bits {[JVMS §2.7@SE25]}."), 1)
+
+    def test_something_that_only_looks_like_a_marker_still_counts(self):
+        """The cap is not a hole somebody can climb through with a brace."""
+        self.assertEqual(build.words("a {[NOTE this is prose]} b"), 6)
+
+
 if __name__ == "__main__":
     unittest.main(verbosity=2)

@@ -60,6 +60,7 @@ jobs:
           python tools/test_gen_section2.py
           python tools/test_refcheck.py
           python tools/test_gen_jvms_index.py
+          python tools/test_claimcheck.py
           python tools/test_fetch_jdk.py
       - name: rebuild and compare
         run: python tools/build.py check
@@ -102,6 +103,14 @@ jobs:
       # here for the same reason as everything else above it.
       - name: the object header section 2 matches the measured results
         run: python tools/gen_section2.py --check
+      # Rule 7 in both directions: every claim in a ledger is marked in a sentence,
+      # and every marker in a sentence has a claim behind it. Offline, because it
+      # reads the two files against each other and asks nothing of the network.
+      # refcheck proves the citations resolve. This proves they are cited about the
+      # thing the ledger says they are evidence for, which is the half a reader
+      # cannot check by clicking a link.
+      - name: every claim is marked and every marker has a claim
+        run: python tools/claimcheck.py
       - name: three builds are byte identical
         run: |
           set -euo pipefail
@@ -289,12 +298,14 @@ jobs:
   #                        patches/ and vendor/, glossary uniqueness. The
   #                        directives, the caps and the requires DAG are already
   #                        in the notebooks job above
-  #     markers       1m   rule 7: every claim carries [JVMS] or [HOTSPOT], and
-  #                        at most two unobservable claims per lesson. refcheck
-  #                        resolves both kinds already, in the generated job
-  #                        above. What is left for this one is the claim ledger:
-  #                        that every claim has a marker at all, and that a
-  #                        [JVMS] marker's section says what the claim says
+  #     markers            done, and split across two jobs above: claimcheck in
+  #                        the notebooks job holds each ledger and its lesson to
+  #                        each other, refcheck in the generated job resolves both
+  #                        kinds of citation. One piece of the original plan is
+  #                        not here and is not coming: whether a [JVMS] marker's
+  #                        section says what the claim says. Checking that needs
+  #                        the specification text, which this repository does not
+  #                        store on purpose, so it stays a review question
   #     bpc           6m   bpc build then bpc check, so no generated blueprint
   #                        section is stale and no coverage item is unowned. Two
   #                        pieces of it already run above and fold into this one

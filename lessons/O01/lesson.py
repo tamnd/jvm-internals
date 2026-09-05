@@ -79,7 +79,7 @@ jvx.reveal("gate_1", "a");
 #
 # The first 8 bytes are the mark word. It is not a number that means one thing, it is several unrelated fields packed into one word, and which fields are present depends on what has happened to the object. The lock state lives in the bottom two bits {[HOTSPOT src/hotspot/share/oops/markWord.hpp:124@jdk-27+35]}. The collector's age counter is four bits above that {[HOTSPOT src/hotspot/share/oops/markWord.hpp:126@jdk-27+35]}. The identity hash, if anything has ever asked for one, is 31 bits in the middle {[HOTSPOT src/hotspot/share/oops/markWord.hpp:128@jdk-27+35]}.
 #
-# Then there is the class pointer, and this is the part that changed. Until JDK 27, it was a separate 4 byte field that came after the mark word, so the header was 8 plus 4, and since almost every object then needs 4 bytes of padding to reach an 8 byte boundary, an empty object cost 16. From JDK 27, `UseCompactObjectHeaders` is on by default and the class pointer moved into the top 22 bits of the mark word itself {[HOTSPOT src/hotspot/share/oops/markWord.hpp:150@jdk-27+35]}. No separate field, no padding, header of 8.
+# Then there is the class pointer, and this is the part that changed. Until JDK 27, it was a separate 4 byte field that came after the mark word, so the header was 8 plus 4 {[HOTSPOT src/hotspot/share/oops/markWord.hpp:43@jdk-27+35]}, and since almost every object then needs 4 bytes of padding to reach an 8 byte boundary, an empty object cost 16. From JDK 27, `UseCompactObjectHeaders` is on by default {[HOTSPOT src/hotspot/share/runtime/globals.hpp:131@jdk-27+35]} and the class pointer moved into the top 22 bits of the mark word itself {[HOTSPOT src/hotspot/share/oops/markWord.hpp:150@jdk-27+35]}. No separate field, no padding, header of 8.
 #
 # Twenty two bits is the interesting constraint. It means a JVM can address about four million distinct classes, which is far more than any real program loads, and it is only possible because class metadata is allocated in one contiguous region so a class can be named by its offset into that region rather than by a full pointer.
 #
@@ -217,7 +217,7 @@ jvx.reveal("gate_3", "b");
 #
 # Compact: 8 for the header plus 4 for the `int` is 12, which rounds up to 16. Legacy: 12 for the header plus 4 for the `int` is 16 exactly. The four bytes the header gave back went straight into padding, and the reader who was told "compact headers save four bytes per object" got nothing here.
 #
-# This is the point of the lesson. That sentence is true about the header and it is not reliably true about the object, because every object is rounded up to a multiple of 8 anyway. Whether you actually keep the saving depends on what your fields add up to. `Two` kept it, and kept twice as much as advertised. `Integer` kept none of it.
+# This is the point of the lesson. That sentence is true about the header and it is not reliably true about the object, because every object is rounded up to a multiple of 8 anyway {[HOTSPOT src/hotspot/share/utilities/align.hpp:125@jdk-27+35]}. Whether you actually keep the saving depends on what your fields add up to. `Two` kept it, and kept twice as much as advertised. `Integer` kept none of it.
 #
 # If your heap is mostly boxed numbers, compact headers may do nothing measurable for you. If it is mostly small objects with two or three fields, it can be a fifth of your heap. Neither of those is a guess you can make from the flag's description, and both of them are five minutes of measuring.
 #
