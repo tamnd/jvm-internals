@@ -235,9 +235,11 @@ long objectKlass = MarkWord.get(jvx.freshMark(), "klass");
 long twoKlassA = jvx.field(new Two(), "klass");
 long twoKlassB = jvx.field(new Two(), "klass");
 
-System.out.printf("Object     klass bits 0x%x%n", objectKlass);
-System.out.printf("Two        klass bits 0x%x%n", twoKlassA);
-System.out.printf("Two again  klass bits 0x%x%n", twoKlassB);
+// Formatted, then printed. printf in a notebook cell arrives one fragment at a time and
+// the front end puts each fragment on its own line, which is a thing worth knowing once.
+System.out.println(String.format("Object     klass bits 0x%x", objectKlass));
+System.out.println(String.format("Two        klass bits 0x%x", twoKlassA));
+System.out.println(String.format("Two again  klass bits 0x%x", twoKlassB));
 System.out.println();
 System.out.println("two Twos agree:            " + (twoKlassA == twoKlassB));
 System.out.println("Two differs from Object:   " + (twoKlassA != objectKlass));

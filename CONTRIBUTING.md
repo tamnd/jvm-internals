@@ -64,6 +64,14 @@ The kernel is JShell, which wraps every snippet in a synthetic class with a gene
 
 So any observation that a synthetic class would contaminate is taken in a `jvx.run` subprocess with a declared flag set, and never in the kernel. That covers class histograms, compilation logs, JFR recordings, heap dumps and anything derived from them. The kernel is for analysis of the results. Taking one of those measurements in the kernel is a review finding, not a style preference.
 
+Three more things about the kernel that are not JShell's doing and cost an afternoon each. They are enforced by `tools/test_jvx_ui.py` rather than remembered.
+
+**The kernel imports less than a terminal does.** A `jshell` you start yourself imports `java.nio.file.*`, `java.util.stream.*` and `java.util.function.*`. JJava sets its own list and those three are not on it. A helper that names `Path` loads perfectly in a terminal and fails in the kernel, and the error a reader sees is `cannot find symbol: variable jvx`, which points at the last snippet in the cell rather than the one that broke. Import explicitly in `jvx/00-imports.jsh`.
+
+**No `System.out.printf` in anything the kernel runs.** The kernel turns every write on `System.out` into its own stream message and `java.util.Formatter` writes each padding space separately, so one `printf("%-28s...")` reaches the reader as thirty messages and the notebook puts each on its own line. `String.format` first, then `println`. Inside a `jvx.run` text block it is fine, because that output is captured from a subprocess and printed in one go.
+
+**Only `jvx` calls `display`.** It returns the id it assigned, JShell prints the value of the last expression, and the reader gets a line of hex under every widget. `Ui.html` swallows it and is the only caller.
+
 ## Probes
 
 A probe is a script under `probes/` that answers one question by measuring rather than by reasoning, writes a JSON file per machine into `probes/<name>/results/`, and gets read by a `tools/gen_*.py` that turns those files into a table and a picture. The report in `docs/probes/` is the prose. Nothing in that chain is written by hand twice, which is why a number in a report cannot drift away from the measurement that produced it.
