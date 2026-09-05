@@ -57,6 +57,7 @@ jobs:
           python tools/test_gen_widget_matrix.py
           python tools/test_gen_sa_types.py
           python tools/test_gen_hsdis.py
+          python tools/test_gen_section2.py
           python tools/test_fetch_jdk.py
       - name: rebuild and compare
         run: python tools/build.py check
@@ -93,6 +94,12 @@ jobs:
       # treatment as the rest and a stale one fails the build.
       - name: the hsdis page matches the measured results
         run: python tools/gen_hsdis.py --check
+      # Section 2 of the object header blueprint, which is the first generated
+      # blueprint section and the one a reader will quote a memory offset out of.
+      # It folds into the bpc job when bpc exists, and until then it is checked
+      # here for the same reason as everything else above it.
+      - name: the object header section 2 matches the measured results
+        run: python tools/gen_section2.py --check
       - name: three builds are byte identical
         run: |
           set -euo pipefail
@@ -264,10 +271,11 @@ jobs:
   #     markers       1m   rule 7: every claim carries [JVMS] or [HOTSPOT], and
   #                        at most two unobservable claims per lesson
   #     bpc           6m   bpc build then bpc check, so no generated blueprint
-  #                        section is stale and no coverage item is unowned. The
-  #                        first generator, the mark word layout, is already in
-  #                        the generated job above and folds into this one when
-  #                        bpc exists
+  #                        section is stale and no coverage item is unowned. Two
+  #                        pieces of it already run above and fold into this one
+  #                        when bpc exists: the mark word layout in the generated
+  #                        job, and the object header's section 2 in the notebooks
+  #                        job
   #     e0-fast      25m   the tier 0 cells of changed lessons, in the Colab
   #                        parity image. Expensive, and the one that must not be
   #                        cut, because a lesson whose observations quietly

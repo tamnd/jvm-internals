@@ -76,6 +76,8 @@ The generated half of every blueprint has a source. [Reading HotSpot's own struc
 
 The JIT lessons can show instructions. [A disassembler for the JIT lessons](docs/probes/hsdis.md) builds hsdis from the pinned JDK source three ways, and all three work, load from a directory on `LD_LIBRARY_PATH` without touching the JDK, and print the same 293 instructions in three syntaxes. Building one takes about a minute, so the choice between them is a licence question rather than a technical one, and the generated page prints what each backend's packages declare rather than a conclusion. The fallback the issue hoped for is not one: `-XX:+PrintOptoAssembly` on a product build prints 330 headings and no bodies.
 
+And the first generated blueprint section exists. [Emitting a section 2 that nobody transcribed](docs/probes/section2.md) turns those three measurements into [the object header's data structures section](docs/generated/section2-object-header.md) for `markWord`, `oopDesc`, `Klass` and `InstanceKlass`. It takes three sources because no one of them has the whole layout, it states the flags the layout is contingent on before it states the layout, and it refuses to write anything if the mark word does not tile 64 bits, if a field lies outside the struct that declares it or if a subclass starts inside its superclass.
+
 See the [milestone issues](https://github.com/tamnd/jvm-internals/issues?q=is%3Aissue+label%3Akind%2Fmilestone) for the plan and [ROADMAP.md](ROADMAP.md) for the short version.
 
 ## Licence
