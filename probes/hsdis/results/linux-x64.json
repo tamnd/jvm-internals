@@ -1,0 +1,696 @@
+{
+  "backends": {
+    "binutils": {
+      "artifact": {
+        "bytes": 21848,
+        "link_owners": {
+          "libbfd-2.42-system.so": "libbinutils",
+          "libc.so.6": "libc6",
+          "libopcodes-2.42-system.so": "libbinutils",
+          "libsframe.so.1": "libsframe1",
+          "libz.so.1": "zlib1g",
+          "libzstd.so.1": "libzstd1"
+        },
+        "link_packages": [
+          "libbinutils",
+          "libc6",
+          "libsframe1",
+          "libzstd1",
+          "zlib1g"
+        ],
+        "links": [
+          "libbfd-2.42-system.so",
+          "libc.so.6",
+          "libopcodes-2.42-system.so",
+          "libsframe.so.1",
+          "libz.so.1",
+          "libzstd.so.1"
+        ],
+        "name": "hsdis-amd64.so",
+        "path": "/work/jdk-src/build/binutils/support/hsdis/hsdis-amd64.so",
+        "sha256": "8aee176537f75ab8f08277c95be85b00b4f206e834a34b0cd5496e6a26040079"
+      },
+      "build": {
+        "ok": true,
+        "seconds": 2.4
+      },
+      "configure": {
+        "ok": true,
+        "seconds": 19.9
+      },
+      "loads_from": {
+        "beside_libjvm": true,
+        "jdk_lib": true,
+        "ld_library_path": true
+      },
+      "with_backend": {
+        "print_assembly": {
+          "address_lines": 293,
+          "banners": 2,
+          "body_lines": 404,
+          "complained": false,
+          "exit": 0,
+          "machcode_sections": 0,
+          "sample": [
+            "  0x00007f4e98735180:   call   0x00007f4e9c5b3f80           ;   {runtime_call os::breakpoint()}",
+            "  0x00007f4e98735185:   data16 data16 nopw 0x0(%rax,%rax,1)",
+            "  0x00007f4e98735190:   mov    %eax,-0x14000(%rsp)",
+            "  0x00007f4e98735197:   push   %rbp",
+            "  0x00007f4e98735198:   sub    $0x30,%rsp",
+            "  0x00007f4e9873519c:   cmpl   $0x1,0x20(%r15)",
+            "  0x00007f4e987351a4:   jne    0x00007f4e9873542a",
+            "  0x00007f4e987351aa:   mov    0x18(%rsi),%r13"
+          ],
+          "total_lines": 417,
+          "worked": true
+        },
+        "print_opto_assembly": {
+          "address_lines": 0,
+          "banners": 330,
+          "body_lines": 1,
+          "complained": false,
+          "exit": 0,
+          "machcode_sections": 0,
+          "sample": [],
+          "total_lines": 661,
+          "worked": false
+        }
+      }
+    },
+    "capstone": {
+      "artifact": {
+        "bytes": 16072,
+        "link_owners": {
+          "libc.so.6": "libc6",
+          "libcapstone.so.4": "libcapstone4"
+        },
+        "link_packages": [
+          "libc6",
+          "libcapstone4"
+        ],
+        "links": [
+          "libc.so.6",
+          "libcapstone.so.4"
+        ],
+        "name": "hsdis-amd64.so",
+        "path": "/work/jdk-src/build/capstone/support/hsdis/hsdis-amd64.so",
+        "sha256": "e11f8ccd83e000e56f735d4035f430b0a632a40f041c23aada72f9e0b12595cc"
+      },
+      "build": {
+        "ok": true,
+        "seconds": 2.0
+      },
+      "configure": {
+        "ok": true,
+        "seconds": 21.3
+      },
+      "loads_from": {
+        "beside_libjvm": true,
+        "jdk_lib": true,
+        "ld_library_path": true
+      },
+      "with_backend": {
+        "print_assembly": {
+          "address_lines": 293,
+          "banners": 2,
+          "body_lines": 401,
+          "complained": false,
+          "exit": 0,
+          "machcode_sections": 0,
+          "sample": [
+            "  0x00007fe4a4535280:   callq\t\t0x7fe4b5bb3f80      ;   {runtime_call os::breakpoint()}",
+            "  0x00007fe4a4535285:   nopw\t\t(%rax, %rax)",
+            "  0x00007fe4a4535290:   movl\t\t%eax, -0x14000(%rsp)",
+            "  0x00007fe4a4535297:   pushq\t\t%rbp",
+            "  0x00007fe4a4535298:   subq\t\t$0x30, %rsp",
+            "  0x00007fe4a453529c:   cmpl\t\t$1, 0x20(%r15)",
+            "  0x00007fe4a45352a4:   jne\t\t0x7fe4a453552a",
+            "  0x00007fe4a45352aa:   movq\t\t0x18(%rsi), %r13"
+          ],
+          "total_lines": 414,
+          "worked": true
+        },
+        "print_opto_assembly": {
+          "address_lines": 0,
+          "banners": 330,
+          "body_lines": 1,
+          "complained": false,
+          "exit": 0,
+          "machcode_sections": 0,
+          "sample": [],
+          "total_lines": 661,
+          "worked": false
+        }
+      }
+    },
+    "llvm": {
+      "artifact": {
+        "bytes": 149944,
+        "link_owners": {
+          "libLLVM.so.18.1": "libllvm18",
+          "libbsd.so.0": "libbsd0",
+          "libc.so.6": "libc6",
+          "libedit.so.2": "libedit2",
+          "libffi.so.8": "libffi8",
+          "libgcc_s.so.1": "libgcc-s1",
+          "libicudata.so.74": "libicu74",
+          "libicuuc.so.74": "libicu74",
+          "liblzma.so.5": "liblzma5",
+          "libm.so.6": "libc6",
+          "libmd.so.0": "libmd0",
+          "libstdc++.so.6": "libstdc++6",
+          "libtinfo.so.6": "libtinfo6",
+          "libxml2.so.2": "libxml2",
+          "libz.so.1": "zlib1g",
+          "libzstd.so.1": "libzstd1"
+        },
+        "link_packages": [
+          "libbsd0",
+          "libc6",
+          "libedit2",
+          "libffi8",
+          "libgcc-s1",
+          "libicu74",
+          "libllvm18",
+          "liblzma5",
+          "libmd0",
+          "libstdc++6",
+          "libtinfo6",
+          "libxml2",
+          "libzstd1",
+          "zlib1g"
+        ],
+        "links": [
+          "libLLVM.so.18.1",
+          "libbsd.so.0",
+          "libc.so.6",
+          "libedit.so.2",
+          "libffi.so.8",
+          "libgcc_s.so.1",
+          "libicudata.so.74",
+          "libicuuc.so.74",
+          "liblzma.so.5",
+          "libm.so.6",
+          "libmd.so.0",
+          "libstdc++.so.6",
+          "libtinfo.so.6",
+          "libxml2.so.2",
+          "libz.so.1",
+          "libzstd.so.1"
+        ],
+        "name": "hsdis-amd64.so",
+        "path": "/work/jdk-src/build/llvm/support/hsdis/hsdis-amd64.so",
+        "sha256": "3373cc3da86d13e17ab9aa924ffeb163383c6d082597f42abd3759ad8200fe62"
+      },
+      "build": {
+        "ok": true,
+        "seconds": 5.3
+      },
+      "configure": {
+        "ok": true,
+        "seconds": 20.3
+      },
+      "loads_from": {
+        "beside_libjvm": true,
+        "jdk_lib": true,
+        "ld_library_path": true
+      },
+      "with_backend": {
+        "print_assembly": {
+          "address_lines": 293,
+          "banners": 2,
+          "body_lines": 401,
+          "complained": false,
+          "exit": 0,
+          "machcode_sections": 0,
+          "sample": [
+            "  0x00007f1210535180:   \tcallq\t0x1167edfb          ;   {runtime_call os::breakpoint()}",
+            "  0x00007f1210535185:   \tnopw\t(%rax,%rax)",
+            "  0x00007f1210535190:   \tmovl\t%eax, -0x14000(%rsp)",
+            "  0x00007f1210535197:   \tpushq\t%rbp",
+            "  0x00007f1210535198:   \tsubq\t$0x30, %rsp",
+            "  0x00007f121053519c:   \tcmpl\t$0x1, 0x20(%r15)",
+            "  0x00007f12105351a4:   \tjne\t0x280",
+            "  0x00007f12105351aa:   \tmovq\t0x18(%rsi), %r13"
+          ],
+          "total_lines": 414,
+          "worked": true
+        },
+        "print_opto_assembly": {
+          "address_lines": 0,
+          "banners": 330,
+          "body_lines": 1,
+          "complained": false,
+          "exit": 0,
+          "machcode_sections": 0,
+          "sample": [],
+          "total_lines": 661,
+          "worked": false
+        }
+      }
+    }
+  },
+  "boot_jdk": "27+35-2325",
+  "compiler": "13.3.0",
+  "cpus": 8,
+  "hsdis": {
+    "distribution_note": "If you do this using the binutils backend, the resulting build may not be distributable. Please get legal advice if you intend to distribute the result of your build.",
+    "license_file": {
+      "names": [
+        "The Universal Permissive License (UPL), Version 1.0"
+      ],
+      "path": "src/utils/hsdis/hsdis-license.txt",
+      "sha256": "dc2d6cac84e3d90d69d4bc661b3450236e1339b163d98e2f60f13df338cee6aa"
+    }
+  },
+  "image": "ubuntu@sha256:33ceb71981b602c1a7443a53469e4dba065f7503eab3078a2d7a57a2ab987517",
+  "in_container": true,
+  "measured": "2026-09-05",
+  "os": "Ubuntu 24.04.4 LTS",
+  "packages": {
+    "binutils": {
+      "copyright": {
+        "gpl_versions": [
+          "3"
+        ],
+        "machine_readable": false,
+        "names": [],
+        "path": "/usr/share/doc/binutils/copyright",
+        "present": true,
+        "sha256": "a81bdd422c2c015deca84bf6ad249bf0d7d19885fc01d1894463291b0b7313e1"
+      },
+      "installed": true,
+      "version": "2.42-4ubuntu2.10"
+    },
+    "binutils-dev": {
+      "copyright": {
+        "gpl_versions": [
+          "3"
+        ],
+        "machine_readable": false,
+        "names": [],
+        "path": "/usr/share/doc/binutils-dev/copyright",
+        "present": true,
+        "sha256": "a81bdd422c2c015deca84bf6ad249bf0d7d19885fc01d1894463291b0b7313e1"
+      },
+      "installed": true,
+      "version": "2.42-4ubuntu2.10"
+    },
+    "libbinutils": {
+      "copyright": {
+        "gpl_versions": [
+          "3"
+        ],
+        "machine_readable": false,
+        "names": [],
+        "path": "/usr/share/doc/libbinutils/copyright",
+        "present": true,
+        "sha256": "a81bdd422c2c015deca84bf6ad249bf0d7d19885fc01d1894463291b0b7313e1"
+      },
+      "installed": true,
+      "version": "2.42-4ubuntu2.10"
+    },
+    "libbsd0": {
+      "copyright": {
+        "gpl_versions": [],
+        "machine_readable": true,
+        "names": [
+          "BSD-3-clause",
+          "BSD-3-clause-Regents",
+          "BSD-3-clause-Regents and BSD-2-clause-NetBSD",
+          "BSD-3-clause-author",
+          "BSD-3-clause-John-Birrell",
+          "BSD-5-clause-Peter-Wemm",
+          "BSD-2-clause-NetBSD",
+          "BSD-2-clause",
+          "BSD-2-clause-verbatim",
+          "BSD-2-clause-author",
+          "ISC",
+          "ISC-Original",
+          "Expat",
+          "public-domain",
+          "Beerware"
+        ],
+        "path": "/usr/share/doc/libbsd0/copyright",
+        "present": true,
+        "sha256": "978426553ab7b9cfb4503d98e578a77b8c3142c099100aa9791fd21be5a95f97"
+      },
+      "installed": true,
+      "version": "0.12.1-1build1.1"
+    },
+    "libc6": {
+      "copyright": {
+        "gpl_versions": [],
+        "machine_readable": false,
+        "names": [],
+        "path": "/usr/share/doc/libc6/copyright",
+        "present": true,
+        "sha256": "d3c95b56fa33e28b57860580f0baf4e4f4de2a268a2b80f1d031a5191bade265"
+      },
+      "installed": true,
+      "version": "2.39-0ubuntu8.8"
+    },
+    "libcapstone-dev": {
+      "copyright": {
+        "gpl_versions": [
+          "2"
+        ],
+        "machine_readable": true,
+        "names": [
+          "BSD-3-clause",
+          "BSD_LLVM",
+          "GPL-2+"
+        ],
+        "path": "/usr/share/doc/libcapstone-dev/copyright",
+        "present": true,
+        "sha256": "34c002639aee1a20c75ec146ef4e3dcb9efbfa3a40e07928ddf7f9420d7ccb6e"
+      },
+      "installed": true,
+      "version": "4.0.2-5.1build1"
+    },
+    "libcapstone4": {
+      "copyright": {
+        "gpl_versions": [
+          "2"
+        ],
+        "machine_readable": true,
+        "names": [
+          "BSD-3-clause",
+          "BSD_LLVM",
+          "GPL-2+"
+        ],
+        "path": "/usr/share/doc/libcapstone4/copyright",
+        "present": true,
+        "sha256": "34c002639aee1a20c75ec146ef4e3dcb9efbfa3a40e07928ddf7f9420d7ccb6e"
+      },
+      "installed": true,
+      "version": "4.0.2-5.1build1"
+    },
+    "libedit2": {
+      "copyright": {
+        "gpl_versions": [],
+        "machine_readable": true,
+        "names": [
+          "BSD-3-clause"
+        ],
+        "path": "/usr/share/doc/libedit2/copyright",
+        "present": true,
+        "sha256": "2b53671050f6319be6fcdcafa434e8ccb8af629359b4afc83185867204f3927d"
+      },
+      "installed": true,
+      "version": "3.1-20230828-1build1"
+    },
+    "libffi8": {
+      "copyright": {
+        "gpl_versions": [
+          "2",
+          "3"
+        ],
+        "machine_readable": true,
+        "names": [
+          "Expat",
+          "X11",
+          "GPL-2+",
+          "GPL-3+",
+          "MPL-1.1 or GPL-2+ or LGPL-2.1+",
+          "public-domain",
+          "GPL"
+        ],
+        "path": "/usr/share/doc/libffi8/copyright",
+        "present": true,
+        "sha256": "737ff68f0eb104d3b0d96b291c3a8f40a775a3ec2b53f9b2e4bcfe3188bde118"
+      },
+      "installed": true,
+      "version": "3.4.6-1build1"
+    },
+    "libgcc-s1": {
+      "copyright": {
+        "gpl_versions": [
+          "2",
+          "3"
+        ],
+        "machine_readable": false,
+        "names": [],
+        "path": "/usr/share/doc/libgcc-s1/copyright",
+        "present": true,
+        "sha256": "20390f8a6f3b1e4d7cb45dd8652dabb259bbef688cbad839bcdb0b9ba7252f79"
+      },
+      "installed": true,
+      "version": "14.2.0-4ubuntu2~24.04.1"
+    },
+    "libicu74": {
+      "copyright": {
+        "gpl_versions": [],
+        "machine_readable": true,
+        "names": [
+          "MIT",
+          "GPL-3"
+        ],
+        "path": "/usr/share/doc/libicu74/copyright",
+        "present": true,
+        "sha256": "5bbff5f646ce750ac0a347e7f91793279b7422a1119820b5f75d98879c201c68"
+      },
+      "installed": true,
+      "version": "74.2-1ubuntu3.1"
+    },
+    "libllvm18": {
+      "copyright": {
+        "gpl_versions": [],
+        "machine_readable": true,
+        "names": [
+          "APACHE-2-LLVM-EXCEPTIONS",
+          "MIT",
+          "BSD-3-clause",
+          "solar-public-domain",
+          "Python",
+          "BSD-3-Clause"
+        ],
+        "path": "/usr/share/doc/libllvm18/copyright",
+        "present": true,
+        "sha256": "dc2a171c75ca72818f7f4312602f27cb0e4bf6d010a86e7073a3797cb228ddff"
+      },
+      "installed": true,
+      "version": "1:18.1.3-1ubuntu1"
+    },
+    "liblzma5": {
+      "copyright": {
+        "gpl_versions": [
+          "2",
+          "3"
+        ],
+        "machine_readable": true,
+        "names": [
+          "Different licenses apply to different files in this package. Here",
+          "PD",
+          "probably-PD",
+          "GPL-2+",
+          "LGPL-2.1+",
+          "permissive-fsf",
+          "Autoconf",
+          "permissive-nowarranty",
+          "GPL-2",
+          "none",
+          "config-h",
+          "noderivs",
+          "PD-debian"
+        ],
+        "path": "/usr/share/doc/liblzma5/copyright",
+        "present": true,
+        "sha256": "a2dc8fac0f496e1c58aff67018cf0c6b88336316afa5642f9335b71642e28aa8"
+      },
+      "installed": true,
+      "version": "5.6.1+really5.4.5-1ubuntu0.3"
+    },
+    "libmd0": {
+      "copyright": {
+        "gpl_versions": [],
+        "machine_readable": true,
+        "names": [
+          "BSD-3-clause",
+          "BSD-3-clause-Aaron-D-Gifford",
+          "BSD-2-clause",
+          "BSD-2-clause-NetBSD",
+          "ISC",
+          "Beerware",
+          "public-domain-md4",
+          "public-domain-md5",
+          "public-domain-sha1"
+        ],
+        "path": "/usr/share/doc/libmd0/copyright",
+        "present": true,
+        "sha256": "4365ef6255ad553fce69dd4bc0e093472c5d0e41b8ea493a545cc926ce171aa6"
+      },
+      "installed": true,
+      "version": "1.1.0-2build1.1"
+    },
+    "libsframe1": {
+      "copyright": {
+        "gpl_versions": [
+          "3"
+        ],
+        "machine_readable": false,
+        "names": [],
+        "path": "/usr/share/doc/libsframe1/copyright",
+        "present": true,
+        "sha256": "a81bdd422c2c015deca84bf6ad249bf0d7d19885fc01d1894463291b0b7313e1"
+      },
+      "installed": true,
+      "version": "2.42-4ubuntu2.10"
+    },
+    "libstdc++6": {
+      "copyright": {
+        "gpl_versions": [
+          "2",
+          "3"
+        ],
+        "machine_readable": false,
+        "names": [],
+        "path": "/usr/share/doc/libstdc++6/copyright",
+        "present": true,
+        "sha256": "20390f8a6f3b1e4d7cb45dd8652dabb259bbef688cbad839bcdb0b9ba7252f79"
+      },
+      "installed": true,
+      "version": "14.2.0-4ubuntu2~24.04.1"
+    },
+    "libtinfo6": {
+      "copyright": {
+        "gpl_versions": [],
+        "machine_readable": true,
+        "names": [
+          "MIT/X11",
+          "X11",
+          "BSD-3-clause"
+        ],
+        "path": "/usr/share/doc/libtinfo6/copyright",
+        "present": true,
+        "sha256": "7c9d2c8dbee48b6f4bbbffb1f370cc5858de11cc4f5a70c5c622c274917e1c65"
+      },
+      "installed": true,
+      "version": "6.4+20240113-1ubuntu2.2"
+    },
+    "libxml2": {
+      "copyright": {
+        "gpl_versions": [],
+        "machine_readable": true,
+        "names": [
+          "MIT-1",
+          "ISC"
+        ],
+        "path": "/usr/share/doc/libxml2/copyright",
+        "present": true,
+        "sha256": "ee746b96cfa5be73c3ea3e4cfb1285e9b315d4c9267f99b2ee9c5d911d9fe3f4"
+      },
+      "installed": true,
+      "version": "2.9.14+dfsg-1.3ubuntu3.8"
+    },
+    "libzstd1": {
+      "copyright": {
+        "gpl_versions": [],
+        "machine_readable": true,
+        "names": [
+          "BSD-3-clause or GPL-2",
+          "zlib",
+          "Expat",
+          "GPL-2",
+          "BSD-3-clause"
+        ],
+        "path": "/usr/share/doc/libzstd1/copyright",
+        "present": true,
+        "sha256": "35e85e8e9bbb71492c5f5dddf39ed65b68775a02ad8d710c25d097b497f06c49"
+      },
+      "installed": true,
+      "version": "1.5.5+dfsg2-2build1.1"
+    },
+    "llvm": {
+      "copyright": {
+        "gpl_versions": [
+          "2"
+        ],
+        "machine_readable": true,
+        "names": [
+          "GPL-2+"
+        ],
+        "path": "/usr/share/doc/llvm/copyright",
+        "present": true,
+        "sha256": "a805083b5fc0e837126596e2f14e50c8fea4213e5c56247f926e3fba48006dcf"
+      },
+      "installed": true,
+      "version": "1:18.0-59~exp2"
+    },
+    "llvm-dev": {
+      "copyright": {
+        "gpl_versions": [
+          "2"
+        ],
+        "machine_readable": true,
+        "names": [
+          "GPL-2+"
+        ],
+        "path": "/usr/share/doc/llvm-dev/copyright",
+        "present": true,
+        "sha256": "a805083b5fc0e837126596e2f14e50c8fea4213e5c56247f926e3fba48006dcf"
+      },
+      "installed": true,
+      "version": "1:18.0-59~exp2"
+    },
+    "zlib1g": {
+      "copyright": {
+        "gpl_versions": [],
+        "machine_readable": true,
+        "names": [
+          "Zlib"
+        ],
+        "path": "/usr/share/doc/zlib1g/copyright",
+        "present": true,
+        "sha256": "9e5b96d63773a5d177ba264254390f792be07e41748ebd94730981c6cac31cc6"
+      },
+      "installed": true,
+      "version": "1:1.3.dfsg-3.1ubuntu2.2"
+    }
+  },
+  "platform": "linux-x86_64",
+  "probe": "hsdis",
+  "source": {
+    "cloned": {
+      "ok": true,
+      "seconds": 45.6
+    },
+    "commit": "815ff4dc327fe17f2433c7d115a5a503af10f3c4",
+    "commit_matches_pin": true,
+    "path": "/work/jdk-src",
+    "tag": "jdk-27+35"
+  },
+  "without_a_backend": {
+    "print_assembly": {
+      "address_lines": 94,
+      "banners": 2,
+      "body_lines": 192,
+      "complained": true,
+      "exit": 0,
+      "machcode_sections": 2,
+      "sample": [
+        "  0x00007f2d80f33d00: ;   {runtime_call os::breakpoint()}",
+        "  0x00007f2d80f33d00: e87b 0208 | 0466 6666 | 0f1f 8400 | 0000 0000 | 8984 2400 | c0fe ff55 | 4883 ec30 | 4181 7f20",
+        "  0x00007f2d80f33d20: 0100 0000 | 0f85 8002 | 0000 4c8b | 6e18 8b6e | 208b 5e10 | 448b 7608 | 488b fec5",
+        "  0x00007f2d80f33d3c: ;   {runtime_call SharedRuntime::OSR_migration_end(long*)}",
+        "  0x00007f2d80f33d3c: f877 49ba | 801f 0885 | 2d7f 0000",
+        "  0x00007f2d80f33d48: ;   {post_call_nop}",
+        "  0x00007f2d80f33d48: 41ff d20f | 1f84 0000 | 0000 0045 | 8b55 0441",
+        "  0x00007f2d80f33d58: ;   {metadata({type array int})}"
+      ],
+      "total_lines": 233,
+      "worked": false
+    },
+    "print_opto_assembly": {
+      "address_lines": 0,
+      "banners": 330,
+      "body_lines": 1,
+      "complained": false,
+      "exit": 0,
+      "machcode_sections": 0,
+      "sample": [],
+      "total_lines": 661,
+      "worked": false
+    }
+  }
+}

@@ -56,6 +56,7 @@ jobs:
           python tools/test_gen_malformed_table.py
           python tools/test_gen_widget_matrix.py
           python tools/test_gen_sa_types.py
+          python tools/test_gen_hsdis.py
           python tools/test_fetch_jdk.py
       - name: rebuild and compare
         run: python tools/build.py check
@@ -87,6 +88,11 @@ jobs:
       # that takes ten minutes and a spare 300MB.
       - name: the type database page matches the measured results
         run: python tools/gen_sa_types.py --check
+      # The hsdis page carries a licence table, which is the one kind of generated
+      # table somebody might act on outside this repository, so it gets the same
+      # treatment as the rest and a stale one fails the build.
+      - name: the hsdis page matches the measured results
+        run: python tools/gen_hsdis.py --check
       - name: three builds are byte identical
         run: |
           set -euo pipefail
