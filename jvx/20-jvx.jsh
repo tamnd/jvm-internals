@@ -272,14 +272,24 @@ class jvx {
         return "true".equals(flag(name));
     }
 
-    /** A flag with its origin, the way `java -XX:+PrintFlagsFinal` would show it. */
+    /**
+     * A flag with its origin, the way `java -XX:+PrintFlagsFinal` would show it.
+     *
+     * Formatted into a string and printed once, rather than printf, and that is not a
+     * style choice. The kernel turns every write on System.out into its own stream
+     * message, and java.util.Formatter writes each padding space separately, so a
+     * printf with a %-28s in it arrives at the reader as thirty little pieces and the
+     * notebook renders each one on its own line. One string, one println, one line.
+     */
     static void flags(String... names) {
         for (String name : names) {
             String value = flag(name);
             if (value == null) {
-                System.out.printf("%-28s %-10s %s%n", name, "-", "this VM has no such flag");
+                System.out.println(String.format(
+                    "%-28s %-10s %s", name, "-", "this VM has no such flag"));
             } else {
-                System.out.printf("%-28s %-10s {%s}%n", name, value, flagOrigin(name).toLowerCase());
+                System.out.println(String.format(
+                    "%-28s %-10s {%s}", name, value, flagOrigin(name).toLowerCase()));
             }
         }
     }
@@ -368,11 +378,12 @@ class jvx {
      */
     static void banner() {
         Runtime.Version v = Runtime.version();
-        System.out.printf("java      %s  (%s)%n", v, System.getProperty("java.vm.version"));
-        System.out.printf("vm        %s%n", System.getProperty("java.vm.name"));
-        System.out.printf("on        %s %s%n",
-            System.getProperty("os.name"), System.getProperty("os.arch"));
-        System.out.printf("lessons pinned to %s%n", PIN);
+        System.out.println(String.format("java      %s  (%s)",
+            v, System.getProperty("java.vm.version")));
+        System.out.println(String.format("vm        %s", System.getProperty("java.vm.name")));
+        System.out.println(String.format("on        %s %s",
+            System.getProperty("os.name"), System.getProperty("os.arch")));
+        System.out.println(String.format("lessons pinned to %s", PIN));
         System.out.println();
         // Three flags, not four. UseCompressedClassPointers used to belong in this
         // list and no longer exists on JDK 27, which is exactly why flag() returns

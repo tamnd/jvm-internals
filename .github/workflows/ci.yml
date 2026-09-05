@@ -148,6 +148,18 @@ jobs:
               exit 1
             fi
           done
+      # This one is here rather than in the offline job because half of it loads
+      # the whole helper surface into a real jshell and reads the markup back out.
+      # Checking that against the source instead would be checking the wrong thing,
+      # and the bug that started it was invisible in the source.
+      - name: the helper surface loads, and draws what it says it draws
+        run: |
+          set -euo pipefail
+          python tools/test_jvx_ui.py 2>&1 | tee /tmp/ui.log
+          if grep -q "skipped=" /tmp/ui.log; then
+            echo "the markup tests skipped with the pinned JDK installed"
+            exit 1
+          fi
 
   # Numbers that came out of HotSpot's own headers have to keep coming out of
   # them. This is a separate job from the notebooks one on purpose: it is the
