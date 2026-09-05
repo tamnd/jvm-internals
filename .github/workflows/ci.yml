@@ -59,6 +59,7 @@ jobs:
           python tools/test_gen_hsdis.py
           python tools/test_gen_section2.py
           python tools/test_refcheck.py
+          python tools/test_gen_jvms_index.py
           python tools/test_fetch_jdk.py
       - name: rebuild and compare
         run: python tools/build.py check
@@ -209,12 +210,18 @@ jobs:
         run: python tools/test_gen_markword.py
       - name: the mark word layout is still what is committed
         run: python tools/gen_markword.py --check
+      # The section index for the pinned specification edition. Oracle republishes
+      # a page in place, so a chapter whose hash moved is an event worth stopping
+      # for: a section that was renumbered changes what every claim citing it says.
+      - name: the specification section index is still what is committed
+        run: python tools/gen_jvms_index.py --check
       # Every path:line@tag in the repository, resolved against the tree at the tag
       # it names, with the cited line and two either side hashed into
       # docs/citations.json. A line number that drifts is obvious to a reader. A
       # line number that still exists and now says something else is not, and this
-      # is the only thing that catches it.
-      - name: every source citation still says what it said
+      # is the only thing that catches it. Every JVMS section reference goes
+      # through the index in the same pass.
+      - name: every citation still says what it said
         run: python tools/refcheck.py --report
 
   # Workflow files get the same treatment as everything else here. actionlint
@@ -282,12 +289,12 @@ jobs:
   #                        patches/ and vendor/, glossary uniqueness. The
   #                        directives, the caps and the requires DAG are already
   #                        in the notebooks job above
-  #     refcheck      4m   every JVMS section reference against a section index.
-  #                        The source citation half already runs in the generated
-  #                        job above and folds into this one when the spec half
-  #                        exists
   #     markers       1m   rule 7: every claim carries [JVMS] or [HOTSPOT], and
-  #                        at most two unobservable claims per lesson
+  #                        at most two unobservable claims per lesson. refcheck
+  #                        resolves both kinds already, in the generated job
+  #                        above. What is left for this one is the claim ledger:
+  #                        that every claim has a marker at all, and that a
+  #                        [JVMS] marker's section says what the claim says
   #     bpc           6m   bpc build then bpc check, so no generated blueprint
   #                        section is stale and no coverage item is unowned. Two
   #                        pieces of it already run above and fold into this one

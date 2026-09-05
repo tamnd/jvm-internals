@@ -16,7 +16,7 @@ export JAVA_HOME=$(python tools/fetch_jdk.py)
 
 It reads the URL and the SHA256 out of `docs/pin.json`, checks the download against the hash before unpacking anything, installs into `~/.cache/jvx` and prints the path. A hash that does not match is a hard stop with nothing unpacked. Running it again when the right build is already there does nothing and still prints the path, so it is safe in a script. Use `--dir` to put it somewhere else and `--where` to ask where it would go without installing.
 
-Citations come in two forms. CI resolves the first and lists the second as unchecked.
+Citations come in two forms and CI resolves both.
 
 ```
 src/hotspot/share/oops/markWord.hpp:152@jdk-27+35
@@ -27,7 +27,16 @@ JVMS §5.4.3.1@SE25
 
 The ledger is keyed on the file and line without the tag, which is what makes the check bite. A tag never moves, so resolving a citation against the tag it was written for can only ever succeed. When the pin moves, every citation has to be rewritten to the new tag, because prosecheck only accepts tags the pin names, and at that point every one of them is re resolved against the new tree and the ones whose content changed come out as a list. That list is the cost of the version bump, measured rather than guessed, which is the question [M6](https://github.com/tamnd/jvm-internals/issues/19) exists to answer.
 
-A specification citation is not resolved yet. `refcheck` prints every one of them as unchecked and says how many there were, so the number cannot quietly grow while the guide claims otherwise. Resolving one means a stored section index and a check that the quoted fragment appears in the section, which is what catches the most common error in JVM writing: attributing a claim to the specification that the specification does not make. That is worth doing and it is not done, so until it is, a `[JVMS]` marker is checked by a human reading the section.
+A specification citation is resolved against `docs/generated/jvms-index.json`, which `tools/gen_jvms_index.py` builds from Oracle's published edition and which holds the number and the title of all 177 sections plus a hash of each chapter page. The section has to exist in the edition the pin names, so a chapter cited as a section is caught, and so is a section that a later edition renumbered. What the index does not store is the text of the specification, because the text is Oracle's and this repository holds facts about it rather than a copy of it.
+
+`refcheck --report` prints the title of every section beside the citation that names it.
+
+```
+JVMS 2.7        Representation of Objects  at lessons/O01/lesson.py:90
+JVMS 5.4.3.1    Class and Interface Resolution  at CONTRIBUTING.md:23
+```
+
+Read those two columns together when you review. A citation that resolves is not a citation that is right, and the title is the cheapest way for a human to notice that a claim about object headers is hanging off a section about method resolution. Whether the section actually says what the claim says is still a human judgement, and it is the one this project treats most seriously.
 
 The specification edition is `SE25`, and it does not describe the class files the pinned `javac` writes. That is measured rather than assumed. The pinned compiler writes class file major version 71, JVMS SE25 covers 45 through 69, and the newest published edition, SE26 from March 2026, covers 45 through 70. No published edition describes a JDK 27 class file, because that edition is published with JDK 27 itself. So the pin carries two numbers, `jdk_class_file_major` and `jvms_class_file_major`, to keep the gap visible instead of averaging it into one field, and a lesson that reads the four bytes after the magic number cannot yet cite an edition that lists what it finds there. [Issue #34](https://github.com/tamnd/jvm-internals/issues/34) tracks the move, which happens with the pin move to `jdk-27-ga` rather than before it, because the edition to move to does not exist yet. The one specification claim in the repository today is JVMS §2.7 on the representation of objects, and its number, its title and the sentence quoted from it are the same in SE25 and in SE26, which is the available evidence that the move will be a re resolve rather than a rewrite.
 
