@@ -126,7 +126,8 @@
     "src/hotspot/share/oops/markWord.hpp:43": {
       "cited_in": [
         "docs/generated/markword.json",
-        "lessons/O01/claims.json"
+        "lessons/O01/claims.json",
+        "lessons/O01/lesson.py"
       ],
       "context_sha256": "a17c3a09b672cbad3ce42f790c93ae49c8778b4267d563caf26f3f8d6ec01081",
       "line": "//  64 bits (without compact headers):",
@@ -134,11 +135,36 @@
     },
     "src/hotspot/share/oops/markWord.hpp:47": {
       "cited_in": [
-        "docs/generated/markword.json",
-        "lessons/O01/claims.json"
+        "docs/generated/markword.json"
       ],
       "context_sha256": "a8956b6e38f097bb6767975ca006d98afe060788b7747cc7a560b564ab6e3f01",
       "line": "//  64 bits (with compact headers):",
+      "tag": "jdk-27+35"
+    },
+    "src/hotspot/share/runtime/globals.hpp:131": {
+      "cited_in": [
+        "lessons/O01/claims.json",
+        "lessons/O01/lesson.py"
+      ],
+      "context_sha256": "ea4e2838278e6672556863db26cb2b1385997fa3665a61a11dba6845f58d5469",
+      "line": "  product(bool, UseCompactObjectHeaders, true,                              \\",
+      "tag": "jdk-27+35"
+    },
+    "src/hotspot/share/runtime/globals.hpp:134": {
+      "cited_in": [
+        "lessons/O01/claims.json"
+      ],
+      "context_sha256": "0682192f4ac8096ffd8cda34e0db634fc505e91e8680d747ad59605233d48873",
+      "line": "  product(int, ObjectAlignmentInBytes, 8,                                   \\",
+      "tag": "jdk-27+35"
+    },
+    "src/hotspot/share/utilities/align.hpp:125": {
+      "cited_in": [
+        "lessons/O01/claims.json",
+        "lessons/O01/lesson.py"
+      ],
+      "context_sha256": "ddc69ba685ed094a44191a9799196ba8997070535596eeaa4c6d390b8f9d03e3",
+      "line": "  return align_up(word_size, MinObjAlignment);",
       "tag": "jdk-27+35"
     },
     "src/utils/hsdis/README.md:73": {

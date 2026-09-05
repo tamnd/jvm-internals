@@ -690,8 +690,21 @@ def notebook_path(root: pathlib.Path, lesson: Lesson) -> pathlib.Path:
 # ---------------------------------------------------------------------------
 
 
+# `{[HOTSPOT src/hotspot/share/oops/markWord.hpp:124@jdk-27+35]}` and `{[JVMS §2.7@SE25]}`.
+# The leading whitespace goes with it, so `bits {[JVMS §2.7@SE25]}.` leaves `bits.` and
+# not a full stop standing on its own as a word.
+MARKER = re.compile(r"\s*\{\[(?:JVMS|HOTSPOT)\s+[^\]]+\]\}")
+
+
 def words(text: str) -> int:
-    return len([w for w in re.split(r"\s+", text) if w])
+    """Words a reader reads, which does not include the citation markers.
+
+    Rule 7 puts a marker on every claim, so counting markers as prose makes the budget
+    shrink every time somebody cites their source. That is backwards: it prices the one
+    habit this project is built on, and the way to get back under the cap is to delete a
+    citation. A marker is machinery. The reader sees a footnote, not four words.
+    """
+    return len([w for w in re.split(r"\s+", MARKER.sub("", text)) if w])
 
 
 def check_structure(root: pathlib.Path, lessons: list[Lesson]) -> list[str]:

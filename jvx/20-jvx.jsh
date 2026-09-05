@@ -109,16 +109,17 @@ class jvx {
      * The mark word of an object nothing has ever touched.
      *
      * This exists because of a trap that is very easy to fall into and impossible to
-     * see. JShell echoes the value of any expression you do not end with a semicolon,
-     * and echoing an object calls toString(), and Object.toString() calls hashCode(),
-     * and calling hashCode() on an object is what makes HotSpot write an identity hash
-     * into its mark word. So this:
+     * see. Assigning an object to a top level JShell variable is enough to make
+     * something ask for its identity hash, and asking is what makes HotSpot write one
+     * into the mark word. So this:
      *
-     *     Object o = new Object()
+     *     Object o = new Object();
      *
      * hands you an object whose hash field is already filled in, and the "before"
-     * measurement you were about to take is gone. The same line with a semicolon on
-     * the end does not, because JShell prints nothing.
+     * measurement you were about to take is gone. The semicolon does not save you.
+     * Measured on 27+35-2325: a top level variable reads a nonzero hash with the
+     * semicolon on the end, the same allocation stored into a static field of a class
+     * declared in the same session reads 0, and one that is never named reads 0.
      *
      * Nothing here can touch the object between allocating it and reading it, because
      * the reference never leaves this method. It is the honest "before".

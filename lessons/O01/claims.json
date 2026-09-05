@@ -29,7 +29,7 @@
     "id": "O01-C4",
     "claim": "UseCompactObjectHeaders is on by default on 64 bit platforms from JDK 27.",
     "marker": "HOTSPOT",
-    "citation": "src/hotspot/share/oops/markWord.hpp:47@jdk-27+35",
+    "citation": "src/hotspot/share/runtime/globals.hpp:131@jdk-27+35",
     "observable": true,
     "cell": "bootstrap",
     "measured": "the banner reports UseCompactObjectHeaders true with origin default"
@@ -38,11 +38,11 @@
     "id": "O01-C5",
     "claim": "Instance size is the end of the last field rounded up to ObjectAlignmentInBytes, which defaults to 8, so a 4 byte reduction in header size does not imply a 4 byte reduction in object size.",
     "marker": "HOTSPOT",
-    "citation": "src/hotspot/share/oops/markWord.hpp:43@jdk-27+35",
+    "citation": "src/hotspot/share/utilities/align.hpp:125@jdk-27+35",
     "observable": true,
     "cell": "measure_3",
     "measured": "java.lang.Integer is 16 bytes both ways: 8+4 padded to 16, and 12+4 exactly 16",
-    "note": "This is the claim the whole lesson exists for and the one gate 3 tests. The citation is weak: it points at the layout comment rather than at the alignment code, and it should move to the real site in oopDesc or CollectedHeap when refcheck can resolve it."
+    "note": "This is the claim the whole lesson exists for and the one gate 3 tests. The citation used to point at the layout comment in markWord.hpp rather than at the alignment code, and it now points at align_object_size, which is the rounding itself. The default of 8 is src/hotspot/share/runtime/globals.hpp:134@jdk-27+35, one line below the UseCompactObjectHeaders default that O01-C4 cites."
   },
   {
     "id": "O01-C6",
@@ -87,6 +87,7 @@
     "citation": "src/hotspot/share/oops/markWord.hpp:128@jdk-27+35",
     "observable": true,
     "cell": "hash_note",
-    "note": "This is a JShell property rather than a HotSpot one, and the marker is on the header field it disturbs rather than on the cause. Revisit when the JShell distortion report in issue #2 is finished, because the cause deserves its own citation into the JShell sources."
+    "measured": "on 27+35-2325 osx-arm64, an object assigned to a top level variable reads a nonzero hash even when the line ends in a semicolon, the same allocation stored into a static field of a class declared in the same session reads 0, and one that is never named reads 0. Reading the mark word is not itself enough to write one. Two runs, different hashes, same three answers",
+    "note": "This is a JShell property rather than a HotSpot one, and the marker is on the header field it disturbs rather than on the cause. The control is the static field: it proves the cause is the top level variable and not the allocation, and it rules out the reading. Revisit when the JShell distortion report in issue #2 is finished, because the cause deserves its own citation into the JShell sources."
   }
 ]
