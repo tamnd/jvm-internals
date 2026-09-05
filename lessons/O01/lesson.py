@@ -173,7 +173,7 @@ jvx.reveal("gate_2", "c");
 #
 # If you said 20 you did the header arithmetic correctly and forgot the alignment, which is the most common way to be wrong here. Objects are allocated on 8 byte boundaries, controlled by `ObjectAlignmentInBytes`, so no object is ever an odd size.
 #
-# So this one really did save 8 bytes per instance, not 4. That is the version of the story everybody repeats. Now the third question.
+# So this one really did save 8 bytes per instance, not 4, which is the version of the story everybody repeats.
 
 # %% [markdown] id=gate_3_intro
 # ## The third question
@@ -221,7 +221,25 @@ jvx.reveal("gate_3", "b");
 #
 # If your heap is mostly boxed numbers, compact headers may do nothing measurable for you. If it is mostly small objects with two or three fields, it can be a fifth of your heap. Neither of those is a guess you can make from the flag's description, and both of them are five minutes of measuring.
 #
-# One more thing worth noticing. `Long` behaves differently again: its field is 8 bytes wide and has to be 8 byte aligned, so legacy puts it at offset 16 rather than 12, wasting four bytes to alignment inside the object. Compact puts it at 8. You can check that with the same probe.
+# %% [markdown] id=lens_intro
+# ### Looking at one, byte by byte
+#
+# Three numbers in a row is a hard way to see a layout. `jvx.lens` measures every field offset on the VM you are running and draws the object as bytes. Nothing in it is looked up: start this kernel with `-XX:-UseCompactObjectHeaders` and the picture changes.
+
+# %% id=lens env=E0
+class Two { int a; int b; }
+class Mixed { int a; long b; }
+class Small { byte b; }
+class Big extends Small { long x; }
+
+jvx.lens(Two.class);
+jvx.lens(Mixed.class);
+jvx.lens(Big.class);
+
+# %% [markdown] id=lens_note
+# `Two` fills itself exactly, which is why it kept the whole 8 bytes. `Mixed` is not drawn in the order you declared it. The `long` comes first, at byte 8, because HotSpot lays the wide fields out first so each one lands on its own alignment, and the `int` takes what is left with 4 bytes of padding after it. Declaration order is not layout order.
+#
+# `Big` is where the other colour comes from. `Small` has one `byte`, and `Big` cannot move it: code compiled against `Small` reads that field at that offset and knows nothing about `Big`. So the `long` waits for the next 8 byte boundary and bytes 9 to 15 belong to nobody. That is a gap rather than padding, because it sits in the middle rather than at the end. Add an `int` to `Big` and it lands at byte 12, inside the gap, for nothing.
 
 # %% [markdown] id=klass_intro
 # ## Proving the class pointer is really in there
@@ -229,8 +247,7 @@ jvx.reveal("gate_3", "b");
 # The claim that the top 22 bits hold the class pointer is easy to state and easy to take on faith. It is also easy to check: two objects of different classes should differ in those bits, and two objects of the same class should not.
 
 # %% id=klass_proof env=E0
-class Two { int a; int b; }
-
+// Two was declared a few cells up, where the lens drew it.
 long objectKlass = MarkWord.get(jvx.freshMark(), "klass");
 long twoKlassA = jvx.field(new Two(), "klass");
 long twoKlassB = jvx.field(new Two(), "klass");

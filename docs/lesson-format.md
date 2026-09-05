@@ -101,7 +101,19 @@ jvx.reveal("gate_1", "a");
 
 A reader who runs the reveal without answering is told the answer anyway, along with a note that they got less out of it than they could have. Refusing would be truer to the idea and would also strand anybody who hit Run All in a cell that will not talk to them.
 
-This is the text version. It works in a notebook with no widgets, in a terminal and in a printed transcript. The `PredictGate` widget replaces `Gate` when probe #4 has an answer, and no lesson changes when it does.
+There are two renderings and the three calls are the same in both. In a notebook the gate is a card, and on a page nobody has run the answer sits inside a `details` element, so a reader scrolling past a reveal has to decide to open it. In a terminal, a printed transcript or a notebook with no HTML it prints the same words as lines. Which one a reader gets is decided in `jvx/05-ui.jsh`, which is the only file in the project that talks to the front end.
+
+## Layout pictures
+
+`jvx.lens(SomeClass.class)` draws one object as bytes: the header, every field where it actually sits, the gaps between them and the padding at the end.
+
+Every number in the drawing is measured on the VM the reader is on, a moment before it is drawn. None of it is looked up in a table, so a reader who starts the kernel with `-XX:-UseCompactObjectHeaders` gets a different picture, which is the point of having one.
+
+A gap and padding are drawn as different things on purpose. Padding is at the end because the object has to be a multiple of `ObjectAlignmentInBytes`. A gap is in the middle because a field could not start where the last one ended. Only one of them can be affected by what a reader declares, so drawing them the same colour would hide the only one worth looking at.
+
+Under the picture is the same list in text, behind a `details`, and the coloured dot beside each name is the colour of the box it points at. The `alt` text says everything the picture says, for a reader who cannot see it or whose front end blocks images, and it is the same sentence the terminal rendering prints.
+
+`jvx/18-lens.jsh` draws and measures nothing: it is handed the slots and turns them into markup, which is why `tools/test_jvx_ui.py` can hand it a layout that no JVM would produce and check the drawing.
 
 ## Diagrams
 
