@@ -35,6 +35,7 @@ class jvx {
     private static Method getLongMethod;
     private static Method fieldOffsetMethod;
     private static Method arrayBaseMethod;
+    private static Method arrayScaleMethod;
     private static boolean fieldOffsetTakesAField;
     private static String markRoute = "not tried yet";
 
@@ -49,6 +50,7 @@ class jvx {
             // interchangeable and why fieldOffset below has to know which it got.
             fieldOffsetMethod = c.getMethod("objectFieldOffset", Class.class, String.class);
             arrayBaseMethod = c.getMethod("arrayBaseOffset", Class.class);
+            arrayScaleMethod = c.getMethod("arrayIndexScale", Class.class);
             fieldOffsetTakesAField = false;
             markRoute = "jdk.internal.misc.Unsafe";
             return;
@@ -63,6 +65,7 @@ class jvx {
             getLongMethod = c.getMethod("getLong", Object.class, long.class);
             fieldOffsetMethod = c.getMethod("objectFieldOffset", Field.class);
             arrayBaseMethod = c.getMethod("arrayBaseOffset", Class.class);
+            arrayScaleMethod = c.getMethod("arrayIndexScale", Class.class);
             fieldOffsetTakesAField = true;
             markRoute = "sun.misc.Unsafe (deprecated for removal, expect a warning)";
             return;
@@ -178,6 +181,31 @@ class jvx {
         return earliest;
     }
 
+    /**
+     * How wide a reference is, measured rather than assumed.
+     *
+     * One slot of an Object[] is one reference, so the array's index scale is the answer.
+     * This is 4 with compressed oops and 8 without, and guessing it wrong throws every
+     * object size in a lesson off by four bytes per field.
+     */
+    static long refWidth() {
+        openUnsafe();
+        try {
+            return ((Number) arrayScaleMethod.invoke(unsafe, Object[].class)).longValue();
+        } catch (Exception e) {
+            throw new RuntimeException("could not read the reference width", e);
+        }
+    }
+
+    /** How many bytes a field of this type takes up inside an object. */
+    static long widthOf(Class<?> type) {
+        if (type == long.class || type == double.class) return 8;
+        if (type == int.class || type == float.class) return 4;
+        if (type == short.class || type == char.class) return 2;
+        if (type == byte.class || type == boolean.class) return 1;
+        return refWidth();
+    }
+
     /** Where an array's elements start, which is the size of an array header. */
     static long arrayBase(Class<?> arrayType) {
         openUnsafe();
@@ -235,6 +263,105 @@ class jvx {
             }
 
             """ + candidateSource + "\n";
+    }
+
+    // -- HeapLens, the object layout viewer ------------------------------------------
+    //
+    // Everything here is measured on the VM the reader is on. Nothing is looked up in a
+    // table and nothing is assumed from the platform, because the whole lesson is that
+    // the answer moved and the books have not caught up. The drawing is in Lens, which
+    // is handed the measurements and never takes any.
+
+    /**
+     * A class with exactly one field, used as a ruler.
+     *
+     * A class with no instance fields has no first field to point at, so there is
+     * nothing in it to measure the header with. Every non array object on HotSpot has
+     * the same header, so measuring it on this one and saying so is better than either
+     * refusing to draw `Object` or printing a number from a book.
+     */
+    private static class Ruler { byte b; }
+
+    static long alignment() {
+        String value = flag("ObjectAlignmentInBytes");
+        return value == null ? 8L : Long.parseLong(value);
+    }
+
+    /** Where the header stops on this VM, for any object that has no fields to ask. */
+    static long headerSize() {
+        return fieldOffset(Ruler.class, "b");
+    }
+
+    /** Every instance field of this class and its superclasses, earliest first. */
+    private static List<Field> instanceFields(Class<?> type) {
+        List<Field> found = new ArrayList<>();
+        for (Class<?> c = type; c != null; c = c.getSuperclass()) {
+            for (Field f : c.getDeclaredFields()) {
+                if (!Modifier.isStatic(f.getModifiers())) found.add(f);
+            }
+        }
+        found.sort((a, b) -> Long.compare(
+            fieldOffset(a.getDeclaringClass(), a.getName()),
+            fieldOffset(b.getDeclaringClass(), b.getName())));
+        return found;
+    }
+
+    /** How many bytes an instance takes, including the padding at the end. */
+    static long sizeOf(Class<?> type) {
+        long end = headerSize();
+        for (Field f : instanceFields(type)) {
+            end = Math.max(end,
+                fieldOffset(f.getDeclaringClass(), f.getName()) + widthOf(f.getType()));
+        }
+        long align = alignment();
+        return (end + align - 1) / align * align;
+    }
+
+    /**
+     * The whole object as a list of byte runs, in order, with nothing left out.
+     *
+     * The gaps are the point. A field that does not start where the last one ended has
+     * something in between, and that something is alignment padding the reader did not
+     * ask for and is paying for. Naming it in the same list as the fields is what makes
+     * it visible.
+     */
+    static List<Lens.Slot> layout(Class<?> type) {
+        List<Lens.Slot> slots = new ArrayList<>();
+        long cursor = headerSize();
+        slots.add(new Lens.Slot("header", 0, cursor, "header"));
+        for (Field f : instanceFields(type)) {
+            long at = fieldOffset(f.getDeclaringClass(), f.getName());
+            long width = widthOf(f.getType());
+            if (at > cursor) {
+                slots.add(new Lens.Slot("gap", cursor, at - cursor, "gap"));
+            }
+            slots.add(new Lens.Slot(
+                f.getType().getSimpleName() + " " + f.getName(), at, width, "field"));
+            cursor = at + width;
+        }
+        long size = sizeOf(type);
+        if (size > cursor) {
+            slots.add(new Lens.Slot("padding", cursor, size - cursor, "padding"));
+        }
+        return slots;
+    }
+
+    /** Draw one object's layout, byte by byte, as measured on this VM. */
+    static void lens(Class<?> type) {
+        List<Lens.Slot> slots = layout(type);
+        long size = sizeOf(type);
+        String title = type.getSimpleName();
+        String note = "Measured on this VM, where `UseCompactObjectHeaders` is "
+            + (flag("UseCompactObjectHeaders") == null ? "not a flag" : flag("UseCompactObjectHeaders"))
+            + " and `ObjectAlignmentInBytes` is " + alignment() + ".";
+        if (instanceFields(type).isEmpty()) {
+            note = title + " has no instance fields, so the header was measured on a class "
+                + "that has one. Every non array object on HotSpot has the same header. " + note;
+        }
+        if (Ui.html(Lens.card(title, slots, size, note))) return;
+        System.out.print(Lens.text(title, slots, size));
+        System.out.println();
+        System.out.println(note.replace("`", ""));
     }
 
     // -- asking the VM about itself -----------------------------------------------

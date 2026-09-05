@@ -77,6 +77,34 @@ System.out.println(Ui.prose("a <b> & a `code span`, a \\"quote\\" and a `danglin
 mark("rich");
 System.out.println(Ui.rich());
 
+// HeapLens. Two of these are drawn from a layout that was invented in this file, which
+// is the point of Lens taking measurements rather than making them: a picture with a
+// gap and a picture of a field that crosses a word boundary can both be checked without
+// finding a real class that happens to have one.
+class Two { int a; int b; }
+
+mark("layout");
+System.out.println(Lens.text("Two", jvx.layout(Two.class), jvx.sizeOf(Two.class)));
+
+mark("lenscard");
+System.out.println(Lens.card("Two", jvx.layout(Two.class), jvx.sizeOf(Two.class), "a note"));
+
+mark("invented");
+System.out.println(Lens.svg(List.of(
+    new Lens.Slot("header", 0, 8, "header"),
+    new Lens.Slot("byte b", 8, 1, "field"),
+    new Lens.Slot("gap", 9, 3, "gap"),
+    new Lens.Slot("long x", 12, 8, "field"),
+    new Lens.Slot("padding", 20, 4, "padding")), 24));
+
+mark("alt");
+System.out.println(Lens.alt("Two", jvx.layout(Two.class), jvx.sizeOf(Two.class)));
+
+mark("numbers");
+System.out.println(jvx.headerSize() + " " + jvx.sizeOf(Two.class) + " "
+    + jvx.fieldOffset(Two.class, "a") + " " + jvx.fieldOffset(Two.class, "b") + " "
+    + jvx.refWidth() + " " + jvx.alignment() + " " + jvx.widthOf(long.class));
+
 // Every class in the surface, named once, so one that failed to compile is a failure
 // here rather than a surprise for a reader. jshell accepts a snippet with an unresolved
 // reference and only complains when something uses it, which is exactly how a broken
@@ -140,6 +168,7 @@ def jshell() -> str | None:
 
 
 JSHELL = jshell()
+OPEN = "--add-exports=java.base/jdk.internal.misc=ALL-UNNAMED"
 NEEDS_JSHELL = unittest.skipUnless(
     JSHELL, "no jshell, so the markup cannot be read back out of the thing that makes it"
 )
@@ -154,14 +183,30 @@ def run_driver() -> dict[str, str]:
         script = pathlib.Path(directory) / "drive.jsh"
         script.write_text(bootstrap + "\n" + DRIVER, encoding="utf-8")
         done = subprocess.run(
-            [JSHELL, "--execution", "local", "--startup", str(startup), "-s", str(script)],
+            [
+                JSHELL,
+                "--execution", "local",
+                # The same door the kernel is started with. HeapLens measures rather
+                # than assumes, so without this the driver loads fine and every layout
+                # it prints is empty, which is a much quieter kind of wrong.
+                "-J" + OPEN,
+                "--startup", str(startup),
+                "-s", str(script),
+            ],
             capture_output=True,
             text=True,
             timeout=300,
         )
+    # Both streams. jshell prints a thrown exception on stderr and carries on, so a
+    # clean stdout is not proof of anything: the first version of this scan read stdout
+    # only and watched four HeapLens calls throw without noticing.
     trouble = "\n".join(
-        line for line in done.stdout.splitlines()
-        if "Error:" in line or "cannot find symbol" in line or "REJECTED" in line
+        line for line in (done.stdout + "\n" + done.stderr).splitlines()
+        if "Error:" in line
+        or "cannot find symbol" in line
+        or "REJECTED" in line
+        or line.startswith("Exception ")
+        or line.startswith("|  Exception")
     )
     if trouble:
         raise AssertionError("jshell refused part of the helper surface:\n" + trouble)
@@ -289,6 +334,68 @@ class TestTheMarkup(unittest.TestCase):
         for name in ["right", "wrong"]:
             with self.subTest(reveal=name):
                 self.assertNotIn("<details", self.parts[name])
+
+    def test_the_lens_measures_this_vm_rather_than_repeating_a_number(self):
+        # Relationships, not constants. The header is 8 bytes on the pinned JDK and 12 on
+        # the one most readers have, and a test that hardcodes either becomes a test that
+        # the JDK has not moved, which is the opposite of what this project is for.
+        header, size, a, b, ref, align, eight = (
+            int(n) for n in self.parts["numbers"].split()
+        )
+        self.assertEqual(a, header, "the first field starts where the header stops")
+        self.assertEqual(b, a + 4, "two ints sit next to each other")
+        self.assertEqual(size, (b + 4 + align - 1) // align * align)
+        self.assertEqual(size % align, 0, "an object is a whole number of alignments")
+        self.assertIn(ref, (4, 8), "a reference is compressed or it is not")
+        self.assertEqual(eight, 8, "a long is eight bytes on every VM there will ever be")
+
+    def test_the_lens_accounts_for_every_byte_with_nothing_overlapping(self):
+        # The one property that makes the picture worth trusting: it is a partition of
+        # the object. A slot that overlaps its neighbour, or a byte nobody claims, would
+        # still draw something that looks convincing.
+        text = self.parts["layout"]
+        runs = re.findall(r"bytes\s+(\d+) to\s+(\d+)\s+\((\d+)\)", text)
+        self.assertTrue(runs, text)
+        cursor = 0
+        for start, end, width in ((int(a), int(b), int(c)) for a, b, c in runs):
+            self.assertEqual(start, cursor, f"byte {cursor} is claimed twice or not at all")
+            self.assertEqual(end - start + 1, width, "the run does not match its own width")
+            cursor = end + 1
+        size = int(re.search(r"is (\d+) bytes", text).group(1))
+        self.assertEqual(cursor, size, "the last slot does not reach the end of the object")
+
+    def test_the_lens_names_the_fields_and_the_header(self):
+        for expected in ["header", "int a", "int b"]:
+            with self.subTest(slot=expected):
+                self.assertIn(expected, self.parts["layout"])
+
+    def test_a_gap_and_padding_are_drawn_as_different_things(self):
+        # A gap is the field order's fault and can be fixed by reordering. Padding at the
+        # end cannot. Drawing them the same colour would hide the only one a reader can
+        # do anything about.
+        svg = self.parts["invented"]
+        self.assertIn("#ffa94d", svg, "a gap is drawn in its own colour")
+        self.assertIn("stroke-dasharray", svg, "padding is drawn as an outline")
+        self.assertIn("long x", svg, "a field wide enough for its name gets it")
+
+    def test_the_picture_is_a_grid_of_words(self):
+        svg = self.parts["invented"]
+        # 24 bytes is three rows, and the long crosses a word boundary, so it is drawn
+        # twice. Background, header, byte, gap, long twice, padding.
+        self.assertEqual(svg.count("<rect"), 7, svg[:400])
+        self.assertIn('height="166"', svg, "three rows plus the ruler")
+
+    def test_the_lens_card_carries_the_picture_and_the_numbers(self):
+        card = self.parts["lenscard"]
+        self.assertIn('src="data:image/svg+xml;base64,', card)
+        self.assertIn("<details", card, "the offsets are one click away, not on the page")
+        self.assertIn("a note", card)
+
+    def test_the_picture_says_the_same_thing_to_somebody_who_cannot_see_it(self):
+        alt = self.parts["alt"]
+        for expected in ["header", "int a", "int b", "bytes"]:
+            with self.subTest(phrase=expected):
+                self.assertIn(expected, alt)
 
     def test_a_picture_is_an_img_with_a_data_uri(self):
         picture = self.parts["picture"]
