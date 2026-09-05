@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
-"""Resolve every source citation in the repository against the pinned tree.
+"""Resolve every citation in the repository, source against the pinned tree and
+specification against the pinned edition's section index.
 
 `CONTRIBUTING.md` promises this: "A source citation is resolved against the pinned tree
 and the surrounding lines are hashed, so a citation that still points at a line whose
@@ -25,11 +26,18 @@ under `~/.cache/jvx/src/<tag>/`. A tag never moves, so the cache never needs to 
 Set `JVX_JDK_SRC` to a checkout to use that instead of the network, which is what a
 machine that has already cloned the JDK should do.
 
-Specification citations are not resolved here yet. Resolving one means an index of the
-sections of a specification edition, which is a different source, a different fetch and a
-different failure mode, so it is its own piece of work. This one refuses to pretend it
-checked them: `--report` prints every one of them as unchecked, and the closing line says
-how many went unchecked so the number cannot quietly grow.
+A specification citation is resolved against `docs/generated/jvms-index.json`, which
+`gen_jvms_index.py` builds from Oracle's published edition. The section has to exist in
+the edition the pin names, and `--report` prints the title the section actually has next
+to every citation, because a reviewer who sees `JVMS 2.7 Representation of Objects`
+beside a claim about object headers can tell when the pairing is wrong and a reviewer who
+sees `JVMS 2.7` alone cannot.
+
+What that does not check is whether the section says what the claim says. That is the P1
+bug in `CONTRIBUTING.md` rule 7 and it still needs a human, or a convention for quoting a
+fragment that this repository does not have yet. The existence check catches the
+renumbering, which is how specification citations rot in practice; it does not catch the
+misattribution, which is how they mislead.
 """
 
 from __future__ import annotations
@@ -45,6 +53,10 @@ import sys
 import urllib.parse
 import urllib.request
 
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
+
+import gen_jvms_index  # noqa: E402
+
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 LEDGER = pathlib.Path("docs/citations.json")
 RAW = "https://raw.githubusercontent.com/openjdk/jdk/{tag}/{path}"
@@ -55,7 +67,8 @@ CACHE = pathlib.Path(os.environ.get("JVX_CACHE",
 # is a citation one of them is not checking.
 SOURCE_CITE = re.compile(
     r"([A-Za-z0-9_/.$-]+\.(?:cpp|hpp|c|h|java|ad|xml|md)):(\d+)@(\S+?)(?=[\s)\]}.,;`\"']|$)")
-SPEC_CITE = re.compile(r"(?:JVMS|JLS)\s*[^@\s]*@(\S+?)(?=[\s)\]}.,;`\"']|$)")
+SPEC_CITE = re.compile(
+    r"(JVMS|JLS)\s*§?\s*(\d[\d.]*?)@(\S+?)(?=[\s)\]}.,;`\"']|$)")
 
 # Where citations live. Prose, lesson markdown and jvx comments are what prosecheck
 # reads. The two JSON shapes are here as well because a claim ledger and a generated
@@ -112,13 +125,22 @@ def cited(paths: list[pathlib.Path]) -> tuple[dict[str, dict], list[dict]]:
             where = f"{path.relative_to(ROOT)}:{number}"
             for found in SOURCE_CITE.finditer(line):
                 key = f"{found.group(1)}:{found.group(2)}"
-                entry = source.setdefault(key, {"cited_at": [], "tags": []})
+                entry = source.setdefault(
+                    key, {"cited_at": [], "cited_in": [], "tags": []})
                 if where not in entry["cited_at"]:
                     entry["cited_at"].append(where)
+                # The ledger records the file and not the line, so that adding a
+                # paragraph above a citation does not dirty an entry about a line in
+                # somebody else's repository. The line is kept for the error message,
+                # where it is what somebody needs to go and look at the thing.
+                name = str(path.relative_to(ROOT))
+                if name not in entry["cited_in"]:
+                    entry["cited_in"].append(name)
                 if found.group(3) not in entry["tags"]:
                     entry["tags"].append(found.group(3))
             for found in SPEC_CITE.finditer(line):
-                spec.append({"edition": found.group(1), "where": where,
+                spec.append({"spec": found.group(1), "section": found.group(2),
+                             "edition": found.group(3), "where": where,
                              "text": found.group(0)})
     return source, spec
 
@@ -205,7 +227,7 @@ def build(source: dict[str, dict], accepted: list[str],
             "tag": found["tag"],
             "line": found["line"],
             "context_sha256": found["context_sha256"],
-            "cited_at": source[key]["cited_at"],
+            "cited_in": sorted(source[key]["cited_in"]),
         }
     return entries, unresolved
 
@@ -229,14 +251,51 @@ def compare(known: dict, entries: dict, source: dict[str, dict]) -> list[str]:
                 f"Cited at {where}. Read the new tree and move the citation or fix the "
                 f"prose, then run --update.")
             continue
-        if was["cited_at"] != now["cited_at"]:
+        if was["cited_in"] != now["cited_in"]:
             problems.append(
-                f"{key} is cited in different places than the ledger records: "
-                f"{was['cited_at']} became {now['cited_at']}. Run --update.")
+                f"{key} is cited in different files than the ledger records: "
+                f"{was['cited_in']} became {now['cited_in']}. Run --update.")
     for key in sorted(set(known) - set(entries)):
         problems.append(
             f"{key} is in the ledger and is cited nowhere. Run --update to drop it.")
     return problems
+
+
+def specifications(spec: list[dict], pin: dict) -> tuple[list[dict], list[str]]:
+    """Every specification citation, resolved against the committed section index.
+
+    What this can check is that the section exists in the edition the citation names and
+    what that section is called. What it cannot check is whether the section says what
+    the claim says, which is the P1 bug in rule 7 and needs a human or a quoted fragment.
+    So every resolved citation is returned with its title, for the report to print, on
+    the theory that a reviewer who sees `JVMS 2.7 Representation of Objects` next to a
+    claim about object headers can tell at a glance when the pairing is wrong, and a
+    reviewer who sees `JVMS 2.7` alone cannot.
+    """
+    resolved: list[dict] = []
+    problems: list[str] = []
+    edition = pin["jvms_edition"]
+    index = None
+    for citation in spec:
+        if citation["spec"] != "JVMS":
+            resolved.append(dict(citation, title=None,
+                                 why=f"no index exists for {citation['spec']}"))
+            continue
+        if citation["edition"] != edition:
+            problems.append(
+                f"{citation['text']} at {citation['where']} names edition "
+                f"{citation['edition']} and docs/pin.json says {edition}")
+            continue
+        if index is None:
+            index = gen_jvms_index.sections(gen_jvms_index.load())
+        title = index.get(citation["section"])
+        if title is None:
+            problems.append(
+                f"{citation['text']} at {citation['where']} names section "
+                f"{citation['section']}, which is not in JVMS {edition}")
+            continue
+        resolved.append(dict(citation, title=title, why=None))
+    return resolved, problems
 
 
 def main(argv: list[str]) -> int:
@@ -284,20 +343,26 @@ def main(argv: list[str]) -> int:
     for line in unresolved:
         problems.append(f"unresolved: {line}")
 
+    resolved, wrong = specifications(spec, pin)
+    problems.extend(wrong)
+    unindexed = [one for one in resolved if one["title"] is None]
+
     if args.report or problems:
         print(f"{len(source)} source citations in {len(files)} files, resolved against "
               f"{' and '.join(accepted)}")
-        print(f"{len(spec)} specification citations, not checked here: they need a "
-              f"section index and are their own piece of work")
-        for citation in spec:
-            print(f"  unchecked  {citation['text']}  at {citation['where']}")
+        print(f"{len(spec)} specification citations, resolved against "
+              f"{gen_jvms_index.OUTPUT}")
+        for one in sorted(resolved, key=lambda c: c["where"]):
+            title = one["title"] or f"unchecked, {one['why']}"
+            print(f"  {one['spec']} {one['section']:10s} {title}  at {one['where']}")
 
     for line in problems:
         print(f"refcheck: {line}", file=sys.stderr)
     if problems:
         return 1
     print(f"refcheck: {len(entries)} source citations resolve and none has drifted, "
-          f"{len(spec)} specification citations unchecked")
+          f"{len(resolved) - len(unindexed)} specification sections exist in "
+          f"{pin['jvms_edition']}, {len(unindexed)} unchecked")
     return 0
 
 

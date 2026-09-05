@@ -74,7 +74,8 @@ def tree(text: str = HEADER):
 
 
 def one(line: int = 3, tag: str = TAG, where: str = "docs/a.md:1") -> dict:
-    return {f"{FILE}:{line}": {"cited_at": [where], "tags": [tag]}}
+    return {f"{FILE}:{line}": {"cited_at": [where], "tags": [tag],
+                               "cited_in": [where.rsplit(":", 1)[0]]}}
 
 
 class TestResolving(unittest.TestCase):
@@ -172,18 +173,25 @@ class TestComparing(unittest.TestCase):
     def test_a_ledger_entry_nobody_cites_is_caught(self):
         stale = dict(self.entries)
         stale["src/hotspot/share/oops/gone.hpp:1"] = {
-            "tag": TAG, "line": "x", "context_sha256": "y", "cited_at": []}
+            "tag": TAG, "line": "x", "context_sha256": "y", "cited_in": []}
         problems = refcheck.compare(stale, self.entries, self.source)
         self.assertEqual(len(problems), 1)
         self.assertIn("cited nowhere", problems[0])
 
     def test_a_citation_that_moved_to_another_file_is_caught(self):
-        moved = {f"{FILE}:3": {"cited_at": ["docs/b.md:9"], "tags": [TAG]}}
+        moved = one(where="docs/b.md:9")
         with tree():
             now, _ = refcheck.build(moved, [TAG], offline=True)
         problems = refcheck.compare(self.entries, now, moved)
         self.assertEqual(len(problems), 1)
-        self.assertIn("different places", problems[0])
+        self.assertIn("different files", problems[0])
+
+    def test_a_citation_that_moved_down_its_own_file_is_not_a_change(self):
+        """Adding a paragraph above a citation must not dirty the ledger."""
+        moved = one(where="docs/a.md:400")
+        with tree():
+            now, _ = refcheck.build(moved, [TAG], offline=True)
+        self.assertEqual(refcheck.compare(self.entries, now, moved), [])
 
 
 class TestScanning(unittest.TestCase):
@@ -230,11 +238,21 @@ class TestScanning(unittest.TestCase):
             "docs/a.md", f"Write it as path/to/file.cpp:123@{TAG} {refcheck.ALLOW}\n")
         self.assertEqual(source, {})
 
-    def test_a_specification_citation_is_collected_and_not_resolved(self):
+    def test_a_specification_citation_is_read_apart_into_its_three_pieces(self):
         source, spec = self.scan("docs/a.md", "Objects are represented {[JVMS §2.7@SE25]}.\n")
         self.assertEqual(source, {})
         self.assertEqual(len(spec), 1)
+        self.assertEqual(spec[0]["spec"], "JVMS")
+        self.assertEqual(spec[0]["section"], "2.7")
         self.assertEqual(spec[0]["edition"], "SE25")
+
+    def test_a_specification_citation_without_the_section_sign_is_read_the_same(self):
+        _, spec = self.scan("lessons/O01/claims.json", '{"citation": "JVMS 2.7@SE25"}\n')
+        self.assertEqual(spec[0]["section"], "2.7")
+
+    def test_a_deep_section_keeps_all_of_its_number(self):
+        _, spec = self.scan("docs/a.md", "resolution {[JVMS §5.4.3.1@SE25]}.\n")
+        self.assertEqual(spec[0]["section"], "5.4.3.1")
 
     def test_a_citation_ending_a_sentence_keeps_its_tag(self):
         """A trailing period is punctuation and a trailing backtick is markup."""
@@ -242,6 +260,49 @@ class TestScanning(unittest.TestCase):
             with self.subTest(ending=ending):
                 source, _ = self.scan("docs/a.md", f"see {FILE}:152@{TAG}{ending}\n")
                 self.assertEqual(source[f"{FILE}:152"]["tags"], [TAG])
+
+
+class TestSpecifications(unittest.TestCase):
+    """The half that decides whether a `[JVMS]` marker means anything."""
+
+    PIN = {"jvms_edition": "SE25"}
+
+    def cite(self, text: str, section: str, edition: str = "SE25",
+             spec: str = "JVMS") -> list[dict]:
+        return [{"spec": spec, "section": section, "edition": edition,
+                 "where": "docs/a.md:3", "text": text}]
+
+    def test_a_section_that_exists_resolves_to_its_title(self):
+        resolved, problems = refcheck.specifications(
+            self.cite("JVMS §2.7@SE25", "2.7"), self.PIN)
+        self.assertEqual(problems, [])
+        self.assertEqual(resolved[0]["title"], "Representation of Objects")
+
+    def test_a_section_that_does_not_exist_is_caught(self):
+        resolved, problems = refcheck.specifications(
+            self.cite("JVMS §2.99@SE25", "2.99"), self.PIN)
+        self.assertEqual(resolved, [])
+        self.assertEqual(len(problems), 1)
+        self.assertIn("not in JVMS SE25", problems[0])
+
+    def test_a_chapter_cited_as_a_section_is_caught(self):
+        """Rule 7 says a JVMS marker names the section and not the chapter."""
+        _, problems = refcheck.specifications(self.cite("JVMS §5@SE25", "5"), self.PIN)
+        self.assertEqual(len(problems), 1)
+
+    def test_an_edition_the_pin_does_not_name_is_caught(self):
+        _, problems = refcheck.specifications(
+            self.cite("JVMS §2.7@SE26", "2.7", edition="SE26"), self.PIN)
+        self.assertEqual(len(problems), 1)
+        self.assertIn("docs/pin.json says SE25", problems[0])
+
+    def test_a_language_specification_citation_is_reported_as_unchecked(self):
+        """There is no JLS index. Saying so beats resolving it against the wrong book."""
+        resolved, problems = refcheck.specifications(
+            self.cite("JLS §12.4@SE25", "12.4", spec="JLS"), self.PIN)
+        self.assertEqual(problems, [])
+        self.assertIsNone(resolved[0]["title"])
+        self.assertIn("no index exists for JLS", resolved[0]["why"])
 
 
 class TestTheRepository(unittest.TestCase):
@@ -277,11 +338,19 @@ class TestTheRepository(unittest.TestCase):
         """Guards against a scanner that quietly stops finding anything."""
         self.assertGreater(len(self.source), 10)
 
-    def test_the_report_says_how_many_specification_citations_went_unchecked(self):
+    def test_every_specification_citation_resolves_to_a_titled_section(self):
+        resolved, problems = refcheck.specifications(self.spec, refcheck.load_pin())
+        self.assertEqual(problems, [])
+        for one in resolved:
+            with self.subTest(citation=one["text"]):
+                self.assertIsNotNone(one["title"], one["why"])
+
+    def test_the_report_prints_the_title_beside_every_specification_citation(self):
+        """The line a reviewer reads to notice that a claim and a section do not match."""
         out = io.StringIO()
         with contextlib.redirect_stdout(out):
             refcheck.main(["--report", "--offline"])
-        self.assertIn(f"{len(self.spec)} specification citations", out.getvalue())
+        self.assertIn("Representation of Objects", out.getvalue())
 
 
 if __name__ == "__main__":
