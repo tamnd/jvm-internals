@@ -61,6 +61,7 @@ jobs:
           python tools/test_refcheck.py
           python tools/test_gen_jvms_index.py
           python tools/test_claimcheck.py
+          python tools/test_gen_fieldlayout.py
           python tools/test_fetch_jdk.py
       - name: rebuild and compare
         run: python tools/build.py check
@@ -103,6 +104,12 @@ jobs:
       # here for the same reason as everything else above it.
       - name: the object header section 2 matches the measured results
         run: python tools/gen_section2.py --check
+      # Whether JOL reports the real layout under compact headers, which is the
+      # question eleven lessons in part IV rest on. The measurement needs a fastdebug
+      # build and two hours of make, so it is committed rather than rerun here, and
+      # what this step checks is that the page still says what the results say.
+      - name: the JOL comparison matches the measured results
+        run: python tools/gen_fieldlayout.py --check
       # Rule 7 in both directions: every claim in a ledger is marked in a sentence,
       # and every marker in a sentence has a claim behind it. Offline, because it
       # reads the two files against each other and asks nothing of the network.

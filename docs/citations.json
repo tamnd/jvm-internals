@@ -4,6 +4,14 @@
     "jdk-27-ga"
   ],
   "citations": {
+    "src/hotspot/share/classfile/javaClasses.hpp:57": {
+      "cited_in": [
+        "docs/probes/fieldlayout.md"
+      ],
+      "context_sha256": "564fead1a1315c7544cdca25cdc172fcd0bb730949386af34e753e36aff2befa",
+      "line": "#define STRING_INJECTED_FIELDS(macro) \\",
+      "tag": "jdk-27+35"
+    },
     "src/hotspot/share/oops/instanceKlass.cpp:1084": {
       "cited_in": [
         "CONTRIBUTING.md"
