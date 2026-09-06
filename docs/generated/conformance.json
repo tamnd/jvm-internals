@@ -2271,6 +2271,913 @@
           "requirement": "reads the class file version before the first entry and every entry before the first index is resolved, which is checked by presenting a pool whose first entry names its last one."
         }
       ]
+    },
+    {
+      "id": "BP-STACKMAP",
+      "title": "The stack map table",
+      "status": "draft",
+      "page": "docs/blueprints/BP-STACKMAP.md",
+      "clauses": [
+        {
+          "id": "4a.1",
+          "part": "4a",
+          "kinds": [
+            "JVMS"
+          ],
+          "citations": [
+            "\u00a74.7.4@SE25"
+          ],
+          "text": "There may be at most one `StackMapTable` attribute in the attributes table of a `Code` attribute, and it lives on the `Code` attribute rather than on the method, so a method with no code has nowhere to put one .",
+          "observed_by": [
+            "5.1"
+          ],
+          "tested_by": [
+            "8.2.1"
+          ]
+        },
+        {
+          "id": "4a.2",
+          "part": "4a",
+          "kinds": [
+            "JVMS"
+          ],
+          "citations": [
+            "\u00a74.7.4@SE25"
+          ],
+          "text": "In a class file of version 50.0 or above, a `Code` attribute with no `StackMapTable` has an implicit stack map attribute equivalent to one whose `number_of_entries` is zero, so the absence of the attribute is a claim that the method needs no frames rather than a claim that it was not checked .",
+          "observed_by": [
+            "5.2"
+          ],
+          "tested_by": [
+            "8.2.2"
+          ]
+        },
+        {
+          "id": "4a.3",
+          "part": "4a",
+          "kinds": [
+            "JVMS"
+          ],
+          "citations": [
+            "\u00a74.7.4@SE25"
+          ],
+          "text": "The order of the frames in the `entries` table is significant and each frame relies on the previous one for some of its semantics, so no entry can be read, moved, inserted or removed on its own .",
+          "observed_by": [
+            "5.3"
+          ],
+          "tested_by": [
+            "8.2.3"
+          ]
+        },
+        {
+          "id": "4a.4",
+          "part": "4a",
+          "kinds": [
+            "JVMS"
+          ],
+          "citations": [
+            "\u00a74.7.4@SE25",
+            "\u00a74.10.1.5@SE25"
+          ],
+          "text": "The first stack map frame of a method is implicit and computed from the method descriptor by the type checker, so the entry at index 0 describes the second frame of the method and the attribute never contains the state at bytecode offset 0 .",
+          "observed_by": [
+            "5.4"
+          ],
+          "tested_by": [
+            "8.2.4"
+          ]
+        },
+        {
+          "id": "4a.5",
+          "part": "4a",
+          "kinds": [
+            "JVMS"
+          ],
+          "citations": [
+            "\u00a74.7.4@SE25"
+          ],
+          "text": "The bytecode offset at which a frame applies is the previous frame's offset plus `offset_delta` plus 1, unless the previous frame is the method's initial frame, in which case it is `offset_delta` exactly .",
+          "observed_by": [
+            "5.5"
+          ],
+          "tested_by": [
+            "8.2.5"
+          ]
+        },
+        {
+          "id": "4a.6",
+          "part": "4a",
+          "kinds": [
+            "JVMS"
+          ],
+          "citations": [
+            "\u00a74.7.4@SE25"
+          ],
+          "text": "The delta encoding is what makes the frames sorted by definition and the `+ 1` is what makes duplicates impossible to write, so a reader obtains both properties from the arithmetic and neither has to be checked separately .",
+          "observed_by": [
+            "5.5"
+          ],
+          "tested_by": [
+            "8.2.5"
+          ]
+        },
+        {
+          "id": "4a.7",
+          "part": "4a",
+          "kinds": [
+            "JVMS"
+          ],
+          "citations": [
+            "\u00a74.10.1.5@SE25"
+          ],
+          "text": "Every frame's offset has to be the offset at which an instruction starts, because merging the frames with the instructions is undefined unless every frame offset has a corresponding instruction offset and the offsets are monotonically increasing .",
+          "observed_by": [
+            "5.6"
+          ],
+          "tested_by": [
+            "8.2.6"
+          ]
+        },
+        {
+          "id": "4a.8",
+          "part": "4a",
+          "kinds": [
+            "JVMS"
+          ],
+          "citations": [
+            "\u00a74.7.4@SE25"
+          ],
+          "text": "A verification type is a one byte tag followed by zero or more bytes, and two of the nine carry anything at all: an `Object_variable_info` carries a `u2` index that has to name a `CONSTANT_Class_info`, and an `Uninitialized_variable_info` carries a `u2` offset that has to be the offset of the `new` instruction that created the object .",
+          "observed_by": [
+            "5.7"
+          ],
+          "tested_by": [
+            "8.2.7"
+          ]
+        },
+        {
+          "id": "4a.9",
+          "part": "4a",
+          "kinds": [
+            "JVMS"
+          ],
+          "citations": [
+            "\u00a74.7.4@SE25"
+          ],
+          "text": "A `Long_variable_info` or a `Double_variable_info` describes the first of two locations, the second location has verification type `top` and is not written down anywhere, and the first location may not be the highest numbered local variable or the topmost operand stack entry .",
+          "observed_by": [
+            "5.8"
+          ],
+          "tested_by": [
+            "8.2.8"
+          ]
+        },
+        {
+          "id": "4a.10",
+          "part": "4a",
+          "kinds": [
+            "JVMS"
+          ],
+          "citations": [
+            "\u00a74.7.4@SE25"
+          ],
+          "text": "The first byte of a frame decides its kind, and for the two commonest kinds it also carries the offset delta: `frame_type` for a `same_frame` and `frame_type - 64` for a `same_locals_1_stack_item_frame`, with no further bytes read in either case .",
+          "observed_by": [
+            "5.9"
+          ],
+          "tested_by": [
+            "8.2.9"
+          ]
+        },
+        {
+          "id": "4a.11",
+          "part": "4a",
+          "kinds": [
+            "JVMS"
+          ],
+          "citations": [
+            "\u00a74.7.4@SE25"
+          ],
+          "text": "Tags in the range 128 to 246 are reserved for future use, which is 119 of the 256 values a first byte can hold, and a reserved tag cannot be skipped because a frame carries no length of its own .",
+          "observed_by": [
+            "5.10"
+          ],
+          "tested_by": [
+            "8.2.10"
+          ]
+        },
+        {
+          "id": "4a.12",
+          "part": "4a",
+          "kinds": [
+            "JVMS"
+          ],
+          "citations": [
+            "\u00a74.7.4@SE25"
+          ],
+          "text": "A `chop_frame` drops the last k local variables of the previous frame, k is `251 - frame_type` and is therefore 1, 2 or 3, and it is an error if k is larger than the number of local variables the previous frame has .",
+          "observed_by": [
+            "5.11"
+          ],
+          "tested_by": [
+            "8.2.11"
+          ]
+        },
+        {
+          "id": "4a.13",
+          "part": "4a",
+          "kinds": [
+            "JVMS"
+          ],
+          "citations": [
+            "\u00a74.7.4@SE25"
+          ],
+          "text": "An `append_frame` adds k local variables, k is `frame_type - 251` and is therefore 1, 2 or 3, the item at index 0 is the first additional local variable, and an item that is a `Long_variable_info` or a `Double_variable_info` advances the local variable index by two rather than one .",
+          "observed_by": [
+            "5.11"
+          ],
+          "tested_by": [
+            "8.2.11"
+          ]
+        },
+        {
+          "id": "4a.14",
+          "part": "4a",
+          "kinds": [
+            "JVMS"
+          ],
+          "citations": [
+            "\u00a74.7.4@SE25"
+          ],
+          "text": "It is an error for any entry of `locals` to represent a local variable whose index exceeds the method's maximum, or for any entry of `stack` to represent a stack entry beyond the method's maximum operand stack size, and the rule is stated separately for `append_frame` and for `full_frame` in the same words .",
+          "observed_by": [
+            "5.12"
+          ],
+          "tested_by": [
+            "8.2.12"
+          ]
+        },
+        {
+          "id": "4a.15",
+          "part": "4a",
+          "kinds": [
+            "JVMS"
+          ],
+          "citations": [
+            "\u00a74.10.1.5@SE25"
+          ],
+          "text": "The initial frame's locals are the `this` type where there is one, followed by the argument types with every two location type followed by `top`, padded with `top` to the method's declared width, and its operand stack is empty .",
+          "observed_by": [
+            "5.4"
+          ],
+          "tested_by": [
+            "8.2.4"
+          ]
+        },
+        {
+          "id": "4a.16",
+          "part": "4a",
+          "kinds": [
+            "JVMS"
+          ],
+          "citations": [
+            "\u00a74.7.4@SE25"
+          ],
+          "text": "Nothing requires a frame to be written in the smallest kind that could express it. A `full_frame` may appear anywhere, a `same_frame_extended` may be used wherever a `same_frame` would do, there is no canonical form and no shortest form rule, and a class file that takes the longer option everywhere is legal .",
+          "observed_by": [
+            "5.9"
+          ],
+          "tested_by": [
+            "8.2.9"
+          ]
+        },
+        {
+          "id": "4b.1",
+          "part": "4b",
+          "kinds": [
+            "HOTSPOT"
+          ],
+          "citations": [
+            "src/hotspot/share/classfile/stackMapTable.hpp:156@jdk-27+35",
+            "src/hotspot/share/classfile/stackMapTable.hpp:157@jdk-27+35"
+          ],
+          "text": "The reserved range has a name in HotSpot and none in the specification: `RESERVED_START` and `RESERVED_END` sit in the same enum as the seven frame kinds, and that enum is the only place either boundary of the range is a constant rather than a sentence .",
+          "observed_by": [
+            "5.10"
+          ],
+          "tested_by": [
+            "8.2.10"
+          ]
+        },
+        {
+          "id": "4b.2",
+          "part": "4b",
+          "kinds": [
+            "HOTSPOT"
+          ],
+          "citations": [
+            "src/hotspot/share/classfile/classFileParser.cpp:1760@jdk-27+35"
+          ],
+          "text": "The attribute is not decoded while the class file is read. Its bytes are bounds checked against `attribute_length` and copied verbatim, and nothing inside it is looked at until the verifier asks for a frame .",
+          "observed_by": [
+            "5.13"
+          ],
+          "tested_by": [
+            "8.2.13"
+          ]
+        },
+        {
+          "id": "4b.3",
+          "part": "4b",
+          "kinds": [
+            "HOTSPOT"
+          ],
+          "citations": [
+            "src/hotspot/share/classfile/classFileParser.cpp:1752@jdk-27+35",
+            "src/hotspot/share/classfile/stackMapTable.cpp:179@jdk-27+35"
+          ],
+          "text": "A `StackMapTable` whose `attribute_length` is zero is dropped where it is found and the method records no attribute, so a file that declares the attribute and gives it no `number_of_entries` field is accepted and behaves as one with no attribute at all .",
+          "observed_by": [
+            "5.2"
+          ],
+          "tested_by": [
+            "8.2.2"
+          ]
+        },
+        {
+          "id": "4b.4",
+          "part": "4b",
+          "kinds": [
+            "HOTSPOT"
+          ],
+          "citations": [
+            "src/hotspot/share/classfile/classFileParser.cpp:2408@jdk-27+35",
+            "src/hotspot/share/classfile/classFileParser.cpp:2420@jdk-27+35"
+          ],
+          "text": "A `StackMapTable` in a class file below major version 50 is not recognised as one: the test that matches the attribute name is guarded by the version, so those bytes fall through to the branch that skips attributes nobody knows and are never read again .",
+          "observed_by": [
+            "5.14"
+          ],
+          "tested_by": [
+            "8.2.14"
+          ]
+        },
+        {
+          "id": "4b.5",
+          "part": "4b",
+          "kinds": [
+            "HOTSPOT"
+          ],
+          "citations": [
+            "src/hotspot/share/classfile/classFileParser.cpp:2412@jdk-27+35"
+          ],
+          "text": "Two `StackMapTable` attributes in one `Code` attribute end the parse with a message that names the class file and does not name the method or the attribute index .",
+          "observed_by": [
+            "5.1"
+          ],
+          "tested_by": [
+            "8.2.1"
+          ]
+        },
+        {
+          "id": "4b.6",
+          "part": "4b",
+          "kinds": [
+            "HOTSPOT"
+          ],
+          "citations": [
+            "src/hotspot/share/classfile/stackMapTable.cpp:310@jdk-27+35",
+            "src/hotspot/share/classfile/stackMapTable.cpp:312@jdk-27+35"
+          ],
+          "text": "The decoder reads the `u2 offset_delta` before it decides whether the frame type is reserved, so on a reserved first byte it has consumed two bytes it had no business reading, and what saves it is that the next thing it does is throw .",
+          "observed_by": [
+            "5.10"
+          ],
+          "tested_by": [
+            "8.2.10"
+          ]
+        },
+        {
+          "id": "4b.7",
+          "part": "4b",
+          "kinds": [
+            "HOTSPOT"
+          ],
+          "citations": [
+            "src/hotspot/share/classfile/stackMapTable.cpp:474@jdk-27+35"
+          ],
+          "text": "There is a second reserved frame type error at the bottom of the same function and it is unreachable, because the branches above it cover 0 to 63, 64 to 127, everything below 247, 247, 248 to 251, 252 to 254 and 255, which is every value a `u1` can hold .",
+          "observed_by": [
+            "5.10"
+          ],
+          "tested_by": [
+            "8.2.10"
+          ]
+        },
+        {
+          "id": "4b.8",
+          "part": "4b",
+          "kinds": [
+            "HOTSPOT"
+          ],
+          "citations": [
+            "src/hotspot/share/classfile/stackMapTable.cpp:258@jdk-27+35",
+            "src/hotspot/share/classfile/stackMapTable.cpp:265@jdk-27+35"
+          ],
+          "text": "The exception for the first entry is not written once. Each of the five branches that can decode the first entry carries its own pair of assignments, one for the first frame and one for every other, selected by a flag the branch then clears .",
+          "observed_by": [
+            "5.5"
+          ],
+          "tested_by": [
+            "8.2.5"
+          ]
+        },
+        {
+          "id": "4b.9",
+          "part": "4b",
+          "kinds": [
+            "HOTSPOT"
+          ],
+          "citations": [
+            "src/hotspot/share/classfile/stackMapTable.cpp:261@jdk-27+35",
+            "src/hotspot/share/classfile/stackMapTable.cpp:272@jdk-27+35"
+          ],
+          "text": "The first entry copies the initial frame's locals rather than aliasing them, on the stated grounds that the verifier updates that array in place, so the frame the type checker computed survives being read past .",
+          "observed_by": [
+            "5.15"
+          ],
+          "tested_by": [
+            "8.2.15"
+          ]
+        },
+        {
+          "id": "4b.10",
+          "part": "4b",
+          "kinds": [
+            "HOTSPOT"
+          ],
+          "citations": [
+            "src/hotspot/share/classfile/stackMapTable.cpp:51@jdk-27+35"
+          ],
+          "text": "A frame whose offset is past the end of the code, or which does not land on the first byte of an instruction, is reported as a verify error rather than a format error, and the test is a lookup in a byte array the verifier filled in while walking the code .",
+          "observed_by": [
+            "5.6"
+          ],
+          "tested_by": [
+            "8.2.6"
+          ]
+        },
+        {
+          "id": "4b.11",
+          "part": "4b",
+          "kinds": [
+            "HOTSPOT"
+          ],
+          "citations": [
+            "src/hotspot/share/classfile/stackMapTable.cpp:58@jdk-27+35",
+            "src/hotspot/share/classfile/stackMapTable.cpp:65@jdk-27+35"
+          ],
+          "text": "`number_of_entries` is compared against the number of frames actually decoded twice, once before each frame as a floor and once at the end for equality, and the two failures give the same message, so a count that is too small and a count that is too large are indistinguishable in a log .",
+          "observed_by": [
+            "5.16"
+          ],
+          "tested_by": [
+            "8.2.16"
+          ]
+        },
+        {
+          "id": "4b.12",
+          "part": "4b",
+          "kinds": [
+            "HOTSPOT"
+          ],
+          "citations": [
+            "src/hotspot/share/classfile/stackMapTable.cpp:188@jdk-27+35"
+          ],
+          "text": "A chop counts local variables and not locations. It walks backwards through the previous frame's expanded array and steps two positions rather than one whenever it lands on the second half of a category 2 value .",
+          "observed_by": [
+            "5.8"
+          ],
+          "tested_by": [
+            "8.2.8"
+          ]
+        },
+        {
+          "id": "4b.13",
+          "part": "4b",
+          "kinds": [
+            "HOTSPOT"
+          ],
+          "citations": [
+            "src/hotspot/share/classfile/stackMapTable.cpp:193@jdk-27+35",
+            "src/hotspot/share/classfile/stackMapTable.hpp:141@jdk-27+35"
+          ],
+          "text": "A chop that would run off the front of the locals array returns a negative length, which is caught by the same bounds check that catches a frame wider than the method's maximum, so the specification's separate error for chopping too far arrives with the message for an array of the wrong size .",
+          "observed_by": [
+            "5.11"
+          ],
+          "tested_by": [
+            "8.2.11"
+          ]
+        },
+        {
+          "id": "4b.14",
+          "part": "4b",
+          "kinds": [
+            "HOTSPOT"
+          ],
+          "citations": [
+            "src/hotspot/share/classfile/stackMapTable.cpp:364@jdk-27+35"
+          ],
+          "text": "After a chop the frame's flags are recomputed from the surviving locals rather than inherited from the previous frame, because the local variable holding `uninitializedThis` may be one of the ones that was dropped .",
+          "observed_by": [
+            "5.17"
+          ],
+          "tested_by": [
+            "8.2.17"
+          ]
+        },
+        {
+          "id": "4b.15",
+          "part": "4b",
+          "kinds": [
+            "HOTSPOT"
+          ],
+          "citations": [
+            "src/hotspot/share/classfile/stackMapTable.cpp:397@jdk-27+35",
+            "src/hotspot/share/classfile/stackMapTable.cpp:432@jdk-27+35"
+          ],
+          "text": "An append frame's locals array is allocated at two positions per appended item before any item is read, and a full frame's arrays the same way, because the decoder cannot know which items are category 2 until it has read them .",
+          "observed_by": [
+            "5.8"
+          ],
+          "tested_by": [
+            "8.2.8"
+          ]
+        },
+        {
+          "id": "4b.16",
+          "part": "4b",
+          "kinds": [
+            "HOTSPOT"
+          ],
+          "citations": [
+            "src/hotspot/share/classfile/verificationType.hpp:64@jdk-27+35",
+            "src/hotspot/share/classfile/verificationType.hpp:65@jdk-27+35"
+          ],
+          "text": "The second location of a category 2 value is materialised as a verification type of its own, under two names from an enum whose comment says these are not found in class files, and the six values that enum holds begin at 9, above the eight the format defines, so a verifier type can never be mistaken for a file type .",
+          "observed_by": [
+            "5.8"
+          ],
+          "tested_by": [
+            "8.2.8"
+          ]
+        },
+        {
+          "id": "4b.17",
+          "part": "4b",
+          "kinds": [
+            "HOTSPOT"
+          ],
+          "citations": [
+            "src/hotspot/share/classfile/stackMapTable.cpp:202@jdk-27+35",
+            "src/hotspot/share/classfile/stackMapTable.cpp:232@jdk-27+35"
+          ],
+          "text": "A tag below 6 becomes a verification type by table lookup with no range check of its own, which is safe because the table covers every value below 6, and only a tag above the largest defined one reaches the error .",
+          "observed_by": [
+            "5.18"
+          ],
+          "tested_by": [
+            "8.2.18"
+          ]
+        },
+        {
+          "id": "4b.18",
+          "part": "4b",
+          "kinds": [
+            "HOTSPOT"
+          ],
+          "citations": [
+            "src/hotspot/share/classfile/stackMapTable.cpp:208@jdk-27+35",
+            "src/hotspot/share/classfile/stackMapTable.cpp:226@jdk-27+35"
+          ],
+          "text": "An `Object_variable_info` whose index is out of range, or which names an entry that is neither a resolved nor an unresolved class, is a stack map format error, while an `Uninitialized_variable_info` whose offset does not point at a `new` instruction is a class format error raised through the verifier rather than through the stream, so two malformations of the same kind arrive by two different routes .",
+          "observed_by": [
+            "5.7"
+          ],
+          "tested_by": [
+            "8.2.7"
+          ]
+        },
+        {
+          "id": "4b.19",
+          "part": "4b",
+          "kinds": [
+            "HOTSPOT"
+          ],
+          "citations": [
+            "src/hotspot/share/classfile/verifier.cpp:117@jdk-27+35"
+          ],
+          "text": "Whether the attribute is read at all is decided per class from the defining loader, by the same pair of flags that decides the rest of verification, so a class from the boot loader in a default configuration has its stack map copied into memory and never decoded .",
+          "observed_by": [
+            "5.13"
+          ],
+          "tested_by": [
+            "8.2.13"
+          ]
+        },
+        {
+          "id": "4b.20",
+          "part": "4b",
+          "kinds": [
+            "HOTSPOT"
+          ],
+          "citations": [
+            "src/hotspot/share/classfile/verifier.cpp:219@jdk-27+35",
+            "src/hotspot/share/classfile/verifier.cpp:228@jdk-27+35",
+            "src/hotspot/share/classfile/verifier.cpp:230@jdk-27+35"
+          ],
+          "text": "At major version 50 exactly, a class the type checking verifier rejected with a verify error or a class format error is handed to the inference verifier, which ignores the attribute entirely, so an attribute that fails every check in section 3 can still produce a class that loads and runs  .",
+          "observed_by": [
+            "5.19"
+          ],
+          "tested_by": [
+            "8.2.19"
+          ]
+        },
+        {
+          "id": "4c.1",
+          "part": "4c",
+          "kinds": [
+            "HOTSPOT"
+          ],
+          "citations": [
+            "src/hotspot/share/classfile/classFileParser.cpp:2408@jdk-27+35"
+          ],
+          "text": "The class file version is known before the attribute is recognised, because below major version 50 these bytes are an attribute nobody knows and at 50 and above they are a stack map, and nothing but the version field distinguishes the two .",
+          "observed_by": [
+            "5.14"
+          ],
+          "tested_by": [
+            "8.2.14"
+          ]
+        },
+        {
+          "id": "4c.2",
+          "part": "4c",
+          "kinds": [
+            "JVMS"
+          ],
+          "citations": [
+            "\u00a74.7.4@SE25"
+          ],
+          "text": "The method's maximum locals and maximum operand stack size are known before the first frame is decoded, because every frame is checked against both as it is built and neither can be inferred from the attribute .",
+          "observed_by": [
+            "5.20"
+          ],
+          "tested_by": [
+            "8.2.20"
+          ]
+        },
+        {
+          "id": "4c.3",
+          "part": "4c",
+          "kinds": [
+            "HOTSPOT"
+          ],
+          "citations": [
+            "src/hotspot/share/classfile/stackMapTable.cpp:224@jdk-27+35"
+          ],
+          "text": "The code array has been walked before the frames are decoded, because a frame's offset is checked against the set of instruction starts and an `Uninitialized_variable_info`'s offset against the presence of a `new` at that offset, and neither question can be answered from the bytes of the attribute .",
+          "observed_by": [
+            "5.21"
+          ],
+          "tested_by": [
+            "8.2.21"
+          ]
+        },
+        {
+          "id": "4c.4",
+          "part": "4c",
+          "kinds": [
+            "JVMS"
+          ],
+          "citations": [
+            "\u00a74.10.1.5@SE25"
+          ],
+          "text": "The initial frame is computed before the first entry is read, and the first entry is a delta against it, so a reader that starts at the first entry with an empty frame is wrong for every method that takes an argument and right for every method that takes none .",
+          "observed_by": [
+            "5.4"
+          ],
+          "tested_by": [
+            "8.2.4"
+          ]
+        },
+        {
+          "id": "4c.5",
+          "part": "4c",
+          "kinds": [
+            "JVMS"
+          ],
+          "citations": [
+            "\u00a74.7.4@SE25"
+          ],
+          "text": "Each frame is complete before the next one begins, because the next frame's locals, its operand stack and its offset are all expressed relative to it, so there is no order in which the entries can be decoded other than the order they are written in .",
+          "observed_by": [
+            "5.3"
+          ],
+          "tested_by": [
+            "8.2.3"
+          ]
+        },
+        {
+          "id": "4c.6",
+          "part": "4c",
+          "kinds": [
+            "HOTSPOT"
+          ],
+          "citations": [
+            "src/hotspot/share/classfile/stackMapTable.hpp:146@jdk-27+35"
+          ],
+          "text": "A failure inside the attribute does not necessarily end the load where it is raised. It is reported through the verifier's error mechanism rather than by throwing, and that mechanism may return so that the class can be offered to a second verifier, which is a possibility every step of section 3 has to tolerate .",
+          "observed_by": [
+            "5.19"
+          ],
+          "tested_by": [
+            "8.2.19"
+          ]
+        }
+      ],
+      "checklist": [
+        {
+          "id": "8.2.1",
+          "clauses": [
+            "4a.1",
+            "4b.5"
+          ],
+          "requirement": "refuses a `Code` attribute carrying two `StackMapTable` attributes, whether or not the second one is empty, and accepts a `Code` attribute carrying one."
+        },
+        {
+          "id": "8.2.2",
+          "clauses": [
+            "4a.2",
+            "4b.3"
+          ],
+          "requirement": "treats a `Code` attribute with no `StackMapTable`, at class file version 50.0 and above, as having one with no entries, and states whether it also accepts an attribute whose `attribute_length` is zero, which the structure does not describe."
+        },
+        {
+          "id": "8.2.3",
+          "clauses": [
+            "4a.3",
+            "4c.5"
+          ],
+          "requirement": "decodes the entries in the order they are written, produces different frames when two adjacent entries are exchanged, and does not accept a file in which an entry has been removed without the count changing."
+        },
+        {
+          "id": "8.2.4",
+          "clauses": [
+            "4a.4",
+            "4a.15",
+            "4c.4"
+          ],
+          "requirement": "computes the initial frame from the method descriptor and the access flags before reading any entry, places `this` first for an instance method and `uninitializedThis` first for a constructor, follows every `long` and `double` argument with `top`, pads to the declared width with `top`, and starts with an empty operand stack."
+        },
+        {
+          "id": "8.2.5",
+          "clauses": [
+            "4a.5",
+            "4a.6",
+            "4b.8"
+          ],
+          "requirement": "applies `offset_delta` exactly for the first entry and `offset_delta + 1` for every other one, which is checked by presenting a method whose first entry has a non zero delta and a second entry with delta zero, and produces frames in strictly increasing offset order without sorting them."
+        },
+        {
+          "id": "8.2.6",
+          "clauses": [
+            "4a.7",
+            "4b.10"
+          ],
+          "requirement": "refuses a frame whose offset is past the end of the code array and a frame whose offset falls inside an instruction rather than at its start, and reaches both decisions before the frame is used for anything."
+        },
+        {
+          "id": "8.2.7",
+          "clauses": [
+            "4a.8",
+            "4b.18"
+          ],
+          "requirement": "refuses an `Object_variable_info` whose index is out of range or names an entry that is not a `CONSTANT_Class_info`, and an `Uninitialized_variable_info` whose offset is out of range or does not name a `new` instruction, in all four cases."
+        },
+        {
+          "id": "8.2.8",
+          "clauses": [
+            "4a.9",
+            "4b.12",
+            "4b.15",
+            "4b.16"
+          ],
+          "requirement": "treats a `Long_variable_info` or a `Double_variable_info` as occupying two locations of which only the first is written, refuses one that is the highest numbered local or the topmost stack entry, and counts local variables rather than locations when a `chop_frame` drops one."
+        },
+        {
+          "id": "8.2.9",
+          "clauses": [
+            "4a.10",
+            "4a.16"
+          ],
+          "requirement": "takes the offset delta of a `same_frame` from the first byte and of a `same_locals_1_stack_item_frame` from the first byte minus 64, consuming no further bytes for either, and accepts a class file in which every frame is written as a `full_frame`, producing the same frames it would from the compressed forms."
+        },
+        {
+          "id": "8.2.10",
+          "clauses": [
+            "4a.11",
+            "4b.1",
+            "4b.6",
+            "4b.7"
+          ],
+          "requirement": "refuses every first byte in the range 128 to 246, at every position in the attribute including the first and the last, and does not attempt to skip such a frame by any assumed length."
+        },
+        {
+          "id": "8.2.11",
+          "clauses": [
+            "4a.12",
+            "4a.13",
+            "4b.13"
+          ],
+          "requirement": "drops the last one, two or three local variables for a `chop_frame` and adds one, two or three for an `append_frame`, advances the local variable index by two for an appended `long` or `double`, and refuses a chop of more local variables than the previous frame has."
+        },
+        {
+          "id": "8.2.12",
+          "clauses": [
+            "4a.14"
+          ],
+          "requirement": "refuses a frame whose locals occupy more locations than the method's maximum, or whose operand stack is deeper than the method's maximum, counting locations rather than items so that a frame legal by item count and illegal by location count is refused."
+        },
+        {
+          "id": "8.2.13",
+          "clauses": [
+            "4b.2",
+            "4b.19"
+          ],
+          "requirement": "defines a class whose `StackMapTable` contents are arbitrary bytes of the declared length without reading them, and either decodes the attribute for every class or names the configuration in which it does not."
+        },
+        {
+          "id": "8.2.14",
+          "clauses": [
+            "4b.4",
+            "4c.1"
+          ],
+          "requirement": "reads the class file version before deciding what the attribute is, and either recognises a `StackMapTable` below major version 50 or ignores it as an unknown attribute, saying which."
+        },
+        {
+          "id": "8.2.15",
+          "clauses": [
+            "4b.9"
+          ],
+          "requirement": "does not let a frame produced by `read` alias state that a later caller may modify in place, so that decoding the whole attribute and then walking the frames gives the same answer as decoding and using them one at a time."
+        },
+        {
+          "id": "8.2.16",
+          "clauses": [
+            "4b.11"
+          ],
+          "requirement": "refuses an attribute whose `number_of_entries` is smaller than the frames present and one whose `number_of_entries` is larger, and reports the two distinguishably or states that it does not."
+        },
+        {
+          "id": "8.2.17",
+          "clauses": [
+            "4b.14"
+          ],
+          "requirement": "recomputes whether a frame holds `uninitializedThis` after a `chop_frame`, rather than inheriting the answer, which is checked by chopping away the only local variable that held it."
+        },
+        {
+          "id": "8.2.18",
+          "clauses": [
+            "4b.17"
+          ],
+          "requirement": "accepts every verification type tag from 0 to 8 in both a locals array and an operand stack where the format permits it, and refuses every tag above 8."
+        },
+        {
+          "id": "8.2.19",
+          "clauses": [
+            "4b.20",
+            "4c.6"
+          ],
+          "requirement": "states whether a rejected `StackMapTable` ends the load, and if it does not, names the exact set of class file versions for which it does not, so that a conformance run of malformed attributes can be read as a set of refusals rather than as a set of passes."
+        },
+        {
+          "id": "8.2.20",
+          "clauses": [
+            "4c.2"
+          ],
+          "requirement": "obtains the method's maximum locals and maximum operand stack size before decoding the first frame, which is checked by lowering `max_locals` in a file whose frames are otherwise valid and observing a refusal."
+        },
+        {
+          "id": "8.2.21",
+          "clauses": [
+            "4c.3"
+          ],
+          "requirement": "determines the instruction boundaries of the code array before decoding the frames, which is checked by presenting an `Uninitialized_variable_info` whose offset is a valid instruction offset holding something other than a `new`."
+        }
+      ]
     }
   ]
 }

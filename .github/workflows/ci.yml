@@ -68,6 +68,7 @@ jobs:
           python tools/test_gen_flags.py
           python tools/test_gen_fuzz.py
           python tools/test_gen_constpool.py
+          python tools/test_gen_stackmap.py
           python tools/test_fetch_jdk.py
       - name: rebuild and compare
         run: python tools/build.py check
@@ -298,6 +299,17 @@ jobs:
       # of the four moved rather than that a committed file is old.
       - name: the constant pool section matches all four sources
         run: python tools/gen_constpool.py --check
+      # BP-STACKMAP section 2, joined the same way from four sources of its own. The
+      # specification section, the JDK's tag header and the two HotSpot verifier
+      # headers are fetched here, and the walk of java.base is a committed probe
+      # result. This one also stops on things the sources agree about and the
+      # measurements do not: a frame kind range that no longer partitions the 256
+      # first bytes exactly once, an offset delta that disagrees with the offset the
+      # JDK resolved, or the two independent byte counts of the attribute drifting
+      # apart. So a failure here says a source moved or an arithmetic rule broke,
+      # rather than that a committed file is old.
+      - name: the stack map section matches all four sources
+        run: python tools/gen_stackmap.py --check
       - name: every citation still says what it said
         run: python tools/refcheck.py --report
 
