@@ -175,6 +175,22 @@
       "line": "  return align_up(word_size, MinObjAlignment);",
       "tag": "jdk-27+35"
     },
+    "src/java.base/share/classes/java/lang/invoke/GenerateJLIClassesHelper.java:638": {
+      "cited_in": [
+        "docs/probes/classfile-census.md"
+      ],
+      "context_sha256": "a387dc20493d047cbe96a315cb269430c9ab543e577954cb02cfbceab544524b",
+      "line": "            clb.withFlags(ACC_PRIVATE | ACC_FINAL | ACC_SUPER)",
+      "tag": "jdk-27+35"
+    },
+    "src/jdk.jlink/share/classes/jdk/tools/jlink/internal/plugins/SystemModulesPlugin.java:1290": {
+      "cited_in": [
+        "docs/probes/classfile-census.md"
+      ],
+      "context_sha256": "735a99705078f2143ec78be308b24751d3685c005785f1aabe1b689aa355805b",
+      "line": "                          .withVersion(52, 0)",
+      "tag": "jdk-27+35"
+    },
     "src/utils/hsdis/README.md:73": {
       "cited_in": [
         "docs/generated/hsdis.md",
@@ -188,5 +204,5 @@
   "context_lines": 2,
   "generated_by": "tools/refcheck.py --update",
   "note": "Keyed on path:line without the tag, so that moving the pin re-resolves every citation against the new tree and the ones whose content changed come out as a list. That list is the cost of the version bump.",
-  "updated": "2026-09-05"
+  "updated": "2026-09-06"
 }

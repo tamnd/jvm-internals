@@ -1,0 +1,3083 @@
+{
+  "api": {
+    "latest_major": 71,
+    "latest_minor": 0
+  },
+  "attribute_counts": {
+    "CLASS": {
+      "BootstrapMethods": 690,
+      "Deprecated": 49,
+      "EnclosingMethod": 697,
+      "InnerClasses": 5635,
+      "Module": 1,
+      "ModuleHashes": 1,
+      "ModulePackages": 1,
+      "ModuleTarget": 1,
+      "NestHost": 4076,
+      "NestMembers": 980,
+      "PermittedSubclasses": 400,
+      "Record": 191,
+      "RuntimeInvisibleAnnotations": 13,
+      "RuntimeVisibleAnnotations": 335,
+      "RuntimeVisibleTypeAnnotations": 6,
+      "Signature": 1902,
+      "SourceFile": 7432
+    },
+    "CODE": {
+      "LineNumberTable": 61777,
+      "LocalVariableTable": 58518,
+      "LocalVariableTypeTable": 12453,
+      "StackMapTable": 24274
+    },
+    "FIELD": {
+      "ConstantValue": 5841,
+      "Deprecated": 64,
+      "RuntimeInvisibleAnnotations": 4,
+      "RuntimeVisibleAnnotations": 365,
+      "Signature": 2330
+    },
+    "METHOD": {
+      "AnnotationDefault": 6,
+      "Code": 62348,
+      "Deprecated": 208,
+      "Exceptions": 8589,
+      "MethodParameters": 3005,
+      "RuntimeInvisibleAnnotations": 14,
+      "RuntimeVisibleAnnotations": 3583,
+      "RuntimeVisibleParameterAnnotations": 7,
+      "Signature": 10629
+    },
+    "RECORD_COMPONENT": {
+      "Signature": 70
+    }
+  },
+  "attributes": {
+    "AnnotationDefault": {
+      "allow_multiple": false,
+      "stability": "CP_REFS"
+    },
+    "BootstrapMethods": {
+      "allow_multiple": false,
+      "stability": "CP_REFS"
+    },
+    "CharacterRangeTable": {
+      "allow_multiple": true,
+      "stability": "LABELS"
+    },
+    "Code": {
+      "allow_multiple": false,
+      "stability": "CP_REFS"
+    },
+    "CompilationID": {
+      "allow_multiple": false,
+      "stability": "CP_REFS"
+    },
+    "ConstantValue": {
+      "allow_multiple": false,
+      "stability": "CP_REFS"
+    },
+    "Deprecated": {
+      "allow_multiple": true,
+      "stability": "STATELESS"
+    },
+    "EnclosingMethod": {
+      "allow_multiple": false,
+      "stability": "CP_REFS"
+    },
+    "Exceptions": {
+      "allow_multiple": false,
+      "stability": "CP_REFS"
+    },
+    "InnerClasses": {
+      "allow_multiple": false,
+      "stability": "CP_REFS"
+    },
+    "LineNumberTable": {
+      "allow_multiple": true,
+      "stability": "LABELS"
+    },
+    "LocalVariableTable": {
+      "allow_multiple": true,
+      "stability": "LABELS"
+    },
+    "LocalVariableTypeTable": {
+      "allow_multiple": true,
+      "stability": "LABELS"
+    },
+    "MethodParameters": {
+      "allow_multiple": false,
+      "stability": "CP_REFS"
+    },
+    "Module": {
+      "allow_multiple": false,
+      "stability": "CP_REFS"
+    },
+    "ModuleHashes": {
+      "allow_multiple": false,
+      "stability": "CP_REFS"
+    },
+    "ModuleMainClass": {
+      "allow_multiple": false,
+      "stability": "CP_REFS"
+    },
+    "ModulePackages": {
+      "allow_multiple": false,
+      "stability": "CP_REFS"
+    },
+    "ModuleResolution": {
+      "allow_multiple": false,
+      "stability": "STATELESS"
+    },
+    "ModuleTarget": {
+      "allow_multiple": false,
+      "stability": "CP_REFS"
+    },
+    "NestHost": {
+      "allow_multiple": false,
+      "stability": "CP_REFS"
+    },
+    "NestMembers": {
+      "allow_multiple": false,
+      "stability": "CP_REFS"
+    },
+    "PermittedSubclasses": {
+      "allow_multiple": false,
+      "stability": "CP_REFS"
+    },
+    "Record": {
+      "allow_multiple": false,
+      "stability": "CP_REFS"
+    },
+    "RuntimeInvisibleAnnotations": {
+      "allow_multiple": false,
+      "stability": "CP_REFS"
+    },
+    "RuntimeInvisibleParameterAnnotations": {
+      "allow_multiple": false,
+      "stability": "CP_REFS"
+    },
+    "RuntimeInvisibleTypeAnnotations": {
+      "allow_multiple": false,
+      "stability": "UNSTABLE"
+    },
+    "RuntimeVisibleAnnotations": {
+      "allow_multiple": false,
+      "stability": "CP_REFS"
+    },
+    "RuntimeVisibleParameterAnnotations": {
+      "allow_multiple": false,
+      "stability": "CP_REFS"
+    },
+    "RuntimeVisibleTypeAnnotations": {
+      "allow_multiple": false,
+      "stability": "UNSTABLE"
+    },
+    "Signature": {
+      "allow_multiple": false,
+      "stability": "CP_REFS"
+    },
+    "SourceDebugExtension": {
+      "allow_multiple": false,
+      "stability": "STATELESS"
+    },
+    "SourceFile": {
+      "allow_multiple": false,
+      "stability": "CP_REFS"
+    },
+    "SourceID": {
+      "allow_multiple": false,
+      "stability": "CP_REFS"
+    },
+    "StackMapTable": {
+      "allow_multiple": false,
+      "stability": "LABELS"
+    },
+    "Synthetic": {
+      "allow_multiple": true,
+      "stability": "STATELESS"
+    }
+  },
+  "flag_counts": {
+    "CLASS": {
+      "1": 3647,
+      "1024": 1430,
+      "16": 3053,
+      "16384": 244,
+      "2": 4,
+      "32": 6535,
+      "32768": 1,
+      "4096": 97,
+      "512": 905,
+      "8192": 38
+    },
+    "FIELD": {
+      "1": 5826,
+      "128": 447,
+      "16": 20263,
+      "16384": 2641,
+      "2": 13357,
+      "4": 430,
+      "4096": 1687,
+      "64": 540,
+      "8": 14432
+    },
+    "METHOD": {
+      "1": 38972,
+      "1024": 4028,
+      "128": 620,
+      "16": 3974,
+      "2": 11228,
+      "256": 717,
+      "32": 531,
+      "4": 2669,
+      "4096": 4497,
+      "64": 3150,
+      "8": 15639
+    }
+  },
+  "flag_locations": {
+    "ABSTRACT": {
+      "RELEASE_0": [
+        "CLASS",
+        "METHOD"
+      ],
+      "RELEASE_1": [
+        "CLASS",
+        "INNER_CLASS",
+        "METHOD"
+      ],
+      "RELEASE_10": [
+        "CLASS",
+        "INNER_CLASS",
+        "METHOD"
+      ],
+      "RELEASE_11": [
+        "CLASS",
+        "INNER_CLASS",
+        "METHOD"
+      ],
+      "RELEASE_12": [
+        "CLASS",
+        "INNER_CLASS",
+        "METHOD"
+      ],
+      "RELEASE_13": [
+        "CLASS",
+        "INNER_CLASS",
+        "METHOD"
+      ],
+      "RELEASE_14": [
+        "CLASS",
+        "INNER_CLASS",
+        "METHOD"
+      ],
+      "RELEASE_15": [
+        "CLASS",
+        "INNER_CLASS",
+        "METHOD"
+      ],
+      "RELEASE_16": [
+        "CLASS",
+        "INNER_CLASS",
+        "METHOD"
+      ],
+      "RELEASE_17": [
+        "CLASS",
+        "INNER_CLASS",
+        "METHOD"
+      ],
+      "RELEASE_18": [
+        "CLASS",
+        "INNER_CLASS",
+        "METHOD"
+      ],
+      "RELEASE_19": [
+        "CLASS",
+        "INNER_CLASS",
+        "METHOD"
+      ],
+      "RELEASE_2": [
+        "CLASS",
+        "INNER_CLASS",
+        "METHOD"
+      ],
+      "RELEASE_20": [
+        "CLASS",
+        "INNER_CLASS",
+        "METHOD"
+      ],
+      "RELEASE_21": [
+        "CLASS",
+        "INNER_CLASS",
+        "METHOD"
+      ],
+      "RELEASE_22": [
+        "CLASS",
+        "INNER_CLASS",
+        "METHOD"
+      ],
+      "RELEASE_23": [
+        "CLASS",
+        "INNER_CLASS",
+        "METHOD"
+      ],
+      "RELEASE_24": [
+        "CLASS",
+        "INNER_CLASS",
+        "METHOD"
+      ],
+      "RELEASE_25": [
+        "CLASS",
+        "INNER_CLASS",
+        "METHOD"
+      ],
+      "RELEASE_26": [
+        "CLASS",
+        "INNER_CLASS",
+        "METHOD"
+      ],
+      "RELEASE_27": [
+        "CLASS",
+        "INNER_CLASS",
+        "METHOD"
+      ],
+      "RELEASE_3": [
+        "CLASS",
+        "INNER_CLASS",
+        "METHOD"
+      ],
+      "RELEASE_4": [
+        "CLASS",
+        "INNER_CLASS",
+        "METHOD"
+      ],
+      "RELEASE_5": [
+        "CLASS",
+        "INNER_CLASS",
+        "METHOD"
+      ],
+      "RELEASE_6": [
+        "CLASS",
+        "INNER_CLASS",
+        "METHOD"
+      ],
+      "RELEASE_7": [
+        "CLASS",
+        "INNER_CLASS",
+        "METHOD"
+      ],
+      "RELEASE_8": [
+        "CLASS",
+        "INNER_CLASS",
+        "METHOD"
+      ],
+      "RELEASE_9": [
+        "CLASS",
+        "INNER_CLASS",
+        "METHOD"
+      ]
+    },
+    "ANNOTATION": {
+      "RELEASE_0": [],
+      "RELEASE_1": [],
+      "RELEASE_10": [
+        "CLASS",
+        "INNER_CLASS"
+      ],
+      "RELEASE_11": [
+        "CLASS",
+        "INNER_CLASS"
+      ],
+      "RELEASE_12": [
+        "CLASS",
+        "INNER_CLASS"
+      ],
+      "RELEASE_13": [
+        "CLASS",
+        "INNER_CLASS"
+      ],
+      "RELEASE_14": [
+        "CLASS",
+        "INNER_CLASS"
+      ],
+      "RELEASE_15": [
+        "CLASS",
+        "INNER_CLASS"
+      ],
+      "RELEASE_16": [
+        "CLASS",
+        "INNER_CLASS"
+      ],
+      "RELEASE_17": [
+        "CLASS",
+        "INNER_CLASS"
+      ],
+      "RELEASE_18": [
+        "CLASS",
+        "INNER_CLASS"
+      ],
+      "RELEASE_19": [
+        "CLASS",
+        "INNER_CLASS"
+      ],
+      "RELEASE_2": [],
+      "RELEASE_20": [
+        "CLASS",
+        "INNER_CLASS"
+      ],
+      "RELEASE_21": [
+        "CLASS",
+        "INNER_CLASS"
+      ],
+      "RELEASE_22": [
+        "CLASS",
+        "INNER_CLASS"
+      ],
+      "RELEASE_23": [
+        "CLASS",
+        "INNER_CLASS"
+      ],
+      "RELEASE_24": [
+        "CLASS",
+        "INNER_CLASS"
+      ],
+      "RELEASE_25": [
+        "CLASS",
+        "INNER_CLASS"
+      ],
+      "RELEASE_26": [
+        "CLASS",
+        "INNER_CLASS"
+      ],
+      "RELEASE_27": [
+        "CLASS",
+        "INNER_CLASS"
+      ],
+      "RELEASE_3": [],
+      "RELEASE_4": [],
+      "RELEASE_5": [
+        "CLASS",
+        "INNER_CLASS"
+      ],
+      "RELEASE_6": [
+        "CLASS",
+        "INNER_CLASS"
+      ],
+      "RELEASE_7": [
+        "CLASS",
+        "INNER_CLASS"
+      ],
+      "RELEASE_8": [
+        "CLASS",
+        "INNER_CLASS"
+      ],
+      "RELEASE_9": [
+        "CLASS",
+        "INNER_CLASS"
+      ]
+    },
+    "BRIDGE": {
+      "RELEASE_0": [],
+      "RELEASE_1": [],
+      "RELEASE_10": [
+        "METHOD"
+      ],
+      "RELEASE_11": [
+        "METHOD"
+      ],
+      "RELEASE_12": [
+        "METHOD"
+      ],
+      "RELEASE_13": [
+        "METHOD"
+      ],
+      "RELEASE_14": [
+        "METHOD"
+      ],
+      "RELEASE_15": [
+        "METHOD"
+      ],
+      "RELEASE_16": [
+        "METHOD"
+      ],
+      "RELEASE_17": [
+        "METHOD"
+      ],
+      "RELEASE_18": [
+        "METHOD"
+      ],
+      "RELEASE_19": [
+        "METHOD"
+      ],
+      "RELEASE_2": [],
+      "RELEASE_20": [
+        "METHOD"
+      ],
+      "RELEASE_21": [
+        "METHOD"
+      ],
+      "RELEASE_22": [
+        "METHOD"
+      ],
+      "RELEASE_23": [
+        "METHOD"
+      ],
+      "RELEASE_24": [
+        "METHOD"
+      ],
+      "RELEASE_25": [
+        "METHOD"
+      ],
+      "RELEASE_26": [
+        "METHOD"
+      ],
+      "RELEASE_27": [
+        "METHOD"
+      ],
+      "RELEASE_3": [],
+      "RELEASE_4": [],
+      "RELEASE_5": [
+        "METHOD"
+      ],
+      "RELEASE_6": [
+        "METHOD"
+      ],
+      "RELEASE_7": [
+        "METHOD"
+      ],
+      "RELEASE_8": [
+        "METHOD"
+      ],
+      "RELEASE_9": [
+        "METHOD"
+      ]
+    },
+    "ENUM": {
+      "RELEASE_0": [],
+      "RELEASE_1": [],
+      "RELEASE_10": [
+        "CLASS",
+        "FIELD",
+        "INNER_CLASS"
+      ],
+      "RELEASE_11": [
+        "CLASS",
+        "FIELD",
+        "INNER_CLASS"
+      ],
+      "RELEASE_12": [
+        "CLASS",
+        "FIELD",
+        "INNER_CLASS"
+      ],
+      "RELEASE_13": [
+        "CLASS",
+        "FIELD",
+        "INNER_CLASS"
+      ],
+      "RELEASE_14": [
+        "CLASS",
+        "FIELD",
+        "INNER_CLASS"
+      ],
+      "RELEASE_15": [
+        "CLASS",
+        "FIELD",
+        "INNER_CLASS"
+      ],
+      "RELEASE_16": [
+        "CLASS",
+        "FIELD",
+        "INNER_CLASS"
+      ],
+      "RELEASE_17": [
+        "CLASS",
+        "FIELD",
+        "INNER_CLASS"
+      ],
+      "RELEASE_18": [
+        "CLASS",
+        "FIELD",
+        "INNER_CLASS"
+      ],
+      "RELEASE_19": [
+        "CLASS",
+        "FIELD",
+        "INNER_CLASS"
+      ],
+      "RELEASE_2": [],
+      "RELEASE_20": [
+        "CLASS",
+        "FIELD",
+        "INNER_CLASS"
+      ],
+      "RELEASE_21": [
+        "CLASS",
+        "FIELD",
+        "INNER_CLASS"
+      ],
+      "RELEASE_22": [
+        "CLASS",
+        "FIELD",
+        "INNER_CLASS"
+      ],
+      "RELEASE_23": [
+        "CLASS",
+        "FIELD",
+        "INNER_CLASS"
+      ],
+      "RELEASE_24": [
+        "CLASS",
+        "FIELD",
+        "INNER_CLASS"
+      ],
+      "RELEASE_25": [
+        "CLASS",
+        "FIELD",
+        "INNER_CLASS"
+      ],
+      "RELEASE_26": [
+        "CLASS",
+        "FIELD",
+        "INNER_CLASS"
+      ],
+      "RELEASE_27": [
+        "CLASS",
+        "FIELD",
+        "INNER_CLASS"
+      ],
+      "RELEASE_3": [],
+      "RELEASE_4": [],
+      "RELEASE_5": [
+        "CLASS",
+        "FIELD",
+        "INNER_CLASS"
+      ],
+      "RELEASE_6": [
+        "CLASS",
+        "FIELD",
+        "INNER_CLASS"
+      ],
+      "RELEASE_7": [
+        "CLASS",
+        "FIELD",
+        "INNER_CLASS"
+      ],
+      "RELEASE_8": [
+        "CLASS",
+        "FIELD",
+        "INNER_CLASS"
+      ],
+      "RELEASE_9": [
+        "CLASS",
+        "FIELD",
+        "INNER_CLASS"
+      ]
+    },
+    "FINAL": {
+      "RELEASE_0": [
+        "CLASS",
+        "FIELD",
+        "METHOD"
+      ],
+      "RELEASE_1": [
+        "CLASS",
+        "FIELD",
+        "INNER_CLASS",
+        "METHOD"
+      ],
+      "RELEASE_10": [
+        "CLASS",
+        "FIELD",
+        "INNER_CLASS",
+        "METHOD",
+        "METHOD_PARAMETER"
+      ],
+      "RELEASE_11": [
+        "CLASS",
+        "FIELD",
+        "INNER_CLASS",
+        "METHOD",
+        "METHOD_PARAMETER"
+      ],
+      "RELEASE_12": [
+        "CLASS",
+        "FIELD",
+        "INNER_CLASS",
+        "METHOD",
+        "METHOD_PARAMETER"
+      ],
+      "RELEASE_13": [
+        "CLASS",
+        "FIELD",
+        "INNER_CLASS",
+        "METHOD",
+        "METHOD_PARAMETER"
+      ],
+      "RELEASE_14": [
+        "CLASS",
+        "FIELD",
+        "INNER_CLASS",
+        "METHOD",
+        "METHOD_PARAMETER"
+      ],
+      "RELEASE_15": [
+        "CLASS",
+        "FIELD",
+        "INNER_CLASS",
+        "METHOD",
+        "METHOD_PARAMETER"
+      ],
+      "RELEASE_16": [
+        "CLASS",
+        "FIELD",
+        "INNER_CLASS",
+        "METHOD",
+        "METHOD_PARAMETER"
+      ],
+      "RELEASE_17": [
+        "CLASS",
+        "FIELD",
+        "INNER_CLASS",
+        "METHOD",
+        "METHOD_PARAMETER"
+      ],
+      "RELEASE_18": [
+        "CLASS",
+        "FIELD",
+        "INNER_CLASS",
+        "METHOD",
+        "METHOD_PARAMETER"
+      ],
+      "RELEASE_19": [
+        "CLASS",
+        "FIELD",
+        "INNER_CLASS",
+        "METHOD",
+        "METHOD_PARAMETER"
+      ],
+      "RELEASE_2": [
+        "CLASS",
+        "FIELD",
+        "INNER_CLASS",
+        "METHOD"
+      ],
+      "RELEASE_20": [
+        "CLASS",
+        "FIELD",
+        "INNER_CLASS",
+        "METHOD",
+        "METHOD_PARAMETER"
+      ],
+      "RELEASE_21": [
+        "CLASS",
+        "FIELD",
+        "INNER_CLASS",
+        "METHOD",
+        "METHOD_PARAMETER"
+      ],
+      "RELEASE_22": [
+        "CLASS",
+        "FIELD",
+        "INNER_CLASS",
+        "METHOD",
+        "METHOD_PARAMETER"
+      ],
+      "RELEASE_23": [
+        "CLASS",
+        "FIELD",
+        "INNER_CLASS",
+        "METHOD",
+        "METHOD_PARAMETER"
+      ],
+      "RELEASE_24": [
+        "CLASS",
+        "FIELD",
+        "INNER_CLASS",
+        "METHOD",
+        "METHOD_PARAMETER"
+      ],
+      "RELEASE_25": [
+        "CLASS",
+        "FIELD",
+        "INNER_CLASS",
+        "METHOD",
+        "METHOD_PARAMETER"
+      ],
+      "RELEASE_26": [
+        "CLASS",
+        "FIELD",
+        "INNER_CLASS",
+        "METHOD",
+        "METHOD_PARAMETER"
+      ],
+      "RELEASE_27": [
+        "CLASS",
+        "FIELD",
+        "INNER_CLASS",
+        "METHOD",
+        "METHOD_PARAMETER"
+      ],
+      "RELEASE_3": [
+        "CLASS",
+        "FIELD",
+        "INNER_CLASS",
+        "METHOD"
+      ],
+      "RELEASE_4": [
+        "CLASS",
+        "FIELD",
+        "INNER_CLASS",
+        "METHOD"
+      ],
+      "RELEASE_5": [
+        "CLASS",
+        "FIELD",
+        "INNER_CLASS",
+        "METHOD"
+      ],
+      "RELEASE_6": [
+        "CLASS",
+        "FIELD",
+        "INNER_CLASS",
+        "METHOD"
+      ],
+      "RELEASE_7": [
+        "CLASS",
+        "FIELD",
+        "INNER_CLASS",
+        "METHOD"
+      ],
+      "RELEASE_8": [
+        "CLASS",
+        "FIELD",
+        "INNER_CLASS",
+        "METHOD",
+        "METHOD_PARAMETER"
+      ],
+      "RELEASE_9": [
+        "CLASS",
+        "FIELD",
+        "INNER_CLASS",
+        "METHOD",
+        "METHOD_PARAMETER"
+      ]
+    },
+    "INTERFACE": {
+      "RELEASE_0": [
+        "CLASS"
+      ],
+      "RELEASE_1": [
+        "CLASS",
+        "INNER_CLASS"
+      ],
+      "RELEASE_10": [
+        "CLASS",
+        "INNER_CLASS"
+      ],
+      "RELEASE_11": [
+        "CLASS",
+        "INNER_CLASS"
+      ],
+      "RELEASE_12": [
+        "CLASS",
+        "INNER_CLASS"
+      ],
+      "RELEASE_13": [
+        "CLASS",
+        "INNER_CLASS"
+      ],
+      "RELEASE_14": [
+        "CLASS",
+        "INNER_CLASS"
+      ],
+      "RELEASE_15": [
+        "CLASS",
+        "INNER_CLASS"
+      ],
+      "RELEASE_16": [
+        "CLASS",
+        "INNER_CLASS"
+      ],
+      "RELEASE_17": [
+        "CLASS",
+        "INNER_CLASS"
+      ],
+      "RELEASE_18": [
+        "CLASS",
+        "INNER_CLASS"
+      ],
+      "RELEASE_19": [
+        "CLASS",
+        "INNER_CLASS"
+      ],
+      "RELEASE_2": [
+        "CLASS",
+        "INNER_CLASS"
+      ],
+      "RELEASE_20": [
+        "CLASS",
+        "INNER_CLASS"
+      ],
+      "RELEASE_21": [
+        "CLASS",
+        "INNER_CLASS"
+      ],
+      "RELEASE_22": [
+        "CLASS",
+        "INNER_CLASS"
+      ],
+      "RELEASE_23": [
+        "CLASS",
+        "INNER_CLASS"
+      ],
+      "RELEASE_24": [
+        "CLASS",
+        "INNER_CLASS"
+      ],
+      "RELEASE_25": [
+        "CLASS",
+        "INNER_CLASS"
+      ],
+      "RELEASE_26": [
+        "CLASS",
+        "INNER_CLASS"
+      ],
+      "RELEASE_27": [
+        "CLASS",
+        "INNER_CLASS"
+      ],
+      "RELEASE_3": [
+        "CLASS",
+        "INNER_CLASS"
+      ],
+      "RELEASE_4": [
+        "CLASS",
+        "INNER_CLASS"
+      ],
+      "RELEASE_5": [
+        "CLASS",
+        "INNER_CLASS"
+      ],
+      "RELEASE_6": [
+        "CLASS",
+        "INNER_CLASS"
+      ],
+      "RELEASE_7": [
+        "CLASS",
+        "INNER_CLASS"
+      ],
+      "RELEASE_8": [
+        "CLASS",
+        "INNER_CLASS"
+      ],
+      "RELEASE_9": [
+        "CLASS",
+        "INNER_CLASS"
+      ]
+    },
+    "MANDATED": {
+      "RELEASE_0": [],
+      "RELEASE_1": [],
+      "RELEASE_10": [
+        "METHOD_PARAMETER",
+        "MODULE",
+        "MODULE_EXPORTS",
+        "MODULE_OPENS",
+        "MODULE_REQUIRES"
+      ],
+      "RELEASE_11": [
+        "METHOD_PARAMETER",
+        "MODULE",
+        "MODULE_EXPORTS",
+        "MODULE_OPENS",
+        "MODULE_REQUIRES"
+      ],
+      "RELEASE_12": [
+        "METHOD_PARAMETER",
+        "MODULE",
+        "MODULE_EXPORTS",
+        "MODULE_OPENS",
+        "MODULE_REQUIRES"
+      ],
+      "RELEASE_13": [
+        "METHOD_PARAMETER",
+        "MODULE",
+        "MODULE_EXPORTS",
+        "MODULE_OPENS",
+        "MODULE_REQUIRES"
+      ],
+      "RELEASE_14": [
+        "METHOD_PARAMETER",
+        "MODULE",
+        "MODULE_EXPORTS",
+        "MODULE_OPENS",
+        "MODULE_REQUIRES"
+      ],
+      "RELEASE_15": [
+        "METHOD_PARAMETER",
+        "MODULE",
+        "MODULE_EXPORTS",
+        "MODULE_OPENS",
+        "MODULE_REQUIRES"
+      ],
+      "RELEASE_16": [
+        "METHOD_PARAMETER",
+        "MODULE",
+        "MODULE_EXPORTS",
+        "MODULE_OPENS",
+        "MODULE_REQUIRES"
+      ],
+      "RELEASE_17": [
+        "METHOD_PARAMETER",
+        "MODULE",
+        "MODULE_EXPORTS",
+        "MODULE_OPENS",
+        "MODULE_REQUIRES"
+      ],
+      "RELEASE_18": [
+        "METHOD_PARAMETER",
+        "MODULE",
+        "MODULE_EXPORTS",
+        "MODULE_OPENS",
+        "MODULE_REQUIRES"
+      ],
+      "RELEASE_19": [
+        "METHOD_PARAMETER",
+        "MODULE",
+        "MODULE_EXPORTS",
+        "MODULE_OPENS",
+        "MODULE_REQUIRES"
+      ],
+      "RELEASE_2": [],
+      "RELEASE_20": [
+        "METHOD_PARAMETER",
+        "MODULE",
+        "MODULE_EXPORTS",
+        "MODULE_OPENS",
+        "MODULE_REQUIRES"
+      ],
+      "RELEASE_21": [
+        "METHOD_PARAMETER",
+        "MODULE",
+        "MODULE_EXPORTS",
+        "MODULE_OPENS",
+        "MODULE_REQUIRES"
+      ],
+      "RELEASE_22": [
+        "METHOD_PARAMETER",
+        "MODULE",
+        "MODULE_EXPORTS",
+        "MODULE_OPENS",
+        "MODULE_REQUIRES"
+      ],
+      "RELEASE_23": [
+        "METHOD_PARAMETER",
+        "MODULE",
+        "MODULE_EXPORTS",
+        "MODULE_OPENS",
+        "MODULE_REQUIRES"
+      ],
+      "RELEASE_24": [
+        "METHOD_PARAMETER",
+        "MODULE",
+        "MODULE_EXPORTS",
+        "MODULE_OPENS",
+        "MODULE_REQUIRES"
+      ],
+      "RELEASE_25": [
+        "METHOD_PARAMETER",
+        "MODULE",
+        "MODULE_EXPORTS",
+        "MODULE_OPENS",
+        "MODULE_REQUIRES"
+      ],
+      "RELEASE_26": [
+        "METHOD_PARAMETER",
+        "MODULE",
+        "MODULE_EXPORTS",
+        "MODULE_OPENS",
+        "MODULE_REQUIRES"
+      ],
+      "RELEASE_27": [
+        "METHOD_PARAMETER",
+        "MODULE",
+        "MODULE_EXPORTS",
+        "MODULE_OPENS",
+        "MODULE_REQUIRES"
+      ],
+      "RELEASE_3": [],
+      "RELEASE_4": [],
+      "RELEASE_5": [],
+      "RELEASE_6": [],
+      "RELEASE_7": [],
+      "RELEASE_8": [
+        "METHOD_PARAMETER"
+      ],
+      "RELEASE_9": [
+        "METHOD_PARAMETER",
+        "MODULE",
+        "MODULE_EXPORTS",
+        "MODULE_OPENS",
+        "MODULE_REQUIRES"
+      ]
+    },
+    "MODULE": {
+      "RELEASE_0": [],
+      "RELEASE_1": [],
+      "RELEASE_10": [
+        "CLASS"
+      ],
+      "RELEASE_11": [
+        "CLASS"
+      ],
+      "RELEASE_12": [
+        "CLASS"
+      ],
+      "RELEASE_13": [
+        "CLASS"
+      ],
+      "RELEASE_14": [
+        "CLASS"
+      ],
+      "RELEASE_15": [
+        "CLASS"
+      ],
+      "RELEASE_16": [
+        "CLASS"
+      ],
+      "RELEASE_17": [
+        "CLASS"
+      ],
+      "RELEASE_18": [
+        "CLASS"
+      ],
+      "RELEASE_19": [
+        "CLASS"
+      ],
+      "RELEASE_2": [],
+      "RELEASE_20": [
+        "CLASS"
+      ],
+      "RELEASE_21": [
+        "CLASS"
+      ],
+      "RELEASE_22": [
+        "CLASS"
+      ],
+      "RELEASE_23": [
+        "CLASS"
+      ],
+      "RELEASE_24": [
+        "CLASS"
+      ],
+      "RELEASE_25": [
+        "CLASS"
+      ],
+      "RELEASE_26": [
+        "CLASS"
+      ],
+      "RELEASE_27": [
+        "CLASS"
+      ],
+      "RELEASE_3": [],
+      "RELEASE_4": [],
+      "RELEASE_5": [],
+      "RELEASE_6": [],
+      "RELEASE_7": [],
+      "RELEASE_8": [],
+      "RELEASE_9": [
+        "CLASS"
+      ]
+    },
+    "NATIVE": {
+      "RELEASE_0": [
+        "METHOD"
+      ],
+      "RELEASE_1": [
+        "METHOD"
+      ],
+      "RELEASE_10": [
+        "METHOD"
+      ],
+      "RELEASE_11": [
+        "METHOD"
+      ],
+      "RELEASE_12": [
+        "METHOD"
+      ],
+      "RELEASE_13": [
+        "METHOD"
+      ],
+      "RELEASE_14": [
+        "METHOD"
+      ],
+      "RELEASE_15": [
+        "METHOD"
+      ],
+      "RELEASE_16": [
+        "METHOD"
+      ],
+      "RELEASE_17": [
+        "METHOD"
+      ],
+      "RELEASE_18": [
+        "METHOD"
+      ],
+      "RELEASE_19": [
+        "METHOD"
+      ],
+      "RELEASE_2": [
+        "METHOD"
+      ],
+      "RELEASE_20": [
+        "METHOD"
+      ],
+      "RELEASE_21": [
+        "METHOD"
+      ],
+      "RELEASE_22": [
+        "METHOD"
+      ],
+      "RELEASE_23": [
+        "METHOD"
+      ],
+      "RELEASE_24": [
+        "METHOD"
+      ],
+      "RELEASE_25": [
+        "METHOD"
+      ],
+      "RELEASE_26": [
+        "METHOD"
+      ],
+      "RELEASE_27": [
+        "METHOD"
+      ],
+      "RELEASE_3": [
+        "METHOD"
+      ],
+      "RELEASE_4": [
+        "METHOD"
+      ],
+      "RELEASE_5": [
+        "METHOD"
+      ],
+      "RELEASE_6": [
+        "METHOD"
+      ],
+      "RELEASE_7": [
+        "METHOD"
+      ],
+      "RELEASE_8": [
+        "METHOD"
+      ],
+      "RELEASE_9": [
+        "METHOD"
+      ]
+    },
+    "OPEN": {
+      "RELEASE_0": [],
+      "RELEASE_1": [],
+      "RELEASE_10": [
+        "MODULE"
+      ],
+      "RELEASE_11": [
+        "MODULE"
+      ],
+      "RELEASE_12": [
+        "MODULE"
+      ],
+      "RELEASE_13": [
+        "MODULE"
+      ],
+      "RELEASE_14": [
+        "MODULE"
+      ],
+      "RELEASE_15": [
+        "MODULE"
+      ],
+      "RELEASE_16": [
+        "MODULE"
+      ],
+      "RELEASE_17": [
+        "MODULE"
+      ],
+      "RELEASE_18": [
+        "MODULE"
+      ],
+      "RELEASE_19": [
+        "MODULE"
+      ],
+      "RELEASE_2": [],
+      "RELEASE_20": [
+        "MODULE"
+      ],
+      "RELEASE_21": [
+        "MODULE"
+      ],
+      "RELEASE_22": [
+        "MODULE"
+      ],
+      "RELEASE_23": [
+        "MODULE"
+      ],
+      "RELEASE_24": [
+        "MODULE"
+      ],
+      "RELEASE_25": [
+        "MODULE"
+      ],
+      "RELEASE_26": [
+        "MODULE"
+      ],
+      "RELEASE_27": [
+        "MODULE"
+      ],
+      "RELEASE_3": [],
+      "RELEASE_4": [],
+      "RELEASE_5": [],
+      "RELEASE_6": [],
+      "RELEASE_7": [],
+      "RELEASE_8": [],
+      "RELEASE_9": [
+        "MODULE"
+      ]
+    },
+    "PRIVATE": {
+      "RELEASE_0": [
+        "FIELD",
+        "METHOD"
+      ],
+      "RELEASE_1": [
+        "FIELD",
+        "INNER_CLASS",
+        "METHOD"
+      ],
+      "RELEASE_10": [
+        "FIELD",
+        "INNER_CLASS",
+        "METHOD"
+      ],
+      "RELEASE_11": [
+        "FIELD",
+        "INNER_CLASS",
+        "METHOD"
+      ],
+      "RELEASE_12": [
+        "FIELD",
+        "INNER_CLASS",
+        "METHOD"
+      ],
+      "RELEASE_13": [
+        "FIELD",
+        "INNER_CLASS",
+        "METHOD"
+      ],
+      "RELEASE_14": [
+        "FIELD",
+        "INNER_CLASS",
+        "METHOD"
+      ],
+      "RELEASE_15": [
+        "FIELD",
+        "INNER_CLASS",
+        "METHOD"
+      ],
+      "RELEASE_16": [
+        "FIELD",
+        "INNER_CLASS",
+        "METHOD"
+      ],
+      "RELEASE_17": [
+        "FIELD",
+        "INNER_CLASS",
+        "METHOD"
+      ],
+      "RELEASE_18": [
+        "FIELD",
+        "INNER_CLASS",
+        "METHOD"
+      ],
+      "RELEASE_19": [
+        "FIELD",
+        "INNER_CLASS",
+        "METHOD"
+      ],
+      "RELEASE_2": [
+        "FIELD",
+        "INNER_CLASS",
+        "METHOD"
+      ],
+      "RELEASE_20": [
+        "FIELD",
+        "INNER_CLASS",
+        "METHOD"
+      ],
+      "RELEASE_21": [
+        "FIELD",
+        "INNER_CLASS",
+        "METHOD"
+      ],
+      "RELEASE_22": [
+        "FIELD",
+        "INNER_CLASS",
+        "METHOD"
+      ],
+      "RELEASE_23": [
+        "FIELD",
+        "INNER_CLASS",
+        "METHOD"
+      ],
+      "RELEASE_24": [
+        "FIELD",
+        "INNER_CLASS",
+        "METHOD"
+      ],
+      "RELEASE_25": [
+        "FIELD",
+        "INNER_CLASS",
+        "METHOD"
+      ],
+      "RELEASE_26": [
+        "FIELD",
+        "INNER_CLASS",
+        "METHOD"
+      ],
+      "RELEASE_27": [
+        "FIELD",
+        "INNER_CLASS",
+        "METHOD"
+      ],
+      "RELEASE_3": [
+        "FIELD",
+        "INNER_CLASS",
+        "METHOD"
+      ],
+      "RELEASE_4": [
+        "FIELD",
+        "INNER_CLASS",
+        "METHOD"
+      ],
+      "RELEASE_5": [
+        "FIELD",
+        "INNER_CLASS",
+        "METHOD"
+      ],
+      "RELEASE_6": [
+        "FIELD",
+        "INNER_CLASS",
+        "METHOD"
+      ],
+      "RELEASE_7": [
+        "FIELD",
+        "INNER_CLASS",
+        "METHOD"
+      ],
+      "RELEASE_8": [
+        "FIELD",
+        "INNER_CLASS",
+        "METHOD"
+      ],
+      "RELEASE_9": [
+        "FIELD",
+        "INNER_CLASS",
+        "METHOD"
+      ]
+    },
+    "PROTECTED": {
+      "RELEASE_0": [
+        "FIELD",
+        "METHOD"
+      ],
+      "RELEASE_1": [
+        "FIELD",
+        "INNER_CLASS",
+        "METHOD"
+      ],
+      "RELEASE_10": [
+        "FIELD",
+        "INNER_CLASS",
+        "METHOD"
+      ],
+      "RELEASE_11": [
+        "FIELD",
+        "INNER_CLASS",
+        "METHOD"
+      ],
+      "RELEASE_12": [
+        "FIELD",
+        "INNER_CLASS",
+        "METHOD"
+      ],
+      "RELEASE_13": [
+        "FIELD",
+        "INNER_CLASS",
+        "METHOD"
+      ],
+      "RELEASE_14": [
+        "FIELD",
+        "INNER_CLASS",
+        "METHOD"
+      ],
+      "RELEASE_15": [
+        "FIELD",
+        "INNER_CLASS",
+        "METHOD"
+      ],
+      "RELEASE_16": [
+        "FIELD",
+        "INNER_CLASS",
+        "METHOD"
+      ],
+      "RELEASE_17": [
+        "FIELD",
+        "INNER_CLASS",
+        "METHOD"
+      ],
+      "RELEASE_18": [
+        "FIELD",
+        "INNER_CLASS",
+        "METHOD"
+      ],
+      "RELEASE_19": [
+        "FIELD",
+        "INNER_CLASS",
+        "METHOD"
+      ],
+      "RELEASE_2": [
+        "FIELD",
+        "INNER_CLASS",
+        "METHOD"
+      ],
+      "RELEASE_20": [
+        "FIELD",
+        "INNER_CLASS",
+        "METHOD"
+      ],
+      "RELEASE_21": [
+        "FIELD",
+        "INNER_CLASS",
+        "METHOD"
+      ],
+      "RELEASE_22": [
+        "FIELD",
+        "INNER_CLASS",
+        "METHOD"
+      ],
+      "RELEASE_23": [
+        "FIELD",
+        "INNER_CLASS",
+        "METHOD"
+      ],
+      "RELEASE_24": [
+        "FIELD",
+        "INNER_CLASS",
+        "METHOD"
+      ],
+      "RELEASE_25": [
+        "FIELD",
+        "INNER_CLASS",
+        "METHOD"
+      ],
+      "RELEASE_26": [
+        "FIELD",
+        "INNER_CLASS",
+        "METHOD"
+      ],
+      "RELEASE_27": [
+        "FIELD",
+        "INNER_CLASS",
+        "METHOD"
+      ],
+      "RELEASE_3": [
+        "FIELD",
+        "INNER_CLASS",
+        "METHOD"
+      ],
+      "RELEASE_4": [
+        "FIELD",
+        "INNER_CLASS",
+        "METHOD"
+      ],
+      "RELEASE_5": [
+        "FIELD",
+        "INNER_CLASS",
+        "METHOD"
+      ],
+      "RELEASE_6": [
+        "FIELD",
+        "INNER_CLASS",
+        "METHOD"
+      ],
+      "RELEASE_7": [
+        "FIELD",
+        "INNER_CLASS",
+        "METHOD"
+      ],
+      "RELEASE_8": [
+        "FIELD",
+        "INNER_CLASS",
+        "METHOD"
+      ],
+      "RELEASE_9": [
+        "FIELD",
+        "INNER_CLASS",
+        "METHOD"
+      ]
+    },
+    "PUBLIC": {
+      "RELEASE_0": [
+        "CLASS",
+        "FIELD",
+        "METHOD"
+      ],
+      "RELEASE_1": [
+        "CLASS",
+        "FIELD",
+        "INNER_CLASS",
+        "METHOD"
+      ],
+      "RELEASE_10": [
+        "CLASS",
+        "FIELD",
+        "INNER_CLASS",
+        "METHOD"
+      ],
+      "RELEASE_11": [
+        "CLASS",
+        "FIELD",
+        "INNER_CLASS",
+        "METHOD"
+      ],
+      "RELEASE_12": [
+        "CLASS",
+        "FIELD",
+        "INNER_CLASS",
+        "METHOD"
+      ],
+      "RELEASE_13": [
+        "CLASS",
+        "FIELD",
+        "INNER_CLASS",
+        "METHOD"
+      ],
+      "RELEASE_14": [
+        "CLASS",
+        "FIELD",
+        "INNER_CLASS",
+        "METHOD"
+      ],
+      "RELEASE_15": [
+        "CLASS",
+        "FIELD",
+        "INNER_CLASS",
+        "METHOD"
+      ],
+      "RELEASE_16": [
+        "CLASS",
+        "FIELD",
+        "INNER_CLASS",
+        "METHOD"
+      ],
+      "RELEASE_17": [
+        "CLASS",
+        "FIELD",
+        "INNER_CLASS",
+        "METHOD"
+      ],
+      "RELEASE_18": [
+        "CLASS",
+        "FIELD",
+        "INNER_CLASS",
+        "METHOD"
+      ],
+      "RELEASE_19": [
+        "CLASS",
+        "FIELD",
+        "INNER_CLASS",
+        "METHOD"
+      ],
+      "RELEASE_2": [
+        "CLASS",
+        "FIELD",
+        "INNER_CLASS",
+        "METHOD"
+      ],
+      "RELEASE_20": [
+        "CLASS",
+        "FIELD",
+        "INNER_CLASS",
+        "METHOD"
+      ],
+      "RELEASE_21": [
+        "CLASS",
+        "FIELD",
+        "INNER_CLASS",
+        "METHOD"
+      ],
+      "RELEASE_22": [
+        "CLASS",
+        "FIELD",
+        "INNER_CLASS",
+        "METHOD"
+      ],
+      "RELEASE_23": [
+        "CLASS",
+        "FIELD",
+        "INNER_CLASS",
+        "METHOD"
+      ],
+      "RELEASE_24": [
+        "CLASS",
+        "FIELD",
+        "INNER_CLASS",
+        "METHOD"
+      ],
+      "RELEASE_25": [
+        "CLASS",
+        "FIELD",
+        "INNER_CLASS",
+        "METHOD"
+      ],
+      "RELEASE_26": [
+        "CLASS",
+        "FIELD",
+        "INNER_CLASS",
+        "METHOD"
+      ],
+      "RELEASE_27": [
+        "CLASS",
+        "FIELD",
+        "INNER_CLASS",
+        "METHOD"
+      ],
+      "RELEASE_3": [
+        "CLASS",
+        "FIELD",
+        "INNER_CLASS",
+        "METHOD"
+      ],
+      "RELEASE_4": [
+        "CLASS",
+        "FIELD",
+        "INNER_CLASS",
+        "METHOD"
+      ],
+      "RELEASE_5": [
+        "CLASS",
+        "FIELD",
+        "INNER_CLASS",
+        "METHOD"
+      ],
+      "RELEASE_6": [
+        "CLASS",
+        "FIELD",
+        "INNER_CLASS",
+        "METHOD"
+      ],
+      "RELEASE_7": [
+        "CLASS",
+        "FIELD",
+        "INNER_CLASS",
+        "METHOD"
+      ],
+      "RELEASE_8": [
+        "CLASS",
+        "FIELD",
+        "INNER_CLASS",
+        "METHOD"
+      ],
+      "RELEASE_9": [
+        "CLASS",
+        "FIELD",
+        "INNER_CLASS",
+        "METHOD"
+      ]
+    },
+    "STATIC": {
+      "RELEASE_0": [
+        "FIELD",
+        "METHOD"
+      ],
+      "RELEASE_1": [
+        "FIELD",
+        "INNER_CLASS",
+        "METHOD"
+      ],
+      "RELEASE_10": [
+        "FIELD",
+        "INNER_CLASS",
+        "METHOD"
+      ],
+      "RELEASE_11": [
+        "FIELD",
+        "INNER_CLASS",
+        "METHOD"
+      ],
+      "RELEASE_12": [
+        "FIELD",
+        "INNER_CLASS",
+        "METHOD"
+      ],
+      "RELEASE_13": [
+        "FIELD",
+        "INNER_CLASS",
+        "METHOD"
+      ],
+      "RELEASE_14": [
+        "FIELD",
+        "INNER_CLASS",
+        "METHOD"
+      ],
+      "RELEASE_15": [
+        "FIELD",
+        "INNER_CLASS",
+        "METHOD"
+      ],
+      "RELEASE_16": [
+        "FIELD",
+        "INNER_CLASS",
+        "METHOD"
+      ],
+      "RELEASE_17": [
+        "FIELD",
+        "INNER_CLASS",
+        "METHOD"
+      ],
+      "RELEASE_18": [
+        "FIELD",
+        "INNER_CLASS",
+        "METHOD"
+      ],
+      "RELEASE_19": [
+        "FIELD",
+        "INNER_CLASS",
+        "METHOD"
+      ],
+      "RELEASE_2": [
+        "FIELD",
+        "INNER_CLASS",
+        "METHOD"
+      ],
+      "RELEASE_20": [
+        "FIELD",
+        "INNER_CLASS",
+        "METHOD"
+      ],
+      "RELEASE_21": [
+        "FIELD",
+        "INNER_CLASS",
+        "METHOD"
+      ],
+      "RELEASE_22": [
+        "FIELD",
+        "INNER_CLASS",
+        "METHOD"
+      ],
+      "RELEASE_23": [
+        "FIELD",
+        "INNER_CLASS",
+        "METHOD"
+      ],
+      "RELEASE_24": [
+        "FIELD",
+        "INNER_CLASS",
+        "METHOD"
+      ],
+      "RELEASE_25": [
+        "FIELD",
+        "INNER_CLASS",
+        "METHOD"
+      ],
+      "RELEASE_26": [
+        "FIELD",
+        "INNER_CLASS",
+        "METHOD"
+      ],
+      "RELEASE_27": [
+        "FIELD",
+        "INNER_CLASS",
+        "METHOD"
+      ],
+      "RELEASE_3": [
+        "FIELD",
+        "INNER_CLASS",
+        "METHOD"
+      ],
+      "RELEASE_4": [
+        "FIELD",
+        "INNER_CLASS",
+        "METHOD"
+      ],
+      "RELEASE_5": [
+        "FIELD",
+        "INNER_CLASS",
+        "METHOD"
+      ],
+      "RELEASE_6": [
+        "FIELD",
+        "INNER_CLASS",
+        "METHOD"
+      ],
+      "RELEASE_7": [
+        "FIELD",
+        "INNER_CLASS",
+        "METHOD"
+      ],
+      "RELEASE_8": [
+        "FIELD",
+        "INNER_CLASS",
+        "METHOD"
+      ],
+      "RELEASE_9": [
+        "FIELD",
+        "INNER_CLASS",
+        "METHOD"
+      ]
+    },
+    "STATIC_PHASE": {
+      "RELEASE_0": [],
+      "RELEASE_1": [],
+      "RELEASE_10": [
+        "MODULE_REQUIRES"
+      ],
+      "RELEASE_11": [
+        "MODULE_REQUIRES"
+      ],
+      "RELEASE_12": [
+        "MODULE_REQUIRES"
+      ],
+      "RELEASE_13": [
+        "MODULE_REQUIRES"
+      ],
+      "RELEASE_14": [
+        "MODULE_REQUIRES"
+      ],
+      "RELEASE_15": [
+        "MODULE_REQUIRES"
+      ],
+      "RELEASE_16": [
+        "MODULE_REQUIRES"
+      ],
+      "RELEASE_17": [
+        "MODULE_REQUIRES"
+      ],
+      "RELEASE_18": [
+        "MODULE_REQUIRES"
+      ],
+      "RELEASE_19": [
+        "MODULE_REQUIRES"
+      ],
+      "RELEASE_2": [],
+      "RELEASE_20": [
+        "MODULE_REQUIRES"
+      ],
+      "RELEASE_21": [
+        "MODULE_REQUIRES"
+      ],
+      "RELEASE_22": [
+        "MODULE_REQUIRES"
+      ],
+      "RELEASE_23": [
+        "MODULE_REQUIRES"
+      ],
+      "RELEASE_24": [
+        "MODULE_REQUIRES"
+      ],
+      "RELEASE_25": [
+        "MODULE_REQUIRES"
+      ],
+      "RELEASE_26": [
+        "MODULE_REQUIRES"
+      ],
+      "RELEASE_27": [
+        "MODULE_REQUIRES"
+      ],
+      "RELEASE_3": [],
+      "RELEASE_4": [],
+      "RELEASE_5": [],
+      "RELEASE_6": [],
+      "RELEASE_7": [],
+      "RELEASE_8": [],
+      "RELEASE_9": [
+        "MODULE_REQUIRES"
+      ]
+    },
+    "STRICT": {
+      "RELEASE_0": [],
+      "RELEASE_1": [],
+      "RELEASE_10": [
+        "METHOD"
+      ],
+      "RELEASE_11": [
+        "METHOD"
+      ],
+      "RELEASE_12": [
+        "METHOD"
+      ],
+      "RELEASE_13": [
+        "METHOD"
+      ],
+      "RELEASE_14": [
+        "METHOD"
+      ],
+      "RELEASE_15": [
+        "METHOD"
+      ],
+      "RELEASE_16": [
+        "METHOD"
+      ],
+      "RELEASE_17": [],
+      "RELEASE_18": [],
+      "RELEASE_19": [],
+      "RELEASE_2": [
+        "METHOD"
+      ],
+      "RELEASE_20": [],
+      "RELEASE_21": [],
+      "RELEASE_22": [],
+      "RELEASE_23": [],
+      "RELEASE_24": [],
+      "RELEASE_25": [],
+      "RELEASE_26": [],
+      "RELEASE_27": [],
+      "RELEASE_3": [
+        "METHOD"
+      ],
+      "RELEASE_4": [
+        "METHOD"
+      ],
+      "RELEASE_5": [
+        "METHOD"
+      ],
+      "RELEASE_6": [
+        "METHOD"
+      ],
+      "RELEASE_7": [
+        "METHOD"
+      ],
+      "RELEASE_8": [
+        "METHOD"
+      ],
+      "RELEASE_9": [
+        "METHOD"
+      ]
+    },
+    "SUPER": {
+      "RELEASE_0": [
+        "CLASS"
+      ],
+      "RELEASE_1": [
+        "CLASS"
+      ],
+      "RELEASE_10": [
+        "CLASS"
+      ],
+      "RELEASE_11": [
+        "CLASS"
+      ],
+      "RELEASE_12": [
+        "CLASS"
+      ],
+      "RELEASE_13": [
+        "CLASS"
+      ],
+      "RELEASE_14": [
+        "CLASS"
+      ],
+      "RELEASE_15": [
+        "CLASS"
+      ],
+      "RELEASE_16": [
+        "CLASS"
+      ],
+      "RELEASE_17": [
+        "CLASS"
+      ],
+      "RELEASE_18": [
+        "CLASS"
+      ],
+      "RELEASE_19": [
+        "CLASS"
+      ],
+      "RELEASE_2": [
+        "CLASS"
+      ],
+      "RELEASE_20": [
+        "CLASS"
+      ],
+      "RELEASE_21": [
+        "CLASS"
+      ],
+      "RELEASE_22": [
+        "CLASS"
+      ],
+      "RELEASE_23": [
+        "CLASS"
+      ],
+      "RELEASE_24": [
+        "CLASS"
+      ],
+      "RELEASE_25": [
+        "CLASS"
+      ],
+      "RELEASE_26": [
+        "CLASS"
+      ],
+      "RELEASE_27": [
+        "CLASS"
+      ],
+      "RELEASE_3": [
+        "CLASS"
+      ],
+      "RELEASE_4": [
+        "CLASS"
+      ],
+      "RELEASE_5": [
+        "CLASS"
+      ],
+      "RELEASE_6": [
+        "CLASS"
+      ],
+      "RELEASE_7": [
+        "CLASS"
+      ],
+      "RELEASE_8": [
+        "CLASS"
+      ],
+      "RELEASE_9": [
+        "CLASS"
+      ]
+    },
+    "SYNCHRONIZED": {
+      "RELEASE_0": [
+        "METHOD"
+      ],
+      "RELEASE_1": [
+        "METHOD"
+      ],
+      "RELEASE_10": [
+        "METHOD"
+      ],
+      "RELEASE_11": [
+        "METHOD"
+      ],
+      "RELEASE_12": [
+        "METHOD"
+      ],
+      "RELEASE_13": [
+        "METHOD"
+      ],
+      "RELEASE_14": [
+        "METHOD"
+      ],
+      "RELEASE_15": [
+        "METHOD"
+      ],
+      "RELEASE_16": [
+        "METHOD"
+      ],
+      "RELEASE_17": [
+        "METHOD"
+      ],
+      "RELEASE_18": [
+        "METHOD"
+      ],
+      "RELEASE_19": [
+        "METHOD"
+      ],
+      "RELEASE_2": [
+        "METHOD"
+      ],
+      "RELEASE_20": [
+        "METHOD"
+      ],
+      "RELEASE_21": [
+        "METHOD"
+      ],
+      "RELEASE_22": [
+        "METHOD"
+      ],
+      "RELEASE_23": [
+        "METHOD"
+      ],
+      "RELEASE_24": [
+        "METHOD"
+      ],
+      "RELEASE_25": [
+        "METHOD"
+      ],
+      "RELEASE_26": [
+        "METHOD"
+      ],
+      "RELEASE_27": [
+        "METHOD"
+      ],
+      "RELEASE_3": [
+        "METHOD"
+      ],
+      "RELEASE_4": [
+        "METHOD"
+      ],
+      "RELEASE_5": [
+        "METHOD"
+      ],
+      "RELEASE_6": [
+        "METHOD"
+      ],
+      "RELEASE_7": [
+        "METHOD"
+      ],
+      "RELEASE_8": [
+        "METHOD"
+      ],
+      "RELEASE_9": [
+        "METHOD"
+      ]
+    },
+    "SYNTHETIC": {
+      "RELEASE_0": [],
+      "RELEASE_1": [],
+      "RELEASE_10": [
+        "CLASS",
+        "FIELD",
+        "INNER_CLASS",
+        "METHOD",
+        "METHOD_PARAMETER",
+        "MODULE",
+        "MODULE_EXPORTS",
+        "MODULE_OPENS",
+        "MODULE_REQUIRES"
+      ],
+      "RELEASE_11": [
+        "CLASS",
+        "FIELD",
+        "INNER_CLASS",
+        "METHOD",
+        "METHOD_PARAMETER",
+        "MODULE",
+        "MODULE_EXPORTS",
+        "MODULE_OPENS",
+        "MODULE_REQUIRES"
+      ],
+      "RELEASE_12": [
+        "CLASS",
+        "FIELD",
+        "INNER_CLASS",
+        "METHOD",
+        "METHOD_PARAMETER",
+        "MODULE",
+        "MODULE_EXPORTS",
+        "MODULE_OPENS",
+        "MODULE_REQUIRES"
+      ],
+      "RELEASE_13": [
+        "CLASS",
+        "FIELD",
+        "INNER_CLASS",
+        "METHOD",
+        "METHOD_PARAMETER",
+        "MODULE",
+        "MODULE_EXPORTS",
+        "MODULE_OPENS",
+        "MODULE_REQUIRES"
+      ],
+      "RELEASE_14": [
+        "CLASS",
+        "FIELD",
+        "INNER_CLASS",
+        "METHOD",
+        "METHOD_PARAMETER",
+        "MODULE",
+        "MODULE_EXPORTS",
+        "MODULE_OPENS",
+        "MODULE_REQUIRES"
+      ],
+      "RELEASE_15": [
+        "CLASS",
+        "FIELD",
+        "INNER_CLASS",
+        "METHOD",
+        "METHOD_PARAMETER",
+        "MODULE",
+        "MODULE_EXPORTS",
+        "MODULE_OPENS",
+        "MODULE_REQUIRES"
+      ],
+      "RELEASE_16": [
+        "CLASS",
+        "FIELD",
+        "INNER_CLASS",
+        "METHOD",
+        "METHOD_PARAMETER",
+        "MODULE",
+        "MODULE_EXPORTS",
+        "MODULE_OPENS",
+        "MODULE_REQUIRES"
+      ],
+      "RELEASE_17": [
+        "CLASS",
+        "FIELD",
+        "INNER_CLASS",
+        "METHOD",
+        "METHOD_PARAMETER",
+        "MODULE",
+        "MODULE_EXPORTS",
+        "MODULE_OPENS",
+        "MODULE_REQUIRES"
+      ],
+      "RELEASE_18": [
+        "CLASS",
+        "FIELD",
+        "INNER_CLASS",
+        "METHOD",
+        "METHOD_PARAMETER",
+        "MODULE",
+        "MODULE_EXPORTS",
+        "MODULE_OPENS",
+        "MODULE_REQUIRES"
+      ],
+      "RELEASE_19": [
+        "CLASS",
+        "FIELD",
+        "INNER_CLASS",
+        "METHOD",
+        "METHOD_PARAMETER",
+        "MODULE",
+        "MODULE_EXPORTS",
+        "MODULE_OPENS",
+        "MODULE_REQUIRES"
+      ],
+      "RELEASE_2": [],
+      "RELEASE_20": [
+        "CLASS",
+        "FIELD",
+        "INNER_CLASS",
+        "METHOD",
+        "METHOD_PARAMETER",
+        "MODULE",
+        "MODULE_EXPORTS",
+        "MODULE_OPENS",
+        "MODULE_REQUIRES"
+      ],
+      "RELEASE_21": [
+        "CLASS",
+        "FIELD",
+        "INNER_CLASS",
+        "METHOD",
+        "METHOD_PARAMETER",
+        "MODULE",
+        "MODULE_EXPORTS",
+        "MODULE_OPENS",
+        "MODULE_REQUIRES"
+      ],
+      "RELEASE_22": [
+        "CLASS",
+        "FIELD",
+        "INNER_CLASS",
+        "METHOD",
+        "METHOD_PARAMETER",
+        "MODULE",
+        "MODULE_EXPORTS",
+        "MODULE_OPENS",
+        "MODULE_REQUIRES"
+      ],
+      "RELEASE_23": [
+        "CLASS",
+        "FIELD",
+        "INNER_CLASS",
+        "METHOD",
+        "METHOD_PARAMETER",
+        "MODULE",
+        "MODULE_EXPORTS",
+        "MODULE_OPENS",
+        "MODULE_REQUIRES"
+      ],
+      "RELEASE_24": [
+        "CLASS",
+        "FIELD",
+        "INNER_CLASS",
+        "METHOD",
+        "METHOD_PARAMETER",
+        "MODULE",
+        "MODULE_EXPORTS",
+        "MODULE_OPENS",
+        "MODULE_REQUIRES"
+      ],
+      "RELEASE_25": [
+        "CLASS",
+        "FIELD",
+        "INNER_CLASS",
+        "METHOD",
+        "METHOD_PARAMETER",
+        "MODULE",
+        "MODULE_EXPORTS",
+        "MODULE_OPENS",
+        "MODULE_REQUIRES"
+      ],
+      "RELEASE_26": [
+        "CLASS",
+        "FIELD",
+        "INNER_CLASS",
+        "METHOD",
+        "METHOD_PARAMETER",
+        "MODULE",
+        "MODULE_EXPORTS",
+        "MODULE_OPENS",
+        "MODULE_REQUIRES"
+      ],
+      "RELEASE_27": [
+        "CLASS",
+        "FIELD",
+        "INNER_CLASS",
+        "METHOD",
+        "METHOD_PARAMETER",
+        "MODULE",
+        "MODULE_EXPORTS",
+        "MODULE_OPENS",
+        "MODULE_REQUIRES"
+      ],
+      "RELEASE_3": [],
+      "RELEASE_4": [],
+      "RELEASE_5": [
+        "CLASS",
+        "FIELD",
+        "INNER_CLASS",
+        "METHOD"
+      ],
+      "RELEASE_6": [
+        "CLASS",
+        "FIELD",
+        "INNER_CLASS",
+        "METHOD"
+      ],
+      "RELEASE_7": [
+        "CLASS",
+        "FIELD",
+        "INNER_CLASS",
+        "METHOD"
+      ],
+      "RELEASE_8": [
+        "CLASS",
+        "FIELD",
+        "INNER_CLASS",
+        "METHOD",
+        "METHOD_PARAMETER"
+      ],
+      "RELEASE_9": [
+        "CLASS",
+        "FIELD",
+        "INNER_CLASS",
+        "METHOD",
+        "METHOD_PARAMETER",
+        "MODULE",
+        "MODULE_EXPORTS",
+        "MODULE_OPENS",
+        "MODULE_REQUIRES"
+      ]
+    },
+    "TRANSIENT": {
+      "RELEASE_0": [
+        "FIELD"
+      ],
+      "RELEASE_1": [
+        "FIELD"
+      ],
+      "RELEASE_10": [
+        "FIELD"
+      ],
+      "RELEASE_11": [
+        "FIELD"
+      ],
+      "RELEASE_12": [
+        "FIELD"
+      ],
+      "RELEASE_13": [
+        "FIELD"
+      ],
+      "RELEASE_14": [
+        "FIELD"
+      ],
+      "RELEASE_15": [
+        "FIELD"
+      ],
+      "RELEASE_16": [
+        "FIELD"
+      ],
+      "RELEASE_17": [
+        "FIELD"
+      ],
+      "RELEASE_18": [
+        "FIELD"
+      ],
+      "RELEASE_19": [
+        "FIELD"
+      ],
+      "RELEASE_2": [
+        "FIELD"
+      ],
+      "RELEASE_20": [
+        "FIELD"
+      ],
+      "RELEASE_21": [
+        "FIELD"
+      ],
+      "RELEASE_22": [
+        "FIELD"
+      ],
+      "RELEASE_23": [
+        "FIELD"
+      ],
+      "RELEASE_24": [
+        "FIELD"
+      ],
+      "RELEASE_25": [
+        "FIELD"
+      ],
+      "RELEASE_26": [
+        "FIELD"
+      ],
+      "RELEASE_27": [
+        "FIELD"
+      ],
+      "RELEASE_3": [
+        "FIELD"
+      ],
+      "RELEASE_4": [
+        "FIELD"
+      ],
+      "RELEASE_5": [
+        "FIELD"
+      ],
+      "RELEASE_6": [
+        "FIELD"
+      ],
+      "RELEASE_7": [
+        "FIELD"
+      ],
+      "RELEASE_8": [
+        "FIELD"
+      ],
+      "RELEASE_9": [
+        "FIELD"
+      ]
+    },
+    "TRANSITIVE": {
+      "RELEASE_0": [],
+      "RELEASE_1": [],
+      "RELEASE_10": [
+        "MODULE_REQUIRES"
+      ],
+      "RELEASE_11": [
+        "MODULE_REQUIRES"
+      ],
+      "RELEASE_12": [
+        "MODULE_REQUIRES"
+      ],
+      "RELEASE_13": [
+        "MODULE_REQUIRES"
+      ],
+      "RELEASE_14": [
+        "MODULE_REQUIRES"
+      ],
+      "RELEASE_15": [
+        "MODULE_REQUIRES"
+      ],
+      "RELEASE_16": [
+        "MODULE_REQUIRES"
+      ],
+      "RELEASE_17": [
+        "MODULE_REQUIRES"
+      ],
+      "RELEASE_18": [
+        "MODULE_REQUIRES"
+      ],
+      "RELEASE_19": [
+        "MODULE_REQUIRES"
+      ],
+      "RELEASE_2": [],
+      "RELEASE_20": [
+        "MODULE_REQUIRES"
+      ],
+      "RELEASE_21": [
+        "MODULE_REQUIRES"
+      ],
+      "RELEASE_22": [
+        "MODULE_REQUIRES"
+      ],
+      "RELEASE_23": [
+        "MODULE_REQUIRES"
+      ],
+      "RELEASE_24": [
+        "MODULE_REQUIRES"
+      ],
+      "RELEASE_25": [
+        "MODULE_REQUIRES"
+      ],
+      "RELEASE_26": [
+        "MODULE_REQUIRES"
+      ],
+      "RELEASE_27": [
+        "MODULE_REQUIRES"
+      ],
+      "RELEASE_3": [],
+      "RELEASE_4": [],
+      "RELEASE_5": [],
+      "RELEASE_6": [],
+      "RELEASE_7": [],
+      "RELEASE_8": [],
+      "RELEASE_9": [
+        "MODULE_REQUIRES"
+      ]
+    },
+    "VARARGS": {
+      "RELEASE_0": [],
+      "RELEASE_1": [],
+      "RELEASE_10": [
+        "METHOD"
+      ],
+      "RELEASE_11": [
+        "METHOD"
+      ],
+      "RELEASE_12": [
+        "METHOD"
+      ],
+      "RELEASE_13": [
+        "METHOD"
+      ],
+      "RELEASE_14": [
+        "METHOD"
+      ],
+      "RELEASE_15": [
+        "METHOD"
+      ],
+      "RELEASE_16": [
+        "METHOD"
+      ],
+      "RELEASE_17": [
+        "METHOD"
+      ],
+      "RELEASE_18": [
+        "METHOD"
+      ],
+      "RELEASE_19": [
+        "METHOD"
+      ],
+      "RELEASE_2": [],
+      "RELEASE_20": [
+        "METHOD"
+      ],
+      "RELEASE_21": [
+        "METHOD"
+      ],
+      "RELEASE_22": [
+        "METHOD"
+      ],
+      "RELEASE_23": [
+        "METHOD"
+      ],
+      "RELEASE_24": [
+        "METHOD"
+      ],
+      "RELEASE_25": [
+        "METHOD"
+      ],
+      "RELEASE_26": [
+        "METHOD"
+      ],
+      "RELEASE_27": [
+        "METHOD"
+      ],
+      "RELEASE_3": [],
+      "RELEASE_4": [],
+      "RELEASE_5": [
+        "METHOD"
+      ],
+      "RELEASE_6": [
+        "METHOD"
+      ],
+      "RELEASE_7": [
+        "METHOD"
+      ],
+      "RELEASE_8": [
+        "METHOD"
+      ],
+      "RELEASE_9": [
+        "METHOD"
+      ]
+    },
+    "VOLATILE": {
+      "RELEASE_0": [
+        "FIELD"
+      ],
+      "RELEASE_1": [
+        "FIELD"
+      ],
+      "RELEASE_10": [
+        "FIELD"
+      ],
+      "RELEASE_11": [
+        "FIELD"
+      ],
+      "RELEASE_12": [
+        "FIELD"
+      ],
+      "RELEASE_13": [
+        "FIELD"
+      ],
+      "RELEASE_14": [
+        "FIELD"
+      ],
+      "RELEASE_15": [
+        "FIELD"
+      ],
+      "RELEASE_16": [
+        "FIELD"
+      ],
+      "RELEASE_17": [
+        "FIELD"
+      ],
+      "RELEASE_18": [
+        "FIELD"
+      ],
+      "RELEASE_19": [
+        "FIELD"
+      ],
+      "RELEASE_2": [
+        "FIELD"
+      ],
+      "RELEASE_20": [
+        "FIELD"
+      ],
+      "RELEASE_21": [
+        "FIELD"
+      ],
+      "RELEASE_22": [
+        "FIELD"
+      ],
+      "RELEASE_23": [
+        "FIELD"
+      ],
+      "RELEASE_24": [
+        "FIELD"
+      ],
+      "RELEASE_25": [
+        "FIELD"
+      ],
+      "RELEASE_26": [
+        "FIELD"
+      ],
+      "RELEASE_27": [
+        "FIELD"
+      ],
+      "RELEASE_3": [
+        "FIELD"
+      ],
+      "RELEASE_4": [
+        "FIELD"
+      ],
+      "RELEASE_5": [
+        "FIELD"
+      ],
+      "RELEASE_6": [
+        "FIELD"
+      ],
+      "RELEASE_7": [
+        "FIELD"
+      ],
+      "RELEASE_8": [
+        "FIELD"
+      ],
+      "RELEASE_9": [
+        "FIELD"
+      ]
+    }
+  },
+  "flags": {
+    "ABSTRACT": {
+      "locations": [
+        "CLASS",
+        "INNER_CLASS",
+        "METHOD"
+      ],
+      "mask": 1024,
+      "source_modifier": true
+    },
+    "ANNOTATION": {
+      "locations": [
+        "CLASS",
+        "INNER_CLASS"
+      ],
+      "mask": 8192,
+      "source_modifier": false
+    },
+    "BRIDGE": {
+      "locations": [
+        "METHOD"
+      ],
+      "mask": 64,
+      "source_modifier": false
+    },
+    "ENUM": {
+      "locations": [
+        "CLASS",
+        "FIELD",
+        "INNER_CLASS"
+      ],
+      "mask": 16384,
+      "source_modifier": false
+    },
+    "FINAL": {
+      "locations": [
+        "CLASS",
+        "FIELD",
+        "INNER_CLASS",
+        "METHOD",
+        "METHOD_PARAMETER"
+      ],
+      "mask": 16,
+      "source_modifier": true
+    },
+    "INTERFACE": {
+      "locations": [
+        "CLASS",
+        "INNER_CLASS"
+      ],
+      "mask": 512,
+      "source_modifier": false
+    },
+    "MANDATED": {
+      "locations": [
+        "METHOD_PARAMETER",
+        "MODULE",
+        "MODULE_EXPORTS",
+        "MODULE_OPENS",
+        "MODULE_REQUIRES"
+      ],
+      "mask": 32768,
+      "source_modifier": false
+    },
+    "MODULE": {
+      "locations": [
+        "CLASS"
+      ],
+      "mask": 32768,
+      "source_modifier": false
+    },
+    "NATIVE": {
+      "locations": [
+        "METHOD"
+      ],
+      "mask": 256,
+      "source_modifier": true
+    },
+    "OPEN": {
+      "locations": [
+        "MODULE"
+      ],
+      "mask": 32,
+      "source_modifier": false
+    },
+    "PRIVATE": {
+      "locations": [
+        "FIELD",
+        "INNER_CLASS",
+        "METHOD"
+      ],
+      "mask": 2,
+      "source_modifier": true
+    },
+    "PROTECTED": {
+      "locations": [
+        "FIELD",
+        "INNER_CLASS",
+        "METHOD"
+      ],
+      "mask": 4,
+      "source_modifier": true
+    },
+    "PUBLIC": {
+      "locations": [
+        "CLASS",
+        "FIELD",
+        "INNER_CLASS",
+        "METHOD"
+      ],
+      "mask": 1,
+      "source_modifier": true
+    },
+    "STATIC": {
+      "locations": [
+        "FIELD",
+        "INNER_CLASS",
+        "METHOD"
+      ],
+      "mask": 8,
+      "source_modifier": true
+    },
+    "STATIC_PHASE": {
+      "locations": [
+        "MODULE_REQUIRES"
+      ],
+      "mask": 64,
+      "source_modifier": false
+    },
+    "STRICT": {
+      "locations": [],
+      "mask": 2048,
+      "source_modifier": true
+    },
+    "SUPER": {
+      "locations": [
+        "CLASS"
+      ],
+      "mask": 32,
+      "source_modifier": false
+    },
+    "SYNCHRONIZED": {
+      "locations": [
+        "METHOD"
+      ],
+      "mask": 32,
+      "source_modifier": true
+    },
+    "SYNTHETIC": {
+      "locations": [
+        "CLASS",
+        "FIELD",
+        "INNER_CLASS",
+        "METHOD",
+        "METHOD_PARAMETER",
+        "MODULE",
+        "MODULE_EXPORTS",
+        "MODULE_OPENS",
+        "MODULE_REQUIRES"
+      ],
+      "mask": 4096,
+      "source_modifier": false
+    },
+    "TRANSIENT": {
+      "locations": [
+        "FIELD"
+      ],
+      "mask": 128,
+      "source_modifier": true
+    },
+    "TRANSITIVE": {
+      "locations": [
+        "MODULE_REQUIRES"
+      ],
+      "mask": 32,
+      "source_modifier": false
+    },
+    "VARARGS": {
+      "locations": [
+        "METHOD"
+      ],
+      "mask": 128,
+      "source_modifier": false
+    },
+    "VOLATILE": {
+      "locations": [
+        "FIELD"
+      ],
+      "mask": 64,
+      "source_modifier": true
+    }
+  },
+  "issue": 15,
+  "java_build": "27+35-2325",
+  "measured": "2026-09-06",
+  "platform": "darwin-arm64",
+  "probe": "classfile-census",
+  "releases": {
+    "RELEASE_0": 45,
+    "RELEASE_1": 45,
+    "RELEASE_10": 54,
+    "RELEASE_11": 55,
+    "RELEASE_12": 56,
+    "RELEASE_13": 57,
+    "RELEASE_14": 58,
+    "RELEASE_15": 59,
+    "RELEASE_16": 60,
+    "RELEASE_17": 61,
+    "RELEASE_18": 62,
+    "RELEASE_19": 63,
+    "RELEASE_2": 46,
+    "RELEASE_20": 64,
+    "RELEASE_21": 65,
+    "RELEASE_22": 66,
+    "RELEASE_23": 67,
+    "RELEASE_24": 68,
+    "RELEASE_25": 69,
+    "RELEASE_26": 70,
+    "RELEASE_27": 71,
+    "RELEASE_3": 47,
+    "RELEASE_4": 48,
+    "RELEASE_5": 49,
+    "RELEASE_6": 50,
+    "RELEASE_7": 51,
+    "RELEASE_8": 52,
+    "RELEASE_9": 53
+  },
+  "scan": {
+    "classes": 7441,
+    "fields": 26228,
+    "largest_pool": 6022,
+    "largest_pool_class": "sun/util/resources/cldr/LocaleNames_en",
+    "method_bodies": 62348,
+    "methods": 67093,
+    "module": "java.base",
+    "pool_entries": 1068182,
+    "record_components": 427,
+    "unreadable": 0,
+    "unreadable_files": []
+  },
+  "stray_flags": {
+    "CLASS.2": {
+      "count": 4,
+      "examples": [
+        "java/lang/invoke/DelegatingMethodHandle$Holder",
+        "java/lang/invoke/DirectMethodHandle$Holder",
+        "java/lang/invoke/Invokers$Holder",
+        "java/lang/invoke/LambdaForm$Holder"
+      ]
+    }
+  },
+  "tags": {
+    "1": 607166,
+    "10": 100446,
+    "11": 15256,
+    "12": 141848,
+    "15": 2768,
+    "16": 1807,
+    "18": 2249,
+    "19": 65,
+    "20": 199,
+    "3": 11769,
+    "4": 93,
+    "5": 6040,
+    "6": 1429,
+    "7": 86334,
+    "8": 53983,
+    "9": 36730
+  },
+  "unknown_attributes": {},
+  "version_examples": {
+    "52.0": [
+      "jdk/internal/module/SystemModulesMap"
+    ],
+    "71.0": [
+      "apple/security/AppleProvider$ProviderService",
+      "apple/security/AppleProvider",
+      "apple/security/KeychainStore$CertKeychainItemPair",
+      "apple/security/KeychainStore$KeyEntry",
+      "apple/security/KeychainStore$LocalAttr"
+    ]
+  },
+  "versions": {
+    "52.0": 1,
+    "71.0": 7440
+  }
+}
