@@ -3,6 +3,10 @@
 # source somebody actually wrote rather than a few thousand lines of JSON.
 notebooks/**/*.ipynb linguist-generated=true
 
+# The four notebooks handed to somebody with a Google account are built the same way,
+# from probes/*/colab.py, by tools/gen_handoff.py. Review the source, not the JSON.
+probes/*/colab.ipynb linguist-generated=true
+
 # Recorded outputs are produced by CI on the pinned JDK, for the same reason.
 lessons/*/baked/*.json linguist-generated=true
 
