@@ -69,6 +69,7 @@ jobs:
           python tools/test_gen_fuzz.py
           python tools/test_gen_constpool.py
           python tools/test_gen_stackmap.py
+          python tools/test_gen_verify.py
           python tools/test_fetch_jdk.py
       - name: rebuild and compare
         run: python tools/build.py check
@@ -310,6 +311,17 @@ jobs:
       # rather than that a committed file is old.
       - name: the stack map section matches all four sources
         run: python tools/gen_stackmap.py --check
+      # BP-VERIFY section 2, which is a measurement rather than a reading. The
+      # specification section and the three HotSpot verifier files are fetched here,
+      # and the grid of 256 class files the pinned JVM accepted or refused is a
+      # committed probe result. This one stops when the two sources of the same fact
+      # disagree: a refusal the source says should be an acceptance, a structural
+      # count that differs between the reader in Java and the reader in Python, a
+      # failover row the two version constants do not predict, or a control class
+      # that verified when it should not have. So a failure here says the machine and
+      # the source have come apart, rather than that a committed file is old.
+      - name: the verifier type system matches all four sources
+        run: python tools/gen_verify.py --check
       - name: every citation still says what it said
         run: python tools/refcheck.py --report
 

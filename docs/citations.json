@@ -595,6 +595,67 @@
       "line": "#define STRING_INJECTED_FIELDS(macro) \\",
       "tag": "jdk-27+35"
     },
+    "src/hotspot/share/classfile/stackMapFrame.cpp:148": {
+      "cited_in": [
+        "blueprints/BP-VERIFY/4-guarantees.md",
+        "docs/blueprints/BP-VERIFY.md",
+        "docs/generated/conformance.json"
+      ],
+      "context_sha256": "bc55d6b7c6cf6a825e741185cf1f3b237de7a5f23cab51a5838bf701647ba303",
+      "line": "int StackMapFrame::is_assignable_to(",
+      "tag": "jdk-27+35"
+    },
+    "src/hotspot/share/classfile/stackMapFrame.cpp:161": {
+      "cited_in": [
+        "blueprints/BP-VERIFY/4-guarantees.md",
+        "docs/blueprints/BP-VERIFY.md",
+        "docs/generated/conformance.json"
+      ],
+      "context_sha256": "045a719f7cfae8a6642b357633c8d7d2375d1efe289d84f8beb277d643fac69b",
+      "line": "  if (_max_locals != target->max_locals()) {",
+      "tag": "jdk-27+35"
+    },
+    "src/hotspot/share/classfile/stackMapFrame.cpp:166": {
+      "cited_in": [
+        "blueprints/BP-VERIFY/4-guarantees.md",
+        "docs/blueprints/BP-VERIFY.md",
+        "docs/generated/conformance.json"
+      ],
+      "context_sha256": "d10dab82dd67cf9457ac26b3dbf35229246d536a2be54f39c4374d1012e90188",
+      "line": "  if (_stack_size != target->stack_size()) {",
+      "tag": "jdk-27+35"
+    },
+    "src/hotspot/share/classfile/stackMapFrame.cpp:171": {
+      "cited_in": [
+        "blueprints/BP-VERIFY/4-guarantees.md",
+        "blueprints/BP-VERIFY/6-edge-cases.md",
+        "docs/blueprints/BP-VERIFY.md",
+        "docs/generated/conformance.json"
+      ],
+      "context_sha256": "137d4e99a002d316dbd093206ad3b4339d1f15d45f57fbe3b8f5db939b6f3d36",
+      "line": "  // Only need to compare type elements up to target->locals() or target->stack().",
+      "tag": "jdk-27+35"
+    },
+    "src/hotspot/share/classfile/stackMapFrame.cpp:176": {
+      "cited_in": [
+        "blueprints/BP-VERIFY/4-guarantees.md",
+        "docs/blueprints/BP-VERIFY.md",
+        "docs/generated/conformance.json"
+      ],
+      "context_sha256": "44a3d0ec87ca133cdc03c043e466f34f7c3b83dda07b2a483f9442749ab6f850",
+      "line": "    _locals, target->locals(), target->locals_size(), THREAD);",
+      "tag": "jdk-27+35"
+    },
+    "src/hotspot/share/classfile/stackMapFrame.cpp:191": {
+      "cited_in": [
+        "blueprints/BP-VERIFY/4-guarantees.md",
+        "docs/blueprints/BP-VERIFY.md",
+        "docs/generated/conformance.json"
+      ],
+      "context_sha256": "c8ec6b340f62c47cd71deefae20eda95094cfef76c56ca14eee0ee2d67cdcf84",
+      "line": "  if ((_flags | target->flags()) == target->flags()) {",
+      "tag": "jdk-27+35"
+    },
     "src/hotspot/share/classfile/stackMapTable.cpp:179": {
       "cited_in": [
         "blueprints/BP-STACKMAP/4-guarantees.md",
@@ -900,6 +961,286 @@
       "line": "    RESERVED_END = 246,",
       "tag": "jdk-27+35"
     },
+    "src/hotspot/share/classfile/verificationType.cpp:104": {
+      "cited_in": [
+        "blueprints/BP-VERIFY/4-guarantees.md",
+        "docs/blueprints/BP-VERIFY.md",
+        "docs/generated/conformance.json",
+        "docs/probes/verify.md"
+      ],
+      "context_sha256": "270a791a9bb985c1e5796d4ac777ac0de8f80e1a12fa11f0ce373563981d9c0b",
+      "line": "  if (from.is_null()) {",
+      "tag": "jdk-27+35"
+    },
+    "src/hotspot/share/classfile/verificationType.cpp:107": {
+      "cited_in": [
+        "blueprints/BP-VERIFY/4-guarantees.md",
+        "docs/blueprints/BP-VERIFY.md",
+        "docs/generated/conformance.json"
+      ],
+      "context_sha256": "29e0dc603ac66daff19faec0622bc3a505752ea14a39647d9bca5cd5d592ad5b",
+      "line": "  } else if (is_null()) {",
+      "tag": "jdk-27+35"
+    },
+    "src/hotspot/share/classfile/verificationType.cpp:109": {
+      "cited_in": [
+        "blueprints/BP-VERIFY/4-guarantees.md",
+        "docs/blueprints/BP-VERIFY.md",
+        "docs/generated/conformance.json"
+      ],
+      "context_sha256": "509010ffe9500485ed878e986f7ff8d8032c491d892e266f05b2535195dd74fb",
+      "line": "  } else if (name() == from.name()) {",
+      "tag": "jdk-27+35"
+    },
+    "src/hotspot/share/classfile/verificationType.cpp:113": {
+      "cited_in": [
+        "blueprints/BP-VERIFY/4-guarantees.md",
+        "blueprints/BP-VERIFY/6-edge-cases.md",
+        "docs/blueprints/BP-VERIFY.md",
+        "docs/generated/conformance.json"
+      ],
+      "context_sha256": "fd073de7b4c1a4af36060d54f81a90525607846a54d5acbe1f59f64edaa03229",
+      "line": "    if (name() == vmSymbols::java_lang_Object()) {",
+      "tag": "jdk-27+35"
+    },
+    "src/hotspot/share/classfile/verificationType.cpp:119": {
+      "cited_in": [
+        "blueprints/BP-VERIFY/4-guarantees.md",
+        "blueprints/BP-VERIFY/6-edge-cases.md",
+        "blueprints/BP-VERIFY/7-configuration.md",
+        "docs/blueprints/BP-VERIFY.md",
+        "docs/generated/conformance.json"
+      ],
+      "context_sha256": "77cde3edd5d6e27e2d50ec904b896ba25b864b06ef1298956422094d2984cada",
+      "line": "    if (CDSConfig::is_dumping_archive()) {",
+      "tag": "jdk-27+35"
+    },
+    "src/hotspot/share/classfile/verificationType.cpp:127": {
+      "cited_in": [
+        "blueprints/BP-VERIFY/4-guarantees.md",
+        "docs/blueprints/BP-VERIFY.md",
+        "docs/generated/conformance.json"
+      ],
+      "context_sha256": "881ca421cfde61c5c8cd386a6a39b22100112cbb3863accfd5fc047f6240a199",
+      "line": "        return true;",
+      "tag": "jdk-27+35"
+    },
+    "src/hotspot/share/classfile/verificationType.cpp:134": {
+      "cited_in": [
+        "blueprints/BP-VERIFY/4-guarantees.md",
+        "docs/blueprints/BP-VERIFY.md",
+        "docs/generated/conformance.json"
+      ],
+      "context_sha256": "ccf6634e555ef5612cd198e0c2625d2c38f497ba7aacae9edc4706a5ab5869b6",
+      "line": "  } else if (is_array() && from.is_array()) {",
+      "tag": "jdk-27+35"
+    },
+    "src/hotspot/share/classfile/verificationType.cpp:137": {
+      "cited_in": [
+        "blueprints/BP-VERIFY/4-guarantees.md",
+        "blueprints/BP-VERIFY/6-edge-cases.md",
+        "docs/blueprints/BP-VERIFY.md",
+        "docs/generated/conformance.json"
+      ],
+      "context_sha256": "8f683565a7180b7097e5308187c171595d6857d05bada273e692d2dfaec1dbb9",
+      "line": "    if (!comp_this.is_bogus() && !comp_from.is_bogus()) {",
+      "tag": "jdk-27+35"
+    },
+    "src/hotspot/share/classfile/verificationType.cpp:142": {
+      "cited_in": [
+        "blueprints/BP-VERIFY/4-guarantees.md",
+        "docs/blueprints/BP-VERIFY.md",
+        "docs/generated/conformance.json"
+      ],
+      "context_sha256": "65ab3eb95b77cd9002d8ef18c8070bb8a3d075773088ef0b39973e1025d87fa2",
+      "line": "  return false;",
+      "tag": "jdk-27+35"
+    },
+    "src/hotspot/share/classfile/verificationType.cpp:169": {
+      "cited_in": [
+        "blueprints/BP-VERIFY/4-guarantees.md",
+        "blueprints/BP-VERIFY/6-edge-cases.md",
+        "docs/blueprints/BP-VERIFY.md",
+        "docs/generated/conformance.json"
+      ],
+      "context_sha256": "3f80582bf0b7a9628355bf71954554fdacb1f3f111988b7a5a898e1f36cefa34",
+      "line": "     return VerificationType::bogus_type();",
+      "tag": "jdk-27+35"
+    },
+    "src/hotspot/share/classfile/verificationType.cpp:37": {
+      "cited_in": [
+        "blueprints/BP-VERIFY/4-guarantees.md",
+        "docs/blueprints/BP-VERIFY.md",
+        "docs/generated/conformance.json"
+      ],
+      "context_sha256": "1ff8295979b907ff383f02de09a7d291e6f6df68b06ef6b32c65bb3677761382",
+      "line": "VerificationType VerificationType::from_tag(u1 tag) {",
+      "tag": "jdk-27+35"
+    },
+    "src/hotspot/share/classfile/verificationType.cpp:46": {
+      "cited_in": [
+        "blueprints/BP-VERIFY/4-guarantees.md",
+        "docs/blueprints/BP-VERIFY.md",
+        "docs/generated/conformance.json"
+      ],
+      "context_sha256": "6449695afbd718a936bdba06a40b142b50ed4022c48d89a233856630600bde23",
+      "line": "      ShouldNotReachHere();",
+      "tag": "jdk-27+35"
+    },
+    "src/hotspot/share/classfile/verificationType.cpp:55": {
+      "cited_in": [
+        "blueprints/BP-VERIFY/4-guarantees.md",
+        "docs/blueprints/BP-VERIFY.md",
+        "docs/generated/conformance.json"
+      ],
+      "context_sha256": "a3b7e5f2aa94447285b4ca57d5138dd09f9e18671c1dd507b616d73ef11f795b",
+      "line": "                                                       bool from_field_is_protected, bool from_is_array,",
+      "tag": "jdk-27+35"
+    },
+    "src/hotspot/share/classfile/verificationType.cpp:62": {
+      "cited_in": [
+        "blueprints/BP-VERIFY/4-guarantees.md",
+        "blueprints/BP-VERIFY/6-edge-cases.md",
+        "docs/blueprints/BP-VERIFY.md",
+        "docs/generated/conformance.json"
+      ],
+      "context_sha256": "597e43bd388dd93799427bfd4991ebf85fb297481b996db9831aae716365ba23",
+      "line": "    target_klass = SystemDictionary::resolve_or_fail(",
+      "tag": "jdk-27+35"
+    },
+    "src/hotspot/share/classfile/verificationType.cpp:69": {
+      "cited_in": [
+        "blueprints/BP-VERIFY/4-guarantees.md",
+        "docs/blueprints/BP-VERIFY.md",
+        "docs/generated/conformance.json"
+      ],
+      "context_sha256": "dd5beaaa2e54ec9560f577cf739c2b52d61730ee5c44db07706e2955f7a3c436",
+      "line": "  bool is_intf = target_klass->is_interface();",
+      "tag": "jdk-27+35"
+    },
+    "src/hotspot/share/classfile/verificationType.cpp:74": {
+      "cited_in": [
+        "blueprints/BP-VERIFY/4-guarantees.md",
+        "blueprints/BP-VERIFY/6-edge-cases.md",
+        "docs/blueprints/BP-VERIFY.md",
+        "docs/generated/conformance.json",
+        "docs/generated/verify.md",
+        "docs/probes/verify.md"
+      ],
+      "context_sha256": "658772226e25d9d410455b0d85f3bafe7f9aa7a26ffb3264277904c4cda6c08c",
+      "line": "  if (is_intf && (!from_field_is_protected ||",
+      "tag": "jdk-27+35"
+    },
+    "src/hotspot/share/classfile/verificationType.cpp:80": {
+      "cited_in": [
+        "blueprints/BP-VERIFY/4-guarantees.md",
+        "docs/blueprints/BP-VERIFY.md",
+        "docs/generated/conformance.json"
+      ],
+      "context_sha256": "380c4dbf5b6d9ac841aa1a99ecccf1c803062b95f282f05c58d7bd42451bbfea",
+      "line": "    return !from_is_array ||",
+      "tag": "jdk-27+35"
+    },
+    "src/hotspot/share/classfile/verificationType.cpp:83": {
+      "cited_in": [
+        "blueprints/BP-VERIFY/4-guarantees.md",
+        "docs/blueprints/BP-VERIFY.md",
+        "docs/generated/conformance.json"
+      ],
+      "context_sha256": "adb8b58850a16a41c8c2d4e03f86cf336a53618e1764c1bc4a667fa594bf8f2b",
+      "line": "  } else if (from_is_object) {",
+      "tag": "jdk-27+35"
+    },
+    "src/hotspot/share/classfile/verificationType.cpp:88": {
+      "cited_in": [
+        "blueprints/BP-VERIFY/4-guarantees.md",
+        "docs/blueprints/BP-VERIFY.md",
+        "docs/generated/conformance.json"
+      ],
+      "context_sha256": "1670ae10788f007d1bf0c6392351a0753253341f047ab79450eb853ea7a1aff5",
+      "line": "      from_klass = SystemDictionary::resolve_or_fail(",
+      "tag": "jdk-27+35"
+    },
+    "src/hotspot/share/classfile/verificationType.cpp:94": {
+      "cited_in": [
+        "blueprints/BP-VERIFY/4-guarantees.md",
+        "docs/blueprints/BP-VERIFY.md",
+        "docs/generated/conformance.json"
+      ],
+      "context_sha256": "478cbab3ffe794336071c93aa9e323351ff8922055a927edc3afdb37c19b9480",
+      "line": "    return from_klass->is_subclass_of(target_klass);",
+      "tag": "jdk-27+35"
+    },
+    "src/hotspot/share/classfile/verificationType.hpp:266": {
+      "cited_in": [
+        "blueprints/BP-VERIFY/4-guarantees.md",
+        "docs/blueprints/BP-VERIFY.md",
+        "docs/generated/conformance.json"
+      ],
+      "context_sha256": "4686b8553ccb541021bc01cfe477e65c2e31ba6fb780a3d57e662a3e6d1d9679",
+      "line": "  bool is_assignable_from(",
+      "tag": "jdk-27+35"
+    },
+    "src/hotspot/share/classfile/verificationType.hpp:269": {
+      "cited_in": [
+        "blueprints/BP-VERIFY/4-guarantees.md",
+        "docs/blueprints/BP-VERIFY.md",
+        "docs/generated/conformance.json"
+      ],
+      "context_sha256": "6d683dea1fab6ee81a1f74bad20347daf35b3671362221252f5bc8cbf9d61f27",
+      "line": "    if (equals(from) || is_bogus()) {",
+      "tag": "jdk-27+35"
+    },
+    "src/hotspot/share/classfile/verificationType.hpp:280": {
+      "cited_in": [
+        "blueprints/BP-VERIFY/4-guarantees.md",
+        "docs/blueprints/BP-VERIFY.md",
+        "docs/generated/conformance.json"
+      ],
+      "context_sha256": "6a8a4834cecfb5156dd0094d0cdda811706ac3b38268f536dd5e605877e72b07",
+      "line": "          return from.is_reference() || from.is_uninitialized();",
+      "tag": "jdk-27+35"
+    },
+    "src/hotspot/share/classfile/verificationType.hpp:286": {
+      "cited_in": [
+        "blueprints/BP-VERIFY/4-guarantees.md",
+        "docs/blueprints/BP-VERIFY.md",
+        "docs/generated/conformance.json"
+      ],
+      "context_sha256": "e70df0b2568fafc6b2cd8c61be2937a72fdef6940667676d5bc67c6b5dfa3975",
+      "line": "          return from.is_integer();",
+      "tag": "jdk-27+35"
+    },
+    "src/hotspot/share/classfile/verificationType.hpp:293": {
+      "cited_in": [
+        "blueprints/BP-VERIFY/4-guarantees.md",
+        "docs/blueprints/BP-VERIFY.md",
+        "docs/generated/conformance.json"
+      ],
+      "context_sha256": "c11a8eb7bc4079269d8b01d22dbf5ac0051475bcf6f35456d2418c896aafe071",
+      "line": "            return false;",
+      "tag": "jdk-27+35"
+    },
+    "src/hotspot/share/classfile/verificationType.hpp:301": {
+      "cited_in": [
+        "blueprints/BP-VERIFY/4-guarantees.md",
+        "docs/blueprints/BP-VERIFY.md",
+        "docs/generated/conformance.json"
+      ],
+      "context_sha256": "b09feba9b1877adc35e74d86d2556e4d2ca08936950a3c635941aabfc0277942",
+      "line": "  bool is_component_assignable_from(",
+      "tag": "jdk-27+35"
+    },
+    "src/hotspot/share/classfile/verificationType.hpp:312": {
+      "cited_in": [
+        "blueprints/BP-VERIFY/4-guarantees.md",
+        "docs/blueprints/BP-VERIFY.md",
+        "docs/generated/conformance.json"
+      ],
+      "context_sha256": "1abac54eb7b75e21e88b6eddead57fb7c55ff14aaad137d39df778ff3706c178",
+      "line": "          return false;",
+      "tag": "jdk-27+35"
+    },
     "src/hotspot/share/classfile/verificationType.hpp:64": {
       "cited_in": [
         "blueprints/BP-STACKMAP/4-guarantees.md",
@@ -935,7 +1276,10 @@
       "cited_in": [
         "blueprints/BP-STACKMAP/4-guarantees.md",
         "blueprints/BP-STACKMAP/7-configuration.md",
+        "blueprints/BP-VERIFY/4-guarantees.md",
+        "blueprints/BP-VERIFY/7-configuration.md",
         "docs/blueprints/BP-STACKMAP.md",
+        "docs/blueprints/BP-VERIFY.md",
         "docs/generated/conformance.json"
       ],
       "context_sha256": "5c3a19e995f503bde331c6f218440bef91b71ad2d624df3fe1c1d115b72fdd87",
@@ -975,8 +1319,10 @@
         "blueprints/BP-CONSTPOOL/4-guarantees.md",
         "blueprints/BP-STACKMAP/4-guarantees.md",
         "blueprints/BP-STACKMAP/7-configuration.md",
+        "blueprints/BP-VERIFY/4-guarantees.md",
         "docs/blueprints/BP-CONSTPOOL.md",
         "docs/blueprints/BP-STACKMAP.md",
+        "docs/blueprints/BP-VERIFY.md",
         "docs/generated/conformance.json",
         "docs/probes/constpool.md"
       ],
@@ -987,7 +1333,11 @@
     "src/hotspot/share/classfile/verifier.cpp:227": {
       "cited_in": [
         "blueprints/BP-STACKMAP/7-configuration.md",
-        "docs/blueprints/BP-STACKMAP.md"
+        "blueprints/BP-VERIFY/4-guarantees.md",
+        "blueprints/BP-VERIFY/7-configuration.md",
+        "docs/blueprints/BP-STACKMAP.md",
+        "docs/blueprints/BP-VERIFY.md",
+        "docs/generated/conformance.json"
       ],
       "context_sha256": "079c565c7bc1717783ef492488b56eaafda599ee7b17377ee3f3f637375ee9b3",
       "line": "    bool can_failover = !(CDSConfig::is_dumping_classic_static_archive() || CDSConfig::is_dumping_final_static_archive()) &&",
@@ -1007,8 +1357,11 @@
     "src/hotspot/share/classfile/verifier.cpp:230": {
       "cited_in": [
         "blueprints/BP-STACKMAP/4-guarantees.md",
+        "blueprints/BP-VERIFY/4-guarantees.md",
         "docs/blueprints/BP-STACKMAP.md",
-        "docs/generated/conformance.json"
+        "docs/blueprints/BP-VERIFY.md",
+        "docs/generated/conformance.json",
+        "docs/probes/verify.md"
       ],
       "context_sha256": "2a5e09c00bdd04246d4afcd347b0b4df92d873f836993496293c943210ce0722",
       "line": "    if (can_failover && !HAS_PENDING_EXCEPTION &&  // Split verifier doesn't set PENDING_EXCEPTION for failure",
@@ -1017,10 +1370,60 @@
     "src/hotspot/share/classfile/verifier.cpp:233": {
       "cited_in": [
         "blueprints/BP-STACKMAP/7-configuration.md",
-        "docs/blueprints/BP-STACKMAP.md"
+        "blueprints/BP-VERIFY/4-guarantees.md",
+        "blueprints/BP-VERIFY/7-configuration.md",
+        "docs/blueprints/BP-STACKMAP.md",
+        "docs/blueprints/BP-VERIFY.md",
+        "docs/generated/conformance.json"
       ],
       "context_sha256": "ef7d7fabe0f087ec02cb26d7e0d21d016daaf9081bbdcfff3ed6f470cd142ae7",
       "line": "      log_info(verification)(\"Fail over class verification to old verifier for: %s\", klass->external_name());",
+      "tag": "jdk-27+35"
+    },
+    "src/hotspot/share/classfile/verifier.cpp:245": {
+      "cited_in": [
+        "blueprints/BP-VERIFY/4-guarantees.md",
+        "docs/blueprints/BP-VERIFY.md",
+        "docs/generated/conformance.json"
+      ],
+      "context_sha256": "b85e852ff17927a442d55fc883ff13b1071d00dc53641e680f72da59e6f71dca",
+      "line": "      exception_name = inference_verify(",
+      "tag": "jdk-27+35"
+    },
+    "src/hotspot/share/classfile/verifier.cpp:254": {
+      "cited_in": [
+        "blueprints/BP-VERIFY/4-guarantees.md",
+        "docs/blueprints/BP-VERIFY.md",
+        "docs/generated/conformance.json"
+      ],
+      "context_sha256": "17c425b01b5216b52e324c9e20569e23a3d9a0b6d52ed27e0e4fc8d2cfd12912",
+      "line": "    exception_name = inference_verify(",
+      "tag": "jdk-27+35"
+    },
+    "src/hotspot/share/classfile/verifier.cpp:66": {
+      "cited_in": [
+        "blueprints/BP-VERIFY/4-guarantees.md",
+        "blueprints/BP-VERIFY/7-configuration.md",
+        "docs/blueprints/BP-VERIFY.md",
+        "docs/generated/conformance.json",
+        "docs/generated/verify.md",
+        "docs/probes/verify.md"
+      ],
+      "context_sha256": "2326cf7c441aa629c49b8083e80faa7fab7d592fa112be3e48958cc5728d54ae",
+      "line": "#define NOFAILOVER_MAJOR_VERSION                       51",
+      "tag": "jdk-27+35"
+    },
+    "src/hotspot/share/classfile/verifier.hpp:40": {
+      "cited_in": [
+        "blueprints/BP-VERIFY/4-guarantees.md",
+        "blueprints/BP-VERIFY/7-configuration.md",
+        "docs/blueprints/BP-VERIFY.md",
+        "docs/generated/conformance.json",
+        "docs/generated/verify.md",
+        "docs/probes/verify.md"
+      ],
+      "context_sha256": "c578e9390e7957793cc0976bf5320757484679d1b967abce3fa5b57661f23416",
+      "line": "    STACKMAP_ATTRIBUTE_MAJOR_VERSION    = 50,",
       "tag": "jdk-27+35"
     },
     "src/hotspot/share/interpreter/bytecodes.cpp:52": {
