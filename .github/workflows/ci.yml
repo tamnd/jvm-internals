@@ -64,6 +64,7 @@ jobs:
           python tools/test_gen_fieldlayout.py
           python tools/test_gen_handoff.py
           python tools/test_gen_opcodes.py
+          python tools/test_gen_classfile.py
           python tools/test_fetch_jdk.py
       - name: rebuild and compare
         run: python tools/build.py check
@@ -250,6 +251,12 @@ jobs:
       # this step is a report that one of the three moved rather than a stale file.
       - name: the instruction set section matches all three sources
         run: python tools/gen_opcodes.py --check
+      # The class file structure section, joined the same way from the same kinds of
+      # source: the specification chapter and the JDK header are fetched here, the
+      # census of what is actually in java.base is committed, and a disagreement about a
+      # tag number, a flag mask or where an attribute may appear stops this step.
+      - name: the class file structure section matches all three sources
+        run: python tools/gen_classfile.py --check
       - name: every citation still says what it said
         run: python tools/refcheck.py --report
 
