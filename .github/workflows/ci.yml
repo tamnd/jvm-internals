@@ -67,6 +67,7 @@ jobs:
           python tools/test_gen_classfile.py
           python tools/test_gen_flags.py
           python tools/test_gen_fuzz.py
+          python tools/test_gen_constpool.py
           python tools/test_fetch_jdk.py
       - name: rebuild and compare
         run: python tools/build.py check
@@ -288,6 +289,15 @@ jobs:
       # the specification. So a failure here says the specification moved under a claim.
       - name: the fuzzer's claims are still claims the specification supports
         run: python tools/gen_fuzz.py --check
+      # BP-CONSTPOOL section 2, joined from four sources that disagree in different
+      # ways. The specification chapter, the JDK's tag header and the two constantTag
+      # files are fetched here, and the platform's own answers and the census of
+      # java.base are committed probe results. A tag number that moved, a predicate
+      # that changed which tags it accepts, a switch that gained a case, or a count
+      # the census does not agree with all stop this step, so a failure here says one
+      # of the four moved rather than that a committed file is old.
+      - name: the constant pool section matches all four sources
+        run: python tools/gen_constpool.py --check
       - name: every citation still says what it said
         run: python tools/refcheck.py --report
 

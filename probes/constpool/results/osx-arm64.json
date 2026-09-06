@@ -1,0 +1,545 @@
+{
+  "duplicates": {
+    "by_tag": {
+      "10": 14,
+      "11": 50
+    },
+    "classes": 45,
+    "entries": 64,
+    "entries_seen": [
+      {
+        "class": "apple/security/KeychainStore",
+        "entry": "11|java/util/List.toString:()Ljava/lang/String;"
+      },
+      {
+        "class": "java/io/ObjectInputFilter$Config",
+        "entry": "11|java/util/function/BinaryOperator.getClass:()Ljava/lang/Class;"
+      },
+      {
+        "class": "java/lang/CharSequence",
+        "entry": "11|java/lang/CharSequence.getClass:()Ljava/lang/Class;"
+      },
+      {
+        "class": "java/lang/classfile/constantpool/ConstantPoolBuilder",
+        "entry": "11|java/lang/constant/ConstantDesc.getClass:()Ljava/lang/Class;"
+      },
+      {
+        "class": "java/nio/file/Files",
+        "entry": "11|java/nio/file/Path.getClass:()Ljava/lang/Class;"
+      },
+      {
+        "class": "java/security/cert/X509CertSelector",
+        "entry": "11|sun/security/x509/GeneralNameInterface.toString:()Ljava/lang/String;"
+      },
+      {
+        "class": "java/text/NumberFormat",
+        "entry": "11|java/text/Format$StringBuf.toString:()Ljava/lang/String;"
+      },
+      {
+        "class": "java/time/chrono/Chronology",
+        "entry": "11|java/time/temporal/TemporalAccessor.getClass:()Ljava/lang/Class;"
+      },
+      {
+        "class": "java/time/temporal/IsoFields$Unit",
+        "entry": "11|java/time/temporal/Temporal.getClass:()Ljava/lang/Class;"
+      },
+      {
+        "class": "java/util/ArrayList",
+        "entry": "11|java/util/Collection.getClass:()Ljava/lang/Class;"
+      },
+      {
+        "class": "java/util/Collections",
+        "entry": "11|java/util/List.getClass:()Ljava/lang/Class;"
+      },
+      {
+        "class": "java/util/Formatter$FormatSpecifier",
+        "entry": "11|java/time/temporal/TemporalAccessor.getClass:()Ljava/lang/Class;"
+      },
+      {
+        "class": "java/util/HashMap",
+        "entry": "11|java/util/Map.getClass:()Ljava/lang/Class;"
+      },
+      {
+        "class": "java/util/PrimitiveIterator$OfDouble",
+        "entry": "11|java/util/PrimitiveIterator$OfDouble.getClass:()Ljava/lang/Class;"
+      },
+      {
+        "class": "java/util/PrimitiveIterator$OfInt",
+        "entry": "11|java/util/PrimitiveIterator$OfInt.getClass:()Ljava/lang/Class;"
+      },
+      {
+        "class": "java/util/PrimitiveIterator$OfLong",
+        "entry": "11|java/util/PrimitiveIterator$OfLong.getClass:()Ljava/lang/Class;"
+      },
+      {
+        "class": "java/util/Spliterator$OfDouble",
+        "entry": "11|java/util/Spliterator$OfDouble.getClass:()Ljava/lang/Class;"
+      },
+      {
+        "class": "java/util/Spliterator$OfInt",
+        "entry": "11|java/util/Spliterator$OfInt.getClass:()Ljava/lang/Class;"
+      },
+      {
+        "class": "java/util/Spliterator$OfLong",
+        "entry": "11|java/util/Spliterator$OfLong.getClass:()Ljava/lang/Class;"
+      },
+      {
+        "class": "java/util/concurrent/ConcurrentLinkedDeque",
+        "entry": "10|java/lang/invoke/VarHandle.weakCompareAndSet:(Ljava/util/concurrent/ConcurrentLinkedDeque;Ljava/util/concurrent/ConcurrentLinkedDeque$Node;Ljava/util/concurrent/ConcurrentLinkedDeque$Node;)Z"
+      },
+      {
+        "class": "java/util/concurrent/ConcurrentLinkedDeque",
+        "entry": "10|java/lang/invoke/VarHandle.weakCompareAndSet:(Ljava/util/concurrent/ConcurrentLinkedDeque;Ljava/util/concurrent/ConcurrentLinkedDeque$Node;Ljava/util/concurrent/ConcurrentLinkedDeque$Node;)Z"
+      },
+      {
+        "class": "java/util/concurrent/ConcurrentLinkedQueue",
+        "entry": "10|java/lang/invoke/VarHandle.weakCompareAndSet:(Ljava/util/concurrent/ConcurrentLinkedQueue;Ljava/util/concurrent/ConcurrentLinkedQueue$Node;Ljava/util/concurrent/ConcurrentLinkedQueue$Node;)Z"
+      },
+      {
+        "class": "java/util/concurrent/ConcurrentSkipListMap",
+        "entry": "10|java/lang/invoke/VarHandle.compareAndSet:(Ljava/util/concurrent/ConcurrentSkipListMap$Node;Ljava/util/concurrent/ConcurrentSkipListMap$Node;Ljava/util/concurrent/ConcurrentSkipListMap$Node;)Z"
+      },
+      {
+        "class": "java/util/concurrent/ConcurrentSkipListMap",
+        "entry": "10|java/lang/invoke/VarHandle.compareAndSet:(Ljava/util/concurrent/ConcurrentSkipListMap$Index;Ljava/util/concurrent/ConcurrentSkipListMap$Index;Ljava/util/concurrent/ConcurrentSkipListMap$Index;)Z"
+      },
+      {
+        "class": "java/util/concurrent/ConcurrentSkipListMap",
+        "entry": "10|java/lang/invoke/VarHandle.compareAndSet:(Ljava/util/concurrent/ConcurrentSkipListMap$Index;Ljava/util/concurrent/ConcurrentSkipListMap$Index;Ljava/util/concurrent/ConcurrentSkipListMap$Index;)Z"
+      },
+      {
+        "class": "java/util/concurrent/ConcurrentSkipListMap",
+        "entry": "10|java/lang/invoke/VarHandle.compareAndSet:(Ljava/util/concurrent/ConcurrentSkipListMap$Index;Ljava/util/concurrent/ConcurrentSkipListMap$Index;Ljava/util/concurrent/ConcurrentSkipListMap$Index;)Z"
+      },
+      {
+        "class": "java/util/concurrent/ConcurrentSkipListMap",
+        "entry": "10|java/lang/invoke/VarHandle.compareAndSet:(Ljava/util/concurrent/ConcurrentSkipListMap;Ljava/util/concurrent/ConcurrentSkipListMap$Index;Ljava/util/concurrent/ConcurrentSkipListMap$Index;)Z"
+      },
+      {
+        "class": "java/util/concurrent/ConcurrentSkipListMap",
+        "entry": "10|java/lang/invoke/VarHandle.compareAndSet:(Ljava/util/concurrent/ConcurrentSkipListMap$Index;Ljava/util/concurrent/ConcurrentSkipListMap$Index;Ljava/util/concurrent/ConcurrentSkipListMap$Index;)Z"
+      },
+      {
+        "class": "java/util/concurrent/ConcurrentSkipListMap",
+        "entry": "10|java/lang/invoke/VarHandle.compareAndSet:(Ljava/util/concurrent/ConcurrentSkipListMap$Index;Ljava/util/concurrent/ConcurrentSkipListMap$Index;Ljava/util/concurrent/ConcurrentSkipListMap$Index;)Z"
+      },
+      {
+        "class": "java/util/concurrent/ConcurrentSkipListMap",
+        "entry": "10|java/lang/invoke/VarHandle.compareAndSet:(Ljava/util/concurrent/ConcurrentSkipListMap;Ljava/util/concurrent/ConcurrentSkipListMap$Index;Ljava/util/concurrent/ConcurrentSkipListMap$Index;)Z"
+      },
+      {
+        "class": "java/util/concurrent/CopyOnWriteArrayList",
+        "entry": "11|java/util/Collection.getClass:()Ljava/lang/Class;"
+      },
+      {
+        "class": "java/util/concurrent/CopyOnWriteArrayList",
+        "entry": "11|java/util/Collection.getClass:()Ljava/lang/Class;"
+      },
+      {
+        "class": "java/util/concurrent/CopyOnWriteArrayList",
+        "entry": "11|java/util/Collection.getClass:()Ljava/lang/Class;"
+      },
+      {
+        "class": "java/util/concurrent/CopyOnWriteArrayList",
+        "entry": "11|java/util/Collection.getClass:()Ljava/lang/Class;"
+      },
+      {
+        "class": "java/util/concurrent/CopyOnWriteArrayList",
+        "entry": "11|java/util/Collection.getClass:()Ljava/lang/Class;"
+      },
+      {
+        "class": "java/util/concurrent/Exchanger",
+        "entry": "10|java/lang/invoke/VarHandle.compareAndSet:(Ljava/util/concurrent/Exchanger;II)Z"
+      },
+      {
+        "class": "java/util/concurrent/Phaser",
+        "entry": "10|java/lang/invoke/VarHandle.compareAndSet:(Ljava/util/concurrent/Phaser;JJ)Z"
+      },
+      {
+        "class": "java/util/concurrent/Phaser",
+        "entry": "10|java/lang/invoke/VarHandle.compareAndSet:(Ljava/util/concurrent/Phaser;JJ)Z"
+      },
+      {
+        "class": "java/util/concurrent/SubmissionPublisher",
+        "entry": "11|java/util/concurrent/Flow$Subscriber.equals:(Ljava/lang/Object;)Z"
+      },
+      {
+        "class": "java/util/stream/Node$OfDouble",
+        "entry": "11|java/util/stream/Node$OfDouble.getClass:()Ljava/lang/Class;"
+      },
+      {
+        "class": "java/util/stream/Node$OfInt",
+        "entry": "11|java/util/stream/Node$OfInt.getClass:()Ljava/lang/Class;"
+      },
+      {
+        "class": "java/util/stream/Node$OfLong",
+        "entry": "11|java/util/stream/Node$OfLong.getClass:()Ljava/lang/Class;"
+      },
+      {
+        "class": "javax/crypto/CryptoPermission",
+        "entry": "11|java/security/spec/AlgorithmParameterSpec.getClass:()Ljava/lang/Class;"
+      },
+      {
+        "class": "javax/crypto/EncryptedPrivateKeyInfo",
+        "entry": "11|java/security/BinaryEncodable.getClass:()Ljava/lang/Class;"
+      },
+      {
+        "class": "javax/crypto/EncryptedPrivateKeyInfo",
+        "entry": "11|java/security/BinaryEncodable.getClass:()Ljava/lang/Class;"
+      },
+      {
+        "class": "jdk/internal/classfile/impl/AbstractPoolEntry$NameAndTypeEntryImpl",
+        "entry": "11|java/lang/classfile/constantpool/Utf8Entry.equals:(Ljava/lang/Object;)Z"
+      },
+      {
+        "class": "jdk/internal/classfile/impl/ClassPrinterImpl",
+        "entry": "11|java/lang/constant/ConstantDesc.toString:()Ljava/lang/String;"
+      },
+      {
+        "class": "jdk/internal/classfile/impl/ClassPrinterImpl",
+        "entry": "11|java/lang/constant/ConstantDesc.toString:()Ljava/lang/String;"
+      },
+      {
+        "class": "jdk/internal/classfile/impl/SplitConstantPool",
+        "entry": "11|java/lang/classfile/constantpool/PoolEntry.hashCode:()I"
+      },
+      {
+        "class": "jdk/internal/classfile/impl/SplitConstantPool",
+        "entry": "11|java/lang/classfile/constantpool/PoolEntry.hashCode:()I"
+      },
+      {
+        "class": "jdk/internal/classfile/impl/SplitConstantPool",
+        "entry": "11|java/lang/classfile/constantpool/PoolEntry.hashCode:()I"
+      },
+      {
+        "class": "jdk/internal/foreign/abi/LinkerOptions",
+        "entry": "11|java/lang/foreign/Linker$Option.getClass:()Ljava/lang/Class;"
+      },
+      {
+        "class": "sun/security/ec/ECKeyFactory",
+        "entry": "11|java/security/spec/KeySpec.getClass:()Ljava/lang/Class;"
+      },
+      {
+        "class": "sun/security/ec/XDHKeyFactory",
+        "entry": "11|java/security/spec/KeySpec.getClass:()Ljava/lang/Class;"
+      },
+      {
+        "class": "sun/security/ec/ed/EdDSAKeyFactory",
+        "entry": "11|java/security/spec/KeySpec.getClass:()Ljava/lang/Class;"
+      },
+      {
+        "class": "sun/security/provider/AbstractDrbg",
+        "entry": "11|java/security/SecureRandomParameters.getClass:()Ljava/lang/Class;"
+      },
+      {
+        "class": "sun/security/provider/AbstractDrbg",
+        "entry": "11|java/security/SecureRandomParameters.getClass:()Ljava/lang/Class;"
+      },
+      {
+        "class": "sun/security/provider/NamedKeyFactory",
+        "entry": "11|java/security/spec/KeySpec.getClass:()Ljava/lang/Class;"
+      },
+      {
+        "class": "sun/security/provider/NamedKeyFactory",
+        "entry": "11|java/security/Key.getClass:()Ljava/lang/Class;"
+      },
+      {
+        "class": "sun/security/provider/certpath/DistributionPointFetcher",
+        "entry": "11|sun/security/x509/GeneralNameInterface.equals:(Ljava/lang/Object;)Z"
+      },
+      {
+        "class": "sun/security/rsa/RSAKeyFactory",
+        "entry": "11|java/security/spec/KeySpec.getClass:()Ljava/lang/Class;"
+      },
+      {
+        "class": "sun/security/ssl/ClientHello$ClientHelloMessage",
+        "entry": "11|java/util/List.toString:()Ljava/lang/String;"
+      },
+      {
+        "class": "sun/security/tools/keytool/Main",
+        "entry": "11|java/security/PublicKey.equals:(Ljava/lang/Object;)Z"
+      },
+      {
+        "class": "sun/security/x509/OtherName",
+        "entry": "11|sun/security/x509/GeneralNameInterface.toString:()Ljava/lang/String;"
+      }
+    ]
+  },
+  "dynamic": {
+    "call_site": 2249
+  },
+  "issue": 15,
+  "java_build": "27+35-2325",
+  "kinds": {
+    "ClassEntry": {
+      "dynamic": false,
+      "holds": [
+        "asInternalName:String",
+        "asSymbol:ClassDesc",
+        "constantValue:ConstantDesc",
+        "name->Utf8Entry"
+      ],
+      "loadable": true,
+      "member_ref": false,
+      "slots": 1,
+      "tag": 7
+    },
+    "ConstantDynamicEntry": {
+      "dynamic": true,
+      "holds": [
+        "asSymbol:DynamicConstantDesc",
+        "constantValue:ConstantDesc",
+        "typeKind:TypeKind",
+        "typeSymbol:ClassDesc"
+      ],
+      "loadable": true,
+      "member_ref": false,
+      "slots": 1,
+      "tag": 17
+    },
+    "DoubleEntry": {
+      "dynamic": false,
+      "holds": [
+        "doubleValue:double",
+        "typeKind:TypeKind"
+      ],
+      "loadable": true,
+      "member_ref": false,
+      "slots": 2,
+      "tag": 6
+    },
+    "FieldRefEntry": {
+      "dynamic": false,
+      "holds": [
+        "typeSymbol:ClassDesc"
+      ],
+      "loadable": false,
+      "member_ref": true,
+      "slots": 1,
+      "tag": 9
+    },
+    "FloatEntry": {
+      "dynamic": false,
+      "holds": [
+        "floatValue:float",
+        "typeKind:TypeKind"
+      ],
+      "loadable": true,
+      "member_ref": false,
+      "slots": 1,
+      "tag": 4
+    },
+    "IntegerEntry": {
+      "dynamic": false,
+      "holds": [
+        "intValue:int",
+        "typeKind:TypeKind"
+      ],
+      "loadable": true,
+      "member_ref": false,
+      "slots": 1,
+      "tag": 3
+    },
+    "InterfaceMethodRefEntry": {
+      "dynamic": false,
+      "holds": [
+        "typeSymbol:MethodTypeDesc"
+      ],
+      "loadable": false,
+      "member_ref": true,
+      "slots": 1,
+      "tag": 11
+    },
+    "InvokeDynamicEntry": {
+      "dynamic": true,
+      "holds": [
+        "asSymbol:DynamicCallSiteDesc",
+        "typeSymbol:MethodTypeDesc"
+      ],
+      "loadable": false,
+      "member_ref": false,
+      "slots": 1,
+      "tag": 18
+    },
+    "LongEntry": {
+      "dynamic": false,
+      "holds": [
+        "longValue:long",
+        "typeKind:TypeKind"
+      ],
+      "loadable": true,
+      "member_ref": false,
+      "slots": 2,
+      "tag": 5
+    },
+    "MethodHandleEntry": {
+      "dynamic": false,
+      "holds": [
+        "asSymbol:DirectMethodHandleDesc",
+        "constantValue:ConstantDesc",
+        "kind:int",
+        "reference->MemberRefEntry"
+      ],
+      "loadable": true,
+      "member_ref": false,
+      "slots": 1,
+      "tag": 15
+    },
+    "MethodRefEntry": {
+      "dynamic": false,
+      "holds": [
+        "typeSymbol:MethodTypeDesc"
+      ],
+      "loadable": false,
+      "member_ref": true,
+      "slots": 1,
+      "tag": 10
+    },
+    "MethodTypeEntry": {
+      "dynamic": false,
+      "holds": [
+        "asSymbol:MethodTypeDesc",
+        "constantValue:ConstantDesc",
+        "descriptor->Utf8Entry"
+      ],
+      "loadable": true,
+      "member_ref": false,
+      "slots": 1,
+      "tag": 16
+    },
+    "ModuleEntry": {
+      "dynamic": false,
+      "holds": [
+        "asSymbol:ModuleDesc",
+        "name->Utf8Entry"
+      ],
+      "loadable": false,
+      "member_ref": false,
+      "slots": 1,
+      "tag": 19
+    },
+    "NameAndTypeEntry": {
+      "dynamic": false,
+      "holds": [
+        "name->Utf8Entry",
+        "type->Utf8Entry"
+      ],
+      "loadable": false,
+      "member_ref": false,
+      "slots": 1,
+      "tag": 12
+    },
+    "PackageEntry": {
+      "dynamic": false,
+      "holds": [
+        "asSymbol:PackageDesc",
+        "name->Utf8Entry"
+      ],
+      "loadable": false,
+      "member_ref": false,
+      "slots": 1,
+      "tag": 20
+    },
+    "StringEntry": {
+      "dynamic": false,
+      "holds": [
+        "stringValue:String",
+        "utf8->Utf8Entry"
+      ],
+      "loadable": true,
+      "member_ref": false,
+      "slots": 1,
+      "tag": 8
+    },
+    "Utf8Entry": {
+      "dynamic": false,
+      "holds": [
+        "stringValue:String"
+      ],
+      "loadable": false,
+      "member_ref": false,
+      "slots": 1,
+      "tag": 1
+    }
+  },
+  "measured": "2026-09-06",
+  "method_handles": {
+    "1": {
+      "FieldRefEntry": 423
+    },
+    "5": {
+      "MethodRefEntry": 387
+    },
+    "6": {
+      "InterfaceMethodRefEntry": 67,
+      "MethodRefEntry": 1684
+    },
+    "8": {
+      "MethodRefEntry": 56
+    },
+    "9": {
+      "InterfaceMethodRefEntry": 151
+    }
+  },
+  "platform": "darwin-arm64",
+  "probe": "constpool",
+  "scan": {
+    "classes": 7441,
+    "entries": 1068182,
+    "largest_pool": 6022,
+    "largest_pool_class": "sun/util/resources/cldr/LocaleNames_en",
+    "module": "java.base",
+    "pool_count_sum": 1083092,
+    "second_slots": 7469,
+    "utf8_unaccounted": []
+  },
+  "tags": {
+    "1": 607166,
+    "10": 100446,
+    "11": 15256,
+    "12": 141848,
+    "15": 2768,
+    "16": 1807,
+    "18": 2249,
+    "19": 65,
+    "20": 199,
+    "3": 11769,
+    "4": 93,
+    "5": 6040,
+    "6": 1429,
+    "7": 86334,
+    "8": 53983,
+    "9": 36730
+  },
+  "utf8_roles": {
+    "annotation_element_name": 363,
+    "annotation_enum_name": 127,
+    "annotation_enum_type": 127,
+    "annotation_string": 193,
+    "annotation_type": 5819,
+    "attribute_name": 276495,
+    "class_name": 86334,
+    "field_descriptor": 26228,
+    "field_name": 26228,
+    "inner_class_name": 16011,
+    "local_variable_descriptor": 178437,
+    "local_variable_name": 200516,
+    "local_variable_signature": 22079,
+    "method_descriptor": 67093,
+    "method_name": 67093,
+    "method_type_descriptor": 1807,
+    "module_hash_algorithm": 1,
+    "module_name": 65,
+    "module_target": 1,
+    "module_version": 1,
+    "name_and_type_descriptor": 141848,
+    "name_and_type_name": 141848,
+    "package_name": 199,
+    "parameter_name": 427,
+    "record_component_descriptor": 427,
+    "record_component_name": 427,
+    "signature": 14931,
+    "source_file": 7432,
+    "string_value": 53983
+  }
+}

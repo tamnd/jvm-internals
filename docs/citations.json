@@ -248,6 +248,99 @@
       "line": "        guarantee_property(code_length > 0 && code_length <= MAX_CODE_SIZE,",
       "tag": "jdk-27+35"
     },
+    "src/hotspot/share/classfile/classFileParser.cpp:230": {
+      "cited_in": [
+        "blueprints/BP-CONSTPOOL/4-guarantees.md",
+        "docs/blueprints/BP-CONSTPOOL.md",
+        "docs/generated/conformance.json",
+        "docs/probes/constpool.md"
+      ],
+      "context_sha256": "4ea5d2b7092f97bb94b23c1b1045bdeabee571993d0b29d6dd3179a04d21f914",
+      "line": "        if (_major_version < Verifier::INVOKEDYNAMIC_MAJOR_VERSION) {",
+      "tag": "jdk-27+35"
+    },
+    "src/hotspot/share/classfile/classFileParser.cpp:253": {
+      "cited_in": [
+        "blueprints/BP-CONSTPOOL/4-guarantees.md",
+        "docs/blueprints/BP-CONSTPOOL.md",
+        "docs/generated/conformance.json",
+        "docs/probes/constpool.md"
+      ],
+      "context_sha256": "99bc1d7e2b7cef8245972cf39250985d44ccd18dbfdcc6abf41437e6d13da420",
+      "line": "        if (_major_version < Verifier::DYNAMICCONSTANT_MAJOR_VERSION) {",
+      "tag": "jdk-27+35"
+    },
+    "src/hotspot/share/classfile/classFileParser.cpp:298": {
+      "cited_in": [
+        "blueprints/BP-CONSTPOOL/4-guarantees.md",
+        "docs/blueprints/BP-CONSTPOOL.md",
+        "docs/generated/conformance.json"
+      ],
+      "context_sha256": "808650f04317bd8dd7e85fa2b25a436f758781b949e1512138afb6084442a05e",
+      "line": "        guarantee_property(index + 1 < length,",
+      "tag": "jdk-27+35"
+    },
+    "src/hotspot/share/classfile/classFileParser.cpp:337": {
+      "cited_in": [
+        "blueprints/BP-CONSTPOOL/4-guarantees.md",
+        "docs/blueprints/BP-CONSTPOOL.md",
+        "docs/generated/conformance.json"
+      ],
+      "context_sha256": "0ba7efbd8ece606f2fde38ff1c7ab06e872b0b7c0aee3861f3c6c2516bf58e10",
+      "line": "        if (_need_verify) {",
+      "tag": "jdk-27+35"
+    },
+    "src/hotspot/share/classfile/classFileParser.cpp:342": {
+      "cited_in": [
+        "blueprints/BP-CONSTPOOL/4-guarantees.md",
+        "blueprints/BP-CONSTPOOL/6-edge-cases.md",
+        "docs/blueprints/BP-CONSTPOOL.md",
+        "docs/generated/conformance.json"
+      ],
+      "context_sha256": "a9121c2c71588f896f20a355d8753a4f2bdc69875ebe37118b61c589c06fcbd0",
+      "line": "        Symbol* const result = SymbolTable::lookup_only((const char*)utf8_buffer,",
+      "tag": "jdk-27+35"
+    },
+    "src/hotspot/share/classfile/classFileParser.cpp:370": {
+      "cited_in": [
+        "blueprints/BP-CONSTPOOL/4-guarantees.md",
+        "docs/blueprints/BP-CONSTPOOL.md",
+        "docs/generated/conformance.json"
+      ],
+      "context_sha256": "610d4876afce30c6e37d94879f0e93bbad5150849b115f221b5c244c3e1d01f5",
+      "line": "        if (_major_version >= JAVA_9_VERSION) {",
+      "tag": "jdk-27+35"
+    },
+    "src/hotspot/share/classfile/classFileParser.cpp:378": {
+      "cited_in": [
+        "blueprints/BP-CONSTPOOL/4-guarantees.md",
+        "docs/blueprints/BP-CONSTPOOL.md",
+        "docs/generated/conformance.json"
+      ],
+      "context_sha256": "42b7ccae28227839163fb105370805eeeb57c82734f64659e4501aeddfd2da17",
+      "line": "        classfile_parse_error(\"Unknown constant tag %u in class file %s\",",
+      "tag": "jdk-27+35"
+    },
+    "src/hotspot/share/classfile/classFileParser.cpp:424": {
+      "cited_in": [
+        "blueprints/BP-CONSTPOOL/4-guarantees.md",
+        "docs/blueprints/BP-CONSTPOOL.md",
+        "docs/generated/conformance.json"
+      ],
+      "context_sha256": "6ab0c163b50c6ca44e8da7b15ac560e95d507b08baded0f6f81262732c30660f",
+      "line": "  if (class_bad_constant_seen() != 0) {",
+      "tag": "jdk-27+35"
+    },
+    "src/hotspot/share/classfile/classFileParser.cpp:434": {
+      "cited_in": [
+        "blueprints/BP-CONSTPOOL/4-guarantees.md",
+        "docs/blueprints/BP-CONSTPOOL.md",
+        "docs/generated/conformance.json"
+      ],
+      "context_sha256": "6b7b27b88c29dd33b9c8c457dfa1b6e6c1b3f00f816df0a48a08edeac2c2a028",
+      "line": "  for (index = 1; index < length; index++) {          // Index 0 is unused",
+      "tag": "jdk-27+35"
+    },
     "src/hotspot/share/classfile/classFileParser.cpp:4355": {
       "cited_in": [
         "blueprints/BP-CLASSFILE/4-guarantees.md",
@@ -279,6 +372,57 @@
       "line": "    if (!Arguments::enable_preview()) {",
       "tag": "jdk-27+35"
     },
+    "src/hotspot/share/classfile/classFileParser.cpp:446": {
+      "cited_in": [
+        "blueprints/BP-CONSTPOOL/4-guarantees.md",
+        "blueprints/BP-CONSTPOOL/6-edge-cases.md",
+        "docs/blueprints/BP-CONSTPOOL.md",
+        "docs/generated/conformance.json"
+      ],
+      "context_sha256": "a84e2939a0d9aa7df7ae6919a64caf11e266888906aac121c55346efbd0fdc3f",
+      "line": "        if (!_need_verify) break;",
+      "tag": "jdk-27+35"
+    },
+    "src/hotspot/share/classfile/classFileParser.cpp:469": {
+      "cited_in": [
+        "blueprints/BP-CONSTPOOL/4-guarantees.md",
+        "docs/blueprints/BP-CONSTPOOL.md",
+        "docs/generated/conformance.json"
+      ],
+      "context_sha256": "50a1359ad59b14eba26a44a7ee31ecbc6680650cdcb92438cca1da0a801dc5a1",
+      "line": "        guarantee_property(",
+      "tag": "jdk-27+35"
+    },
+    "src/hotspot/share/classfile/classFileParser.cpp:476": {
+      "cited_in": [
+        "blueprints/BP-CONSTPOOL/4-guarantees.md",
+        "docs/blueprints/BP-CONSTPOOL.md",
+        "docs/generated/conformance.json"
+      ],
+      "context_sha256": "021eb97d0bf6cd05c46f282e0e17dc9cac61a5d61e4a9d808a8da0c7b5f47034",
+      "line": "        if (!_need_verify) break;",
+      "tag": "jdk-27+35"
+    },
+    "src/hotspot/share/classfile/classFileParser.cpp:499": {
+      "cited_in": [
+        "blueprints/BP-CONSTPOOL/4-guarantees.md",
+        "docs/blueprints/BP-CONSTPOOL.md",
+        "docs/generated/conformance.json"
+      ],
+      "context_sha256": "0e12196abe1aa31e3d07b79a7dec5ff820618783e4984223c073e3a35663f7b2",
+      "line": "        cp->unresolved_klass_at_put(index, class_index, num_klasses++);",
+      "tag": "jdk-27+35"
+    },
+    "src/hotspot/share/classfile/classFileParser.cpp:508": {
+      "cited_in": [
+        "blueprints/BP-CONSTPOOL/4-guarantees.md",
+        "docs/blueprints/BP-CONSTPOOL.md",
+        "docs/generated/conformance.json"
+      ],
+      "context_sha256": "9a4b6dc275f5b5a90ba0f01b67944c3d8c430808b200fd2fa4e17014ac5a5821",
+      "line": "        cp->unresolved_string_at_put(index, sym);",
+      "tag": "jdk-27+35"
+    },
     "src/hotspot/share/classfile/classFileParser.cpp:5392": {
       "cited_in": [
         "blueprints/BP-CLASSFILE/4-guarantees.md",
@@ -288,6 +432,16 @@
       ],
       "context_sha256": "99b24c578917f6560e28ab2334ce98f971b0ccd29047d82d74da65b621a2b1ad",
       "line": "  _need_verify = stream->from_class_file_load_hook() ? true : Verifier::should_verify_for(_loader_data->class_loader());",
+      "tag": "jdk-27+35"
+    },
+    "src/hotspot/share/classfile/classFileParser.cpp:542": {
+      "cited_in": [
+        "blueprints/BP-CONSTPOOL/4-guarantees.md",
+        "docs/blueprints/BP-CONSTPOOL.md",
+        "docs/generated/conformance.json"
+      ],
+      "context_sha256": "073ec99b742eb24cd69ab577e38b23f76c8ce64faf9d76ab09ed3e7c7a1cbb2a",
+      "line": "              ((_major_version >= JAVA_8_VERSION) && tag.is_interface_method()),",
       "tag": "jdk-27+35"
     },
     "src/hotspot/share/classfile/classFileParser.cpp:5506": {
@@ -339,6 +493,16 @@
       ],
       "context_sha256": "ff8a872d835a08fe9a4efe071da31a1d99c9830904f6b90cb21c9bca99b22f38",
       "line": "    flags = stream->get_u2_fast() & (JVM_RECOGNIZED_CLASS_MODIFIERS | JVM_ACC_MODULE);",
+      "tag": "jdk-27+35"
+    },
+    "src/hotspot/share/classfile/classFileParser.cpp:555": {
+      "cited_in": [
+        "blueprints/BP-CONSTPOOL/4-guarantees.md",
+        "docs/blueprints/BP-CONSTPOOL.md",
+        "docs/generated/conformance.json"
+      ],
+      "context_sha256": "4bd0752d56535e3ade7d60e31b432898be2510f7e1aebff77cb41de7d96b5bc5",
+      "line": "            classfile_parse_error(",
       "tag": "jdk-27+35"
     },
     "src/hotspot/share/classfile/classFileParser.cpp:5561": {
@@ -415,6 +579,28 @@
       ],
       "context_sha256": "cfab07aa30d5ece49c41f52c26cb612d123545463558b2b702c89fc22678c78c",
       "line": "  _exception_type = vmSymbols::java_lang_ClassFormatError();",
+      "tag": "jdk-27+35"
+    },
+    "src/hotspot/share/classfile/verifier.cpp:2144": {
+      "cited_in": [
+        "blueprints/BP-CONSTPOOL/4-guarantees.md",
+        "docs/blueprints/BP-CONSTPOOL.md",
+        "docs/generated/conformance.json",
+        "docs/probes/constpool.md"
+      ],
+      "context_sha256": "c86c4dedfc70d2a6e75842195e07affd588858712177ebe8b62e2c0dd7fcb2b8",
+      "line": "      types = (1 << JVM_CONSTANT_Integer) | (1 << JVM_CONSTANT_Float)",
+      "tag": "jdk-27+35"
+    },
+    "src/hotspot/share/classfile/verifier.cpp:219": {
+      "cited_in": [
+        "blueprints/BP-CONSTPOOL/4-guarantees.md",
+        "docs/blueprints/BP-CONSTPOOL.md",
+        "docs/generated/conformance.json",
+        "docs/probes/constpool.md"
+      ],
+      "context_sha256": "139e318266123cd067125a406cbef8e923dc41994d3c0d2232a3322316d6f084",
+      "line": "  if (klass->major_version() >= STACKMAP_ATTRIBUTE_MAJOR_VERSION) {",
       "tag": "jdk-27+35"
     },
     "src/hotspot/share/interpreter/bytecodes.cpp:52": {
@@ -535,6 +721,71 @@
       "line": "// The actual bytecodes are inlined after the end of the ConstMethod struct.",
       "tag": "jdk-27+35"
     },
+    "src/hotspot/share/oops/constantPool.cpp:1043": {
+      "cited_in": [
+        "blueprints/BP-CONSTPOOL/4-guarantees.md",
+        "blueprints/BP-CONSTPOOL/6-edge-cases.md",
+        "docs/blueprints/BP-CONSTPOOL.md",
+        "docs/generated/conformance.json"
+      ],
+      "context_sha256": "a07d87d4d77e99ae80ab6724b4712b5ad0ce381f3b88220008324ef42ac3873d",
+      "line": "    jbyte old_tag = AtomicAccess::cmpxchg((jbyte*)this_cp->tag_addr_at(cp_index),",
+      "tag": "jdk-27+35"
+    },
+    "src/hotspot/share/oops/constantPool.cpp:1050": {
+      "cited_in": [
+        "blueprints/BP-CONSTPOOL/4-guarantees.md",
+        "blueprints/BP-CONSTPOOL/6-edge-cases.md",
+        "docs/blueprints/BP-CONSTPOOL.md",
+        "docs/generated/conformance.json"
+      ],
+      "context_sha256": "f6c78c2973e917a72ec1ed88164e2c1f52774c85ab0e37ec16e9f420f5d5c2ff",
+      "line": "      CLEAR_PENDING_EXCEPTION;",
+      "tag": "jdk-27+35"
+    },
+    "src/hotspot/share/oops/constantPool.cpp:648": {
+      "cited_in": [
+        "blueprints/BP-CONSTPOOL/4-guarantees.md",
+        "blueprints/BP-CONSTPOOL/6-edge-cases.md",
+        "docs/blueprints/BP-CONSTPOOL.md",
+        "docs/generated/conformance.json"
+      ],
+      "context_sha256": "40086ec3efacf947a4753940fb6854de77ad7689cb52bba9fb9e874dcfe68d0f",
+      "line": "  if (this_cp->tag_at(cp_index).is_unresolved_klass_in_error()) {",
+      "tag": "jdk-27+35"
+    },
+    "src/hotspot/share/oops/constantPool.hpp:130": {
+      "cited_in": [
+        "blueprints/BP-CONSTPOOL/4-guarantees.md",
+        "blueprints/BP-CONSTPOOL/6-edge-cases.md",
+        "docs/blueprints/BP-CONSTPOOL.md",
+        "docs/generated/conformance.json"
+      ],
+      "context_sha256": "01ea844b1228bdd2b2d95e3ef53675a756b6206135564c8a3b553e74bd7e0d15",
+      "line": "  void release_tag_at_put(int cp_index, jbyte t) { tags()->release_at_put(cp_index, t); }",
+      "tag": "jdk-27+35"
+    },
+    "src/hotspot/share/oops/constantPool.hpp:284": {
+      "cited_in": [
+        "blueprints/BP-CONSTPOOL/4-guarantees.md",
+        "docs/blueprints/BP-CONSTPOOL.md",
+        "docs/generated/conformance.json"
+      ],
+      "context_sha256": "33a448412a469f2ec5eb46a5e86731137beeb535cf522a48fd448f4982bf9e90",
+      "line": "    release_tag_at_put(cp_index, JVM_CONSTANT_UnresolvedClass);",
+      "tag": "jdk-27+35"
+    },
+    "src/hotspot/share/oops/constantPool.hpp:385": {
+      "cited_in": [
+        "blueprints/BP-CONSTPOOL/4-guarantees.md",
+        "blueprints/BP-CONSTPOOL/6-edge-cases.md",
+        "docs/blueprints/BP-CONSTPOOL.md",
+        "docs/generated/conformance.json"
+      ],
+      "context_sha256": "9dc4250ede1e5dabf35ca1a07945777e91c0e79e5e9c02c3c89ee90a40a71d7c",
+      "line": "  constantTag tag_at(int cp_index) const { return (constantTag)tags()->at_acquire(cp_index); }",
+      "tag": "jdk-27+35"
+    },
     "src/hotspot/share/oops/instanceKlass.cpp:1042": {
       "cited_in": [
         "blueprints/BP-BYTECODE/4-guarantees.md",
@@ -568,7 +819,9 @@
     "src/hotspot/share/oops/instanceKlass.cpp:1075": {
       "cited_in": [
         "blueprints/BP-CLASSFILE/7-configuration.md",
-        "docs/blueprints/BP-CLASSFILE.md"
+        "blueprints/BP-CONSTPOOL/7-configuration.md",
+        "docs/blueprints/BP-CLASSFILE.md",
+        "docs/blueprints/BP-CONSTPOOL.md"
       ],
       "context_sha256": "90c9026c3f92f1991336ebe053585594f20b0df93008d0675e1e84cbf2be23a7",
       "line": "        SystemDictionaryShared::check_verification_constraints(this, CHECK_false);",
@@ -792,7 +1045,9 @@
     "src/hotspot/share/runtime/globals.hpp:455": {
       "cited_in": [
         "blueprints/BP-CLASSFILE/7-configuration.md",
-        "docs/blueprints/BP-CLASSFILE.md"
+        "blueprints/BP-CONSTPOOL/7-configuration.md",
+        "docs/blueprints/BP-CLASSFILE.md",
+        "docs/blueprints/BP-CONSTPOOL.md"
       ],
       "context_sha256": "ad4c11369c86dd09a937bc7c8ec79cf4f5e47c3d7309ee966b8fb4acdd66d470",
       "line": "  product(bool, BytecodeVerificationRemote, true, DIAGNOSTIC,               \\",
@@ -801,7 +1056,9 @@
     "src/hotspot/share/runtime/globals.hpp:458": {
       "cited_in": [
         "blueprints/BP-CLASSFILE/7-configuration.md",
-        "docs/blueprints/BP-CLASSFILE.md"
+        "blueprints/BP-CONSTPOOL/7-configuration.md",
+        "docs/blueprints/BP-CLASSFILE.md",
+        "docs/blueprints/BP-CONSTPOOL.md"
       ],
       "context_sha256": "9c72fa58bc6ee01ed0fb347dabd70379b83ff94a8bc41cf35c87ab670db4fa25",
       "line": "  product(bool, BytecodeVerificationLocal, false, DIAGNOSTIC,               \\",
@@ -832,6 +1089,36 @@
       "line": "  return align_up(word_size, MinObjAlignment);",
       "tag": "jdk-27+35"
     },
+    "src/hotspot/share/utilities/constantTag.cpp:86": {
+      "cited_in": [
+        "blueprints/BP-CONSTPOOL/4-guarantees.md",
+        "docs/blueprints/BP-CONSTPOOL.md",
+        "docs/generated/conformance.json"
+      ],
+      "context_sha256": "0c4e86d2cc1b982732bc661afb5537cf7d6fd4e401759f7cc7703f756e9eba7e",
+      "line": "jbyte constantTag::error_value() const {",
+      "tag": "jdk-27+35"
+    },
+    "src/hotspot/share/utilities/constantTag.hpp:115": {
+      "cited_in": [
+        "blueprints/BP-CONSTPOOL/4-guarantees.md",
+        "docs/blueprints/BP-CONSTPOOL.md",
+        "docs/generated/conformance.json"
+      ],
+      "context_sha256": "e8c084e852431671db388db2eecefedcc71d3e9a876bad954d658656ea395101",
+      "line": "  bool is_loadable_constant() const {",
+      "tag": "jdk-27+35"
+    },
+    "src/hotspot/share/utilities/constantTag.hpp:40": {
+      "cited_in": [
+        "blueprints/BP-CONSTPOOL/4-guarantees.md",
+        "docs/blueprints/BP-CONSTPOOL.md",
+        "docs/generated/conformance.json"
+      ],
+      "context_sha256": "0b285b252e51dabdfc899ff97209284f51ee605c18008c8c25376caf850af505",
+      "line": "  JVM_CONSTANT_InternalMin              = 100,  // First implementation tag (aside from bad value of course)",
+      "tag": "jdk-27+35"
+    },
     "src/java.base/share/classes/java/lang/invoke/GenerateJLIClassesHelper.java:638": {
       "cited_in": [
         "docs/probes/classfile-census.md"
@@ -860,6 +1147,28 @@
       ],
       "context_sha256": "0d83bbcac310d0b411b07cdf2c2b2b97b5a9c471dec0215e3a410a7d47c5d569",
       "line": "    body = (*env)->GetDirectBufferAddress(env, data);",
+      "tag": "jdk-27+35"
+    },
+    "src/java.base/share/native/libverify/check_code.c:1237": {
+      "cited_in": [
+        "blueprints/BP-CONSTPOOL/4-guarantees.md",
+        "docs/blueprints/BP-CONSTPOOL.md",
+        "docs/generated/conformance.json",
+        "docs/probes/constpool.md"
+      ],
+      "context_sha256": "07d48570a16c24ef33d450ac77f0367d26d8d3bdd0f118b5b7c133fb59b3bf6b",
+      "line": "        if (context->major_version >= LDC_CLASS_MAJOR_VERSION) {",
+      "tag": "jdk-27+35"
+    },
+    "src/java.base/share/native/libverify/check_code.c:246": {
+      "cited_in": [
+        "blueprints/BP-CONSTPOOL/4-guarantees.md",
+        "docs/blueprints/BP-CONSTPOOL.md",
+        "docs/generated/conformance.json",
+        "docs/probes/constpool.md"
+      ],
+      "context_sha256": "8fe00bbbd78aa23bb250b80f1ec2464100632b9b620ce3007406e03f1ce984c7",
+      "line": "#define LDC_CLASS_MAJOR_VERSION 49",
       "tag": "jdk-27+35"
     },
     "src/jdk.jlink/share/classes/jdk/tools/jlink/internal/plugins/SystemModulesPlugin.java:1290": {
