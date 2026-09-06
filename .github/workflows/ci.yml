@@ -63,6 +63,7 @@ jobs:
           python tools/test_claimcheck.py
           python tools/test_gen_fieldlayout.py
           python tools/test_gen_handoff.py
+          python tools/test_gen_opcodes.py
           python tools/test_fetch_jdk.py
       - name: rebuild and compare
         run: python tools/build.py check
@@ -243,6 +244,12 @@ jobs:
       # line number that still exists and now says something else is not, and this
       # is the only thing that catches it. Every JVMS section reference goes
       # through the index in the same pass.
+      # The instruction set section, joined from three sources that can each move on
+      # their own. Two of them are fetched here and the third is a committed probe
+      # result, and the generator refuses to write when they disagree, so a failure in
+      # this step is a report that one of the three moved rather than a stale file.
+      - name: the instruction set section matches all three sources
+        run: python tools/gen_opcodes.py --check
       - name: every citation still says what it said
         run: python tools/refcheck.py --report
 
