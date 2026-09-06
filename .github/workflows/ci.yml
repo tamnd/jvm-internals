@@ -277,6 +277,35 @@ jobs:
       - name: every citation still says what it said
         run: python tools/refcheck.py --report
 
+  # The blueprints. A blueprint is the document somebody implements a JVM from, so
+  # the two failures worth a job of their own are a clause in section 4a that cites
+  # HotSpot source rather than the specification, which reads as "Java guarantees
+  # this" and is a statement about one implementation at one tag, and a generated
+  # section that has drifted from the page it includes. Offline, because bpc reads
+  # nothing outside the repository, and separate from the notebooks job so that a
+  # failure here names the blueprint format rather than the notebook build.
+  bpc:
+    name: blueprints build and check
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: "3.14"
+      # Most of these build one blueprint that is wrong in a single specific way and
+      # assert that bpc says so, because a compiler for a document format is worth
+      # having only for what it refuses.
+      - name: unit tests
+        run: python tools/test_bpc.py
+      # check rebuilds every blueprint in memory and byte compares both the committed
+      # page and the committed conformance file, so a hand edited docs/blueprints page
+      # fails here rather than becoming the copy a reader trusts.
+      - name: the blueprints match their sources
+        run: python tools/bpc.py check
+
   # Workflow files get the same treatment as everything else here. actionlint
   # catches the shell and expression mistakes, zizmor catches the security ones,
   # and the reason both run is that a workflow is the part of a repository
@@ -350,12 +379,12 @@ jobs:
   #                        section says what the claim says. Checking that needs
   #                        the specification text, which this repository does not
   #                        store on purpose, so it stays a review question
-  #     bpc           6m   bpc build then bpc check, so no generated blueprint
-  #                        section is stale and no coverage item is unowned. Two
-  #                        pieces of it already run above and fold into this one
-  #                        when bpc exists: the mark word layout in the generated
-  #                        job, and the object header's section 2 in the notebooks
-  #                        job
+  #     bpc                done, above, and it came in at seconds rather than the
+  #                        six minutes budgeted here. Two generated pages are still
+  #                        checked by their own generators instead: the mark word
+  #                        layout in the generated job and the object header's
+  #                        section 2 in the notebooks job, because the blueprint
+  #                        that would include them, BP-OBJHEADER, is M4's
   #     e0-fast      25m   the tier 0 cells of changed lessons, in the Colab
   #                        parity image. Expensive, and the one that must not be
   #                        cut, because a lesson whose observations quietly
