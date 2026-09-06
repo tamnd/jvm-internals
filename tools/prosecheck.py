@@ -124,6 +124,22 @@ def numbered(path: pathlib.Path) -> list[tuple[int, str]]:
     return list(enumerate(path.read_text(encoding="utf-8").splitlines(), start=1))
 
 
+def front_matter(lines: list[str]) -> set[int]:
+    """Indices of the YAML front matter of a markdown file, fence lines included.
+
+    A blueprint source carries the same front matter a lesson does, and a mapping is
+    not a paragraph, so the one-paragraph-one-line rule cannot apply to it. Everything
+    else here still does, because a title with an em dash in it is a title with an em
+    dash in it wherever it is written.
+    """
+    if not lines or lines[0].strip() != "---":
+        return set()
+    for i, line in enumerate(lines[1:], start=1):
+        if line.strip() == "---":
+            return set(range(0, i + 1))
+    return set()
+
+
 def check(path: pathlib.Path, tags: set[str], editions: set[str]) -> list[str]:
     problems: list[str] = []
     wrap_applies = True
@@ -136,6 +152,7 @@ def check(path: pathlib.Path, tags: set[str], editions: set[str]) -> list[str]:
         numbered_lines = numbered(path)
 
     lines = [text for _, text in numbered_lines]
+    metadata = front_matter(lines) if path.suffix == ".md" else set()
     fenced = False
     for index, (i, line) in enumerate(numbered_lines):
         stripped = line.strip()
@@ -173,7 +190,7 @@ def check(path: pathlib.Path, tags: set[str], editions: set[str]) -> list[str]:
                     f"{found.group(1)!r}, the pin says {sorted(editions)}"
                 )
 
-        if fenced or not wrap_applies:
+        if fenced or not wrap_applies or index in metadata:
             continue
 
         # The wrap rule. A prose line followed by another prose line means the

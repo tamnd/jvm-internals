@@ -1,0 +1,1444 @@
+{
+  "built_by": "tools/bpc.py",
+  "pin": "jdk-27+35",
+  "edition": "SE25",
+  "blueprints": [
+    {
+      "id": "BP-BYTECODE",
+      "title": "The code array and the frame it runs in",
+      "status": "draft",
+      "page": "docs/blueprints/BP-BYTECODE.md",
+      "clauses": [
+        {
+          "id": "4a.1",
+          "part": "4a",
+          "kinds": [
+            "JVMS"
+          ],
+          "citations": [
+            "\u00a72.11@SE25"
+          ],
+          "text": "An instruction is a one byte opcode followed by zero or more operands, an operand wider than one byte is stored big endian, and the instruction stream is aligned to one byte, with `tableswitch` and `lookupswitch` the only two instructions padded so that some of their operands land on a four byte boundary .",
+          "observed_by": [
+            "5.1"
+          ],
+          "tested_by": [
+            "8.2.1"
+          ]
+        },
+        {
+          "id": "4a.2",
+          "part": "4a",
+          "kinds": [
+            "JVMS"
+          ],
+          "citations": [
+            "\u00a72.6@SE25"
+          ],
+          "text": "A frame is created on each method invocation and destroyed when that invocation completes, normally or abruptly, and it holds its own local variable array, its own operand stack and a reference to the run-time constant pool of the class of its method .",
+          "observed_by": [
+            "5.2"
+          ],
+          "tested_by": [
+            "8.2.2"
+          ]
+        },
+        {
+          "id": "4a.3",
+          "part": "4a",
+          "kinds": [
+            "JVMS"
+          ],
+          "citations": [
+            "\u00a72.6.1@SE25"
+          ],
+          "text": "The local variable array is indexed from zero, one entry holds an `int`, a `float`, a `reference` or a `returnAddress`, and a `long` or a `double` occupies two consecutive entries named by the lesser index and required to be aligned to nothing .",
+          "observed_by": [
+            "5.3"
+          ],
+          "tested_by": [
+            "8.2.3"
+          ]
+        },
+        {
+          "id": "4a.4",
+          "part": "4a",
+          "kinds": [
+            "JVMS"
+          ],
+          "citations": [
+            "\u00a72.6.2@SE25"
+          ],
+          "text": "The operand stack is last in, first out, is empty when its frame is created, and has a maximum depth that is fixed before the frame exists and supplied with the code .",
+          "observed_by": [
+            "5.4"
+          ],
+          "tested_by": [
+            "8.2.4"
+          ]
+        },
+        {
+          "id": "4a.5",
+          "part": "4a",
+          "kinds": [
+            "JVMS"
+          ],
+          "citations": [
+            "\u00a72.5.1@SE25"
+          ],
+          "text": "Each thread has its own pc register, which holds the address of the instruction being executed when the current method is a Java method and holds nothing defined when the current method is native .",
+          "observed_by": [
+            "5.5"
+          ],
+          "tested_by": [
+            "8.2.5"
+          ]
+        },
+        {
+          "id": "4a.6",
+          "part": "4a",
+          "kinds": [
+            "JVMS"
+          ],
+          "citations": [
+            "\u00a74.7.3@SE25"
+          ],
+          "text": "`code_length` is greater than zero and less than 65536, so a code array is never empty and never larger than a `u2` can measure, whatever the width of the field that carries it .",
+          "observed_by": [
+            "5.6"
+          ],
+          "tested_by": [
+            "8.2.6"
+          ]
+        },
+        {
+          "id": "4a.7",
+          "part": "4a",
+          "kinds": [
+            "JVMS"
+          ],
+          "citations": [
+            "\u00a74.9.1@SE25"
+          ],
+          "text": "Only instructions the specification documents may appear in a code array, the opcodes it reserves may not, and `jsr`, `jsr_w` and `ret` may not appear at class file version 51.0 or above .",
+          "observed_by": [
+            "5.7"
+          ],
+          "tested_by": [
+            "8.2.7"
+          ]
+        },
+        {
+          "id": "4a.8",
+          "part": "4a",
+          "kinds": [
+            "JVMS"
+          ],
+          "citations": [
+            "\u00a74.9.1@SE25"
+          ],
+          "text": "The first instruction begins at index 0, each instruction except the last begins at the index of the previous one plus that instruction's length including its operands, and the last byte of the last instruction is the byte at `code_length - 1` .",
+          "observed_by": [
+            "5.1"
+          ],
+          "tested_by": [
+            "8.2.1"
+          ]
+        },
+        {
+          "id": "4a.9",
+          "part": "4a",
+          "kinds": [
+            "JVMS"
+          ],
+          "citations": [
+            "\u00a74.9.2@SE25"
+          ],
+          "text": "The operand stack has the same depth at an instruction on every execution path that reaches it, never grows deeper than `max_stack`, and is never popped when empty .",
+          "observed_by": [
+            "5.4"
+          ],
+          "tested_by": [
+            "8.2.4"
+          ]
+        },
+        {
+          "id": "4a.10",
+          "part": "4a",
+          "kinds": [
+            "JVMS"
+          ],
+          "citations": [
+            "\u00a74.9.2@SE25"
+          ],
+          "text": "The two local variables holding a `long` or a `double` are never reversed, never split and never operated on individually, and no local variable is read before it has been assigned .",
+          "observed_by": [
+            "5.3"
+          ],
+          "tested_by": [
+            "8.2.3"
+          ]
+        },
+        {
+          "id": "4a.11",
+          "part": "4a",
+          "kinds": [
+            "JVMS"
+          ],
+          "citations": [
+            "\u00a76.1@SE25"
+          ],
+          "text": "If a constraint stated in an instruction's own description is not satisfied at run time, the behaviour of the machine is undefined, and it is verification at link time that makes this unreachable rather than any check the instruction performs .",
+          "observed_by": [
+            "5.8"
+          ],
+          "tested_by": [
+            "8.2.8"
+          ]
+        },
+        {
+          "id": "4a.12",
+          "part": "4a",
+          "kinds": [
+            "JVMS"
+          ],
+          "citations": [
+            "\u00a72.11.10@SE25"
+          ],
+          "text": "Invoking a method whose `ACC_SYNCHRONIZED` flag is set enters a monitor, and that monitor is exited whether the invocation completes normally or abruptly, including when the exception is on its way out of the method .",
+          "observed_by": [
+            "5.9"
+          ],
+          "tested_by": [
+            "8.2.9"
+          ]
+        },
+        {
+          "id": "4a.13",
+          "part": "4a",
+          "kinds": [
+            "JVMS"
+          ],
+          "citations": [
+            "\u00a72.6.4@SE25",
+            "\u00a72.6.5@SE25"
+          ],
+          "text": "Normal completion restores the invoker's frame with its pc advanced past the invocation instruction and the returned value, if there is one, pushed onto the invoker's operand stack , and abrupt completion returns no value to the invoker at all .",
+          "observed_by": [
+            "5.9"
+          ],
+          "tested_by": [
+            "8.2.10"
+          ]
+        },
+        {
+          "id": "4a.14",
+          "part": "4a",
+          "kinds": [
+            "JVMS"
+          ],
+          "citations": [
+            "\u00a72.11.10@SE25"
+          ],
+          "text": "Enforcing structured locking, meaning that every monitor exit in a method matches an earlier entry in that method, is permitted and not required, so a machine that refuses unstructured locking and a machine that allows it both conform .",
+          "observed_by": [
+            "5.10"
+          ],
+          "tested_by": [
+            "8.2.11"
+          ]
+        },
+        {
+          "id": "4b.1",
+          "part": "4b",
+          "kinds": [
+            "HOTSPOT"
+          ],
+          "citations": [
+            "src/hotspot/share/oops/constMethod.hpp:42@jdk-27+35",
+            "src/hotspot/share/oops/constMethod.hpp:419@jdk-27+35"
+          ],
+          "text": "A method's bytecodes are stored immediately after the end of the `ConstMethod` that describes them , so the address of the code array is computed from the address of the header rather than stored , and a bytecode pointer is a raw address into metaspace rather than an index.",
+          "observed_by": [
+            "5.11"
+          ],
+          "tested_by": [
+            "8.2.12"
+          ]
+        },
+        {
+          "id": "4b.2",
+          "part": "4b",
+          "kinds": [
+            "HOTSPOT"
+          ],
+          "citations": [
+            "src/hotspot/share/oops/constMethod.hpp:199@jdk-27+35"
+          ],
+          "text": "The code size is held in a `u2` , which makes the specification's bound of less than 65536 a property of the representation here and not a check that could be relaxed.",
+          "observed_by": [
+            "5.11"
+          ],
+          "tested_by": [
+            "8.2.12"
+          ]
+        },
+        {
+          "id": "4b.3",
+          "part": "4b",
+          "kinds": [
+            "HOTSPOT"
+          ],
+          "citations": [
+            "src/hotspot/share/oops/constMethod.hpp:205@jdk-27+35",
+            "src/hotspot/share/oops/constMethod.hpp:206@jdk-27+35",
+            "src/hotspot/share/oops/constMethod.hpp:207@jdk-27+35"
+          ],
+          "text": "`max_stack`, `max_locals` and the size of the parameter block are stored beside it in the same width  , so the frame's dimensions are known from six bytes of the method's header.",
+          "observed_by": [
+            "5.11"
+          ],
+          "tested_by": [
+            "8.2.12"
+          ]
+        },
+        {
+          "id": "4b.4",
+          "part": "4b",
+          "kinds": [
+            "HOTSPOT"
+          ],
+          "citations": [
+            "src/hotspot/cpu/aarch64/frame_aarch64.hpp:42@jdk-27+35",
+            "src/hotspot/cpu/aarch64/frame_aarch64.hpp:44@jdk-27+35"
+          ],
+          "text": "The interpreter's frame keeps its bytecode pointer and a pointer to its locals as ordinary slots in the frame , which makes both of them per frame values in an implementation whose specification gives the pc to the thread.",
+          "observed_by": [
+            "5.12"
+          ],
+          "tested_by": [
+            "8.2.13"
+          ]
+        },
+        {
+          "id": "4b.5",
+          "part": "4b",
+          "kinds": [
+            "HOTSPOT"
+          ],
+          "citations": [
+            "src/hotspot/cpu/aarch64/frame_aarch64.hpp:36@jdk-27+35",
+            "src/hotspot/cpu/aarch64/frame_aarch64.hpp:190@jdk-27+35"
+          ],
+          "text": "The expression stack sits at the machine stack pointer and grows toward lower addresses , so a push moves down through memory while every picture of an operand stack draws it moving up.",
+          "observed_by": [
+            "5.12"
+          ],
+          "tested_by": [
+            "8.2.13"
+          ]
+        },
+        {
+          "id": "4b.6",
+          "part": "4b",
+          "kinds": [
+            "HOTSPOT"
+          ],
+          "citations": [
+            "src/hotspot/cpu/aarch64/frame_aarch64.hpp:63@jdk-27+35"
+          ],
+          "text": "The locals and the caller's outgoing arguments are the same words: the argument block the caller assembled becomes the callee's first locals, at the far end of the frame beside the caller's stack pointer , so an invocation does not copy its arguments anywhere.",
+          "observed_by": [
+            "5.12"
+          ],
+          "tested_by": [
+            "8.2.13"
+          ]
+        },
+        {
+          "id": "4b.7",
+          "part": "4b",
+          "kinds": [
+            "HOTSPOT"
+          ],
+          "citations": [
+            "src/hotspot/share/runtime/globals.hpp:1111@jdk-27+35"
+          ],
+          "text": "Bytecode is not immutable, and the flag that permits this says as much in the text it prints to anybody who asks the machine what its options are .",
+          "observed_by": [
+            "5.13"
+          ],
+          "tested_by": [
+            "8.2.14"
+          ]
+        },
+        {
+          "id": "4b.8",
+          "part": "4b",
+          "kinds": [
+            "HOTSPOT"
+          ],
+          "citations": [
+            "src/hotspot/share/runtime/globals.hpp:1114@jdk-27+35"
+          ],
+          "text": "A second and separate kind of rewriting fuses common pairs of instructions into one, under its own flag , and both flags are platform dependent, so their default is a property of the port rather than of the product.",
+          "observed_by": [
+            "5.13"
+          ],
+          "tested_by": [
+            "8.2.14"
+          ]
+        },
+        {
+          "id": "4b.9",
+          "part": "4b",
+          "kinds": [
+            "HOTSPOT"
+          ],
+          "citations": [
+            "src/hotspot/share/interpreter/rewriter.cpp:568@jdk-27+35",
+            "src/hotspot/share/interpreter/rewriter.cpp:526@jdk-27+35"
+          ],
+          "text": "The link time rewrite happens once per class and its main work is replacing constant pool indices in the code array with indices into a constant pool cache , so the operand bytes of a resolving instruction in a running method do not hold the number the class file held.",
+          "observed_by": [
+            "5.14"
+          ],
+          "tested_by": [
+            "8.2.15"
+          ]
+        },
+        {
+          "id": "4b.10",
+          "part": "4b",
+          "kinds": [
+            "HOTSPOT"
+          ],
+          "citations": [
+            "src/hotspot/share/interpreter/rewriter.cpp:560@jdk-27+35"
+          ],
+          "text": "A class whose `invokespecial` instructions on interfaces overflow the rewriter's own index space is refused with an `InternalError` saying the class file cannot be loaded , which is a refusal of a class file that violates no constraint the specification states.",
+          "observed_by": [
+            "5.15"
+          ],
+          "tested_by": [
+            "8.2.16"
+          ]
+        },
+        {
+          "id": "4b.11",
+          "part": "4b",
+          "kinds": [
+            "HOTSPOT"
+          ],
+          "citations": [
+            "src/hotspot/cpu/aarch64/templateTable_aarch64.cpp:939@jdk-27+35",
+            "src/hotspot/cpu/aarch64/templateTable_aarch64.cpp:953@jdk-27+35"
+          ],
+          "text": "The pair fusing rewrite happens while the method is executing: the template for `aload_0` reads the following opcode and stores a fused opcode over the `aload_0` it is currently executing .",
+          "observed_by": [
+            "5.16"
+          ],
+          "tested_by": [
+            "8.2.17"
+          ]
+        },
+        {
+          "id": "4b.12",
+          "part": "4b",
+          "kinds": [
+            "HOTSPOT"
+          ],
+          "citations": [
+            "src/hotspot/cpu/aarch64/templateTable_aarch64.cpp:168@jdk-27+35"
+          ],
+          "text": "Every in place patch is guarded by a flag test at the top of the patcher , so an implementation that turns the flag off has a code array that is constant from the moment the class is linked.",
+          "observed_by": [
+            "5.13"
+          ],
+          "tested_by": [
+            "8.2.14"
+          ]
+        },
+        {
+          "id": "4b.13",
+          "part": "4b",
+          "kinds": [
+            "HOTSPOT"
+          ],
+          "citations": [
+            "src/hotspot/share/interpreter/bytecodes.cpp:52@jdk-27+35"
+          ],
+          "text": "The fused and fast forms are numbered above every opcode the specification names and each one records the instruction it was rewritten from , which is what lets a tool map an executing method back onto the class file it came from.",
+          "observed_by": [
+            "5.16"
+          ],
+          "tested_by": [
+            "8.2.17"
+          ]
+        },
+        {
+          "id": "4b.14",
+          "part": "4b",
+          "kinds": [
+            "HOTSPOT"
+          ],
+          "citations": [
+            "src/hotspot/cpu/aarch64/templateTable_aarch64.cpp:947@jdk-27+35"
+          ],
+          "text": "When the instruction after an `aload_0` is a `getfield` that has not itself been rewritten yet, the fusing is deferred rather than done , so which fused instruction a method ends up holding is a function of the order in which its paths first ran.",
+          "observed_by": [
+            "5.16"
+          ],
+          "tested_by": [
+            "8.2.17"
+          ]
+        },
+        {
+          "id": "4c.1",
+          "part": "4c",
+          "kinds": [
+            "JVMS"
+          ],
+          "citations": [
+            "\u00a72.11@SE25"
+          ],
+          "text": "The pc is calculated and the opcode fetched, then the operands are fetched, then the action is performed, and the number and size of the operands are known only once the opcode is .",
+          "observed_by": [
+            "5.17"
+          ],
+          "tested_by": [
+            "8.2.18"
+          ]
+        },
+        {
+          "id": "4c.2",
+          "part": "4c",
+          "kinds": [
+            "JVMS"
+          ],
+          "citations": [
+            "\u00a72.6@SE25"
+          ],
+          "text": "A frame exists for the whole of its invocation and no longer: the invoker's frame is not resumed until the callee's is gone, which is what makes the return value arrive on the invoker's stack rather than on the callee's .",
+          "observed_by": [
+            "5.2"
+          ],
+          "tested_by": [
+            "8.2.2"
+          ]
+        },
+        {
+          "id": "4c.3",
+          "part": "4c",
+          "kinds": [
+            "JVMS"
+          ],
+          "citations": [
+            "\u00a72.11.10@SE25"
+          ],
+          "text": "A monitor entered by a synchronized method's invocation is exited before an exception leaves that method, so an implementation may not unwind first and release afterwards .",
+          "observed_by": [
+            "5.9"
+          ],
+          "tested_by": [
+            "8.2.9"
+          ]
+        },
+        {
+          "id": "4c.4",
+          "part": "4c",
+          "kinds": [
+            "HOTSPOT"
+          ],
+          "citations": [
+            "src/hotspot/share/oops/instanceKlass.cpp:1059@jdk-27+35",
+            "src/hotspot/share/oops/instanceKlass.cpp:1073@jdk-27+35",
+            "src/hotspot/share/oops/instanceKlass.cpp:1079@jdk-27+35"
+          ],
+          "text": "Verification of a class's methods happens before those methods are rewritten, and both happen before the methods are linked  , so the verifier sees the bytes the class file carried and never sees a rewritten one.",
+          "observed_by": [
+            "5.18"
+          ],
+          "tested_by": [
+            "8.2.19"
+          ]
+        },
+        {
+          "id": "4c.5",
+          "part": "4c",
+          "kinds": [
+            "HOTSPOT"
+          ],
+          "citations": [
+            "src/hotspot/share/oops/instanceKlass.cpp:1042@jdk-27+35",
+            "src/hotspot/share/oops/instanceKlass.cpp:1118@jdk-27+35"
+          ],
+          "text": "All three of those happen while the thread holds the class's own initialization lock , and the class is marked linked only afterwards , which is the whole reason the link time rewrite needs no atomicity.",
+          "observed_by": [
+            "5.18"
+          ],
+          "tested_by": [
+            "8.2.19"
+          ]
+        },
+        {
+          "id": "4c.6",
+          "part": "4c",
+          "kinds": [
+            "HOTSPOT"
+          ],
+          "citations": [
+            "src/hotspot/share/interpreter/rewriter.cpp:568@jdk-27+35",
+            "src/hotspot/cpu/aarch64/templateTable_aarch64.cpp:917@jdk-27+35"
+          ],
+          "text": "The in place fusing happens only after the link time rewrite has finished, because it writes opcodes that name a constant pool cache the first rewrite created , so an implementation cannot fuse first and resolve later.",
+          "observed_by": [
+            "5.19"
+          ],
+          "tested_by": [
+            "8.2.15"
+          ]
+        }
+      ],
+      "checklist": [
+        {
+          "id": "8.2.1",
+          "clauses": [
+            "4a.1",
+            "4a.8"
+          ],
+          "requirement": "decodes a code array from index 0 by instruction length, reads multi byte operands big endian, pads `tableswitch` and `lookupswitch` operands to a four byte boundary measured from the start of the array, and ends the last instruction at `code_length - 1`."
+        },
+        {
+          "id": "8.2.2",
+          "clauses": [
+            "4a.2",
+            "4c.2"
+          ],
+          "requirement": "creates one frame per invocation with its own locals, its own operand stack and its own constant pool reference, and destroys it before the invoker resumes, which is checked by walking the stack from inside a recursion."
+        },
+        {
+          "id": "8.2.3",
+          "clauses": [
+            "4a.3",
+            "4a.10"
+          ],
+          "requirement": "addresses a `long` or a `double` in the local variable array by the lesser of its two indices, at both even and odd indices, and neither requires nor assumes alignment of the pair."
+        },
+        {
+          "id": "8.2.4",
+          "clauses": [
+            "4a.4",
+            "4a.9"
+          ],
+          "requirement": "starts every frame with an empty operand stack and executes correctly a method whose stack reaches exactly `max_stack` on some path, including a `long` or `double` value at the top of it."
+        },
+        {
+          "id": "8.2.5",
+          "clauses": [
+            "4a.5"
+          ],
+          "requirement": "gives each thread its own program counter, so two threads executing the same method are at independent points in it, which is checked with two threads in one loop rather than by reading any diagnostic."
+        },
+        {
+          "id": "8.2.6",
+          "clauses": [
+            "4a.6"
+          ],
+          "requirement": "executes a method whose code array is one byte long and one whose code array is 65535 bytes long, and refuses a class file offering an empty one."
+        },
+        {
+          "id": "8.2.7",
+          "clauses": [
+            "4a.7"
+          ],
+          "requirement": "executes every opcode the specification documents and refuses, before execution, any code array containing an opcode it does not document, including a machine's own internal codes if it has any."
+        },
+        {
+          "id": "8.2.8",
+          "clauses": [
+            "4a.11"
+          ],
+          "requirement": "documents which of its own checks are performed at run time and which it relies on verification for, since the specification permits either and a reader cannot tell them apart by testing a machine that is correct."
+        },
+        {
+          "id": "8.2.9",
+          "clauses": [
+            "4a.12",
+            "4c.3"
+          ],
+          "requirement": "releases the monitor of a `synchronized` method before an exception raised inside it becomes visible to the invoker, checked with `Thread.holdsLock` in the invoker's handler rather than after the stack has unwound further."
+        },
+        {
+          "id": "8.2.10",
+          "clauses": [
+            "4a.13"
+          ],
+          "requirement": "pushes the returned value onto the invoker's operand stack on normal completion and pushes nothing on abrupt completion, checked for each of the five return instructions and for a `void` method."
+        },
+        {
+          "id": "8.2.11",
+          "clauses": [
+            "4a.14"
+          ],
+          "requirement": "documents whether it enforces structured locking, and behaves the way it documents for a method that exits a monitor it did not enter and for one that exits two monitors in entry order."
+        },
+        {
+          "id": "8.2.12",
+          "clauses": [
+            "4b.1",
+            "4b.2",
+            "4b.3"
+          ],
+          "requirement": "documents any limit its own representation of a method imposes beyond the limits section 4a states, and imposes none that is smaller."
+        },
+        {
+          "id": "8.2.13",
+          "clauses": [
+            "4b.4",
+            "4b.5",
+            "4b.6"
+          ],
+          "requirement": "passes arguments to an invoked method so that they arrive as its first local variables in index order, whatever the direction its stacks grow, checked with a method of eight parameters of mixed widths."
+        },
+        {
+          "id": "8.2.14",
+          "clauses": [
+            "4b.7",
+            "4b.8",
+            "4b.12"
+          ],
+          "requirement": "produces identical observable behaviour for every program with each of its code rewriting options on and off, which is the item that makes rewriting an implementation detail rather than a semantic."
+        },
+        {
+          "id": "8.2.15",
+          "clauses": [
+            "4b.9",
+            "4c.6"
+          ],
+          "requirement": "keeps any rewritten operand meaningful only inside the machine, so that reflection, the class file API and any agent see the constant pool index the class file carried and not the rewritten form, and performs no rewrite that depends on a structure it has not yet built."
+        },
+        {
+          "id": "8.2.16",
+          "clauses": [
+            "4b.10"
+          ],
+          "requirement": "loads and executes every class file that satisfies section 4a, or documents each internal limit that makes it refuse one, since a refusal here is a refusal of a legal program."
+        },
+        {
+          "id": "8.2.17",
+          "clauses": [
+            "4b.11",
+            "4b.13",
+            "4b.14"
+          ],
+          "requirement": "modifies a code array while threads execute it only by single byte stores after which the instruction sequence beginning at that byte has the same effect and the same end index as before, and reports the original instruction, not the rewritten one, through every interface a program can reach."
+        },
+        {
+          "id": "8.2.18",
+          "clauses": [
+            "4c.1"
+          ],
+          "requirement": "determines the length of an instruction from its opcode alone, so that no operand of any instruction is fetched before the opcode that gives it meaning."
+        },
+        {
+          "id": "8.2.19",
+          "clauses": [
+            "4c.4",
+            "4c.5"
+          ],
+          "requirement": "verifies a class's methods before transforming them in any way, and makes the class available to other threads only after both have finished, so no thread can execute a partly transformed method."
+        }
+      ]
+    },
+    {
+      "id": "BP-CLASSFILE",
+      "title": "The class file",
+      "status": "draft",
+      "page": "docs/blueprints/BP-CLASSFILE.md",
+      "clauses": [
+        {
+          "id": "4a.1",
+          "part": "4a",
+          "kinds": [
+            "JVMS"
+          ],
+          "citations": [
+            "\u00a74.1@SE25"
+          ],
+          "text": "The first four bytes are the magic number `0xCAFEBABE`, and a file whose first four bytes are anything else is not a class file .",
+          "observed_by": [
+            "5.1"
+          ],
+          "tested_by": [
+            "8.2.1"
+          ]
+        },
+        {
+          "id": "4a.2",
+          "part": "4a",
+          "kinds": [
+            "JVMS"
+          ],
+          "citations": [
+            "\u00a75.3.5@SE25"
+          ],
+          "text": "A representation whose major or minor version the implementation does not support is refused with `UnsupportedClassVersionError`, which is a subclass of `ClassFormatError` and exists so that this one cause can be told apart from the rest .",
+          "observed_by": [
+            "5.2"
+          ],
+          "tested_by": [
+            "8.2.2"
+          ]
+        },
+        {
+          "id": "4a.3",
+          "part": "4a",
+          "kinds": [
+            "JVMS"
+          ],
+          "citations": [
+            "\u00a74.1@SE25"
+          ],
+          "text": "`constant_pool_count` is one greater than the number of entries, the table is indexed from 1 to `constant_pool_count - 1`, and an index is valid only if it is greater than zero and less than the count .",
+          "observed_by": [
+            "5.3"
+          ],
+          "tested_by": [
+            "8.2.3"
+          ]
+        },
+        {
+          "id": "4a.4",
+          "part": "4a",
+          "kinds": [
+            "JVMS"
+          ],
+          "citations": [
+            "\u00a74.8@SE25"
+          ],
+          "text": "Format checking establishes that the magic number is right, that every predefined attribute has the length its definition gives it, that the file is neither truncated nor followed by extra bytes, and that the constant pool satisfies the constraints stated for it, and it establishes nothing about whether the classes and members named actually exist .",
+          "observed_by": [
+            "5.4"
+          ],
+          "tested_by": [
+            "8.2.4"
+          ]
+        },
+        {
+          "id": "4a.5",
+          "part": "4a",
+          "kinds": [
+            "JVMS"
+          ],
+          "citations": [
+            "\u00a74.7.1@SE25"
+          ],
+          "text": "An attribute the implementation does not recognise is ignored in silence, and an implementation is prohibited from refusing a class file because it contains one .",
+          "observed_by": [
+            "5.5"
+          ],
+          "tested_by": [
+            "8.2.5"
+          ]
+        },
+        {
+          "id": "4a.6",
+          "part": "4a",
+          "kinds": [
+            "JVMS"
+          ],
+          "citations": [
+            "\u00a75.3.5@SE25"
+          ],
+          "text": "A representation that is not a `ClassFile` structure is refused with `ClassFormatError`, and one that is well formed but names a class other than the one requested, or has `ACC_MODULE` set, is refused with `NoClassDefFoundError` .",
+          "observed_by": [
+            "5.6"
+          ],
+          "tested_by": [
+            "8.2.6"
+          ]
+        },
+        {
+          "id": "4a.7",
+          "part": "4a",
+          "kinds": [
+            "JVMS"
+          ],
+          "citations": [
+            "\u00a74.1@SE25"
+          ],
+          "text": "Every bit of `access_flags` that Table 4.1-B does not assign is reserved, should be zero in a generated class file, and should be ignored by an implementation reading one .",
+          "observed_by": [
+            "5.7"
+          ],
+          "tested_by": [
+            "8.2.7"
+          ]
+        },
+        {
+          "id": "4a.8",
+          "part": "4a",
+          "kinds": [
+            "JVMS"
+          ],
+          "citations": [
+            "\u00a74.1@SE25"
+          ],
+          "text": "An interface has `ACC_ABSTRACT` set and `ACC_FINAL`, `ACC_SUPER`, `ACC_ENUM` and `ACC_MODULE` clear, and a class that is not an interface does not have both `ACC_FINAL` and `ACC_ABSTRACT` set .",
+          "observed_by": [
+            "5.8"
+          ],
+          "tested_by": [
+            "8.2.8"
+          ]
+        },
+        {
+          "id": "4a.9",
+          "part": "4a",
+          "kinds": [
+            "JVMS"
+          ],
+          "citations": [
+            "\u00a74.4.7@SE25"
+          ],
+          "text": "The bytes of a `CONSTANT_Utf8_info` are modified UTF-8 rather than UTF-8, so no byte may be zero and no byte may lie in the range `0xf0` to `0xff`, and a character outside the basic multilingual plane is encoded as a surrogate pair of three byte sequences .",
+          "observed_by": [
+            "5.9"
+          ],
+          "tested_by": [
+            "8.2.9"
+          ]
+        },
+        {
+          "id": "4a.10",
+          "part": "4a",
+          "kinds": [
+            "JVMS"
+          ],
+          "citations": [
+            "\u00a74.11@SE25"
+          ],
+          "text": "The format's own field widths are its limits: 65535 constant pool entries, 65535 fields, 65535 methods, 65535 direct superinterfaces, 65535 local variables and 65535 operand stack slots in one frame, and 255 method parameters counted with `long` and `double` as two each .",
+          "observed_by": [
+            "5.10"
+          ],
+          "tested_by": [
+            "8.2.10"
+          ]
+        },
+        {
+          "id": "4a.11",
+          "part": "4a",
+          "kinds": [
+            "JVMS"
+          ],
+          "citations": [
+            "\u00a75.4.1@SE25"
+          ],
+          "text": "A class file that does not satisfy the static and structural constraints on the code of a method is refused with `VerifyError`, which is a different error from the one a malformed file gets and is raised at a different point in the class's life .",
+          "observed_by": [
+            "5.11"
+          ],
+          "tested_by": [
+            "8.2.11"
+          ]
+        },
+        {
+          "id": "4b.1",
+          "part": "4b",
+          "kinds": [
+            "HOTSPOT"
+          ],
+          "citations": [
+            "src/hotspot/share/classfile/classFileParser.cpp:5506@jdk-27+35"
+          ],
+          "text": "The magic number is checked before anything else is read, and the message names the value it found in decimal rather than in hexadecimal, so a file starting with the letters `PK` is reported as `Incompatible magic value 1347093252` .",
+          "observed_by": [
+            "5.1"
+          ],
+          "tested_by": [
+            "8.2.1"
+          ]
+        },
+        {
+          "id": "4b.2",
+          "part": "4b",
+          "kinds": [
+            "HOTSPOT"
+          ],
+          "citations": [
+            "src/hotspot/share/classfile/classFileParser.cpp:5515@jdk-27+35"
+          ],
+          "text": "The version is checked even when every other format check has been turned off, which makes it the one property of a class file that cannot be waved through .",
+          "observed_by": [
+            "5.2"
+          ],
+          "tested_by": [
+            "8.2.2"
+          ]
+        },
+        {
+          "id": "4b.3",
+          "part": "4b",
+          "kinds": [
+            "HOTSPOT"
+          ],
+          "citations": [
+            "src/hotspot/share/classfile/classFileParser.cpp:4355@jdk-27+35",
+            "src/hotspot/share/classfile/classFileParser.cpp:4365@jdk-27+35"
+          ],
+          "text": "A major version below the minimum and a major version above the maximum produce two differently worded errors, `was compiled with an invalid major version` for the first and `has been compiled by a more recent version of the Java Runtime` for the second, and only the second one names the version this runtime does support .",
+          "observed_by": [
+            "5.2"
+          ],
+          "tested_by": [
+            "8.2.2"
+          ]
+        },
+        {
+          "id": "4b.4",
+          "part": "4b",
+          "kinds": [
+            "HOTSPOT"
+          ],
+          "citations": [
+            "src/hotspot/share/classfile/classFileParser.cpp:4387@jdk-27+35"
+          ],
+          "text": "A minor version of 65535 is accepted only when the major version is exactly this runtime's own and `--enable-preview` was given, and any other non zero minor version at a major version of 56 or above is refused outright .",
+          "observed_by": [
+            "5.2"
+          ],
+          "tested_by": [
+            "8.2.2"
+          ]
+        },
+        {
+          "id": "4b.5",
+          "part": "4b",
+          "kinds": [
+            "HOTSPOT"
+          ],
+          "citations": [
+            "src/hotspot/share/classfile/classFileParser.cpp:5547@jdk-27+35"
+          ],
+          "text": "Class access flag bits that are not recognised are masked off as the two bytes are read, before any check looks at them, so a class file with reserved bits set loads and the bits are gone by the time anything could object to them .",
+          "observed_by": [
+            "5.7"
+          ],
+          "tested_by": [
+            "8.2.7"
+          ]
+        },
+        {
+          "id": "4b.6",
+          "part": "4b",
+          "kinds": [
+            "HOTSPOT"
+          ],
+          "citations": [
+            "src/hotspot/share/classfile/verifier.cpp:115@jdk-27+35"
+          ],
+          "text": "How much of the class file is checked at all is decided per class from the defining loader and a pair of diagnostic flags, so two identical byte arrays loaded by two different loaders are not held to the same standard .",
+          "observed_by": [
+            "5.12"
+          ],
+          "tested_by": [
+            "8.2.12"
+          ]
+        },
+        {
+          "id": "4b.7",
+          "part": "4b",
+          "kinds": [
+            "HOTSPOT"
+          ],
+          "citations": [
+            "src/hotspot/share/classfile/classFileParser.cpp:5392@jdk-27+35"
+          ],
+          "text": "A JVMTI agent that has registered for the class file load hook forces full checking on regardless of the loader, which means attaching an agent can turn a class file that loaded yesterday into a `ClassFormatError` today .",
+          "observed_by": [
+            "5.12"
+          ],
+          "tested_by": [
+            "8.2.12"
+          ]
+        },
+        {
+          "id": "4b.8",
+          "part": "4b",
+          "kinds": [
+            "HOTSPOT"
+          ],
+          "citations": [
+            "src/hotspot/share/classfile/classFileParser.cpp:2290@jdk-27+35"
+          ],
+          "text": "The argument count of a method is checked against its `max_locals` in the parser, immediately after the two numbers are read and before the code array, and the error is a `ClassFormatError` saying `Arguments can't fit into locals` .",
+          "observed_by": [
+            "5.11"
+          ],
+          "tested_by": [
+            "8.2.11"
+          ]
+        },
+        {
+          "id": "4b.9",
+          "part": "4b",
+          "kinds": [
+            "HOTSPOT"
+          ],
+          "citations": [
+            "src/hotspot/share/classfile/classFileParser.cpp:2293@jdk-27+35"
+          ],
+          "text": "The code array is bounded at 65535 bytes by a check rather than by a field width, and the check runs only when the class is being format checked, so the bound is not enforced for every class .",
+          "observed_by": [
+            "5.10"
+          ],
+          "tested_by": [
+            "8.2.10"
+          ]
+        },
+        {
+          "id": "4b.10",
+          "part": "4b",
+          "kinds": [
+            "HOTSPOT"
+          ],
+          "citations": [
+            "src/java.base/share/native/libjava/ClassLoader.c:115@jdk-27+35"
+          ],
+          "text": "A class defined from a `byte[]` is parsed from a private copy taken before the machine is called, so a concurrent write to the array cannot affect the class that results .",
+          "observed_by": [
+            "5.13"
+          ],
+          "tested_by": [
+            "8.2.13"
+          ]
+        },
+        {
+          "id": "4b.11",
+          "part": "4b",
+          "kinds": [
+            "HOTSPOT"
+          ],
+          "citations": [
+            "src/java.base/share/native/libjava/ClassLoader.c:176@jdk-27+35"
+          ],
+          "text": "A class defined from a direct `ByteBuffer` by a platform class loader is parsed in place, out of the caller's own memory, with no copy anywhere between the call and the parser .",
+          "observed_by": [
+            "5.13"
+          ],
+          "tested_by": [
+            "8.2.13"
+          ]
+        },
+        {
+          "id": "4b.12",
+          "part": "4b",
+          "kinds": [
+            "HOTSPOT"
+          ],
+          "citations": [
+            "src/hotspot/share/classfile/classFileParser.cpp:1349@jdk-27+35"
+          ],
+          "text": "An attribute whose name is not recognised is skipped by its declared length, which is the same code path in a class, a field, a method and a `Code` attribute, and an attribute length that runs off the end of the file is caught by the stream rather than by the attribute reader .",
+          "observed_by": [
+            "5.5"
+          ],
+          "tested_by": [
+            "8.2.5"
+          ]
+        },
+        {
+          "id": "4b.13",
+          "part": "4b",
+          "kinds": [
+            "HOTSPOT"
+          ],
+          "citations": [
+            "src/hotspot/share/classfile/classFileStream.cpp:30@jdk-27+35"
+          ],
+          "text": "Running out of bytes anywhere produces one error with one message, `Truncated class file`, which names neither the structure being read nor the offset it stopped at .",
+          "observed_by": [
+            "5.14"
+          ],
+          "tested_by": [
+            "8.2.14"
+          ]
+        },
+        {
+          "id": "4b.14",
+          "part": "4b",
+          "kinds": [
+            "HOTSPOT"
+          ],
+          "citations": [
+            "src/hotspot/share/classfile/classFileParser.cpp:5530@jdk-27+35"
+          ],
+          "text": "The constant pool is allocated at the count the file declares, before a single entry has been read, which is safe only because the count is bounded at 65535 by its field width .",
+          "observed_by": [
+            "5.10"
+          ],
+          "tested_by": [
+            "8.2.3"
+          ]
+        },
+        {
+          "id": "4b.15",
+          "part": "4b",
+          "kinds": [
+            "HOTSPOT"
+          ],
+          "citations": [
+            "src/hotspot/share/classfile/stackMapTable.hpp:139@jdk-27+35"
+          ],
+          "text": "The stack map frames of a method are validated against that method's `max_stack` while the attribute is being read, and a frame that exceeds it is reported through the verifier's class format error path, which is why breaking `max_stack` produces a `ClassFormatError` naming a rule about type array sizes .",
+          "observed_by": [
+            "5.11"
+          ],
+          "tested_by": [
+            "8.2.11"
+          ]
+        },
+        {
+          "id": "4c.1",
+          "part": "4c",
+          "kinds": [
+            "JVMS"
+          ],
+          "citations": [
+            "\u00a74.1@SE25"
+          ],
+          "text": "The header is read in the order the structure declares it, magic then minor version then major version then the constant pool count, and no later item may be read before an earlier one, because the earlier ones decide how the later ones are interpreted .",
+          "observed_by": [
+            "5.14"
+          ],
+          "tested_by": [
+            "8.2.15"
+          ]
+        },
+        {
+          "id": "4c.2",
+          "part": "4c",
+          "kinds": [
+            "HOTSPOT"
+          ],
+          "citations": [
+            "src/hotspot/share/classfile/classFileParser.cpp:5536@jdk-27+35"
+          ],
+          "text": "The whole constant pool is read before any index into it is resolved, because an entry may refer to an entry that comes after it, and an implementation that checks references as it reads will reject valid class files .",
+          "observed_by": [
+            "5.3"
+          ],
+          "tested_by": [
+            "8.2.3"
+          ]
+        },
+        {
+          "id": "4c.3",
+          "part": "4c",
+          "kinds": [
+            "HOTSPOT"
+          ],
+          "citations": [
+            "src/hotspot/share/classfile/classFileParser.cpp:5561@jdk-27+35"
+          ],
+          "text": "The error for an unrecognised constant pool tag is held back until the access flags have been read and checked, because a file with `ACC_MODULE` set has to fail with `NoClassDefFoundError` rather than with `ClassFormatError`, and the tag error would otherwise get there first .",
+          "observed_by": [
+            "5.6"
+          ],
+          "tested_by": [
+            "8.2.6"
+          ]
+        },
+        {
+          "id": "4c.4",
+          "part": "4c",
+          "kinds": [
+            "JVMS"
+          ],
+          "citations": [
+            "\u00a75.3.5@SE25"
+          ],
+          "text": "The two failures that belong to the loader rather than to the bytes come first: a loader already recorded as an initiating loader of this name fails with `LinkageError`, and a derivation already in progress for this name fails with `ClassCircularityError`, both before the representation is parsed .",
+          "observed_by": [
+            "5.15"
+          ],
+          "tested_by": [
+            "8.2.16"
+          ]
+        },
+        {
+          "id": "4c.5",
+          "part": "4c",
+          "kinds": [
+            "JVMS"
+          ],
+          "citations": [
+            "\u00a75.4@SE25"
+          ],
+          "text": "Format checking is complete before verification begins, because verification is part of linking and linking happens to a class that already exists .",
+          "observed_by": [
+            "5.16"
+          ],
+          "tested_by": [
+            "8.2.17"
+          ]
+        },
+        {
+          "id": "4c.6",
+          "part": "4c",
+          "kinds": [
+            "HOTSPOT"
+          ],
+          "citations": [
+            "src/hotspot/share/classfile/classFileParser.cpp:5697@jdk-27+35"
+          ],
+          "text": "The check that no bytes remain is last, after every attribute of the class has been read, so an implementation cannot report the extra bytes until it has consumed everything it recognises .",
+          "observed_by": [
+            "5.4"
+          ],
+          "tested_by": [
+            "8.2.4"
+          ]
+        }
+      ],
+      "checklist": [
+        {
+          "id": "8.2.1",
+          "clauses": [
+            "4a.1",
+            "4b.1"
+          ],
+          "requirement": "refuses every input whose first four bytes are not `0xCAFEBABE`, including the empty input and an input of fewer than four bytes, and does so before interpreting anything else."
+        },
+        {
+          "id": "8.2.2",
+          "clauses": [
+            "4a.2",
+            "4b.2",
+            "4b.3",
+            "4b.4"
+          ],
+          "requirement": "accepts exactly the major versions it documents, refuses the ones below and above with `UnsupportedClassVersionError`, and treats a minor version of 65535 as a preview class file rather than as an ordinary one."
+        },
+        {
+          "id": "8.2.3",
+          "clauses": [
+            "4a.3",
+            "4b.14",
+            "4c.2"
+          ],
+          "requirement": "indexes the constant pool from 1 to `constant_pool_count - 1`, resolves an entry that refers to a later entry, and does not allocate on the declared count in a way that a count of 65535 with no entries behind it can exhaust."
+        },
+        {
+          "id": "8.2.4",
+          "clauses": [
+            "4a.4",
+            "4c.6"
+          ],
+          "requirement": "refuses a truncated file and a file with bytes after the last class attribute, and reaches the second decision only after every attribute it recognises has been consumed."
+        },
+        {
+          "id": "8.2.5",
+          "clauses": [
+            "4a.5",
+            "4b.12"
+          ],
+          "requirement": "loads a class carrying an attribute with an unrecognised name on the class, on a field, on a method and inside a `Code` attribute, and reports no error and no warning for any of the four."
+        },
+        {
+          "id": "8.2.6",
+          "clauses": [
+            "4a.6",
+            "4c.3"
+          ],
+          "requirement": "distinguishes the three failures of derivation, `ClassFormatError` for a representation that is not a `ClassFile` structure, `NoClassDefFoundError` for one that names a different class or has `ACC_MODULE` set, and reaches the second of those even when the file also contains a constant pool tag it does not recognise."
+        },
+        {
+          "id": "8.2.7",
+          "clauses": [
+            "4a.7",
+            "4b.5"
+          ],
+          "requirement": "loads a class file with reserved `access_flags` bits set, and whatever it does with those bits, reports them consistently through every interface it offers."
+        },
+        {
+          "id": "8.2.8",
+          "clauses": [
+            "4a.8"
+          ],
+          "requirement": "refuses `ACC_INTERFACE` without `ACC_ABSTRACT`, `ACC_FINAL` together with `ACC_ABSTRACT` on a class, and every contradictory flag pair Table 4.1-B forbids on a field and on a method."
+        },
+        {
+          "id": "8.2.9",
+          "clauses": [
+            "4a.9"
+          ],
+          "requirement": "refuses a `CONSTANT_Utf8_info` containing a zero byte or a byte in the range `0xf0` to `0xff`, and accepts a supplementary character encoded as a surrogate pair of two three byte sequences."
+        },
+        {
+          "id": "8.2.10",
+          "clauses": [
+            "4a.10",
+            "4b.9"
+          ],
+          "requirement": "accepts a class at each of the format's stated limits, 65535 fields, 65535 methods and 65535 superinterfaces, and refuses a method whose code array exceeds 65535 bytes whatever the width of the field says."
+        },
+        {
+          "id": "8.2.11",
+          "clauses": [
+            "4a.11",
+            "4b.8",
+            "4b.15"
+          ],
+          "requirement": "reports a violation of a static or structural constraint on a method's code as `VerifyError` rather than as `ClassFormatError`, which is the item the pinned HotSpot build fails for `max_stack` and for the argument count against `max_locals`."
+        },
+        {
+          "id": "8.2.12",
+          "clauses": [
+            "4b.6",
+            "4b.7"
+          ],
+          "requirement": "documents, for every configuration it offers, which checks are skipped, and either performs every 4a check in every configuration or names the configuration in which it does not."
+        },
+        {
+          "id": "8.2.13",
+          "clauses": [
+            "4b.10",
+            "4b.11"
+          ],
+          "requirement": "derives, for every entry point that takes a buffer the caller can still write to, a class that some single snapshot of that buffer would have derived, or documents that the entry point is unsafe under concurrent modification."
+        },
+        {
+          "id": "8.2.14",
+          "clauses": [
+            "4b.13"
+          ],
+          "requirement": "terminates on every input without reading outside the buffer it was given, which is checked by a fuzzer rather than by a test, and reports a diagnosable error for each of the eight top level items a file can be truncated inside."
+        },
+        {
+          "id": "8.2.15",
+          "clauses": [
+            "4c.1"
+          ],
+          "requirement": "reads magic, then minor version, then major version, then the constant pool count, and does not decide anything about a later item before an earlier one has been read."
+        },
+        {
+          "id": "8.2.16",
+          "clauses": [
+            "4c.4"
+          ],
+          "requirement": "raises `LinkageError` for a loader already recorded as an initiating loader of the name and `ClassCircularityError` for a derivation already in progress, both before any byte of the representation is parsed."
+        },
+        {
+          "id": "8.2.17",
+          "clauses": [
+            "4c.5"
+          ],
+          "requirement": "completes format checking before verification begins, so a class whose bytes are well formed and whose code does not verify exists as a `Class` object before the `VerifyError` is raised."
+        }
+      ]
+    }
+  ]
+}

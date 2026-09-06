@@ -4,6 +4,142 @@
     "jdk-27-ga"
   ],
   "citations": {
+    "src/hotspot/cpu/aarch64/frame_aarch64.hpp:190": {
+      "cited_in": [
+        "blueprints/BP-BYTECODE/2-data-structures.md",
+        "blueprints/BP-BYTECODE/4-guarantees.md",
+        "docs/blueprints/BP-BYTECODE.md",
+        "docs/generated/conformance.json"
+      ],
+      "context_sha256": "77f1ec2fa9190e1ff018e8b5d5ee1da4e8e877a5b2f260b13a29b40b61a4478d",
+      "line": "  static jint interpreter_frame_expression_stack_direction() { return -1; }",
+      "tag": "jdk-27+35"
+    },
+    "src/hotspot/cpu/aarch64/frame_aarch64.hpp:35": {
+      "cited_in": [
+        "blueprints/BP-BYTECODE/2-data-structures.md",
+        "docs/blueprints/BP-BYTECODE.md"
+      ],
+      "context_sha256": "13896b3142763d9f1949a12a096ff41c561ec3d6d7b1261ef2d3bb298d8248c1",
+      "line": "// Layout of asm interpreter frame:",
+      "tag": "jdk-27+35"
+    },
+    "src/hotspot/cpu/aarch64/frame_aarch64.hpp:36": {
+      "cited_in": [
+        "blueprints/BP-BYTECODE/2-data-structures.md",
+        "blueprints/BP-BYTECODE/4-guarantees.md",
+        "docs/blueprints/BP-BYTECODE.md",
+        "docs/generated/conformance.json"
+      ],
+      "context_sha256": "2b7c59b10e7c308a714a1e50a35353a7dd8a225f2e9086ef286472ff2ac47cd8",
+      "line": "//    [expression stack      ] * <- sp",
+      "tag": "jdk-27+35"
+    },
+    "src/hotspot/cpu/aarch64/frame_aarch64.hpp:42": {
+      "cited_in": [
+        "blueprints/BP-BYTECODE/2-data-structures.md",
+        "blueprints/BP-BYTECODE/4-guarantees.md",
+        "docs/blueprints/BP-BYTECODE.md",
+        "docs/generated/conformance.json"
+      ],
+      "context_sha256": "82f605d3d47d9af2311fa8d2c91d0663005da24325e9c5a5de8172a54868ca11",
+      "line": "//    [byte code index/pointr]                   = bcx()                bcx_offset",
+      "tag": "jdk-27+35"
+    },
+    "src/hotspot/cpu/aarch64/frame_aarch64.hpp:44": {
+      "cited_in": [
+        "blueprints/BP-BYTECODE/2-data-structures.md",
+        "blueprints/BP-BYTECODE/4-guarantees.md",
+        "docs/blueprints/BP-BYTECODE.md",
+        "docs/generated/conformance.json"
+      ],
+      "context_sha256": "efe3f2e3317206b68773e314635148bc3524caa62861a3334478984f49a05acd",
+      "line": "//    [pointer to locals     ]                   = locals()             locals_offset",
+      "tag": "jdk-27+35"
+    },
+    "src/hotspot/cpu/aarch64/frame_aarch64.hpp:63": {
+      "cited_in": [
+        "blueprints/BP-BYTECODE/2-data-structures.md",
+        "blueprints/BP-BYTECODE/4-guarantees.md",
+        "docs/blueprints/BP-BYTECODE.md",
+        "docs/generated/conformance.json"
+      ],
+      "context_sha256": "70bd31022f9edaf71614c81f995099e25af5c4f6c9d4bc868882ce9b654bf180",
+      "line": "//    [locals and parameters ]",
+      "tag": "jdk-27+35"
+    },
+    "src/hotspot/cpu/aarch64/globals_aarch64.hpp:65": {
+      "cited_in": [
+        "blueprints/BP-BYTECODE/7-configuration.md",
+        "docs/blueprints/BP-BYTECODE.md"
+      ],
+      "context_sha256": "90d9d143200fcf297667982e21d911abf379a6538ea604b2e2d9c656ca2b5efa",
+      "line": "define_pd_global(bool, RewriteBytecodes,     true);",
+      "tag": "jdk-27+35"
+    },
+    "src/hotspot/cpu/aarch64/globals_aarch64.hpp:66": {
+      "cited_in": [
+        "blueprints/BP-BYTECODE/7-configuration.md",
+        "docs/blueprints/BP-BYTECODE.md"
+      ],
+      "context_sha256": "95030cacaff3823f65d07a39e43b19a583284da72ad55358ebb083f4c2a1d624",
+      "line": "define_pd_global(bool, RewriteFrequentPairs, true);",
+      "tag": "jdk-27+35"
+    },
+    "src/hotspot/cpu/aarch64/templateTable_aarch64.cpp:168": {
+      "cited_in": [
+        "blueprints/BP-BYTECODE/4-guarantees.md",
+        "blueprints/BP-BYTECODE/6-edge-cases.md",
+        "docs/blueprints/BP-BYTECODE.md",
+        "docs/generated/conformance.json"
+      ],
+      "context_sha256": "7f30d726d841096931a01d04f44966aa0e8d457c2d26a2d2c708a59376bf55dd",
+      "line": "  if (!RewriteBytecodes)  return;",
+      "tag": "jdk-27+35"
+    },
+    "src/hotspot/cpu/aarch64/templateTable_aarch64.cpp:917": {
+      "cited_in": [
+        "blueprints/BP-BYTECODE/4-guarantees.md",
+        "docs/blueprints/BP-BYTECODE.md",
+        "docs/generated/conformance.json"
+      ],
+      "context_sha256": "b3e9732095aed1055e849ac176721a8ff7c44590f2ed0c6c8859db85651c2327",
+      "line": "void TemplateTable::aload_0_internal(RewriteControl rc) {",
+      "tag": "jdk-27+35"
+    },
+    "src/hotspot/cpu/aarch64/templateTable_aarch64.cpp:939": {
+      "cited_in": [
+        "blueprints/BP-BYTECODE/4-guarantees.md",
+        "blueprints/BP-BYTECODE/6-edge-cases.md",
+        "docs/blueprints/BP-BYTECODE.md",
+        "docs/generated/conformance.json"
+      ],
+      "context_sha256": "b5ea4456abe8559b7f71edf696faec85105fbb13752c891ffb6c8a3713948efd",
+      "line": "  if (RewriteFrequentPairs && rc == may_rewrite) {",
+      "tag": "jdk-27+35"
+    },
+    "src/hotspot/cpu/aarch64/templateTable_aarch64.cpp:947": {
+      "cited_in": [
+        "blueprints/BP-BYTECODE/4-guarantees.md",
+        "blueprints/BP-BYTECODE/6-edge-cases.md",
+        "docs/blueprints/BP-BYTECODE.md",
+        "docs/generated/conformance.json"
+      ],
+      "context_sha256": "b1449187bf7ba2f06dfac8f82bb83be6ef32c93b7d8d6e13b7f888e6abfa4991",
+      "line": "    __ cmpw(r1, Bytecodes::Bytecodes::_getfield);",
+      "tag": "jdk-27+35"
+    },
+    "src/hotspot/cpu/aarch64/templateTable_aarch64.cpp:953": {
+      "cited_in": [
+        "blueprints/BP-BYTECODE/4-guarantees.md",
+        "blueprints/BP-BYTECODE/6-edge-cases.md",
+        "docs/blueprints/BP-BYTECODE.md",
+        "docs/generated/conformance.json"
+      ],
+      "context_sha256": "c6405a8fdc51409969b048211d8874e96474704a7297cb5449b9c3f39eadd012",
+      "line": "    __ movw(bc, Bytecodes::_fast_iaccess_0);",
+      "tag": "jdk-27+35"
+    },
     "src/hotspot/cpu/aarch64/vm_version_aarch64.cpp:125": {
       "cited_in": [
         "docs/probes/vmflags.md"
@@ -78,12 +214,161 @@
       "line": "define_pd_global(intx, CompilerThreadStackSize,  2040);",
       "tag": "jdk-27+35"
     },
+    "src/hotspot/share/classfile/classFileParser.cpp:1349": {
+      "cited_in": [
+        "blueprints/BP-CLASSFILE/4-guarantees.md",
+        "docs/blueprints/BP-CLASSFILE.md",
+        "docs/generated/conformance.json"
+      ],
+      "context_sha256": "dc478cf9f9d19f34ca7b118686029105c49154a71eb391fd666c7ca51650e948",
+      "line": "        cfs->skip_u1(attribute_length, CHECK);  // Skip unknown attributes",
+      "tag": "jdk-27+35"
+    },
     "src/hotspot/share/classfile/classFileParser.cpp:2290": {
       "cited_in": [
+        "blueprints/BP-CLASSFILE/4-guarantees.md",
+        "docs/blueprint-format.md",
+        "docs/blueprints/BP-CLASSFILE.md",
+        "docs/generated/conformance.json",
         "docs/probes/classfile-fuzz.md"
       ],
       "context_sha256": "4f0a96ed22ddf84b217fc940f5dadd9bc22d39efab2236ca9c6d87224230cc79",
       "line": "        guarantee_property(args_size <= max_locals,",
+      "tag": "jdk-27+35"
+    },
+    "src/hotspot/share/classfile/classFileParser.cpp:2293": {
+      "cited_in": [
+        "blueprints/BP-CLASSFILE/4-guarantees.md",
+        "blueprints/BP-CLASSFILE/6-edge-cases.md",
+        "docs/blueprints/BP-CLASSFILE.md",
+        "docs/generated/conformance.json"
+      ],
+      "context_sha256": "c5f837ccfcad7c603753fd07d209bc4e61bee47185f66bb10857186eb9eb538c",
+      "line": "        guarantee_property(code_length > 0 && code_length <= MAX_CODE_SIZE,",
+      "tag": "jdk-27+35"
+    },
+    "src/hotspot/share/classfile/classFileParser.cpp:4355": {
+      "cited_in": [
+        "blueprints/BP-CLASSFILE/4-guarantees.md",
+        "docs/blueprints/BP-CLASSFILE.md",
+        "docs/generated/conformance.json"
+      ],
+      "context_sha256": "110f17364fcf005e24a2af851024e4d7f2da87d0dffed305dab90a52c44c4e29",
+      "line": "    classfile_ucve_error(\"%s (class file version %u.%u) was compiled with an invalid major version\",",
+      "tag": "jdk-27+35"
+    },
+    "src/hotspot/share/classfile/classFileParser.cpp:4365": {
+      "cited_in": [
+        "blueprints/BP-CLASSFILE/4-guarantees.md",
+        "docs/blueprints/BP-CLASSFILE.md",
+        "docs/generated/conformance.json"
+      ],
+      "context_sha256": "962765406afacdc905692c4ea4723c6178d72c0018cc3134b49378c7f9d72524",
+      "line": "      \"%s has been compiled by a more recent version of the Java Runtime (class file version %u.%u), \"",
+      "tag": "jdk-27+35"
+    },
+    "src/hotspot/share/classfile/classFileParser.cpp:4387": {
+      "cited_in": [
+        "blueprints/BP-CLASSFILE/4-guarantees.md",
+        "blueprints/BP-CLASSFILE/7-configuration.md",
+        "docs/blueprints/BP-CLASSFILE.md",
+        "docs/generated/conformance.json"
+      ],
+      "context_sha256": "fa4d956bf4ab69b40b4cc17f577587d0bf0261c02e19a00733b5a4c2486f5796",
+      "line": "    if (!Arguments::enable_preview()) {",
+      "tag": "jdk-27+35"
+    },
+    "src/hotspot/share/classfile/classFileParser.cpp:5392": {
+      "cited_in": [
+        "blueprints/BP-CLASSFILE/4-guarantees.md",
+        "blueprints/BP-CLASSFILE/7-configuration.md",
+        "docs/blueprints/BP-CLASSFILE.md",
+        "docs/generated/conformance.json"
+      ],
+      "context_sha256": "99b24c578917f6560e28ab2334ce98f971b0ccd29047d82d74da65b621a2b1ad",
+      "line": "  _need_verify = stream->from_class_file_load_hook() ? true : Verifier::should_verify_for(_loader_data->class_loader());",
+      "tag": "jdk-27+35"
+    },
+    "src/hotspot/share/classfile/classFileParser.cpp:5506": {
+      "cited_in": [
+        "blueprints/BP-CLASSFILE/4-guarantees.md",
+        "docs/blueprints/BP-CLASSFILE.md",
+        "docs/generated/conformance.json"
+      ],
+      "context_sha256": "76a29a29ad3edcde21b73a94395fbf001068db444ae7e4a4244bf2d21c704d0e",
+      "line": "  guarantee_property(magic == JAVA_CLASSFILE_MAGIC,",
+      "tag": "jdk-27+35"
+    },
+    "src/hotspot/share/classfile/classFileParser.cpp:5515": {
+      "cited_in": [
+        "blueprints/BP-CLASSFILE/4-guarantees.md",
+        "docs/blueprints/BP-CLASSFILE.md",
+        "docs/generated/conformance.json"
+      ],
+      "context_sha256": "9a0a4ef87d337eb0884832c10c0f132fb3cca5ca80a7a2a56495c49e1fe11d5d",
+      "line": "  verify_class_version(_major_version, _minor_version, _class_name, CHECK);",
+      "tag": "jdk-27+35"
+    },
+    "src/hotspot/share/classfile/classFileParser.cpp:5530": {
+      "cited_in": [
+        "blueprints/BP-CLASSFILE/4-guarantees.md",
+        "blueprints/BP-CLASSFILE/6-edge-cases.md",
+        "docs/blueprints/BP-CLASSFILE.md",
+        "docs/generated/conformance.json"
+      ],
+      "context_sha256": "0cf1bbe5a46eac6e53bbe23f54977eacffd28b4374bf8412b7a4aea6a063f848",
+      "line": "  _cp = ConstantPool::allocate(_loader_data,",
+      "tag": "jdk-27+35"
+    },
+    "src/hotspot/share/classfile/classFileParser.cpp:5536": {
+      "cited_in": [
+        "blueprints/BP-CLASSFILE/4-guarantees.md",
+        "docs/blueprints/BP-CLASSFILE.md",
+        "docs/generated/conformance.json"
+      ],
+      "context_sha256": "846ff5c47bea087e3f5a03574136aa7916549d451ec78088b55f42f27327a904",
+      "line": "  parse_constant_pool(stream, cp, _orig_cp_size, CHECK);",
+      "tag": "jdk-27+35"
+    },
+    "src/hotspot/share/classfile/classFileParser.cpp:5547": {
+      "cited_in": [
+        "blueprints/BP-CLASSFILE/4-guarantees.md",
+        "docs/blueprints/BP-CLASSFILE.md",
+        "docs/generated/conformance.json"
+      ],
+      "context_sha256": "ff8a872d835a08fe9a4efe071da31a1d99c9830904f6b90cb21c9bca99b22f38",
+      "line": "    flags = stream->get_u2_fast() & (JVM_RECOGNIZED_CLASS_MODIFIERS | JVM_ACC_MODULE);",
+      "tag": "jdk-27+35"
+    },
+    "src/hotspot/share/classfile/classFileParser.cpp:5561": {
+      "cited_in": [
+        "blueprints/BP-CLASSFILE/4-guarantees.md",
+        "docs/blueprints/BP-CLASSFILE.md",
+        "docs/generated/conformance.json"
+      ],
+      "context_sha256": "d78a43dc9d0cd3536774da9c5bebfc3cdcc55a1aa39fc7f544042ad2f3916a9b",
+      "line": "    // Do not throw CFE until after the access_flags are checked because if",
+      "tag": "jdk-27+35"
+    },
+    "src/hotspot/share/classfile/classFileParser.cpp:5697": {
+      "cited_in": [
+        "blueprints/BP-CLASSFILE/4-guarantees.md",
+        "docs/blueprints/BP-CLASSFILE.md",
+        "docs/generated/conformance.json"
+      ],
+      "context_sha256": "5ad9fb3ae19b723c976fccdbb633984fe2b571dd6b658517006519901703b2bc",
+      "line": "  guarantee_property(stream->at_eos(),",
+      "tag": "jdk-27+35"
+    },
+    "src/hotspot/share/classfile/classFileStream.cpp:30": {
+      "cited_in": [
+        "blueprints/BP-CLASSFILE/4-guarantees.md",
+        "blueprints/BP-CLASSFILE/6-edge-cases.md",
+        "docs/blueprints/BP-CLASSFILE.md",
+        "docs/generated/conformance.json"
+      ],
+      "context_sha256": "12ae6000cac35c631ecc7219cb62dc142a875a74effc8a364a638696265a6a35",
+      "line": "  THROW_MSG(vmSymbols::java_lang_ClassFormatError(), \"Truncated class file\");",
       "tag": "jdk-27+35"
     },
     "src/hotspot/share/classfile/javaClasses.hpp:57": {
@@ -104,10 +389,23 @@
     },
     "src/hotspot/share/classfile/stackMapTable.hpp:139": {
       "cited_in": [
+        "blueprints/BP-CLASSFILE/4-guarantees.md",
+        "docs/blueprints/BP-CLASSFILE.md",
+        "docs/generated/conformance.json",
         "docs/probes/classfile-fuzz.md"
       ],
       "context_sha256": "baaa74a61aa34c059ae929695ddee32d384f5459f791e6fff95eb09c12aeb49b",
       "line": "  void check_verification_type_array_size(",
+      "tag": "jdk-27+35"
+    },
+    "src/hotspot/share/classfile/verifier.cpp:115": {
+      "cited_in": [
+        "blueprints/BP-CLASSFILE/4-guarantees.md",
+        "docs/blueprints/BP-CLASSFILE.md",
+        "docs/generated/conformance.json"
+      ],
+      "context_sha256": "53e4bcfdaf4687327649d61e9b5e36876d5a6a1501c8ee369f712862255c1e0c",
+      "line": "bool Verifier::should_verify_for(oop class_loader) {",
       "tag": "jdk-27+35"
     },
     "src/hotspot/share/classfile/verifier.cpp:2073": {
@@ -118,12 +416,189 @@
       "line": "  _exception_type = vmSymbols::java_lang_ClassFormatError();",
       "tag": "jdk-27+35"
     },
+    "src/hotspot/share/interpreter/bytecodes.cpp:52": {
+      "cited_in": [
+        "blueprints/BP-BYTECODE/4-guarantees.md",
+        "docs/blueprints/BP-BYTECODE.md",
+        "docs/generated/conformance.json"
+      ],
+      "context_sha256": "b6d6c4aefeb7979025cd13f6019379791c7ba97cf6322c38f6b13fb263f23122",
+      "line": "  def(_fast_iaccess_0            , \"fast_iaccess_0\"            , \"b_JJ\" , nullptr    , T_INT    ,  1, true , _aload_0           ) \\",
+      "tag": "jdk-27+35"
+    },
+    "src/hotspot/share/interpreter/rewriter.cpp:526": {
+      "cited_in": [
+        "blueprints/BP-BYTECODE/4-guarantees.md",
+        "docs/blueprints/BP-BYTECODE.md",
+        "docs/generated/conformance.json"
+      ],
+      "context_sha256": "0560bd7e688214972749f3e8cdee14e30ef7fd1c66ad98059f657d804dd3cf0a",
+      "line": "void Rewriter::rewrite_bytecodes(TRAPS) {",
+      "tag": "jdk-27+35"
+    },
+    "src/hotspot/share/interpreter/rewriter.cpp:560": {
+      "cited_in": [
+        "blueprints/BP-BYTECODE/4-guarantees.md",
+        "blueprints/BP-BYTECODE/6-edge-cases.md",
+        "docs/blueprints/BP-BYTECODE.md",
+        "docs/generated/conformance.json"
+      ],
+      "context_sha256": "4159f0a92ed9c0d6b3e82a751ce1f50695abf5c8bdcd532579b10951fc2e3cac",
+      "line": "      THROW_MSG(vmSymbols::java_lang_InternalError(),",
+      "tag": "jdk-27+35"
+    },
+    "src/hotspot/share/interpreter/rewriter.cpp:568": {
+      "cited_in": [
+        "blueprints/BP-BYTECODE/4-guarantees.md",
+        "blueprints/BP-BYTECODE/6-edge-cases.md",
+        "docs/blueprints/BP-BYTECODE.md",
+        "docs/generated/conformance.json"
+      ],
+      "context_sha256": "1a5f2f05b2e7b86a9ed38d55ba54b000b2008f11d64a9961918ea47286aadfd3",
+      "line": "void Rewriter::rewrite(InstanceKlass* klass, TRAPS) {",
+      "tag": "jdk-27+35"
+    },
+    "src/hotspot/share/interpreter/rewriter.cpp:570": {
+      "cited_in": [
+        "blueprints/BP-BYTECODE/7-configuration.md",
+        "docs/blueprints/BP-BYTECODE.md"
+      ],
+      "context_sha256": "b0d479c633ef91212dee9307e2c5bf26e896ff47b06a83ce8a9d69fa67068308",
+      "line": "  if (klass->in_aot_cache()) {",
+      "tag": "jdk-27+35"
+    },
+    "src/hotspot/share/oops/constMethod.hpp:199": {
+      "cited_in": [
+        "blueprints/BP-BYTECODE/2-data-structures.md",
+        "blueprints/BP-BYTECODE/4-guarantees.md",
+        "blueprints/BP-BYTECODE/6-edge-cases.md",
+        "docs/blueprints/BP-BYTECODE.md",
+        "docs/generated/conformance.json"
+      ],
+      "context_sha256": "3bdb6fc75e85071bf02405d81384cdc145dfea9596d927e43a183788632a31b5",
+      "line": "  u2                _code_size;",
+      "tag": "jdk-27+35"
+    },
+    "src/hotspot/share/oops/constMethod.hpp:205": {
+      "cited_in": [
+        "blueprints/BP-BYTECODE/2-data-structures.md",
+        "blueprints/BP-BYTECODE/4-guarantees.md",
+        "docs/blueprints/BP-BYTECODE.md",
+        "docs/generated/conformance.json"
+      ],
+      "context_sha256": "5d4d40fc328e239d14489a99945f353783141f22313cd098cb493a9715bf9d66",
+      "line": "  u2                _max_stack;                  // Maximum number of entries on the expression stack",
+      "tag": "jdk-27+35"
+    },
+    "src/hotspot/share/oops/constMethod.hpp:206": {
+      "cited_in": [
+        "blueprints/BP-BYTECODE/2-data-structures.md",
+        "blueprints/BP-BYTECODE/4-guarantees.md",
+        "docs/blueprints/BP-BYTECODE.md",
+        "docs/generated/conformance.json"
+      ],
+      "context_sha256": "f79b9aaffe8dd5ccafe267a8a08d9f9af50207d453a4880aedeefd6b78eeb8df",
+      "line": "  u2                _max_locals;                 // Number of local variables used by this method",
+      "tag": "jdk-27+35"
+    },
+    "src/hotspot/share/oops/constMethod.hpp:207": {
+      "cited_in": [
+        "blueprints/BP-BYTECODE/2-data-structures.md",
+        "blueprints/BP-BYTECODE/4-guarantees.md",
+        "docs/blueprints/BP-BYTECODE.md",
+        "docs/generated/conformance.json"
+      ],
+      "context_sha256": "de2b87500f3555678b6fe143b561d9f9dfd3ee3ca5a658146f0373e18cb1bd3d",
+      "line": "  u2                _size_of_parameters;         // size of the parameter block (receiver + arguments) in words",
+      "tag": "jdk-27+35"
+    },
+    "src/hotspot/share/oops/constMethod.hpp:419": {
+      "cited_in": [
+        "blueprints/BP-BYTECODE/2-data-structures.md",
+        "blueprints/BP-BYTECODE/4-guarantees.md",
+        "docs/blueprints/BP-BYTECODE.md",
+        "docs/generated/conformance.json"
+      ],
+      "context_sha256": "c4e5e705028eec8242f30888179d339f1d7ce1e921801a1732a2214ccb42df12",
+      "line": "  address code_base() const            { return (address) (this+1); }",
+      "tag": "jdk-27+35"
+    },
+    "src/hotspot/share/oops/constMethod.hpp:42": {
+      "cited_in": [
+        "blueprints/BP-BYTECODE/2-data-structures.md",
+        "blueprints/BP-BYTECODE/4-guarantees.md",
+        "docs/blueprints/BP-BYTECODE.md",
+        "docs/generated/conformance.json"
+      ],
+      "context_sha256": "8a602829f8ff8c45bd67a56f763e208075dc2d1634ecbd92f3c5e1f33bab755a",
+      "line": "// The actual bytecodes are inlined after the end of the ConstMethod struct.",
+      "tag": "jdk-27+35"
+    },
+    "src/hotspot/share/oops/instanceKlass.cpp:1042": {
+      "cited_in": [
+        "blueprints/BP-BYTECODE/4-guarantees.md",
+        "docs/blueprints/BP-BYTECODE.md",
+        "docs/generated/conformance.json"
+      ],
+      "context_sha256": "46e33395c9270956e6ed6fb4056af1bfa56c99f4b1773ceda4f1235b1aaefbf2",
+      "line": "    ObjectLocker ol(h_init_lock, CHECK_PREEMPTABLE_false);",
+      "tag": "jdk-27+35"
+    },
+    "src/hotspot/share/oops/instanceKlass.cpp:1059": {
+      "cited_in": [
+        "blueprints/BP-BYTECODE/4-guarantees.md",
+        "docs/blueprints/BP-BYTECODE.md",
+        "docs/generated/conformance.json"
+      ],
+      "context_sha256": "a22ba5a7aa421061a1cb807dabd22b27e04940d3182ed8359c63b4f3458d87d5",
+      "line": "          bool verify_ok = verify_code(THREAD);",
+      "tag": "jdk-27+35"
+    },
+    "src/hotspot/share/oops/instanceKlass.cpp:1073": {
+      "cited_in": [
+        "blueprints/BP-BYTECODE/4-guarantees.md",
+        "docs/blueprints/BP-BYTECODE.md",
+        "docs/generated/conformance.json"
+      ],
+      "context_sha256": "46b5223441854775338beb5050e20e746966392fb3fc65e8082f42be6417af88",
+      "line": "        rewrite_class(CHECK_false);",
+      "tag": "jdk-27+35"
+    },
+    "src/hotspot/share/oops/instanceKlass.cpp:1075": {
+      "cited_in": [
+        "blueprints/BP-CLASSFILE/7-configuration.md",
+        "docs/blueprints/BP-CLASSFILE.md"
+      ],
+      "context_sha256": "90c9026c3f92f1991336ebe053585594f20b0df93008d0675e1e84cbf2be23a7",
+      "line": "        SystemDictionaryShared::check_verification_constraints(this, CHECK_false);",
+      "tag": "jdk-27+35"
+    },
+    "src/hotspot/share/oops/instanceKlass.cpp:1079": {
+      "cited_in": [
+        "blueprints/BP-BYTECODE/4-guarantees.md",
+        "docs/blueprints/BP-BYTECODE.md",
+        "docs/generated/conformance.json"
+      ],
+      "context_sha256": "cb5249e34d3f3d0c30d9c219978c305d1bee856b28b26066964685efae7e6fa9",
+      "line": "      link_methods(CHECK_false);",
+      "tag": "jdk-27+35"
+    },
     "src/hotspot/share/oops/instanceKlass.cpp:1084": {
       "cited_in": [
         "CONTRIBUTING.md"
       ],
       "context_sha256": "4fc27387c7f557a44f13d727c56b3599a33e2e2a3fdd078590d5524b01315f46",
       "line": "      // also does loader constraint checking",
+      "tag": "jdk-27+35"
+    },
+    "src/hotspot/share/oops/instanceKlass.cpp:1118": {
+      "cited_in": [
+        "blueprints/BP-BYTECODE/4-guarantees.md",
+        "docs/blueprints/BP-BYTECODE.md",
+        "docs/generated/conformance.json"
+      ],
+      "context_sha256": "5b1eaf0a6e1e9a04cfc6b5b23b78a123edb62b5c3fdd43064949176d29870284",
+      "line": "        set_init_state(linked);",
       "tag": "jdk-27+35"
     },
     "src/hotspot/share/oops/markWord.hpp:116": {
@@ -255,12 +730,44 @@
       "line": "//  64 bits (with compact headers):",
       "tag": "jdk-27+35"
     },
+    "src/hotspot/share/prims/jvm.cpp:887": {
+      "cited_in": [
+        "blueprints/BP-CLASSFILE/6-edge-cases.md",
+        "docs/blueprints/BP-CLASSFILE.md"
+      ],
+      "context_sha256": "ea6ffef2b8f5a4c9259f75dc5d762bdf4160bbed3c7d5e68402ea409904269bf",
+      "line": "  ClassFileStream st((u1*)buf, len, source);",
+      "tag": "jdk-27+35"
+    },
     "src/hotspot/share/runtime/arguments.cpp:3508": {
       "cited_in": [
         "docs/probes/vmflags.md"
       ],
       "context_sha256": "e98dfc893c669e2d7d8a17113501c49526b9419d88500a7773239f0eb57071b8",
       "line": "    FLAG_SET_DEFAULT(UseSecondarySupersTable, VM_Version::supports_secondary_supers_table());",
+      "tag": "jdk-27+35"
+    },
+    "src/hotspot/share/runtime/globals.hpp:1111": {
+      "cited_in": [
+        "blueprints/BP-BYTECODE/4-guarantees.md",
+        "blueprints/BP-BYTECODE/6-edge-cases.md",
+        "blueprints/BP-BYTECODE/7-configuration.md",
+        "docs/blueprints/BP-BYTECODE.md",
+        "docs/generated/conformance.json"
+      ],
+      "context_sha256": "e9f6bf90224c5702117546af1f2ea0cba0b68eaf2853aecf52c521101c853188",
+      "line": "  product_pd(bool, RewriteBytecodes,                                        \\",
+      "tag": "jdk-27+35"
+    },
+    "src/hotspot/share/runtime/globals.hpp:1114": {
+      "cited_in": [
+        "blueprints/BP-BYTECODE/4-guarantees.md",
+        "blueprints/BP-BYTECODE/7-configuration.md",
+        "docs/blueprints/BP-BYTECODE.md",
+        "docs/generated/conformance.json"
+      ],
+      "context_sha256": "c4378fc71343850b3923a557d798b21e62578a042d2e5c51812e6b97afef4ee5",
+      "line": "  product_pd(bool, RewriteFrequentPairs,                                    \\",
       "tag": "jdk-27+35"
     },
     "src/hotspot/share/runtime/globals.hpp:131": {
@@ -279,6 +786,24 @@
       ],
       "context_sha256": "0682192f4ac8096ffd8cda34e0db634fc505e91e8680d747ad59605233d48873",
       "line": "  product(int, ObjectAlignmentInBytes, 8,                                   \\",
+      "tag": "jdk-27+35"
+    },
+    "src/hotspot/share/runtime/globals.hpp:455": {
+      "cited_in": [
+        "blueprints/BP-CLASSFILE/7-configuration.md",
+        "docs/blueprints/BP-CLASSFILE.md"
+      ],
+      "context_sha256": "ad4c11369c86dd09a937bc7c8ec79cf4f5e47c3d7309ee966b8fb4acdd66d470",
+      "line": "  product(bool, BytecodeVerificationRemote, true, DIAGNOSTIC,               \\",
+      "tag": "jdk-27+35"
+    },
+    "src/hotspot/share/runtime/globals.hpp:458": {
+      "cited_in": [
+        "blueprints/BP-CLASSFILE/7-configuration.md",
+        "docs/blueprints/BP-CLASSFILE.md"
+      ],
+      "context_sha256": "9c72fa58bc6ee01ed0fb347dabd70379b83ff94a8bc41cf35c87ab670db4fa25",
+      "line": "  product(bool, BytecodeVerificationLocal, false, DIAGNOSTIC,               \\",
       "tag": "jdk-27+35"
     },
     "src/hotspot/share/runtime/globals_extension.hpp:82": {
@@ -312,6 +837,28 @@
       ],
       "context_sha256": "a387dc20493d047cbe96a315cb269430c9ab543e577954cb02cfbceab544524b",
       "line": "            clb.withFlags(ACC_PRIVATE | ACC_FINAL | ACC_SUPER)",
+      "tag": "jdk-27+35"
+    },
+    "src/java.base/share/native/libjava/ClassLoader.c:115": {
+      "cited_in": [
+        "blueprints/BP-CLASSFILE/4-guarantees.md",
+        "blueprints/BP-CLASSFILE/6-edge-cases.md",
+        "docs/blueprints/BP-CLASSFILE.md",
+        "docs/generated/conformance.json"
+      ],
+      "context_sha256": "962f03abcb604be4344eaded757f0526d50bc1783b6a2a3ec27bff8df75f6517",
+      "line": "    (*env)->GetByteArrayRegion(env, data, offset, length, body);",
+      "tag": "jdk-27+35"
+    },
+    "src/java.base/share/native/libjava/ClassLoader.c:176": {
+      "cited_in": [
+        "blueprints/BP-CLASSFILE/4-guarantees.md",
+        "blueprints/BP-CLASSFILE/6-edge-cases.md",
+        "docs/blueprints/BP-CLASSFILE.md",
+        "docs/generated/conformance.json"
+      ],
+      "context_sha256": "0d83bbcac310d0b411b07cdf2c2b2b97b5a9c471dec0215e3a410a7d47c5d569",
+      "line": "    body = (*env)->GetDirectBufferAddress(env, data);",
       "tag": "jdk-27+35"
     },
     "src/jdk.jlink/share/classes/jdk/tools/jlink/internal/plugins/SystemModulesPlugin.java:1290": {
