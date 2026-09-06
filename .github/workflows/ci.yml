@@ -62,6 +62,7 @@ jobs:
           python tools/test_gen_jvms_index.py
           python tools/test_claimcheck.py
           python tools/test_gen_fieldlayout.py
+          python tools/test_gen_handoff.py
           python tools/test_fetch_jdk.py
       - name: rebuild and compare
         run: python tools/build.py check
@@ -118,6 +119,11 @@ jobs:
       # cannot check by clicking a link.
       - name: every claim is marked and every marker has a claim
         run: python tools/claimcheck.py
+      # The four notebooks handed to somebody with a Google account. They are the only
+      # way five M0 probes get answered, and a notebook that has drifted from its source
+      # costs a person a whole sitting on a machine this project does not have.
+      - name: the handoff notebooks match their sources
+        run: python tools/gen_handoff.py --check
       - name: three builds are byte identical
         run: |
           set -euo pipefail
