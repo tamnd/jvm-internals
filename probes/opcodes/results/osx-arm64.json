@@ -1,0 +1,1567 @@
+{
+  "counts": {
+    "AALOAD": 8886,
+    "AASTORE": 58878,
+    "ACONST_NULL": 9501,
+    "ALOAD": 60750,
+    "ALOAD_0": 146134,
+    "ALOAD_1": 63688,
+    "ALOAD_2": 34740,
+    "ALOAD_3": 22631,
+    "ALOAD_W": 0,
+    "ANEWARRAY": 16503,
+    "ARETURN": 32488,
+    "ARRAYLENGTH": 6692,
+    "ASTORE": 27010,
+    "ASTORE_0": 1801,
+    "ASTORE_1": 5597,
+    "ASTORE_2": 8340,
+    "ASTORE_3": 7344,
+    "ASTORE_W": 0,
+    "ATHROW": 16519,
+    "BALOAD": 2491,
+    "BASTORE": 21972,
+    "BIPUSH": 87360,
+    "CALOAD": 710,
+    "CASTORE": 1241,
+    "CHECKCAST": 14282,
+    "D2F": 11,
+    "D2I": 47,
+    "D2L": 36,
+    "DADD": 316,
+    "DALOAD": 328,
+    "DASTORE": 1252,
+    "DCMPG": 91,
+    "DCMPL": 164,
+    "DCONST_0": 160,
+    "DCONST_1": 117,
+    "DDIV": 101,
+    "DLOAD": 1160,
+    "DLOAD_0": 560,
+    "DLOAD_1": 296,
+    "DLOAD_2": 374,
+    "DLOAD_3": 213,
+    "DLOAD_W": 0,
+    "DMUL": 472,
+    "DNEG": 46,
+    "DREM": 1,
+    "DRETURN": 639,
+    "DSTORE": 480,
+    "DSTORE_0": 27,
+    "DSTORE_1": 17,
+    "DSTORE_2": 69,
+    "DSTORE_3": 43,
+    "DSTORE_W": 0,
+    "DSUB": 264,
+    "DUP": 139947,
+    "DUP2": 1490,
+    "DUP2_X1": 34,
+    "DUP2_X2": 1,
+    "DUP_X1": 866,
+    "DUP_X2": 56,
+    "F2D": 30,
+    "F2I": 39,
+    "F2L": 6,
+    "FADD": 10,
+    "FALOAD": 151,
+    "FASTORE": 102,
+    "FCMPG": 59,
+    "FCMPL": 67,
+    "FCONST_0": 37,
+    "FCONST_1": 41,
+    "FCONST_2": 11,
+    "FDIV": 10,
+    "FLOAD": 292,
+    "FLOAD_0": 132,
+    "FLOAD_1": 157,
+    "FLOAD_2": 159,
+    "FLOAD_3": 135,
+    "FLOAD_W": 0,
+    "FMUL": 42,
+    "FNEG": 3,
+    "FREM": 0,
+    "FRETURN": 305,
+    "FSTORE": 57,
+    "FSTORE_0": 0,
+    "FSTORE_1": 7,
+    "FSTORE_2": 6,
+    "FSTORE_3": 18,
+    "FSTORE_W": 0,
+    "FSUB": 3,
+    "GETFIELD": 74423,
+    "GETSTATIC": 43957,
+    "GOTO": 35313,
+    "GOTO_W": 0,
+    "I2B": 2074,
+    "I2C": 423,
+    "I2D": 101,
+    "I2F": 64,
+    "I2L": 3052,
+    "I2S": 228,
+    "IADD": 8588,
+    "IALOAD": 2860,
+    "IAND": 3930,
+    "IASTORE": 15971,
+    "ICONST_0": 43264,
+    "ICONST_1": 37062,
+    "ICONST_2": 17839,
+    "ICONST_3": 6049,
+    "ICONST_4": 5547,
+    "ICONST_5": 3819,
+    "ICONST_M1": 3766,
+    "IDIV": 482,
+    "IFEQ": 21725,
+    "IFGE": 2002,
+    "IFGT": 710,
+    "IFLE": 2086,
+    "IFLT": 1693,
+    "IFNE": 13016,
+    "IFNONNULL": 6481,
+    "IFNULL": 9194,
+    "IF_ACMPEQ": 1443,
+    "IF_ACMPNE": 2950,
+    "IF_ICMPEQ": 3354,
+    "IF_ICMPGE": 5738,
+    "IF_ICMPGT": 1259,
+    "IF_ICMPLE": 2298,
+    "IF_ICMPLT": 1980,
+    "IF_ICMPNE": 5184,
+    "IINC": 6828,
+    "IINC_W": 33,
+    "ILOAD": 45373,
+    "ILOAD_0": 4081,
+    "ILOAD_1": 15440,
+    "ILOAD_2": 16412,
+    "ILOAD_3": 13298,
+    "ILOAD_W": 0,
+    "IMUL": 1137,
+    "INEG": 286,
+    "INSTANCEOF": 2891,
+    "INVOKEDYNAMIC": 2441,
+    "INVOKEINTERFACE": 26316,
+    "INVOKESPECIAL": 44340,
+    "INVOKESTATIC": 53821,
+    "INVOKEVIRTUAL": 120220,
+    "IOR": 2101,
+    "IREM": 328,
+    "IRETURN": 17833,
+    "ISHL": 1100,
+    "ISHR": 1214,
+    "ISTORE": 19142,
+    "ISTORE_0": 260,
+    "ISTORE_1": 2054,
+    "ISTORE_2": 4620,
+    "ISTORE_3": 4454,
+    "ISTORE_W": 0,
+    "ISUB": 6181,
+    "IUSHR": 764,
+    "IXOR": 1220,
+    "JSR": 0,
+    "JSR_W": 0,
+    "L2D": 81,
+    "L2F": 21,
+    "L2I": 988,
+    "LADD": 7482,
+    "LALOAD": 7048,
+    "LAND": 1762,
+    "LASTORE": 4631,
+    "LCMP": 3128,
+    "LCONST_0": 2421,
+    "LCONST_1": 1010,
+    "LDC": 38607,
+    "LDC2_W": 11403,
+    "LDC_W": 52966,
+    "LDIV": 269,
+    "LLOAD": 15111,
+    "LLOAD_0": 1007,
+    "LLOAD_1": 2884,
+    "LLOAD_2": 3188,
+    "LLOAD_3": 1970,
+    "LLOAD_W": 0,
+    "LMUL": 4530,
+    "LNEG": 157,
+    "LOOKUPSWITCH": 503,
+    "LOR": 435,
+    "LREM": 173,
+    "LRETURN": 1838,
+    "LSHL": 2166,
+    "LSHR": 1515,
+    "LSTORE": 7840,
+    "LSTORE_0": 84,
+    "LSTORE_1": 351,
+    "LSTORE_2": 588,
+    "LSTORE_3": 486,
+    "LSTORE_W": 0,
+    "LSUB": 1620,
+    "LUSHR": 494,
+    "LXOR": 317,
+    "MONITORENTER": 945,
+    "MONITOREXIT": 2126,
+    "MULTIANEWARRAY": 16,
+    "NEW": 34091,
+    "NEWARRAY": 3071,
+    "NOP": 0,
+    "POP": 15692,
+    "POP2": 131,
+    "PUTFIELD": 24372,
+    "PUTSTATIC": 8818,
+    "RET": 0,
+    "RETURN": 21358,
+    "RET_W": 0,
+    "SALOAD": 165,
+    "SASTORE": 3244,
+    "SIPUSH": 37612,
+    "SWAP": 0,
+    "TABLESWITCH": 677
+  },
+  "issue": 15,
+  "java_build": "27+35-2325",
+  "measured": "2026-09-06",
+  "opcodes": {
+    "AALOAD": {
+      "bytecode": 50,
+      "kind": "ARRAY_LOAD",
+      "size": 1,
+      "wide": false
+    },
+    "AASTORE": {
+      "bytecode": 83,
+      "kind": "ARRAY_STORE",
+      "size": 1,
+      "wide": false
+    },
+    "ACONST_NULL": {
+      "bytecode": 1,
+      "kind": "CONSTANT",
+      "size": 1,
+      "wide": false
+    },
+    "ALOAD": {
+      "bytecode": 25,
+      "kind": "LOAD",
+      "size": 2,
+      "wide": false
+    },
+    "ALOAD_0": {
+      "bytecode": 42,
+      "kind": "LOAD",
+      "size": 1,
+      "wide": false
+    },
+    "ALOAD_1": {
+      "bytecode": 43,
+      "kind": "LOAD",
+      "size": 1,
+      "wide": false
+    },
+    "ALOAD_2": {
+      "bytecode": 44,
+      "kind": "LOAD",
+      "size": 1,
+      "wide": false
+    },
+    "ALOAD_3": {
+      "bytecode": 45,
+      "kind": "LOAD",
+      "size": 1,
+      "wide": false
+    },
+    "ALOAD_W": {
+      "bytecode": 50201,
+      "kind": "LOAD",
+      "size": 4,
+      "wide": true
+    },
+    "ANEWARRAY": {
+      "bytecode": 189,
+      "kind": "NEW_REF_ARRAY",
+      "size": 3,
+      "wide": false
+    },
+    "ARETURN": {
+      "bytecode": 176,
+      "kind": "RETURN",
+      "size": 1,
+      "wide": false
+    },
+    "ARRAYLENGTH": {
+      "bytecode": 190,
+      "kind": "OPERATOR",
+      "size": 1,
+      "wide": false
+    },
+    "ASTORE": {
+      "bytecode": 58,
+      "kind": "STORE",
+      "size": 2,
+      "wide": false
+    },
+    "ASTORE_0": {
+      "bytecode": 75,
+      "kind": "STORE",
+      "size": 1,
+      "wide": false
+    },
+    "ASTORE_1": {
+      "bytecode": 76,
+      "kind": "STORE",
+      "size": 1,
+      "wide": false
+    },
+    "ASTORE_2": {
+      "bytecode": 77,
+      "kind": "STORE",
+      "size": 1,
+      "wide": false
+    },
+    "ASTORE_3": {
+      "bytecode": 78,
+      "kind": "STORE",
+      "size": 1,
+      "wide": false
+    },
+    "ASTORE_W": {
+      "bytecode": 50234,
+      "kind": "STORE",
+      "size": 4,
+      "wide": true
+    },
+    "ATHROW": {
+      "bytecode": 191,
+      "kind": "THROW_EXCEPTION",
+      "size": 1,
+      "wide": false
+    },
+    "BALOAD": {
+      "bytecode": 51,
+      "kind": "ARRAY_LOAD",
+      "size": 1,
+      "wide": false
+    },
+    "BASTORE": {
+      "bytecode": 84,
+      "kind": "ARRAY_STORE",
+      "size": 1,
+      "wide": false
+    },
+    "BIPUSH": {
+      "bytecode": 16,
+      "kind": "CONSTANT",
+      "size": 2,
+      "wide": false
+    },
+    "CALOAD": {
+      "bytecode": 52,
+      "kind": "ARRAY_LOAD",
+      "size": 1,
+      "wide": false
+    },
+    "CASTORE": {
+      "bytecode": 85,
+      "kind": "ARRAY_STORE",
+      "size": 1,
+      "wide": false
+    },
+    "CHECKCAST": {
+      "bytecode": 192,
+      "kind": "TYPE_CHECK",
+      "size": 3,
+      "wide": false
+    },
+    "D2F": {
+      "bytecode": 144,
+      "kind": "CONVERT",
+      "size": 1,
+      "wide": false
+    },
+    "D2I": {
+      "bytecode": 142,
+      "kind": "CONVERT",
+      "size": 1,
+      "wide": false
+    },
+    "D2L": {
+      "bytecode": 143,
+      "kind": "CONVERT",
+      "size": 1,
+      "wide": false
+    },
+    "DADD": {
+      "bytecode": 99,
+      "kind": "OPERATOR",
+      "size": 1,
+      "wide": false
+    },
+    "DALOAD": {
+      "bytecode": 49,
+      "kind": "ARRAY_LOAD",
+      "size": 1,
+      "wide": false
+    },
+    "DASTORE": {
+      "bytecode": 82,
+      "kind": "ARRAY_STORE",
+      "size": 1,
+      "wide": false
+    },
+    "DCMPG": {
+      "bytecode": 152,
+      "kind": "OPERATOR",
+      "size": 1,
+      "wide": false
+    },
+    "DCMPL": {
+      "bytecode": 151,
+      "kind": "OPERATOR",
+      "size": 1,
+      "wide": false
+    },
+    "DCONST_0": {
+      "bytecode": 14,
+      "kind": "CONSTANT",
+      "size": 1,
+      "wide": false
+    },
+    "DCONST_1": {
+      "bytecode": 15,
+      "kind": "CONSTANT",
+      "size": 1,
+      "wide": false
+    },
+    "DDIV": {
+      "bytecode": 111,
+      "kind": "OPERATOR",
+      "size": 1,
+      "wide": false
+    },
+    "DLOAD": {
+      "bytecode": 24,
+      "kind": "LOAD",
+      "size": 2,
+      "wide": false
+    },
+    "DLOAD_0": {
+      "bytecode": 38,
+      "kind": "LOAD",
+      "size": 1,
+      "wide": false
+    },
+    "DLOAD_1": {
+      "bytecode": 39,
+      "kind": "LOAD",
+      "size": 1,
+      "wide": false
+    },
+    "DLOAD_2": {
+      "bytecode": 40,
+      "kind": "LOAD",
+      "size": 1,
+      "wide": false
+    },
+    "DLOAD_3": {
+      "bytecode": 41,
+      "kind": "LOAD",
+      "size": 1,
+      "wide": false
+    },
+    "DLOAD_W": {
+      "bytecode": 50200,
+      "kind": "LOAD",
+      "size": 4,
+      "wide": true
+    },
+    "DMUL": {
+      "bytecode": 107,
+      "kind": "OPERATOR",
+      "size": 1,
+      "wide": false
+    },
+    "DNEG": {
+      "bytecode": 119,
+      "kind": "OPERATOR",
+      "size": 1,
+      "wide": false
+    },
+    "DREM": {
+      "bytecode": 115,
+      "kind": "OPERATOR",
+      "size": 1,
+      "wide": false
+    },
+    "DRETURN": {
+      "bytecode": 175,
+      "kind": "RETURN",
+      "size": 1,
+      "wide": false
+    },
+    "DSTORE": {
+      "bytecode": 57,
+      "kind": "STORE",
+      "size": 2,
+      "wide": false
+    },
+    "DSTORE_0": {
+      "bytecode": 71,
+      "kind": "STORE",
+      "size": 1,
+      "wide": false
+    },
+    "DSTORE_1": {
+      "bytecode": 72,
+      "kind": "STORE",
+      "size": 1,
+      "wide": false
+    },
+    "DSTORE_2": {
+      "bytecode": 73,
+      "kind": "STORE",
+      "size": 1,
+      "wide": false
+    },
+    "DSTORE_3": {
+      "bytecode": 74,
+      "kind": "STORE",
+      "size": 1,
+      "wide": false
+    },
+    "DSTORE_W": {
+      "bytecode": 50233,
+      "kind": "STORE",
+      "size": 4,
+      "wide": true
+    },
+    "DSUB": {
+      "bytecode": 103,
+      "kind": "OPERATOR",
+      "size": 1,
+      "wide": false
+    },
+    "DUP": {
+      "bytecode": 89,
+      "kind": "STACK",
+      "size": 1,
+      "wide": false
+    },
+    "DUP2": {
+      "bytecode": 92,
+      "kind": "STACK",
+      "size": 1,
+      "wide": false
+    },
+    "DUP2_X1": {
+      "bytecode": 93,
+      "kind": "STACK",
+      "size": 1,
+      "wide": false
+    },
+    "DUP2_X2": {
+      "bytecode": 94,
+      "kind": "STACK",
+      "size": 1,
+      "wide": false
+    },
+    "DUP_X1": {
+      "bytecode": 90,
+      "kind": "STACK",
+      "size": 1,
+      "wide": false
+    },
+    "DUP_X2": {
+      "bytecode": 91,
+      "kind": "STACK",
+      "size": 1,
+      "wide": false
+    },
+    "F2D": {
+      "bytecode": 141,
+      "kind": "CONVERT",
+      "size": 1,
+      "wide": false
+    },
+    "F2I": {
+      "bytecode": 139,
+      "kind": "CONVERT",
+      "size": 1,
+      "wide": false
+    },
+    "F2L": {
+      "bytecode": 140,
+      "kind": "CONVERT",
+      "size": 1,
+      "wide": false
+    },
+    "FADD": {
+      "bytecode": 98,
+      "kind": "OPERATOR",
+      "size": 1,
+      "wide": false
+    },
+    "FALOAD": {
+      "bytecode": 48,
+      "kind": "ARRAY_LOAD",
+      "size": 1,
+      "wide": false
+    },
+    "FASTORE": {
+      "bytecode": 81,
+      "kind": "ARRAY_STORE",
+      "size": 1,
+      "wide": false
+    },
+    "FCMPG": {
+      "bytecode": 150,
+      "kind": "OPERATOR",
+      "size": 1,
+      "wide": false
+    },
+    "FCMPL": {
+      "bytecode": 149,
+      "kind": "OPERATOR",
+      "size": 1,
+      "wide": false
+    },
+    "FCONST_0": {
+      "bytecode": 11,
+      "kind": "CONSTANT",
+      "size": 1,
+      "wide": false
+    },
+    "FCONST_1": {
+      "bytecode": 12,
+      "kind": "CONSTANT",
+      "size": 1,
+      "wide": false
+    },
+    "FCONST_2": {
+      "bytecode": 13,
+      "kind": "CONSTANT",
+      "size": 1,
+      "wide": false
+    },
+    "FDIV": {
+      "bytecode": 110,
+      "kind": "OPERATOR",
+      "size": 1,
+      "wide": false
+    },
+    "FLOAD": {
+      "bytecode": 23,
+      "kind": "LOAD",
+      "size": 2,
+      "wide": false
+    },
+    "FLOAD_0": {
+      "bytecode": 34,
+      "kind": "LOAD",
+      "size": 1,
+      "wide": false
+    },
+    "FLOAD_1": {
+      "bytecode": 35,
+      "kind": "LOAD",
+      "size": 1,
+      "wide": false
+    },
+    "FLOAD_2": {
+      "bytecode": 36,
+      "kind": "LOAD",
+      "size": 1,
+      "wide": false
+    },
+    "FLOAD_3": {
+      "bytecode": 37,
+      "kind": "LOAD",
+      "size": 1,
+      "wide": false
+    },
+    "FLOAD_W": {
+      "bytecode": 50199,
+      "kind": "LOAD",
+      "size": 4,
+      "wide": true
+    },
+    "FMUL": {
+      "bytecode": 106,
+      "kind": "OPERATOR",
+      "size": 1,
+      "wide": false
+    },
+    "FNEG": {
+      "bytecode": 118,
+      "kind": "OPERATOR",
+      "size": 1,
+      "wide": false
+    },
+    "FREM": {
+      "bytecode": 114,
+      "kind": "OPERATOR",
+      "size": 1,
+      "wide": false
+    },
+    "FRETURN": {
+      "bytecode": 174,
+      "kind": "RETURN",
+      "size": 1,
+      "wide": false
+    },
+    "FSTORE": {
+      "bytecode": 56,
+      "kind": "STORE",
+      "size": 2,
+      "wide": false
+    },
+    "FSTORE_0": {
+      "bytecode": 67,
+      "kind": "STORE",
+      "size": 1,
+      "wide": false
+    },
+    "FSTORE_1": {
+      "bytecode": 68,
+      "kind": "STORE",
+      "size": 1,
+      "wide": false
+    },
+    "FSTORE_2": {
+      "bytecode": 69,
+      "kind": "STORE",
+      "size": 1,
+      "wide": false
+    },
+    "FSTORE_3": {
+      "bytecode": 70,
+      "kind": "STORE",
+      "size": 1,
+      "wide": false
+    },
+    "FSTORE_W": {
+      "bytecode": 50232,
+      "kind": "STORE",
+      "size": 4,
+      "wide": true
+    },
+    "FSUB": {
+      "bytecode": 102,
+      "kind": "OPERATOR",
+      "size": 1,
+      "wide": false
+    },
+    "GETFIELD": {
+      "bytecode": 180,
+      "kind": "FIELD_ACCESS",
+      "size": 3,
+      "wide": false
+    },
+    "GETSTATIC": {
+      "bytecode": 178,
+      "kind": "FIELD_ACCESS",
+      "size": 3,
+      "wide": false
+    },
+    "GOTO": {
+      "bytecode": 167,
+      "kind": "BRANCH",
+      "size": 3,
+      "wide": false
+    },
+    "GOTO_W": {
+      "bytecode": 200,
+      "kind": "BRANCH",
+      "size": 5,
+      "wide": false
+    },
+    "I2B": {
+      "bytecode": 145,
+      "kind": "CONVERT",
+      "size": 1,
+      "wide": false
+    },
+    "I2C": {
+      "bytecode": 146,
+      "kind": "CONVERT",
+      "size": 1,
+      "wide": false
+    },
+    "I2D": {
+      "bytecode": 135,
+      "kind": "CONVERT",
+      "size": 1,
+      "wide": false
+    },
+    "I2F": {
+      "bytecode": 134,
+      "kind": "CONVERT",
+      "size": 1,
+      "wide": false
+    },
+    "I2L": {
+      "bytecode": 133,
+      "kind": "CONVERT",
+      "size": 1,
+      "wide": false
+    },
+    "I2S": {
+      "bytecode": 147,
+      "kind": "CONVERT",
+      "size": 1,
+      "wide": false
+    },
+    "IADD": {
+      "bytecode": 96,
+      "kind": "OPERATOR",
+      "size": 1,
+      "wide": false
+    },
+    "IALOAD": {
+      "bytecode": 46,
+      "kind": "ARRAY_LOAD",
+      "size": 1,
+      "wide": false
+    },
+    "IAND": {
+      "bytecode": 126,
+      "kind": "OPERATOR",
+      "size": 1,
+      "wide": false
+    },
+    "IASTORE": {
+      "bytecode": 79,
+      "kind": "ARRAY_STORE",
+      "size": 1,
+      "wide": false
+    },
+    "ICONST_0": {
+      "bytecode": 3,
+      "kind": "CONSTANT",
+      "size": 1,
+      "wide": false
+    },
+    "ICONST_1": {
+      "bytecode": 4,
+      "kind": "CONSTANT",
+      "size": 1,
+      "wide": false
+    },
+    "ICONST_2": {
+      "bytecode": 5,
+      "kind": "CONSTANT",
+      "size": 1,
+      "wide": false
+    },
+    "ICONST_3": {
+      "bytecode": 6,
+      "kind": "CONSTANT",
+      "size": 1,
+      "wide": false
+    },
+    "ICONST_4": {
+      "bytecode": 7,
+      "kind": "CONSTANT",
+      "size": 1,
+      "wide": false
+    },
+    "ICONST_5": {
+      "bytecode": 8,
+      "kind": "CONSTANT",
+      "size": 1,
+      "wide": false
+    },
+    "ICONST_M1": {
+      "bytecode": 2,
+      "kind": "CONSTANT",
+      "size": 1,
+      "wide": false
+    },
+    "IDIV": {
+      "bytecode": 108,
+      "kind": "OPERATOR",
+      "size": 1,
+      "wide": false
+    },
+    "IFEQ": {
+      "bytecode": 153,
+      "kind": "BRANCH",
+      "size": 3,
+      "wide": false
+    },
+    "IFGE": {
+      "bytecode": 156,
+      "kind": "BRANCH",
+      "size": 3,
+      "wide": false
+    },
+    "IFGT": {
+      "bytecode": 157,
+      "kind": "BRANCH",
+      "size": 3,
+      "wide": false
+    },
+    "IFLE": {
+      "bytecode": 158,
+      "kind": "BRANCH",
+      "size": 3,
+      "wide": false
+    },
+    "IFLT": {
+      "bytecode": 155,
+      "kind": "BRANCH",
+      "size": 3,
+      "wide": false
+    },
+    "IFNE": {
+      "bytecode": 154,
+      "kind": "BRANCH",
+      "size": 3,
+      "wide": false
+    },
+    "IFNONNULL": {
+      "bytecode": 199,
+      "kind": "BRANCH",
+      "size": 3,
+      "wide": false
+    },
+    "IFNULL": {
+      "bytecode": 198,
+      "kind": "BRANCH",
+      "size": 3,
+      "wide": false
+    },
+    "IF_ACMPEQ": {
+      "bytecode": 165,
+      "kind": "BRANCH",
+      "size": 3,
+      "wide": false
+    },
+    "IF_ACMPNE": {
+      "bytecode": 166,
+      "kind": "BRANCH",
+      "size": 3,
+      "wide": false
+    },
+    "IF_ICMPEQ": {
+      "bytecode": 159,
+      "kind": "BRANCH",
+      "size": 3,
+      "wide": false
+    },
+    "IF_ICMPGE": {
+      "bytecode": 162,
+      "kind": "BRANCH",
+      "size": 3,
+      "wide": false
+    },
+    "IF_ICMPGT": {
+      "bytecode": 163,
+      "kind": "BRANCH",
+      "size": 3,
+      "wide": false
+    },
+    "IF_ICMPLE": {
+      "bytecode": 164,
+      "kind": "BRANCH",
+      "size": 3,
+      "wide": false
+    },
+    "IF_ICMPLT": {
+      "bytecode": 161,
+      "kind": "BRANCH",
+      "size": 3,
+      "wide": false
+    },
+    "IF_ICMPNE": {
+      "bytecode": 160,
+      "kind": "BRANCH",
+      "size": 3,
+      "wide": false
+    },
+    "IINC": {
+      "bytecode": 132,
+      "kind": "INCREMENT",
+      "size": 3,
+      "wide": false
+    },
+    "IINC_W": {
+      "bytecode": 50308,
+      "kind": "INCREMENT",
+      "size": 6,
+      "wide": true
+    },
+    "ILOAD": {
+      "bytecode": 21,
+      "kind": "LOAD",
+      "size": 2,
+      "wide": false
+    },
+    "ILOAD_0": {
+      "bytecode": 26,
+      "kind": "LOAD",
+      "size": 1,
+      "wide": false
+    },
+    "ILOAD_1": {
+      "bytecode": 27,
+      "kind": "LOAD",
+      "size": 1,
+      "wide": false
+    },
+    "ILOAD_2": {
+      "bytecode": 28,
+      "kind": "LOAD",
+      "size": 1,
+      "wide": false
+    },
+    "ILOAD_3": {
+      "bytecode": 29,
+      "kind": "LOAD",
+      "size": 1,
+      "wide": false
+    },
+    "ILOAD_W": {
+      "bytecode": 50197,
+      "kind": "LOAD",
+      "size": 4,
+      "wide": true
+    },
+    "IMUL": {
+      "bytecode": 104,
+      "kind": "OPERATOR",
+      "size": 1,
+      "wide": false
+    },
+    "INEG": {
+      "bytecode": 116,
+      "kind": "OPERATOR",
+      "size": 1,
+      "wide": false
+    },
+    "INSTANCEOF": {
+      "bytecode": 193,
+      "kind": "TYPE_CHECK",
+      "size": 3,
+      "wide": false
+    },
+    "INVOKEDYNAMIC": {
+      "bytecode": 186,
+      "kind": "INVOKE_DYNAMIC",
+      "size": 5,
+      "wide": false
+    },
+    "INVOKEINTERFACE": {
+      "bytecode": 185,
+      "kind": "INVOKE",
+      "size": 5,
+      "wide": false
+    },
+    "INVOKESPECIAL": {
+      "bytecode": 183,
+      "kind": "INVOKE",
+      "size": 3,
+      "wide": false
+    },
+    "INVOKESTATIC": {
+      "bytecode": 184,
+      "kind": "INVOKE",
+      "size": 3,
+      "wide": false
+    },
+    "INVOKEVIRTUAL": {
+      "bytecode": 182,
+      "kind": "INVOKE",
+      "size": 3,
+      "wide": false
+    },
+    "IOR": {
+      "bytecode": 128,
+      "kind": "OPERATOR",
+      "size": 1,
+      "wide": false
+    },
+    "IREM": {
+      "bytecode": 112,
+      "kind": "OPERATOR",
+      "size": 1,
+      "wide": false
+    },
+    "IRETURN": {
+      "bytecode": 172,
+      "kind": "RETURN",
+      "size": 1,
+      "wide": false
+    },
+    "ISHL": {
+      "bytecode": 120,
+      "kind": "OPERATOR",
+      "size": 1,
+      "wide": false
+    },
+    "ISHR": {
+      "bytecode": 122,
+      "kind": "OPERATOR",
+      "size": 1,
+      "wide": false
+    },
+    "ISTORE": {
+      "bytecode": 54,
+      "kind": "STORE",
+      "size": 2,
+      "wide": false
+    },
+    "ISTORE_0": {
+      "bytecode": 59,
+      "kind": "STORE",
+      "size": 1,
+      "wide": false
+    },
+    "ISTORE_1": {
+      "bytecode": 60,
+      "kind": "STORE",
+      "size": 1,
+      "wide": false
+    },
+    "ISTORE_2": {
+      "bytecode": 61,
+      "kind": "STORE",
+      "size": 1,
+      "wide": false
+    },
+    "ISTORE_3": {
+      "bytecode": 62,
+      "kind": "STORE",
+      "size": 1,
+      "wide": false
+    },
+    "ISTORE_W": {
+      "bytecode": 50230,
+      "kind": "STORE",
+      "size": 4,
+      "wide": true
+    },
+    "ISUB": {
+      "bytecode": 100,
+      "kind": "OPERATOR",
+      "size": 1,
+      "wide": false
+    },
+    "IUSHR": {
+      "bytecode": 124,
+      "kind": "OPERATOR",
+      "size": 1,
+      "wide": false
+    },
+    "IXOR": {
+      "bytecode": 130,
+      "kind": "OPERATOR",
+      "size": 1,
+      "wide": false
+    },
+    "JSR": {
+      "bytecode": 168,
+      "kind": "DISCONTINUED_JSR",
+      "size": 3,
+      "wide": false
+    },
+    "JSR_W": {
+      "bytecode": 201,
+      "kind": "DISCONTINUED_JSR",
+      "size": 5,
+      "wide": false
+    },
+    "L2D": {
+      "bytecode": 138,
+      "kind": "CONVERT",
+      "size": 1,
+      "wide": false
+    },
+    "L2F": {
+      "bytecode": 137,
+      "kind": "CONVERT",
+      "size": 1,
+      "wide": false
+    },
+    "L2I": {
+      "bytecode": 136,
+      "kind": "CONVERT",
+      "size": 1,
+      "wide": false
+    },
+    "LADD": {
+      "bytecode": 97,
+      "kind": "OPERATOR",
+      "size": 1,
+      "wide": false
+    },
+    "LALOAD": {
+      "bytecode": 47,
+      "kind": "ARRAY_LOAD",
+      "size": 1,
+      "wide": false
+    },
+    "LAND": {
+      "bytecode": 127,
+      "kind": "OPERATOR",
+      "size": 1,
+      "wide": false
+    },
+    "LASTORE": {
+      "bytecode": 80,
+      "kind": "ARRAY_STORE",
+      "size": 1,
+      "wide": false
+    },
+    "LCMP": {
+      "bytecode": 148,
+      "kind": "OPERATOR",
+      "size": 1,
+      "wide": false
+    },
+    "LCONST_0": {
+      "bytecode": 9,
+      "kind": "CONSTANT",
+      "size": 1,
+      "wide": false
+    },
+    "LCONST_1": {
+      "bytecode": 10,
+      "kind": "CONSTANT",
+      "size": 1,
+      "wide": false
+    },
+    "LDC": {
+      "bytecode": 18,
+      "kind": "CONSTANT",
+      "size": 2,
+      "wide": false
+    },
+    "LDC2_W": {
+      "bytecode": 20,
+      "kind": "CONSTANT",
+      "size": 3,
+      "wide": false
+    },
+    "LDC_W": {
+      "bytecode": 19,
+      "kind": "CONSTANT",
+      "size": 3,
+      "wide": false
+    },
+    "LDIV": {
+      "bytecode": 109,
+      "kind": "OPERATOR",
+      "size": 1,
+      "wide": false
+    },
+    "LLOAD": {
+      "bytecode": 22,
+      "kind": "LOAD",
+      "size": 2,
+      "wide": false
+    },
+    "LLOAD_0": {
+      "bytecode": 30,
+      "kind": "LOAD",
+      "size": 1,
+      "wide": false
+    },
+    "LLOAD_1": {
+      "bytecode": 31,
+      "kind": "LOAD",
+      "size": 1,
+      "wide": false
+    },
+    "LLOAD_2": {
+      "bytecode": 32,
+      "kind": "LOAD",
+      "size": 1,
+      "wide": false
+    },
+    "LLOAD_3": {
+      "bytecode": 33,
+      "kind": "LOAD",
+      "size": 1,
+      "wide": false
+    },
+    "LLOAD_W": {
+      "bytecode": 50198,
+      "kind": "LOAD",
+      "size": 4,
+      "wide": true
+    },
+    "LMUL": {
+      "bytecode": 105,
+      "kind": "OPERATOR",
+      "size": 1,
+      "wide": false
+    },
+    "LNEG": {
+      "bytecode": 117,
+      "kind": "OPERATOR",
+      "size": 1,
+      "wide": false
+    },
+    "LOOKUPSWITCH": {
+      "bytecode": 171,
+      "kind": "LOOKUP_SWITCH",
+      "size": -1,
+      "wide": false
+    },
+    "LOR": {
+      "bytecode": 129,
+      "kind": "OPERATOR",
+      "size": 1,
+      "wide": false
+    },
+    "LREM": {
+      "bytecode": 113,
+      "kind": "OPERATOR",
+      "size": 1,
+      "wide": false
+    },
+    "LRETURN": {
+      "bytecode": 173,
+      "kind": "RETURN",
+      "size": 1,
+      "wide": false
+    },
+    "LSHL": {
+      "bytecode": 121,
+      "kind": "OPERATOR",
+      "size": 1,
+      "wide": false
+    },
+    "LSHR": {
+      "bytecode": 123,
+      "kind": "OPERATOR",
+      "size": 1,
+      "wide": false
+    },
+    "LSTORE": {
+      "bytecode": 55,
+      "kind": "STORE",
+      "size": 2,
+      "wide": false
+    },
+    "LSTORE_0": {
+      "bytecode": 63,
+      "kind": "STORE",
+      "size": 1,
+      "wide": false
+    },
+    "LSTORE_1": {
+      "bytecode": 64,
+      "kind": "STORE",
+      "size": 1,
+      "wide": false
+    },
+    "LSTORE_2": {
+      "bytecode": 65,
+      "kind": "STORE",
+      "size": 1,
+      "wide": false
+    },
+    "LSTORE_3": {
+      "bytecode": 66,
+      "kind": "STORE",
+      "size": 1,
+      "wide": false
+    },
+    "LSTORE_W": {
+      "bytecode": 50231,
+      "kind": "STORE",
+      "size": 4,
+      "wide": true
+    },
+    "LSUB": {
+      "bytecode": 101,
+      "kind": "OPERATOR",
+      "size": 1,
+      "wide": false
+    },
+    "LUSHR": {
+      "bytecode": 125,
+      "kind": "OPERATOR",
+      "size": 1,
+      "wide": false
+    },
+    "LXOR": {
+      "bytecode": 131,
+      "kind": "OPERATOR",
+      "size": 1,
+      "wide": false
+    },
+    "MONITORENTER": {
+      "bytecode": 194,
+      "kind": "MONITOR",
+      "size": 1,
+      "wide": false
+    },
+    "MONITOREXIT": {
+      "bytecode": 195,
+      "kind": "MONITOR",
+      "size": 1,
+      "wide": false
+    },
+    "MULTIANEWARRAY": {
+      "bytecode": 197,
+      "kind": "NEW_MULTI_ARRAY",
+      "size": 4,
+      "wide": false
+    },
+    "NEW": {
+      "bytecode": 187,
+      "kind": "NEW_OBJECT",
+      "size": 3,
+      "wide": false
+    },
+    "NEWARRAY": {
+      "bytecode": 188,
+      "kind": "NEW_PRIMITIVE_ARRAY",
+      "size": 2,
+      "wide": false
+    },
+    "NOP": {
+      "bytecode": 0,
+      "kind": "NOP",
+      "size": 1,
+      "wide": false
+    },
+    "POP": {
+      "bytecode": 87,
+      "kind": "STACK",
+      "size": 1,
+      "wide": false
+    },
+    "POP2": {
+      "bytecode": 88,
+      "kind": "STACK",
+      "size": 1,
+      "wide": false
+    },
+    "PUTFIELD": {
+      "bytecode": 181,
+      "kind": "FIELD_ACCESS",
+      "size": 3,
+      "wide": false
+    },
+    "PUTSTATIC": {
+      "bytecode": 179,
+      "kind": "FIELD_ACCESS",
+      "size": 3,
+      "wide": false
+    },
+    "RET": {
+      "bytecode": 169,
+      "kind": "DISCONTINUED_RET",
+      "size": 2,
+      "wide": false
+    },
+    "RETURN": {
+      "bytecode": 177,
+      "kind": "RETURN",
+      "size": 1,
+      "wide": false
+    },
+    "RET_W": {
+      "bytecode": 50345,
+      "kind": "DISCONTINUED_RET",
+      "size": 4,
+      "wide": true
+    },
+    "SALOAD": {
+      "bytecode": 53,
+      "kind": "ARRAY_LOAD",
+      "size": 1,
+      "wide": false
+    },
+    "SASTORE": {
+      "bytecode": 86,
+      "kind": "ARRAY_STORE",
+      "size": 1,
+      "wide": false
+    },
+    "SIPUSH": {
+      "bytecode": 17,
+      "kind": "CONSTANT",
+      "size": 3,
+      "wide": false
+    },
+    "SWAP": {
+      "bytecode": 95,
+      "kind": "STACK",
+      "size": 1,
+      "wide": false
+    },
+    "TABLESWITCH": {
+      "bytecode": 170,
+      "kind": "TABLE_SWITCH",
+      "size": -1,
+      "wide": false
+    }
+  },
+  "platform": "darwin-arm64",
+  "probe": "opcodes",
+  "scan": {
+    "classes": 7441,
+    "highest_iinc_constant": 2000,
+    "highest_local_slot": 142,
+    "instructions": 1942620,
+    "lowest_iinc_constant": -1075,
+    "method_bodies": 62348,
+    "methods": 67093,
+    "module": "java.base",
+    "unreadable": 0,
+    "unreadable_files": []
+  },
+  "widest_slot": {
+    "ALOAD": 142,
+    "ALOAD_0": 0,
+    "ALOAD_1": 1,
+    "ALOAD_2": 2,
+    "ALOAD_3": 3,
+    "ASTORE": 142,
+    "ASTORE_0": 0,
+    "ASTORE_1": 1,
+    "ASTORE_2": 2,
+    "ASTORE_3": 3,
+    "DLOAD": 75,
+    "DLOAD_0": 0,
+    "DLOAD_1": 1,
+    "DLOAD_2": 2,
+    "DLOAD_3": 3,
+    "DSTORE": 75,
+    "DSTORE_0": 0,
+    "DSTORE_1": 1,
+    "DSTORE_2": 2,
+    "DSTORE_3": 3,
+    "FLOAD": 39,
+    "FLOAD_0": 0,
+    "FLOAD_1": 1,
+    "FLOAD_2": 2,
+    "FLOAD_3": 3,
+    "FSTORE": 39,
+    "FSTORE_1": 1,
+    "FSTORE_2": 2,
+    "FSTORE_3": 3,
+    "IINC": 51,
+    "IINC_W": 16,
+    "ILOAD": 55,
+    "ILOAD_0": 0,
+    "ILOAD_1": 1,
+    "ILOAD_2": 2,
+    "ILOAD_3": 3,
+    "ISTORE": 55,
+    "ISTORE_0": 0,
+    "ISTORE_1": 1,
+    "ISTORE_2": 2,
+    "ISTORE_3": 3,
+    "LLOAD": 90,
+    "LLOAD_0": 0,
+    "LLOAD_1": 1,
+    "LLOAD_2": 2,
+    "LLOAD_3": 3,
+    "LSTORE": 90,
+    "LSTORE_0": 0,
+    "LSTORE_1": 1,
+    "LSTORE_2": 2,
+    "LSTORE_3": 3
+  }
+}
