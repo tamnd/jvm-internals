@@ -476,6 +476,42 @@ class jvx {
         System.out.print(run(className, source, vmArgs));
     }
 
+    // -- building a class file by hand ------------------------------------------------
+    //
+    // Six calls, forwarded to Cf. A reader writes the fields of the file and nothing
+    // else; every number they write is one the specification names, and the three ways
+    // of finding out whether they got it right are here next to each other on purpose.
+
+    /** A new, empty class file. Write it one field at a time. */
+    static Cf cf() {
+        return new Cf();
+    }
+
+    /** The opcode byte for an instruction name, read off this JDK rather than a table. */
+    static int op(String mnemonic) {
+        return Cf.opcode(mnemonic);
+    }
+
+    /** What the JDK's own disassembler makes of your bytes. */
+    static void javap(byte[] bytes, String... options) {
+        System.out.print(Cf.javap(bytes, options));
+    }
+
+    /** Define your bytes as a class here and link them, so the verifier runs. */
+    static Class<?> load(String binaryName, byte[] bytes) {
+        return Cf.load(binaryName, bytes);
+    }
+
+    /** Run your class in a fresh JVM, with flags, and print what it said. */
+    static void launch(String binaryName, byte[] bytes, String... vmArgs) {
+        System.out.print(Cf.launch(binaryName, bytes, vmArgs));
+    }
+
+    /** The error a file you meant to be refused was refused with, class name first. */
+    static String refusal(String binaryName, byte[] bytes) {
+        return Cf.refusal(binaryName, bytes);
+    }
+
     // -- prediction gates -----------------------------------------------------------
     //
     // Three calls, forwarded to Gate. A lesson never names Gate, so the day the text

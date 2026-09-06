@@ -97,7 +97,7 @@ def sources() -> list[pathlib.Path]:
     for path in sorted(ROOT.rglob("*.md")):
         if ".git" not in path.parts:
             found.append(path)
-    for pattern in ("lessons/*/lesson.py", "jvx/*.jsh"):
+    for pattern in ("lessons/*/lesson.py", "playgrounds/*/playground.py", "jvx/*.jsh"):
         found.extend(sorted(ROOT.glob(pattern)))
     for pattern in JSON_WITH_CITATIONS:
         found.extend(sorted(ROOT.glob(pattern)))

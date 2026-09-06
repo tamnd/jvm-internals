@@ -111,7 +111,7 @@ System.out.println(jvx.headerSize() + " " + jvx.sizeOf(Two.class) + " "
 // bootstrap can look fine.
 mark("loaded");
 System.out.println(jvx.PIN + " " + MarkWord.hex(0L).length() + " " + Gate.question.size()
-    + " " + Ui.esc("<").length());
+    + " " + Ui.esc("<").length() + " " + Cf.mnemonic(178));
 
 mark("end");
 /exit
@@ -174,14 +174,23 @@ NEEDS_JSHELL = unittest.skipUnless(
 )
 
 
-def run_driver() -> dict[str, str]:
-    """Load the whole helper surface into a jshell and print the markup it builds."""
+def run_driver(driver: str = DRIVER, noise: tuple[str, ...] = ()) -> dict[str, str]:
+    """Load the whole helper surface into a jshell and print what the driver asks for.
+
+    The driver is a parameter because more than one test file needs this: the same
+    bootstrap, the same kernel imports, the same reading of both streams, and only the
+    snippet at the end differs. tools/test_classfile_playground.py passes its own.
+
+    `noise` is for a driver whose own output looks like a failure. Every entry has to be
+    a substring a caller can point at a reason for, because the scan below is the only
+    thing standing between a helper that stopped compiling and a green test run.
+    """
     bootstrap = build.Context(ROOT).bootstrap()
     with tempfile.TemporaryDirectory() as directory:
         startup = pathlib.Path(directory) / "startup.jsh"
         startup.write_text(KERNEL_IMPORTS, encoding="utf-8")
         script = pathlib.Path(directory) / "drive.jsh"
-        script.write_text(bootstrap + "\n" + DRIVER, encoding="utf-8")
+        script.write_text(bootstrap + "\n" + driver, encoding="utf-8")
         done = subprocess.run(
             [
                 JSHELL,
@@ -200,13 +209,22 @@ def run_driver() -> dict[str, str]:
     # Both streams. jshell prints a thrown exception on stderr and carries on, so a
     # clean stdout is not proof of anything: the first version of this scan read stdout
     # only and watched four HeapLens calls throw without noticing.
+    #
+    # Anchored at the start of the line, because in -s mode jshell writes its own
+    # `Error:` and `Exception ` at column zero and a driver's own output is indented or
+    # prefixed. A driver that prints the name of an error class on purpose, which the
+    # class file playground does four times, would otherwise be reported as a driver
+    # that failed to compile.
     trouble = "\n".join(
         line for line in (done.stdout + "\n" + done.stderr).splitlines()
-        if "Error:" in line
-        or "cannot find symbol" in line
-        or "REJECTED" in line
-        or line.startswith("Exception ")
-        or line.startswith("|  Exception")
+        if not any(allowed in line for allowed in noise)
+        and (
+            line.startswith("Error:")
+            or "cannot find symbol" in line
+            or "REJECTED" in line
+            or line.startswith("Exception ")
+            or line.startswith("|  Exception")
+        )
     )
     if trouble:
         raise AssertionError("jshell refused part of the helper surface:\n" + trouble)
