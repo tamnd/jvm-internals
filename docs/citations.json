@@ -224,6 +224,27 @@
       "line": "        cfs->skip_u1(attribute_length, CHECK);  // Skip unknown attributes",
       "tag": "jdk-27+35"
     },
+    "src/hotspot/share/classfile/classFileParser.cpp:1752": {
+      "cited_in": [
+        "blueprints/BP-STACKMAP/4-guarantees.md",
+        "blueprints/BP-STACKMAP/6-edge-cases.md",
+        "docs/blueprints/BP-STACKMAP.md",
+        "docs/generated/conformance.json"
+      ],
+      "context_sha256": "a4e12c9ad9aa1ca2eb982cefe8017b300223fbae0a92a3563c15c6e9ce5f350b",
+      "line": "  if (0 == code_attribute_length) {",
+      "tag": "jdk-27+35"
+    },
+    "src/hotspot/share/classfile/classFileParser.cpp:1760": {
+      "cited_in": [
+        "blueprints/BP-STACKMAP/4-guarantees.md",
+        "docs/blueprints/BP-STACKMAP.md",
+        "docs/generated/conformance.json"
+      ],
+      "context_sha256": "d00d1590944e2ffeb554cf619fd6df3d35dc779ddc1dee2d1497655950d4812d",
+      "line": "  cfs->skip_u1(code_attribute_length, CHECK_NULL);",
+      "tag": "jdk-27+35"
+    },
     "src/hotspot/share/classfile/classFileParser.cpp:2290": {
       "cited_in": [
         "blueprints/BP-CLASSFILE/4-guarantees.md",
@@ -257,6 +278,36 @@
       ],
       "context_sha256": "4ea5d2b7092f97bb94b23c1b1045bdeabee571993d0b29d6dd3179a04d21f914",
       "line": "        if (_major_version < Verifier::INVOKEDYNAMIC_MAJOR_VERSION) {",
+      "tag": "jdk-27+35"
+    },
+    "src/hotspot/share/classfile/classFileParser.cpp:2408": {
+      "cited_in": [
+        "blueprints/BP-STACKMAP/4-guarantees.md",
+        "docs/blueprints/BP-STACKMAP.md",
+        "docs/generated/conformance.json"
+      ],
+      "context_sha256": "5525f7866c370b81a7b117bbd82e259fb60c3a6b19fad75e981b50ed14a810d0",
+      "line": "        } else if (_major_version >= Verifier::STACKMAP_ATTRIBUTE_MAJOR_VERSION &&",
+      "tag": "jdk-27+35"
+    },
+    "src/hotspot/share/classfile/classFileParser.cpp:2412": {
+      "cited_in": [
+        "blueprints/BP-STACKMAP/4-guarantees.md",
+        "docs/blueprints/BP-STACKMAP.md",
+        "docs/generated/conformance.json"
+      ],
+      "context_sha256": "c57c03e941f54b9086100720853e2f10150f1515104c5dc5c6195bb2a3bbcce6",
+      "line": "            classfile_parse_error(\"Multiple StackMapTable attributes in class file %s\", THREAD);",
+      "tag": "jdk-27+35"
+    },
+    "src/hotspot/share/classfile/classFileParser.cpp:2420": {
+      "cited_in": [
+        "blueprints/BP-STACKMAP/4-guarantees.md",
+        "docs/blueprints/BP-STACKMAP.md",
+        "docs/generated/conformance.json"
+      ],
+      "context_sha256": "d82f213b0f4f72078cb3a622993fbf5ad389de87ddec950ee9291534f8ecc783",
+      "line": "          cfs->skip_u1(code_attribute_length, CHECK_NULL);",
       "tag": "jdk-27+35"
     },
     "src/hotspot/share/classfile/classFileParser.cpp:253": {
@@ -544,12 +595,256 @@
       "line": "#define STRING_INJECTED_FIELDS(macro) \\",
       "tag": "jdk-27+35"
     },
+    "src/hotspot/share/classfile/stackMapTable.cpp:179": {
+      "cited_in": [
+        "blueprints/BP-STACKMAP/4-guarantees.md",
+        "docs/blueprints/BP-STACKMAP.md",
+        "docs/generated/conformance.json"
+      ],
+      "context_sha256": "c991374cdfad2b45c51478ba417b996d9eec1aab004abede7762fedca5082da3",
+      "line": "    _frame_count = 0;",
+      "tag": "jdk-27+35"
+    },
+    "src/hotspot/share/classfile/stackMapTable.cpp:188": {
+      "cited_in": [
+        "blueprints/BP-STACKMAP/4-guarantees.md",
+        "docs/blueprints/BP-STACKMAP.md",
+        "docs/generated/conformance.json"
+      ],
+      "context_sha256": "6919fdf47bf0bd2978a9e724efab3087025358fa8bfc5a39ff5fe73cb896813e",
+      "line": "    if (locals[pos].is_category2_2nd()) {",
+      "tag": "jdk-27+35"
+    },
+    "src/hotspot/share/classfile/stackMapTable.cpp:193": {
+      "cited_in": [
+        "blueprints/BP-STACKMAP/4-guarantees.md",
+        "docs/blueprints/BP-STACKMAP.md",
+        "docs/generated/conformance.json"
+      ],
+      "context_sha256": "13460e7d86c313f6b39dc5207317c718978d18311f24652ce38463c005ebe989",
+      "line": "    if (pos<0 && i<(chops-1)) return -1;",
+      "tag": "jdk-27+35"
+    },
+    "src/hotspot/share/classfile/stackMapTable.cpp:202": {
+      "cited_in": [
+        "blueprints/BP-STACKMAP/4-guarantees.md",
+        "docs/blueprints/BP-STACKMAP.md",
+        "docs/generated/conformance.json"
+      ],
+      "context_sha256": "a19050205a2ff094d9aa49b172415b2b1ab59ba2d3c365209b290e59fcc5b12b",
+      "line": "  if (tag < (u1)ITEM_UninitializedThis) {",
+      "tag": "jdk-27+35"
+    },
+    "src/hotspot/share/classfile/stackMapTable.cpp:208": {
+      "cited_in": [
+        "blueprints/BP-STACKMAP/4-guarantees.md",
+        "docs/blueprints/BP-STACKMAP.md",
+        "docs/generated/conformance.json"
+      ],
+      "context_sha256": "0b006c03799408929149f8600aa868e26c58ac47e52e51f91e0a551f9f243f37",
+      "line": "    if ((class_index <= 0 || class_index >= nconstants) ||",
+      "tag": "jdk-27+35"
+    },
+    "src/hotspot/share/classfile/stackMapTable.cpp:224": {
+      "cited_in": [
+        "blueprints/BP-STACKMAP/4-guarantees.md",
+        "docs/blueprints/BP-STACKMAP.md",
+        "docs/generated/conformance.json"
+      ],
+      "context_sha256": "620553c7dffb898ccf6d4e4eca3850277b2bca9fbe42deea4f574aa5a72ae3fc",
+      "line": "    if (offset >= _code_length ||",
+      "tag": "jdk-27+35"
+    },
+    "src/hotspot/share/classfile/stackMapTable.cpp:226": {
+      "cited_in": [
+        "blueprints/BP-STACKMAP/4-guarantees.md",
+        "docs/blueprints/BP-STACKMAP.md",
+        "docs/generated/conformance.json"
+      ],
+      "context_sha256": "91bf5c33e878ef302f040c377b517314ebae5052d969716b52c69fde5001303d",
+      "line": "      _verifier->class_format_error(",
+      "tag": "jdk-27+35"
+    },
+    "src/hotspot/share/classfile/stackMapTable.cpp:232": {
+      "cited_in": [
+        "blueprints/BP-STACKMAP/4-guarantees.md",
+        "docs/blueprints/BP-STACKMAP.md",
+        "docs/generated/conformance.json"
+      ],
+      "context_sha256": "9ccea939df13826118068036e2725a98236725e02f1bd562d1f41029529bdc0d",
+      "line": "  _stream->stackmap_format_error(\"bad verification type\", THREAD);",
+      "tag": "jdk-27+35"
+    },
+    "src/hotspot/share/classfile/stackMapTable.cpp:258": {
+      "cited_in": [
+        "blueprints/BP-STACKMAP/4-guarantees.md",
+        "docs/blueprints/BP-STACKMAP.md",
+        "docs/generated/conformance.json",
+        "docs/probes/stackmap.md"
+      ],
+      "context_sha256": "f4f5f5530e750d45f7d4b8f445a87a402ccd43cbc0e40d541192ea2a79463d3b",
+      "line": "      offset = frame_type;",
+      "tag": "jdk-27+35"
+    },
+    "src/hotspot/share/classfile/stackMapTable.cpp:261": {
+      "cited_in": [
+        "blueprints/BP-STACKMAP/4-guarantees.md",
+        "docs/blueprints/BP-STACKMAP.md",
+        "docs/generated/conformance.json"
+      ],
+      "context_sha256": "808a1fe146c577a83a04c5f4cb6ebe87e364b9a54fd83e837b6d57b0c11a69d0",
+      "line": "        locals = NEW_RESOURCE_ARRAY_IN_THREAD(",
+      "tag": "jdk-27+35"
+    },
+    "src/hotspot/share/classfile/stackMapTable.cpp:265": {
+      "cited_in": [
+        "blueprints/BP-STACKMAP/4-guarantees.md",
+        "docs/blueprints/BP-STACKMAP.md",
+        "docs/generated/conformance.json",
+        "docs/probes/stackmap.md"
+      ],
+      "context_sha256": "26ed37f562e5a4a89b41de5b07353ec7499104eaa134526827dbdb85d078fcf2",
+      "line": "      offset = _prev_frame->offset() + frame_type + 1;",
+      "tag": "jdk-27+35"
+    },
+    "src/hotspot/share/classfile/stackMapTable.cpp:272": {
+      "cited_in": [
+        "blueprints/BP-STACKMAP/4-guarantees.md",
+        "docs/blueprints/BP-STACKMAP.md",
+        "docs/generated/conformance.json"
+      ],
+      "context_sha256": "6c3ac40ee45b92695cc98c72b9d9a3c109274cd10cbb33aee5032c3415aaec67",
+      "line": "      frame->copy_locals(_prev_frame);",
+      "tag": "jdk-27+35"
+    },
     "src/hotspot/share/classfile/stackMapTable.cpp:298": {
       "cited_in": [
         "docs/probes/classfile-fuzz.md"
       ],
       "context_sha256": "b95d266fc4ba188634d1ec20b181af75e28d83204b35d490e7edc3acc439f408",
       "line": "    check_verification_type_array_size(",
+      "tag": "jdk-27+35"
+    },
+    "src/hotspot/share/classfile/stackMapTable.cpp:310": {
+      "cited_in": [
+        "blueprints/BP-STACKMAP/4-guarantees.md",
+        "docs/blueprints/BP-STACKMAP.md",
+        "docs/generated/conformance.json",
+        "docs/probes/stackmap.md"
+      ],
+      "context_sha256": "966dbe2f9dc759f8af0337a7fc801645276aa5acb14c1d9c3837c91674d07f6e",
+      "line": "  u2 offset_delta = _stream->get_u2(CHECK_NULL);",
+      "tag": "jdk-27+35"
+    },
+    "src/hotspot/share/classfile/stackMapTable.cpp:312": {
+      "cited_in": [
+        "blueprints/BP-STACKMAP/4-guarantees.md",
+        "docs/blueprints/BP-STACKMAP.md",
+        "docs/generated/conformance.json",
+        "docs/probes/stackmap.md"
+      ],
+      "context_sha256": "d5a7ebfbc737843ba7d27b412bfe209449aa3b54b3aa8540741f68c09c967d9a",
+      "line": "  if (frame_type < SAME_LOCALS_1_STACK_ITEM_EXTENDED) {",
+      "tag": "jdk-27+35"
+    },
+    "src/hotspot/share/classfile/stackMapTable.cpp:355": {
+      "cited_in": [
+        "docs/probes/stackmap.md"
+      ],
+      "context_sha256": "a4039e7b54a3ad7e2006c9bfac393bf1b24da6049a6d262abb0d69d8a7c4414a",
+      "line": "    int chops = SAME_FRAME_EXTENDED - frame_type;",
+      "tag": "jdk-27+35"
+    },
+    "src/hotspot/share/classfile/stackMapTable.cpp:364": {
+      "cited_in": [
+        "blueprints/BP-STACKMAP/4-guarantees.md",
+        "docs/blueprints/BP-STACKMAP.md",
+        "docs/generated/conformance.json"
+      ],
+      "context_sha256": "2acae58ef747ca2a49a2610d20bfa4b4aef37107716c7c91e50d724e13394229",
+      "line": "      flags = 0;",
+      "tag": "jdk-27+35"
+    },
+    "src/hotspot/share/classfile/stackMapTable.cpp:395": {
+      "cited_in": [
+        "docs/probes/stackmap.md"
+      ],
+      "context_sha256": "ff9f211193ddaea24552e7edb2675420e6cac96210024259a2bf7be1830fdeeb",
+      "line": "    int appends = frame_type - APPEND_FRAME_START + 1;",
+      "tag": "jdk-27+35"
+    },
+    "src/hotspot/share/classfile/stackMapTable.cpp:397": {
+      "cited_in": [
+        "blueprints/BP-STACKMAP/4-guarantees.md",
+        "docs/blueprints/BP-STACKMAP.md",
+        "docs/generated/conformance.json",
+        "docs/probes/stackmap.md"
+      ],
+      "context_sha256": "1110d4e33fbf30d0635e4a834240971c67e27599f6d0ec3213a87571a5977cea",
+      "line": "    int new_length = real_length + appends*2;",
+      "tag": "jdk-27+35"
+    },
+    "src/hotspot/share/classfile/stackMapTable.cpp:432": {
+      "cited_in": [
+        "blueprints/BP-STACKMAP/4-guarantees.md",
+        "blueprints/BP-STACKMAP/6-edge-cases.md",
+        "docs/blueprints/BP-STACKMAP.md",
+        "docs/generated/conformance.json"
+      ],
+      "context_sha256": "d77e004a17c836a5a0779592758e1f6bbbd8458c67db011385d99a2d3ad8fa90",
+      "line": "        THREAD, VerificationType, locals_size*2);",
+      "tag": "jdk-27+35"
+    },
+    "src/hotspot/share/classfile/stackMapTable.cpp:474": {
+      "cited_in": [
+        "blueprints/BP-STACKMAP/4-guarantees.md",
+        "docs/blueprints/BP-STACKMAP.md",
+        "docs/generated/conformance.json",
+        "docs/probes/stackmap.md"
+      ],
+      "context_sha256": "ec03b33ae1a68987656472d64e74c47daae6ddcfc1896af533a6a3470b271d6c",
+      "line": "  _stream->stackmap_format_error(",
+      "tag": "jdk-27+35"
+    },
+    "src/hotspot/share/classfile/stackMapTable.cpp:51": {
+      "cited_in": [
+        "blueprints/BP-STACKMAP/4-guarantees.md",
+        "docs/blueprints/BP-STACKMAP.md",
+        "docs/generated/conformance.json"
+      ],
+      "context_sha256": "42f2856fdda59ab0b415b3665cb0d9cbd18a369351b622aec9b319aa400d829e",
+      "line": "  if (offset >= _code_length || _code_data[offset] == 0) {",
+      "tag": "jdk-27+35"
+    },
+    "src/hotspot/share/classfile/stackMapTable.cpp:58": {
+      "cited_in": [
+        "blueprints/BP-STACKMAP/4-guarantees.md",
+        "blueprints/BP-STACKMAP/6-edge-cases.md",
+        "docs/blueprints/BP-STACKMAP.md",
+        "docs/generated/conformance.json"
+      ],
+      "context_sha256": "a9f51e497a3598ba7bd9828706fa2db27b2793e3d757dca090074b664f27df0c",
+      "line": "  if (_frame_count < _parsed_frame_count) {",
+      "tag": "jdk-27+35"
+    },
+    "src/hotspot/share/classfile/stackMapTable.cpp:65": {
+      "cited_in": [
+        "blueprints/BP-STACKMAP/4-guarantees.md",
+        "blueprints/BP-STACKMAP/6-edge-cases.md",
+        "docs/blueprints/BP-STACKMAP.md",
+        "docs/generated/conformance.json"
+      ],
+      "context_sha256": "2fe97a137b6f5310021001b465c013ae2e17a9684b41d20febeb24a03d572cf4",
+      "line": "  if (_frame_count != _parsed_frame_count) {",
+      "tag": "jdk-27+35"
+    },
+    "src/hotspot/share/classfile/stackMapTable.hpp:109": {
+      "cited_in": [
+        "blueprints/BP-STACKMAP/6-edge-cases.md",
+        "docs/blueprints/BP-STACKMAP.md"
+      ],
+      "context_sha256": "6475c345d62e92e5de8eb397622d2bf1978c996a0a426d536b14a4a5a0d0a51d",
+      "line": "  friend class VM_RedefineClasses;",
       "tag": "jdk-27+35"
     },
     "src/hotspot/share/classfile/stackMapTable.hpp:139": {
@@ -563,6 +858,69 @@
       "line": "  void check_verification_type_array_size(",
       "tag": "jdk-27+35"
     },
+    "src/hotspot/share/classfile/stackMapTable.hpp:141": {
+      "cited_in": [
+        "blueprints/BP-STACKMAP/4-guarantees.md",
+        "blueprints/BP-STACKMAP/6-edge-cases.md",
+        "docs/blueprints/BP-STACKMAP.md",
+        "docs/generated/conformance.json"
+      ],
+      "context_sha256": "c4f6398bc842f68cf67fe7f0e35d2e48cdf0d87a808d08d41ca3ee4dfe768a7d",
+      "line": "    if (size < 0 || size > max_size) {",
+      "tag": "jdk-27+35"
+    },
+    "src/hotspot/share/classfile/stackMapTable.hpp:146": {
+      "cited_in": [
+        "blueprints/BP-STACKMAP/4-guarantees.md",
+        "docs/blueprints/BP-STACKMAP.md",
+        "docs/generated/conformance.json"
+      ],
+      "context_sha256": "3f4a17d26c5ae60abb0afb3db1b2a6e1ad21de66330f520f925fbb1c63bc3fce",
+      "line": "      _verifier->class_format_error(",
+      "tag": "jdk-27+35"
+    },
+    "src/hotspot/share/classfile/stackMapTable.hpp:156": {
+      "cited_in": [
+        "blueprints/BP-STACKMAP/4-guarantees.md",
+        "docs/blueprints/BP-STACKMAP.md",
+        "docs/generated/conformance.json",
+        "docs/probes/stackmap.md"
+      ],
+      "context_sha256": "538f20f2ce15b4e5481886025a9a5c3670c71fee72eba71a77e3976607669213",
+      "line": "    RESERVED_START = 128,",
+      "tag": "jdk-27+35"
+    },
+    "src/hotspot/share/classfile/stackMapTable.hpp:157": {
+      "cited_in": [
+        "blueprints/BP-STACKMAP/4-guarantees.md",
+        "docs/blueprints/BP-STACKMAP.md",
+        "docs/generated/conformance.json"
+      ],
+      "context_sha256": "7120e32a792c875fb7e8cc78c551ffdc512f766eb347dfe7800192ca3ed78233",
+      "line": "    RESERVED_END = 246,",
+      "tag": "jdk-27+35"
+    },
+    "src/hotspot/share/classfile/verificationType.hpp:64": {
+      "cited_in": [
+        "blueprints/BP-STACKMAP/4-guarantees.md",
+        "docs/blueprints/BP-STACKMAP.md",
+        "docs/generated/conformance.json",
+        "docs/probes/stackmap.md"
+      ],
+      "context_sha256": "9e785a9f774b56e0a833653429f48c206c4a18bbe0dd5391bbbb42409b395b2b",
+      "line": "      // These rest are not found in classfiles, but used by the verifier",
+      "tag": "jdk-27+35"
+    },
+    "src/hotspot/share/classfile/verificationType.hpp:65": {
+      "cited_in": [
+        "blueprints/BP-STACKMAP/4-guarantees.md",
+        "docs/blueprints/BP-STACKMAP.md",
+        "docs/generated/conformance.json"
+      ],
+      "context_sha256": "42439068f84335978cbdc2e67749418fc387cdb4aa90ee2a06cc6cf4f5b725e1",
+      "line": "      ITEM_Boolean = 9, ITEM_Byte, ITEM_Short, ITEM_Char,",
+      "tag": "jdk-27+35"
+    },
     "src/hotspot/share/classfile/verifier.cpp:115": {
       "cited_in": [
         "blueprints/BP-CLASSFILE/4-guarantees.md",
@@ -571,6 +929,26 @@
       ],
       "context_sha256": "53e4bcfdaf4687327649d61e9b5e36876d5a6a1501c8ee369f712862255c1e0c",
       "line": "bool Verifier::should_verify_for(oop class_loader) {",
+      "tag": "jdk-27+35"
+    },
+    "src/hotspot/share/classfile/verifier.cpp:117": {
+      "cited_in": [
+        "blueprints/BP-STACKMAP/4-guarantees.md",
+        "blueprints/BP-STACKMAP/7-configuration.md",
+        "docs/blueprints/BP-STACKMAP.md",
+        "docs/generated/conformance.json"
+      ],
+      "context_sha256": "5c3a19e995f503bde331c6f218440bef91b71ad2d624df3fe1c1d115b72fdd87",
+      "line": "    BytecodeVerificationLocal : BytecodeVerificationRemote;",
+      "tag": "jdk-27+35"
+    },
+    "src/hotspot/share/classfile/verifier.cpp:143": {
+      "cited_in": [
+        "blueprints/BP-STACKMAP/7-configuration.md",
+        "docs/blueprints/BP-STACKMAP.md"
+      ],
+      "context_sha256": "54da76bc52b7bb2042ed3d4f95393642643655eab1ff0c6ffc0c57aa6c1a4374",
+      "line": "    !(klass->in_aot_cache() && klass->is_rewritten()));",
       "tag": "jdk-27+35"
     },
     "src/hotspot/share/classfile/verifier.cpp:2073": {
@@ -595,12 +973,54 @@
     "src/hotspot/share/classfile/verifier.cpp:219": {
       "cited_in": [
         "blueprints/BP-CONSTPOOL/4-guarantees.md",
+        "blueprints/BP-STACKMAP/4-guarantees.md",
+        "blueprints/BP-STACKMAP/7-configuration.md",
         "docs/blueprints/BP-CONSTPOOL.md",
+        "docs/blueprints/BP-STACKMAP.md",
         "docs/generated/conformance.json",
         "docs/probes/constpool.md"
       ],
       "context_sha256": "139e318266123cd067125a406cbef8e923dc41994d3c0d2232a3322316d6f084",
       "line": "  if (klass->major_version() >= STACKMAP_ATTRIBUTE_MAJOR_VERSION) {",
+      "tag": "jdk-27+35"
+    },
+    "src/hotspot/share/classfile/verifier.cpp:227": {
+      "cited_in": [
+        "blueprints/BP-STACKMAP/7-configuration.md",
+        "docs/blueprints/BP-STACKMAP.md"
+      ],
+      "context_sha256": "079c565c7bc1717783ef492488b56eaafda599ee7b17377ee3f3f637375ee9b3",
+      "line": "    bool can_failover = !(CDSConfig::is_dumping_classic_static_archive() || CDSConfig::is_dumping_final_static_archive()) &&",
+      "tag": "jdk-27+35"
+    },
+    "src/hotspot/share/classfile/verifier.cpp:228": {
+      "cited_in": [
+        "blueprints/BP-STACKMAP/4-guarantees.md",
+        "blueprints/BP-STACKMAP/6-edge-cases.md",
+        "docs/blueprints/BP-STACKMAP.md",
+        "docs/generated/conformance.json"
+      ],
+      "context_sha256": "18bf935517d0f682ae7f36a3437ba9f0c13fd85d174d9a0b8b2bc74bb8542484",
+      "line": "      klass->major_version() < NOFAILOVER_MAJOR_VERSION;",
+      "tag": "jdk-27+35"
+    },
+    "src/hotspot/share/classfile/verifier.cpp:230": {
+      "cited_in": [
+        "blueprints/BP-STACKMAP/4-guarantees.md",
+        "docs/blueprints/BP-STACKMAP.md",
+        "docs/generated/conformance.json"
+      ],
+      "context_sha256": "2a5e09c00bdd04246d4afcd347b0b4df92d873f836993496293c943210ce0722",
+      "line": "    if (can_failover && !HAS_PENDING_EXCEPTION &&  // Split verifier doesn't set PENDING_EXCEPTION for failure",
+      "tag": "jdk-27+35"
+    },
+    "src/hotspot/share/classfile/verifier.cpp:233": {
+      "cited_in": [
+        "blueprints/BP-STACKMAP/7-configuration.md",
+        "docs/blueprints/BP-STACKMAP.md"
+      ],
+      "context_sha256": "ef7d7fabe0f087ec02cb26d7e0d21d016daaf9081bbdcfff3ed6f470cd142ae7",
+      "line": "      log_info(verification)(\"Fail over class verification to old verifier for: %s\", klass->external_name());",
       "tag": "jdk-27+35"
     },
     "src/hotspot/share/interpreter/bytecodes.cpp:52": {
