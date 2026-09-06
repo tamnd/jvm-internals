@@ -66,6 +66,7 @@ jobs:
           python tools/test_gen_opcodes.py
           python tools/test_gen_classfile.py
           python tools/test_gen_flags.py
+          python tools/test_gen_fuzz.py
           python tools/test_fetch_jdk.py
       - name: rebuild and compare
         run: python tools/build.py check
@@ -265,6 +266,14 @@ jobs:
       # So a failure here says one of the headers moved, rather than that a file is old.
       - name: the flag table still matches the headers and the measurements
         run: python tools/gen_flags.py --check
+      # The fuzzer's page, joined from two committed measurements and 23 sentences
+      # quoted out of JVMS chapters 4 and 5, which are fetched here and hash checked
+      # against the section index. The generator stops if a cited section is gone, if a
+      # quotation is no longer in the section it is attributed to, if a section stops
+      # naming the error the page says it names, or if every case starts agreeing with
+      # the specification. So a failure here says the specification moved under a claim.
+      - name: the fuzzer's claims are still claims the specification supports
+        run: python tools/gen_fuzz.py --check
       - name: every citation still says what it said
         run: python tools/refcheck.py --report
 

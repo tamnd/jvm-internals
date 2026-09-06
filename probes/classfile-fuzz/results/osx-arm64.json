@@ -1,0 +1,2566 @@
+{
+  "cases": {
+    "class_entry_names_an_index_past_the_end": {
+      "at": "20 in constant pool",
+      "bytes": 368,
+      "error": "java.lang.ClassFormatError",
+      "message": "Invalid constant pool index 67 in class file Target",
+      "stage": "parse",
+      "what": "a CONSTANT_Class whose name points past the last pool entry"
+    },
+    "class_entry_names_the_wrong_kind_of_entry": {
+      "at": "20 in constant pool",
+      "bytes": 368,
+      "error": "java.lang.ClassFormatError",
+      "message": "Invalid constant pool index 2 in class file Target",
+      "stage": "parse",
+      "what": "a CONSTANT_Class whose name points at another CONSTANT_Class rather than at a Utf8"
+    },
+    "code_length_is_past_the_attribute": {
+      "at": "300 in methods",
+      "bytes": 368,
+      "error": "java.lang.ClassFormatError",
+      "message": "Truncated class file",
+      "stage": "parse",
+      "what": "a code array longer than the attribute that contains it"
+    },
+    "code_length_is_zero": {
+      "at": "300 in methods",
+      "bytes": 368,
+      "error": "java.lang.ClassFormatError",
+      "message": "Invalid method Code length 0 in class file Target",
+      "stage": "parse",
+      "what": "a method body of no bytes at all"
+    },
+    "constant_pool_count_is_zero": {
+      "at": "8 in header",
+      "bytes": 368,
+      "error": "java.lang.ClassFormatError",
+      "message": "Illegal constant pool size 0 in class file Target",
+      "stage": "parse",
+      "what": "a constant pool count of zero, which is one less than the smallest legal value"
+    },
+    "constant_pool_count_past_the_end": {
+      "at": "8 in header",
+      "bytes": 368,
+      "error": "java.lang.ClassFormatError",
+      "message": "Unknown constant tag 0 in class file Target",
+      "stage": "parse",
+      "what": "a constant pool count larger than the entries that follow it"
+    },
+    "constant_pool_tag_is_not_a_tag": {
+      "at": "10 in constant pool",
+      "bytes": 368,
+      "error": "java.lang.ClassFormatError",
+      "message": "Unknown constant tag 2 in class file Target",
+      "stage": "parse",
+      "what": "a constant pool tag of 2, a number the table has never used"
+    },
+    "magic_is_not_cafebabe": {
+      "at": "0 in header",
+      "bytes": 368,
+      "error": "java.lang.ClassFormatError",
+      "message": "Incompatible magic value 3405697037 in class file Target",
+      "stage": "parse",
+      "what": "the first four bytes, which every reader checks first"
+    },
+    "major_version_before_there_were_any": {
+      "at": "6 in header",
+      "bytes": 368,
+      "error": "java.lang.UnsupportedClassVersionError",
+      "message": "Target (class file version 44.0) was compiled with an invalid major version",
+      "stage": "parse",
+      "what": "a major version below 45, which no JDK ever wrote"
+    },
+    "major_version_from_the_future": {
+      "at": "6 in header",
+      "bytes": 368,
+      "error": "java.lang.UnsupportedClassVersionError",
+      "message": "Target has been compiled by a more recent version of the Java Runtime (class file version 72.0), this version of the Java Runtime only recognizes class file versions up to 71.0",
+      "stage": "parse",
+      "what": "a major version one above the highest this JDK reads"
+    },
+    "max_locals_is_too_small": {
+      "at": "261 in methods",
+      "bytes": 368,
+      "error": "java.lang.ClassFormatError",
+      "message": "Arguments can't fit into locals in class file Target",
+      "stage": "parse",
+      "what": "a max_locals smaller than the constructor's own `this`"
+    },
+    "max_stack_is_too_small": {
+      "at": "296 in methods",
+      "bytes": 368,
+      "error": "java.lang.ClassFormatError",
+      "message": "StackMapTable format error: bad type array size in method 'int Target.go()'",
+      "stage": "link",
+      "what": "a max_stack of zero for a body that pushes two values"
+    },
+    "super_class_is_zero": {
+      "at": "221 in class, super and interfaces",
+      "bytes": 368,
+      "error": "java.lang.ClassFormatError",
+      "message": "Invalid superclass index 0 in class file Target",
+      "stage": "parse",
+      "what": "a super_class of zero, which only java/lang/Object may have"
+    },
+    "the_attribute_is_longer_than_what_follows_it": {
+      "at": "292 in methods",
+      "bytes": 368,
+      "error": "java.lang.ClassFormatError",
+      "message": "Code segment has wrong length in class file Target",
+      "stage": "parse",
+      "what": "a Code attribute whose declared length runs past the end of the file"
+    },
+    "the_class_is_an_interface_that_is_not_abstract": {
+      "at": "217 in class, super and interfaces",
+      "bytes": 368,
+      "error": "java.lang.ClassFormatError",
+      "message": "Illegal class modifiers in class Target: 0x201",
+      "stage": "parse",
+      "what": "ACC_INTERFACE without ACC_ABSTRACT"
+    },
+    "the_class_is_final_and_abstract": {
+      "at": "217 in class, super and interfaces",
+      "bytes": 368,
+      "error": "java.lang.ClassFormatError",
+      "message": "Illegal class modifiers in class Target: 0x411",
+      "stage": "parse",
+      "what": "ACC_FINAL and ACC_ABSTRACT together, which no class can satisfy"
+    },
+    "the_field_is_final_and_volatile": {
+      "at": "235 in fields",
+      "bytes": 368,
+      "error": "java.lang.ClassFormatError",
+      "message": "Illegal field modifiers in class Target: 0x52",
+      "stage": "parse",
+      "what": "ACC_FINAL and ACC_VOLATILE on the same field"
+    },
+    "the_file_has_four_bytes_too_many": {
+      "at": "the end of the file",
+      "bytes": 372,
+      "error": "java.lang.ClassFormatError",
+      "message": "Extra bytes at the end of class file Target",
+      "stage": "parse",
+      "what": "four bytes appended after the last attribute"
+    },
+    "the_file_is_truncated": {
+      "at": "the end of the file",
+      "bytes": 364,
+      "error": "java.lang.ClassFormatError",
+      "message": "Truncated class file",
+      "stage": "parse",
+      "what": "the last four bytes removed"
+    },
+    "the_jump_lands_outside_the_method": {
+      "at": "310 in methods",
+      "bytes": 368,
+      "error": "java.lang.VerifyError",
+      "message": "Expecting a stackmap frame at branch target 20005 Exception Details:   Location:     Target.go()I @5: if_icmplt   Reason:     Expected stackmap frame at this location.   Bytecode:     0000000: b200 1410 0aa1 4e20 1014 a700 0510 07ac     0000010:                                           Stackmap Table:     same_frame(@13)     same_locals_1_stack_item_frame(@15,Integer)",
+      "stage": "link",
+      "what": "a branch offset that points thousands of bytes past the end of the body"
+    },
+    "the_method_is_abstract_and_final": {
+      "at": "282 in methods",
+      "bytes": 368,
+      "error": "java.lang.ClassFormatError",
+      "message": "Method go in class Target has illegal modifiers: 0x419",
+      "stage": "parse",
+      "what": "ACC_ABSTRACT and ACC_FINAL on the same method, one of which says there is no body and the other that it cannot be replaced"
+    },
+    "the_opcode_is_not_an_opcode": {
+      "at": "304 in methods",
+      "bytes": 368,
+      "error": "java.lang.VerifyError",
+      "message": "Bad instruction: dd Exception Details:   Location:     Target.go()I @0: fast_iaccess_0   Reason:     Error exists in the bytecode   Bytecode:     0000000: dd00 1410 0aa1 0008 1014 a700 0510 07ac     0000010:                                           Stackmap Table:     same_frame(@13)     same_locals_1_stack_item_frame(@15,Integer)",
+      "stage": "link",
+      "what": "0xdd where an opcode belongs, which the table leaves unassigned"
+    },
+    "the_stack_map_frame_type_is_reserved": {
+      "at": "332 in methods",
+      "bytes": 368,
+      "error": "java.lang.ClassFormatError",
+      "message": "StackMapTable format error: reserved frame type",
+      "stage": "link",
+      "what": "a stack map frame tagged 130, which the table reserves and no writer may use"
+    },
+    "the_stack_map_table_is_renamed_and_so_ignored": {
+      "at": "216 in constant pool",
+      "bytes": 368,
+      "error": "java.lang.VerifyError",
+      "message": "Expecting a stackmap frame at branch target 13 Exception Details:   Location:     Target.go()I @5: if_icmplt   Reason:     Expected stackmap frame at this location.   Bytecode:     0000000: b200 1410 0aa1 0008 1014 a700 0510 07ac     0000010:",
+      "stage": "link",
+      "what": "the last letter of the name `StackMapTable`, which makes it an attribute no reader recognises"
+    },
+    "this_class_is_not_a_class_entry": {
+      "at": "219 in class, super and interfaces",
+      "bytes": 368,
+      "error": "java.lang.ClassFormatError",
+      "message": "Invalid this class index 1 in constant pool in class file Target",
+      "stage": "parse",
+      "what": "this_class pointing at a Utf8 rather than at a CONSTANT_Class"
+    },
+    "this_class_names_a_different_class": {
+      "at": "18 in constant pool",
+      "bytes": 368,
+      "error": "java.lang.NoClassDefFoundError",
+      "message": "Target (wrong name: Targex)",
+      "stage": "parse",
+      "what": "one letter of the name in the file, so that the class inside it is not the class that was asked for"
+    },
+    "utf8_holds_a_zero_byte": {
+      "at": "13 in constant pool",
+      "bytes": 368,
+      "error": "java.lang.ClassFormatError",
+      "message": "Illegal UTF8 string in constant pool in class file Target",
+      "stage": "parse",
+      "what": "a zero byte inside a Utf8 entry, which the modified encoding forbids so that a string can hold no terminator"
+    }
+  },
+  "class_file_major": 71,
+  "issue": 15,
+  "java_build": "27+35-2325",
+  "killed_the_jvm": [],
+  "measured": "2026-09-06",
+  "platform": "darwin-arm64",
+  "probe": "classfile-fuzz",
+  "random": [
+    {
+      "at": 56,
+      "bit": 4,
+      "error": "java.lang.NoClassDefFoundError",
+      "message": "java/lang/Sdring",
+      "mutant": 0,
+      "region": "constant pool",
+      "stage": "link"
+    },
+    {
+      "at": 146,
+      "bit": 6,
+      "error": "java.lang.ClassFormatError",
+      "message": "Invalid constant pool index 68 in class file Target",
+      "mutant": 1,
+      "region": "constant pool",
+      "stage": "parse"
+    },
+    {
+      "at": 38,
+      "bit": 7,
+      "error": "java.lang.ClassFormatError",
+      "message": "Illegal UTF8 string in constant pool in class file Target",
+      "mutant": 2,
+      "region": "constant pool",
+      "stage": "parse"
+    },
+    {
+      "at": 128,
+      "bit": 1,
+      "error": "java.lang.ClassFormatError",
+      "message": "Invalid constant pool index 0 in class file Target",
+      "mutant": 3,
+      "region": "constant pool",
+      "stage": "parse"
+    },
+    {
+      "at": 227,
+      "bit": 2,
+      "error": "",
+      "message": "loaded and linked, not run",
+      "mutant": 4,
+      "region": "fields",
+      "stage": "accepted"
+    },
+    {
+      "at": 317,
+      "bit": 4,
+      "error": "",
+      "message": "loaded and linked, not run",
+      "mutant": 5,
+      "region": "methods",
+      "stage": "accepted"
+    },
+    {
+      "at": 28,
+      "bit": 7,
+      "error": "java.lang.ClassFormatError",
+      "message": "Illegal UTF8 string in constant pool in class file Target",
+      "mutant": 6,
+      "region": "constant pool",
+      "stage": "parse"
+    },
+    {
+      "at": 118,
+      "bit": 1,
+      "error": "java.lang.ClassFormatError",
+      "message": "Unknown constant tag 0 in class file Target",
+      "mutant": 7,
+      "region": "constant pool",
+      "stage": "parse"
+    },
+    {
+      "at": 217,
+      "bit": 3,
+      "error": "",
+      "message": "loaded and linked, not run",
+      "mutant": 8,
+      "region": "class, super and interfaces",
+      "stage": "accepted"
+    },
+    {
+      "at": 307,
+      "bit": 5,
+      "error": "java.lang.VerifyError",
+      "message": "Operand stack underflow Exception Details:   Location:     Target.go()I @3: faload   Reason:     Attempt to pop empty stack.   Current Frame:     bci: @3     flags: { }     locals: { }     stack: { integer }   Bytecode:     0000000: b200 1430 0aa1 0008 1014 a700 0510 07ac     0000010:                                           Stackmap Table:     same_frame(@13)     same_locals_1_stack_item_frame(@15,Integer)",
+      "mutant": 9,
+      "region": "methods",
+      "stage": "link"
+    },
+    {
+      "at": 19,
+      "bit": 0,
+      "error": "java.lang.ClassFormatError",
+      "message": "Unknown constant tag 78 in class file Target",
+      "mutant": 10,
+      "region": "constant pool",
+      "stage": "parse"
+    },
+    {
+      "at": 108,
+      "bit": 2,
+      "error": "java.lang.ClassFormatError",
+      "message": "Method \"name\" in class Target has illegal signature \"Ljava/lang/String;\"",
+      "mutant": 11,
+      "region": "constant pool",
+      "stage": "parse"
+    },
+    {
+      "at": 208,
+      "bit": 4,
+      "error": "java.lang.VerifyError",
+      "message": "Expecting a stackmap frame at branch target 13 Exception Details:   Location:     Target.go()I @5: if_icmplt   Reason:     Expected stackmap frame at this location.   Bytecode:     0000000: b200 1410 0aa1 0008 1014 a700 0510 07ac     0000010:",
+      "mutant": 12,
+      "region": "constant pool",
+      "stage": "link"
+    },
+    {
+      "at": 297,
+      "bit": 6,
+      "error": "",
+      "message": "loaded and linked, not run",
+      "mutant": 13,
+      "region": "methods",
+      "stage": "accepted"
+    },
+    {
+      "at": 9,
+      "bit": 0,
+      "error": "java.lang.ClassFormatError",
+      "message": "Invalid this class index 3411 in constant pool in class file Target",
+      "mutant": 14,
+      "region": "header",
+      "stage": "parse"
+    },
+    {
+      "at": 98,
+      "bit": 3,
+      "error": "java.lang.ClassCircularityError",
+      "message": "Target",
+      "mutant": 15,
+      "region": "constant pool",
+      "stage": "parse"
+    },
+    {
+      "at": 198,
+      "bit": 4,
+      "error": "java.lang.ClassFormatError",
+      "message": "Absent Code attribute in method that is not native or abstract in class file Target",
+      "mutant": 16,
+      "region": "constant pool",
+      "stage": "parse"
+    },
+    {
+      "at": 287,
+      "bit": 6,
+      "error": "java.lang.ClassFormatError",
+      "message": "Illegal constant pool index 82 for method signature in class file Target",
+      "mutant": 17,
+      "region": "methods",
+      "stage": "parse"
+    },
+    {
+      "at": 77,
+      "bit": 4,
+      "error": "java.lang.ClassFormatError",
+      "message": "Unknown constant tag 118 in class file Target",
+      "mutant": 18,
+      "region": "constant pool",
+      "stage": "parse"
+    },
+    {
+      "at": 167,
+      "bit": 6,
+      "error": "",
+      "message": "loaded and linked, not run",
+      "mutant": 19,
+      "region": "constant pool",
+      "stage": "accepted"
+    },
+    {
+      "at": 266,
+      "bit": 0,
+      "error": "java.lang.ClassFormatError",
+      "message": "Truncated class file",
+      "mutant": 20,
+      "region": "methods",
+      "stage": "parse"
+    },
+    {
+      "at": 356,
+      "bit": 2,
+      "error": "java.lang.ClassFormatError",
+      "message": "Truncated class file",
+      "mutant": 21,
+      "region": "methods",
+      "stage": "parse"
+    },
+    {
+      "at": 68,
+      "bit": 5,
+      "error": "java.lang.ClassFormatError",
+      "message": "Illegal method name \"<inIt>\" in class Target",
+      "mutant": 22,
+      "region": "constant pool",
+      "stage": "parse"
+    },
+    {
+      "at": 157,
+      "bit": 7,
+      "error": "java.lang.ClassFormatError",
+      "message": "Illegal UTF8 string in constant pool in class file Target",
+      "mutant": 23,
+      "region": "constant pool",
+      "stage": "parse"
+    },
+    {
+      "at": 257,
+      "bit": 0,
+      "error": "java.lang.ClassFormatError",
+      "message": "Code segment has wrong length in class file Target",
+      "mutant": 24,
+      "region": "methods",
+      "stage": "parse"
+    },
+    {
+      "at": 346,
+      "bit": 3,
+      "error": "java.lang.ClassFormatError",
+      "message": "Code segment has wrong length in class file Target",
+      "mutant": 25,
+      "region": "methods",
+      "stage": "parse"
+    },
+    {
+      "at": 58,
+      "bit": 5,
+      "error": "java.lang.NoClassDefFoundError",
+      "message": "java/lang/StrIng",
+      "mutant": 26,
+      "region": "constant pool",
+      "stage": "link"
+    },
+    {
+      "at": 147,
+      "bit": 0,
+      "error": "java.lang.ClassFormatError",
+      "message": "Unknown constant tag 0 in class file Target",
+      "mutant": 27,
+      "region": "constant pool",
+      "stage": "parse"
+    },
+    {
+      "at": 247,
+      "bit": 1,
+      "error": "java.lang.ClassFormatError",
+      "message": "Illegal constant pool index 519 for method name in class file Target",
+      "mutant": 28,
+      "region": "methods",
+      "stage": "parse"
+    },
+    {
+      "at": 336,
+      "bit": 3,
+      "error": "java.lang.ClassFormatError",
+      "message": "Arguments can't fit into locals in class file Target",
+      "mutant": 29,
+      "region": "methods",
+      "stage": "parse"
+    },
+    {
+      "at": 48,
+      "bit": 6,
+      "error": "java.lang.NoClassDefFoundError",
+      "message": "jav!/lang/String",
+      "mutant": 30,
+      "region": "constant pool",
+      "stage": "link"
+    },
+    {
+      "at": 138,
+      "bit": 0,
+      "error": "java.lang.ClassFormatError",
+      "message": "Unknown constant tag 73 in class file Target",
+      "mutant": 31,
+      "region": "constant pool",
+      "stage": "parse"
+    },
+    {
+      "at": 237,
+      "bit": 2,
+      "error": "java.lang.ClassFormatError",
+      "message": "Invalid constant pool index 1029 for field name in class file Target",
+      "mutant": 32,
+      "region": "fields",
+      "stage": "parse"
+    },
+    {
+      "at": 326,
+      "bit": 4,
+      "error": "java.lang.ClassFormatError",
+      "message": "Truncated class file",
+      "mutant": 33,
+      "region": "methods",
+      "stage": "parse"
+    },
+    {
+      "at": 328,
+      "bit": 3,
+      "error": "java.lang.ClassFormatError",
+      "message": "Truncated class file",
+      "mutant": 34,
+      "region": "methods",
+      "stage": "parse"
+    },
+    {
+      "at": 49,
+      "bit": 6,
+      "error": "java.lang.NoClassDefFoundError",
+      "message": "javaolang/String",
+      "mutant": 35,
+      "region": "constant pool",
+      "stage": "link"
+    },
+    {
+      "at": 149,
+      "bit": 7,
+      "error": "java.lang.ClassFormatError",
+      "message": "Invalid constant pool index 130 in class file Target",
+      "mutant": 36,
+      "region": "constant pool",
+      "stage": "parse"
+    },
+    {
+      "at": 238,
+      "bit": 1,
+      "error": "",
+      "message": "loaded and linked, not run",
+      "mutant": 37,
+      "region": "fields",
+      "stage": "accepted"
+    },
+    {
+      "at": 318,
+      "bit": 4,
+      "error": "",
+      "message": "loaded and linked, not run",
+      "mutant": 38,
+      "region": "methods",
+      "stage": "accepted"
+    },
+    {
+      "at": 40,
+      "bit": 6,
+      "error": "",
+      "message": "loaded and linked, not run",
+      "mutant": 39,
+      "region": "constant pool",
+      "stage": "accepted"
+    },
+    {
+      "at": 139,
+      "bit": 0,
+      "error": "java.lang.ClassFormatError",
+      "message": "Field \"go\" in class Target has illegal signature \"))I\"",
+      "mutant": 40,
+      "region": "constant pool",
+      "stage": "parse"
+    },
+    {
+      "at": 228,
+      "bit": 2,
+      "error": "java.lang.ClassFormatError",
+      "message": "Illegal field modifiers in class Target: 0xE",
+      "mutant": 41,
+      "region": "fields",
+      "stage": "parse"
+    },
+    {
+      "at": 308,
+      "bit": 5,
+      "error": "",
+      "message": "loaded and linked, not run",
+      "mutant": 42,
+      "region": "methods",
+      "stage": "accepted"
+    },
+    {
+      "at": 30,
+      "bit": 7,
+      "error": "java.lang.ClassFormatError",
+      "message": "Unknown constant tag 129 in class file Target",
+      "mutant": 43,
+      "region": "constant pool",
+      "stage": "parse"
+    },
+    {
+      "at": 129,
+      "bit": 0,
+      "error": "java.lang.ClassFormatError",
+      "message": "Invalid constant pool index 271 in class file Target",
+      "mutant": 44,
+      "region": "constant pool",
+      "stage": "parse"
+    },
+    {
+      "at": 219,
+      "bit": 3,
+      "error": "java.lang.ClassFormatError",
+      "message": "Invalid this class index 2050 in constant pool in class file Target",
+      "mutant": 45,
+      "region": "class, super and interfaces",
+      "stage": "parse"
+    },
+    {
+      "at": 298,
+      "bit": 5,
+      "error": "",
+      "message": "loaded and linked, not run",
+      "mutant": 46,
+      "region": "methods",
+      "stage": "accepted"
+    },
+    {
+      "at": 20,
+      "bit": 7,
+      "error": "java.lang.ClassFormatError",
+      "message": "Invalid constant pool index 32769 in class file Target",
+      "mutant": 47,
+      "region": "constant pool",
+      "stage": "parse"
+    },
+    {
+      "at": 119,
+      "bit": 1,
+      "error": "java.lang.ClassFormatError",
+      "message": "Invalid constant pool index 525 in class file Target",
+      "mutant": 48,
+      "region": "constant pool",
+      "stage": "parse"
+    },
+    {
+      "at": 209,
+      "bit": 3,
+      "error": "java.lang.VerifyError",
+      "message": "Expecting a stackmap frame at branch target 13 Exception Details:   Location:     Target.go()I @5: if_icmplt   Reason:     Expected stackmap frame at this location.   Bytecode:     0000000: b200 1410 0aa1 0008 1014 a700 0510 07ac     0000010:",
+      "mutant": 49,
+      "region": "constant pool",
+      "stage": "link"
+    },
+    {
+      "at": 367,
+      "bit": 1,
+      "error": "java.lang.ClassFormatError",
+      "message": "Truncated class file",
+      "mutant": 50,
+      "region": "class attributes",
+      "stage": "parse"
+    },
+    {
+      "at": 89,
+      "bit": 3,
+      "error": "java.lang.NoClassDefFoundError",
+      "message": "java/lang'Object",
+      "mutant": 51,
+      "region": "constant pool",
+      "stage": "parse"
+    },
+    {
+      "at": 188,
+      "bit": 5,
+      "error": "java.lang.ClassFormatError",
+      "message": "Invalid constant pool index 50 in class file Target",
+      "mutant": 52,
+      "region": "constant pool",
+      "stage": "parse"
+    },
+    {
+      "at": 277,
+      "bit": 7,
+      "error": "java.lang.VerifyError",
+      "message": "Operand stack underflow Exception Details:   Location:     Target.<init>()V @10: daload   Reason:     Attempt to pop empty stack.   Current Frame:     bci: @10     flags: { }     locals: { 'Target' }     stack: { }   Bytecode:     0000000: 2ab7 000c 2a12 0eb5 0010 31",
+      "mutant": 53,
+      "region": "methods",
+      "stage": "link"
+    },
+    {
+      "at": 357,
+      "bit": 2,
+      "error": "java.lang.VerifyError",
+      "message": "Illegal newarray instruction Exception Details:   Location:     Target.main([Ljava/lang/String;)V @0: newarray   Reason:     Error exists in the bytecode   Bytecode:     0000000: bc00 1857 b1",
+      "mutant": 54,
+      "region": "methods",
+      "stage": "link"
+    },
+    {
+      "at": 79,
+      "bit": 4,
+      "error": "java.lang.ClassFormatError",
+      "message": "Unknown constant tag 106 in class file Target",
+      "mutant": 55,
+      "region": "constant pool",
+      "stage": "parse"
+    },
+    {
+      "at": 178,
+      "bit": 5,
+      "error": "",
+      "message": "loaded and linked, not run",
+      "mutant": 56,
+      "region": "constant pool",
+      "stage": "accepted"
+    },
+    {
+      "at": 268,
+      "bit": 0,
+      "error": "java.lang.VerifyError",
+      "message": "Illegal call to internal method Exception Details:   Location:     Target.<init>()V @1: invokevirtual   Reason:     Error exists in the bytecode   Bytecode:     0000000: 2ab6 000c 2a12 0eb5 0010 b1",
+      "mutant": 57,
+      "region": "methods",
+      "stage": "link"
+    },
+    {
+      "at": 347,
+      "bit": 2,
+      "error": "java.lang.ClassFormatError",
+      "message": "Code segment has wrong length in class file Target",
+      "mutant": 58,
+      "region": "methods",
+      "stage": "parse"
+    },
+    {
+      "at": 69,
+      "bit": 4,
+      "error": "java.lang.ClassFormatError",
+      "message": "Illegal method name \"<inid>\" in class Target",
+      "mutant": 59,
+      "region": "constant pool",
+      "stage": "parse"
+    },
+    {
+      "at": 168,
+      "bit": 6,
+      "error": "",
+      "message": "loaded and linked, not run",
+      "mutant": 60,
+      "region": "constant pool",
+      "stage": "accepted"
+    },
+    {
+      "at": 258,
+      "bit": 0,
+      "error": "java.lang.ClassFormatError",
+      "message": "Code segment has wrong length in class file Target",
+      "mutant": 61,
+      "region": "methods",
+      "stage": "parse"
+    },
+    {
+      "at": 338,
+      "bit": 3,
+      "error": "java.lang.ClassFormatError",
+      "message": "Illegal constant pool index 29 for method name in class file Target",
+      "mutant": 62,
+      "region": "methods",
+      "stage": "parse"
+    },
+    {
+      "at": 59,
+      "bit": 5,
+      "error": "java.lang.NoClassDefFoundError",
+      "message": "java/lang/StriNg",
+      "mutant": 63,
+      "region": "constant pool",
+      "stage": "link"
+    },
+    {
+      "at": 159,
+      "bit": 7,
+      "error": "java.lang.ClassFormatError",
+      "message": "Unknown constant tag 129 in class file Target",
+      "mutant": 64,
+      "region": "constant pool",
+      "stage": "parse"
+    },
+    {
+      "at": 248,
+      "bit": 1,
+      "error": "java.lang.VerifyError",
+      "message": "Bad operand type when invoking <init> Exception Details:   Location:     Target.name()V @1: invokespecial   Reason:     Invalid type: 'Target' (current frame, stack[0])   Current Frame:     bci: @1     flags: { }     locals: { 'Target' }     stack: { 'Target' }   Bytecode:     0000000: 2ab7 000c 2a12 0eb5 0010 b1",
+      "mutant": 65,
+      "region": "methods",
+      "stage": "link"
+    },
+    {
+      "at": 249,
+      "bit": 0,
+      "error": "java.lang.ClassFormatError",
+      "message": "Illegal constant pool index 264 for method signature in class file Target",
+      "mutant": 66,
+      "region": "methods",
+      "stage": "parse"
+    },
+    {
+      "at": 339,
+      "bit": 3,
+      "error": "java.lang.ClassFormatError",
+      "message": "Illegal constant pool index 2070 for method signature in class file Target",
+      "mutant": 67,
+      "region": "methods",
+      "stage": "parse"
+    },
+    {
+      "at": 70,
+      "bit": 4,
+      "error": "java.lang.ClassFormatError",
+      "message": "Illegal method name \"<init.\" in class Target",
+      "mutant": 68,
+      "region": "constant pool",
+      "stage": "parse"
+    },
+    {
+      "at": 160,
+      "bit": 6,
+      "error": "java.lang.ClassFormatError",
+      "message": "Truncated class file",
+      "mutant": 69,
+      "region": "constant pool",
+      "stage": "parse"
+    },
+    {
+      "at": 240,
+      "bit": 1,
+      "error": "",
+      "message": "loaded and linked, not run",
+      "mutant": 70,
+      "region": "fields",
+      "stage": "accepted"
+    },
+    {
+      "at": 329,
+      "bit": 3,
+      "error": "java.lang.ClassFormatError",
+      "message": "Code segment has wrong length in class file Target",
+      "mutant": 71,
+      "region": "methods",
+      "stage": "parse"
+    },
+    {
+      "at": 61,
+      "bit": 5,
+      "error": "java.lang.ClassFormatError",
+      "message": "Field \"name\" in class Target has illegal signature \"Ljava/lang/String\u001b\"",
+      "mutant": 72,
+      "region": "constant pool",
+      "stage": "parse"
+    },
+    {
+      "at": 150,
+      "bit": 7,
+      "error": "java.lang.ClassFormatError",
+      "message": "Invalid constant pool index 32787 in class file Target",
+      "mutant": 73,
+      "region": "constant pool",
+      "stage": "parse"
+    },
+    {
+      "at": 230,
+      "bit": 2,
+      "error": "",
+      "message": "loaded and linked, not run",
+      "mutant": 74,
+      "region": "fields",
+      "stage": "accepted"
+    },
+    {
+      "at": 319,
+      "bit": 4,
+      "error": "java.lang.VerifyError",
+      "message": "Bad instruction Exception Details:   Location:     Target.go()I @15: newarray   Reason:     Error exists in the bytecode   Bytecode:     0000000: b200 1410 0aa1 0008 1014 a700 0510 07bc     0000010:                                           Stackmap Table:     same_frame(@13)     same_locals_1_stack_item_frame(@15,Integer)",
+      "mutant": 75,
+      "region": "methods",
+      "stage": "link"
+    },
+    {
+      "at": 51,
+      "bit": 5,
+      "error": "java.lang.NoClassDefFoundError",
+      "message": "java/lAng/String",
+      "mutant": 76,
+      "region": "constant pool",
+      "stage": "link"
+    },
+    {
+      "at": 140,
+      "bit": 7,
+      "error": "java.lang.ClassFormatError",
+      "message": "Illegal UTF8 string in constant pool in class file Target",
+      "mutant": 77,
+      "region": "constant pool",
+      "stage": "parse"
+    },
+    {
+      "at": 220,
+      "bit": 2,
+      "error": "java.lang.ClassFormatError",
+      "message": "Invalid this class index 6 in constant pool in class file Target",
+      "mutant": 78,
+      "region": "class, super and interfaces",
+      "stage": "parse"
+    },
+    {
+      "at": 310,
+      "bit": 4,
+      "error": "java.lang.VerifyError",
+      "message": "Expecting a stackmap frame at branch target 4109 Exception Details:   Location:     Target.go()I @5: if_icmplt   Reason:     Expected stackmap frame at this location.   Bytecode:     0000000: b200 1410 0aa1 1008 1014 a700 0510 07ac     0000010:                                           Stackmap Table:     same_frame(@13)     same_locals_1_stack_item_frame(@15,Integer)",
+      "mutant": 79,
+      "region": "methods",
+      "stage": "link"
+    },
+    {
+      "at": 41,
+      "bit": 6,
+      "error": "java.lang.ClassFormatError",
+      "message": "Unknown constant tag 65 in class file Target",
+      "mutant": 80,
+      "region": "constant pool",
+      "stage": "parse"
+    },
+    {
+      "at": 130,
+      "bit": 0,
+      "error": "java.lang.ClassFormatError",
+      "message": "Invalid constant pool index 14 in class file Target",
+      "mutant": 81,
+      "region": "constant pool",
+      "stage": "parse"
+    },
+    {
+      "at": 289,
+      "bit": 6,
+      "error": "java.lang.ClassFormatError",
+      "message": "Truncated class file",
+      "mutant": 82,
+      "region": "methods",
+      "stage": "parse"
+    },
+    {
+      "at": 10,
+      "bit": 0,
+      "error": "java.lang.ClassFormatError",
+      "message": "Unknown constant tag 0 in class file Target",
+      "mutant": 83,
+      "region": "constant pool",
+      "stage": "parse"
+    },
+    {
+      "at": 110,
+      "bit": 2,
+      "error": "java.lang.ClassFormatError",
+      "message": "Truncated class file",
+      "mutant": 84,
+      "region": "constant pool",
+      "stage": "parse"
+    },
+    {
+      "at": 199,
+      "bit": 4,
+      "error": "java.lang.ClassFormatError",
+      "message": "Absent Code attribute in method that is not native or abstract in class file Target",
+      "mutant": 85,
+      "region": "constant pool",
+      "stage": "parse"
+    },
+    {
+      "at": 279,
+      "bit": 7,
+      "error": "java.lang.ClassFormatError",
+      "message": "Truncated class file",
+      "mutant": 86,
+      "region": "methods",
+      "stage": "parse"
+    },
+    {
+      "at": 0,
+      "bit": 1,
+      "error": "java.lang.ClassFormatError",
+      "message": "Incompatible magic value 3372137150 in class file Target",
+      "mutant": 87,
+      "region": "header",
+      "stage": "parse"
+    },
+    {
+      "at": 100,
+      "bit": 2,
+      "error": "java.lang.ClassFormatError",
+      "message": "Invalid constant pool index 1031 in class file Target",
+      "mutant": 88,
+      "region": "constant pool",
+      "stage": "parse"
+    },
+    {
+      "at": 189,
+      "bit": 4,
+      "error": "java.lang.ClassFormatError",
+      "message": "Unknown constant tag 26 in class file Target",
+      "mutant": 89,
+      "region": "constant pool",
+      "stage": "parse"
+    },
+    {
+      "at": 269,
+      "bit": 7,
+      "error": "java.lang.VerifyError",
+      "message": "Illegal constant pool index 32780 in class Target Exception Details:   Location:     Target.<init>()V @1: invokespecial   Reason:     Constant pool index 32780 is invalid   Bytecode:     0000000: 2ab7 800c 2a12 0eb5 0010 b1",
+      "mutant": 90,
+      "region": "methods",
+      "stage": "link"
+    },
+    {
+      "at": 359,
+      "bit": 1,
+      "error": "java.lang.VerifyError",
+      "message": "Illegal type at constant pool entry 26 in class Target Exception Details:   Location:     Target.main([Ljava/lang/String;)V @0: invokestatic   Reason:     Constant pool index 26 is invalid   Bytecode:     0000000: b800 1a57 b1",
+      "mutant": 91,
+      "region": "methods",
+      "stage": "link"
+    },
+    {
+      "at": 90,
+      "bit": 3,
+      "error": "java.lang.NoClassDefFoundError",
+      "message": "java/lang/Gbject",
+      "mutant": 92,
+      "region": "constant pool",
+      "stage": "parse"
+    },
+    {
+      "at": 179,
+      "bit": 5,
+      "error": "",
+      "message": "loaded and linked, not run",
+      "mutant": 93,
+      "region": "constant pool",
+      "stage": "accepted"
+    },
+    {
+      "at": 259,
+      "bit": 0,
+      "error": "",
+      "message": "loaded and linked, not run",
+      "mutant": 94,
+      "region": "methods",
+      "stage": "accepted"
+    },
+    {
+      "at": 349,
+      "bit": 2,
+      "error": "",
+      "message": "loaded and linked, not run",
+      "mutant": 95,
+      "region": "methods",
+      "stage": "accepted"
+    },
+    {
+      "at": 80,
+      "bit": 3,
+      "error": "java.lang.NoClassDefFoundError",
+      "message": "bava/lang/Object",
+      "mutant": 96,
+      "region": "constant pool",
+      "stage": "parse"
+    },
+    {
+      "at": 170,
+      "bit": 6,
+      "error": "",
+      "message": "loaded and linked, not run",
+      "mutant": 97,
+      "region": "constant pool",
+      "stage": "accepted"
+    },
+    {
+      "at": 171,
+      "bit": 5,
+      "error": "",
+      "message": "loaded and linked, not run",
+      "mutant": 98,
+      "region": "constant pool",
+      "stage": "accepted"
+    },
+    {
+      "at": 261,
+      "bit": 7,
+      "error": "",
+      "message": "loaded and linked, not run",
+      "mutant": 99,
+      "region": "methods",
+      "stage": "accepted"
+    },
+    {
+      "at": 360,
+      "bit": 1,
+      "error": "java.lang.VerifyError",
+      "message": "Operand stack underflow Exception Details:   Location:     Target.main([Ljava/lang/String;)V @3: castore   Reason:     Attempt to pop empty stack.   Current Frame:     bci: @3     flags: { }     locals: { '[Ljava/lang/String;' }     stack: { integer }   Bytecode:     0000000: b800 1855 b1",
+      "mutant": 100,
+      "region": "methods",
+      "stage": "link"
+    },
+    {
+      "at": 81,
+      "bit": 3,
+      "error": "java.lang.NoClassDefFoundError",
+      "message": "jiva/lang/Object",
+      "mutant": 101,
+      "region": "constant pool",
+      "stage": "parse"
+    },
+    {
+      "at": 161,
+      "bit": 6,
+      "error": "java.lang.ClassFormatError",
+      "message": "Illegal UTF8 string in constant pool in class file Target",
+      "mutant": 102,
+      "region": "constant pool",
+      "stage": "parse"
+    },
+    {
+      "at": 251,
+      "bit": 0,
+      "error": "java.lang.ClassFormatError",
+      "message": "Truncated class file",
+      "mutant": 103,
+      "region": "methods",
+      "stage": "parse"
+    },
+    {
+      "at": 350,
+      "bit": 2,
+      "error": "",
+      "message": "loaded and linked, not run",
+      "mutant": 104,
+      "region": "methods",
+      "stage": "accepted"
+    },
+    {
+      "at": 72,
+      "bit": 4,
+      "error": "java.lang.ClassFormatError",
+      "message": "Truncated class file",
+      "mutant": 105,
+      "region": "constant pool",
+      "stage": "parse"
+    },
+    {
+      "at": 151,
+      "bit": 6,
+      "error": "java.lang.ClassFormatError",
+      "message": "Invalid constant pool index 83 in class file Target",
+      "mutant": 106,
+      "region": "constant pool",
+      "stage": "parse"
+    },
+    {
+      "at": 241,
+      "bit": 1,
+      "error": "java.lang.ClassFormatError",
+      "message": "Truncated class file",
+      "mutant": 107,
+      "region": "fields",
+      "stage": "parse"
+    },
+    {
+      "at": 340,
+      "bit": 2,
+      "error": "java.lang.VerifyError",
+      "message": "Method expects a return value Exception Details:   Location:     Target.main()I @4: return   Reason:     Error exists in the bytecode   Bytecode:     0000000: b800 1857 b1",
+      "mutant": 108,
+      "region": "methods",
+      "stage": "link"
+    },
+    {
+      "at": 62,
+      "bit": 4,
+      "error": "java.lang.ClassFormatError",
+      "message": "Unknown constant tag 110 in class file Target",
+      "mutant": 109,
+      "region": "constant pool",
+      "stage": "parse"
+    },
+    {
+      "at": 142,
+      "bit": 7,
+      "error": "java.lang.ClassFormatError",
+      "message": "Unknown constant tag 140 in class file Target",
+      "mutant": 110,
+      "region": "constant pool",
+      "stage": "parse"
+    },
+    {
+      "at": 231,
+      "bit": 1,
+      "error": "java.lang.ClassFormatError",
+      "message": "Invalid constant pool index 516 for field signature in class file Target",
+      "mutant": 111,
+      "region": "fields",
+      "stage": "parse"
+    },
+    {
+      "at": 331,
+      "bit": 3,
+      "error": "java.lang.ClassFormatError",
+      "message": "StackMapTable format error: wrong attribute size",
+      "mutant": 112,
+      "region": "methods",
+      "stage": "link"
+    },
+    {
+      "at": 52,
+      "bit": 5,
+      "error": "java.lang.NoClassDefFoundError",
+      "message": "java/laNg/String",
+      "mutant": 113,
+      "region": "constant pool",
+      "stage": "link"
+    },
+    {
+      "at": 210,
+      "bit": 3,
+      "error": "java.lang.VerifyError",
+      "message": "Expecting a stackmap frame at branch target 13 Exception Details:   Location:     Target.go()I @5: if_icmplt   Reason:     Expected stackmap frame at this location.   Bytecode:     0000000: b200 1410 0aa1 0008 1014 a700 0510 07ac     0000010:",
+      "mutant": 114,
+      "region": "constant pool",
+      "stage": "link"
+    },
+    {
+      "at": 300,
+      "bit": 5,
+      "error": "java.lang.ClassFormatError",
+      "message": "Invalid method Code length 536870928 in class file Target",
+      "mutant": 115,
+      "region": "methods",
+      "stage": "parse"
+    },
+    {
+      "at": 31,
+      "bit": 7,
+      "error": "java.lang.ClassFormatError",
+      "message": "Truncated class file",
+      "mutant": 116,
+      "region": "constant pool",
+      "stage": "parse"
+    },
+    {
+      "at": 121,
+      "bit": 1,
+      "error": "java.lang.ClassFormatError",
+      "message": "Unknown constant tag 14 in class file Target",
+      "mutant": 117,
+      "region": "constant pool",
+      "stage": "parse"
+    },
+    {
+      "at": 200,
+      "bit": 3,
+      "error": "java.lang.ClassFormatError",
+      "message": "Absent Code attribute in method that is not native or abstract in class file Target",
+      "mutant": 118,
+      "region": "constant pool",
+      "stage": "parse"
+    },
+    {
+      "at": 290,
+      "bit": 6,
+      "error": "java.lang.ClassFormatError",
+      "message": "Invalid method attribute name index 16409 in class file Target",
+      "mutant": 119,
+      "region": "methods",
+      "stage": "parse"
+    },
+    {
+      "at": 21,
+      "bit": 7,
+      "error": "java.lang.ClassFormatError",
+      "message": "Invalid constant pool index 129 in class file Target",
+      "mutant": 120,
+      "region": "constant pool",
+      "stage": "parse"
+    },
+    {
+      "at": 111,
+      "bit": 1,
+      "error": "java.lang.ClassFormatError",
+      "message": "Unknown constant tag 101 in class file Target",
+      "mutant": 121,
+      "region": "constant pool",
+      "stage": "parse"
+    },
+    {
+      "at": 191,
+      "bit": 4,
+      "error": "java.lang.ClassFormatError",
+      "message": "Invalid constant pool index 18 in class file Target",
+      "mutant": 122,
+      "region": "constant pool",
+      "stage": "parse"
+    },
+    {
+      "at": 280,
+      "bit": 6,
+      "error": "java.lang.ClassFormatError",
+      "message": "Truncated class file",
+      "mutant": 123,
+      "region": "methods",
+      "stage": "parse"
+    },
+    {
+      "at": 12,
+      "bit": 0,
+      "error": "java.lang.ClassFormatError",
+      "message": "Unknown constant tag 0 in class file Target",
+      "mutant": 124,
+      "region": "constant pool",
+      "stage": "parse"
+    },
+    {
+      "at": 101,
+      "bit": 2,
+      "error": "java.lang.VerifyError",
+      "message": "Bad type on operand stack Exception Details:   Location:     Target.<init>()V @1: invokespecial   Reason:     Type uninitializedThis (current frame, stack[0]) is not assignable to 'Target'   Current Frame:     bci: @1     flags: { flagThisUninit }     locals: { uninitializedThis }     stack: { uninitializedThis }   Bytecode:     0000000: 2ab7 000c 2a12 0eb5 0010 b1",
+      "mutant": 125,
+      "region": "constant pool",
+      "stage": "link"
+    },
+    {
+      "at": 181,
+      "bit": 5,
+      "error": "java.lang.ClassFormatError",
+      "message": "Method \"main\" in class Target has illegal signature \"([Ljava/lang/String\u001b)V\"",
+      "mutant": 126,
+      "region": "constant pool",
+      "stage": "parse"
+    },
+    {
+      "at": 270,
+      "bit": 7,
+      "error": "java.lang.VerifyError",
+      "message": "Illegal constant pool index 140 in class Target Exception Details:   Location:     Target.<init>()V @1: invokespecial   Reason:     Constant pool index 140 is invalid   Bytecode:     0000000: 2ab7 008c 2a12 0eb5 0010 b1",
+      "mutant": 127,
+      "region": "methods",
+      "stage": "link"
+    },
+    {
+      "at": 2,
+      "bit": 0,
+      "error": "java.lang.ClassFormatError",
+      "message": "Incompatible magic value 3405691838 in class file Target",
+      "mutant": 128,
+      "region": "header",
+      "stage": "parse"
+    },
+    {
+      "at": 91,
+      "bit": 2,
+      "error": "java.lang.NoClassDefFoundError",
+      "message": "java/lang/Ofject",
+      "mutant": 129,
+      "region": "constant pool",
+      "stage": "parse"
+    },
+    {
+      "at": 352,
+      "bit": 3,
+      "error": "",
+      "message": "loaded and linked, not run",
+      "mutant": 130,
+      "region": "methods",
+      "stage": "accepted"
+    },
+    {
+      "at": 73,
+      "bit": 5,
+      "error": "java.lang.ClassFormatError",
+      "message": "Illegal UTF8 string in constant pool in class file Target",
+      "mutant": 131,
+      "region": "constant pool",
+      "stage": "parse"
+    },
+    {
+      "at": 173,
+      "bit": 7,
+      "error": "java.lang.ClassFormatError",
+      "message": "Illegal UTF8 string in constant pool in class file Target",
+      "mutant": 132,
+      "region": "constant pool",
+      "stage": "parse"
+    },
+    {
+      "at": 262,
+      "bit": 1,
+      "error": "",
+      "message": "loaded and linked, not run",
+      "mutant": 133,
+      "region": "methods",
+      "stage": "accepted"
+    },
+    {
+      "at": 342,
+      "bit": 4,
+      "error": "java.lang.ClassFormatError",
+      "message": "Truncated class file",
+      "mutant": 134,
+      "region": "methods",
+      "stage": "parse"
+    },
+    {
+      "at": 64,
+      "bit": 6,
+      "error": "java.lang.ClassFormatError",
+      "message": "Illegal UTF8 string in constant pool in class file Target",
+      "mutant": 135,
+      "region": "constant pool",
+      "stage": "parse"
+    },
+    {
+      "at": 163,
+      "bit": 7,
+      "error": "java.lang.ClassFormatError",
+      "message": "Illegal UTF8 string in constant pool in class file Target",
+      "mutant": 136,
+      "region": "constant pool",
+      "stage": "parse"
+    },
+    {
+      "at": 252,
+      "bit": 2,
+      "error": "java.lang.ClassFormatError",
+      "message": "Truncated class file",
+      "mutant": 137,
+      "region": "methods",
+      "stage": "parse"
+    },
+    {
+      "at": 332,
+      "bit": 4,
+      "error": "java.lang.VerifyError",
+      "message": "StackMapTable error: bad offset Exception Details:   Location:     Target.go()I @0: getstatic   Reason:     Invalid stackmap specification.   Current Frame:     bci: @29     flags: { }     locals: { }     stack: { }   Bytecode:     0000000: b200 1410 0aa1 0008 1014 a700 0510 07ac     0000010:                                           Stackmap Table:     same_frame(@29)     same_locals_1_stack_item_frame(@31,Integer)",
+      "mutant": 138,
+      "region": "methods",
+      "stage": "link"
+    },
+    {
+      "at": 54,
+      "bit": 7,
+      "error": "java.lang.ClassFormatError",
+      "message": "Illegal UTF8 string in constant pool in class file Target",
+      "mutant": 139,
+      "region": "constant pool",
+      "stage": "parse"
+    },
+    {
+      "at": 153,
+      "bit": 0,
+      "error": "java.lang.ClassFormatError",
+      "message": "Truncated class file",
+      "mutant": 140,
+      "region": "constant pool",
+      "stage": "parse"
+    },
+    {
+      "at": 243,
+      "bit": 2,
+      "error": "java.lang.ClassFormatError",
+      "message": "Truncated class file",
+      "mutant": 141,
+      "region": "methods",
+      "stage": "parse"
+    },
+    {
+      "at": 322,
+      "bit": 5,
+      "error": "java.lang.ClassFormatError",
+      "message": "Truncated class file",
+      "mutant": 142,
+      "region": "methods",
+      "stage": "parse"
+    },
+    {
+      "at": 44,
+      "bit": 7,
+      "error": "java.lang.ClassFormatError",
+      "message": "Illegal UTF8 string in constant pool in class file Target",
+      "mutant": 143,
+      "region": "constant pool",
+      "stage": "parse"
+    },
+    {
+      "at": 143,
+      "bit": 1,
+      "error": "java.lang.ClassFormatError",
+      "message": "Invalid constant pool index 515 in class file Target",
+      "mutant": 144,
+      "region": "constant pool",
+      "stage": "parse"
+    },
+    {
+      "at": 233,
+      "bit": 3,
+      "error": "java.lang.ClassFormatError",
+      "message": "Invalid field attribute index 2 in class file Target",
+      "mutant": 145,
+      "region": "fields",
+      "stage": "parse"
+    },
+    {
+      "at": 23,
+      "bit": 1,
+      "error": "java.lang.ClassFormatError",
+      "message": "Truncated class file",
+      "mutant": 146,
+      "region": "constant pool",
+      "stage": "parse"
+    },
+    {
+      "at": 113,
+      "bit": 3,
+      "error": "",
+      "message": "loaded and linked, not run",
+      "mutant": 147,
+      "region": "constant pool",
+      "stage": "accepted"
+    },
+    {
+      "at": 212,
+      "bit": 4,
+      "error": "java.lang.VerifyError",
+      "message": "Expecting a stackmap frame at branch target 13 Exception Details:   Location:     Target.go()I @5: if_icmplt   Reason:     Expected stackmap frame at this location.   Bytecode:     0000000: b200 1410 0aa1 0008 1014 a700 0510 07ac     0000010:",
+      "mutant": 148,
+      "region": "constant pool",
+      "stage": "link"
+    },
+    {
+      "at": 301,
+      "bit": 7,
+      "error": "java.lang.ClassFormatError",
+      "message": "Invalid method Code length 8388624 in class file Target",
+      "mutant": 149,
+      "region": "methods",
+      "stage": "parse"
+    },
+    {
+      "at": 13,
+      "bit": 1,
+      "error": "java.lang.NoClassDefFoundError",
+      "message": "Target (wrong name: Varget)",
+      "mutant": 150,
+      "region": "constant pool",
+      "stage": "parse"
+    },
+    {
+      "at": 103,
+      "bit": 3,
+      "error": "java.lang.ClassFormatError",
+      "message": "Invalid constant pool index 0 in class file Target",
+      "mutant": 151,
+      "region": "constant pool",
+      "stage": "parse"
+    },
+    {
+      "at": 202,
+      "bit": 5,
+      "error": "java.lang.ClassFormatError",
+      "message": "Truncated class file",
+      "mutant": 152,
+      "region": "constant pool",
+      "stage": "parse"
+    },
+    {
+      "at": 292,
+      "bit": 7,
+      "error": "java.lang.ClassFormatError",
+      "message": "Code segment has wrong length in class file Target",
+      "mutant": 153,
+      "region": "methods",
+      "stage": "parse"
+    },
+    {
+      "at": 3,
+      "bit": 2,
+      "error": "java.lang.ClassFormatError",
+      "message": "Incompatible magic value 3405691578 in class file Target",
+      "mutant": 154,
+      "region": "header",
+      "stage": "parse"
+    },
+    {
+      "at": 93,
+      "bit": 4,
+      "error": "java.lang.NoClassDefFoundError",
+      "message": "java/lang/Objuct",
+      "mutant": 155,
+      "region": "constant pool",
+      "stage": "parse"
+    },
+    {
+      "at": 192,
+      "bit": 6,
+      "error": "java.lang.ClassFormatError",
+      "message": "Invalid constant pool index 16407 in class file Target",
+      "mutant": 156,
+      "region": "constant pool",
+      "stage": "parse"
+    },
+    {
+      "at": 282,
+      "bit": 0,
+      "error": "java.lang.ClassFormatError",
+      "message": "Code attribute in native or abstract methods in class file Target",
+      "mutant": 157,
+      "region": "methods",
+      "stage": "parse"
+    },
+    {
+      "at": 362,
+      "bit": 3,
+      "error": "java.lang.ClassFormatError",
+      "message": "Truncated class file",
+      "mutant": 158,
+      "region": "methods",
+      "stage": "parse"
+    },
+    {
+      "at": 83,
+      "bit": 5,
+      "error": "java.lang.NoClassDefFoundError",
+      "message": "javA/lang/Object",
+      "mutant": 159,
+      "region": "constant pool",
+      "stage": "parse"
+    },
+    {
+      "at": 183,
+      "bit": 6,
+      "error": "java.lang.ClassFormatError",
+      "message": "Method \"main\" in class Target has illegal signature \"([Ljava/lang/String;)\u0016\"",
+      "mutant": 160,
+      "region": "constant pool",
+      "stage": "parse"
+    },
+    {
+      "at": 272,
+      "bit": 0,
+      "error": "java.lang.VerifyError",
+      "message": "Illegal constant pool index 3765 in class Target Exception Details:   Location:     Target.<init>()V @5: ldc_w   Reason:     Constant pool index 3765 is invalid   Bytecode:     0000000: 2ab7 000c 2a13 0eb5 0010 b1",
+      "mutant": 161,
+      "region": "methods",
+      "stage": "link"
+    },
+    {
+      "at": 273,
+      "bit": 0,
+      "error": "java.lang.VerifyError",
+      "message": "Illegal type at constant pool entry 15 in class Target Exception Details:   Location:     Target.<init>()V @5: ldc   Reason:     Constant pool index 15 is invalid   Bytecode:     0000000: 2ab7 000c 2a12 0fb5 0010 b1",
+      "mutant": 162,
+      "region": "methods",
+      "stage": "link"
+    },
+    {
+      "at": 363,
+      "bit": 2,
+      "error": "java.lang.ClassFormatError",
+      "message": "Truncated class file",
+      "mutant": 163,
+      "region": "methods",
+      "stage": "parse"
+    },
+    {
+      "at": 94,
+      "bit": 4,
+      "error": "java.lang.NoClassDefFoundError",
+      "message": "java/lang/Objest",
+      "mutant": 164,
+      "region": "constant pool",
+      "stage": "parse"
+    },
+    {
+      "at": 184,
+      "bit": 6,
+      "error": "java.lang.ClassFormatError",
+      "message": "Unknown constant tag 76 in class file Target",
+      "mutant": 165,
+      "region": "constant pool",
+      "stage": "parse"
+    },
+    {
+      "at": 264,
+      "bit": 1,
+      "error": "java.lang.ClassFormatError",
+      "message": "Invalid method Code length 131083 in class file Target",
+      "mutant": 166,
+      "region": "methods",
+      "stage": "parse"
+    },
+    {
+      "at": 353,
+      "bit": 3,
+      "error": "java.lang.ClassFormatError",
+      "message": "Invalid method Code length 134217733 in class file Target",
+      "mutant": 167,
+      "region": "methods",
+      "stage": "parse"
+    },
+    {
+      "at": 85,
+      "bit": 4,
+      "error": "java.lang.NoClassDefFoundError",
+      "message": "java/|ang/Object",
+      "mutant": 168,
+      "region": "constant pool",
+      "stage": "parse"
+    },
+    {
+      "at": 174,
+      "bit": 6,
+      "error": "",
+      "message": "loaded and linked, not run",
+      "mutant": 169,
+      "region": "constant pool",
+      "stage": "accepted"
+    },
+    {
+      "at": 254,
+      "bit": 1,
+      "error": "java.lang.ClassFormatError",
+      "message": "Invalid method attribute name index 27 in class file Target",
+      "mutant": 170,
+      "region": "methods",
+      "stage": "parse"
+    },
+    {
+      "at": 343,
+      "bit": 3,
+      "error": "java.lang.ClassFormatError",
+      "message": "Invalid method attribute name index 2073 in class file Target",
+      "mutant": 171,
+      "region": "methods",
+      "stage": "parse"
+    },
+    {
+      "at": 75,
+      "bit": 5,
+      "error": "java.lang.ClassFormatError",
+      "message": "Method \"<init>\" in class Target has illegal signature \"( V\"",
+      "mutant": 172,
+      "region": "constant pool",
+      "stage": "parse"
+    },
+    {
+      "at": 164,
+      "bit": 7,
+      "error": "java.lang.ClassFormatError",
+      "message": "Illegal UTF8 string in constant pool in class file Target",
+      "mutant": 173,
+      "region": "constant pool",
+      "stage": "parse"
+    },
+    {
+      "at": 244,
+      "bit": 2,
+      "error": "java.lang.ClassFormatError",
+      "message": "Truncated class file",
+      "mutant": 174,
+      "region": "methods",
+      "stage": "parse"
+    },
+    {
+      "at": 334,
+      "bit": 4,
+      "error": "java.lang.ClassFormatError",
+      "message": "StackMapTable format error: bad verification type",
+      "mutant": 175,
+      "region": "methods",
+      "stage": "link"
+    },
+    {
+      "at": 65,
+      "bit": 6,
+      "error": "java.lang.ClassFormatError",
+      "message": "Illegal method name \"|init>\" in class Target",
+      "mutant": 176,
+      "region": "constant pool",
+      "stage": "parse"
+    },
+    {
+      "at": 154,
+      "bit": 0,
+      "error": "java.lang.ClassFormatError",
+      "message": "Unknown constant tag 0 in class file Target",
+      "mutant": 177,
+      "region": "constant pool",
+      "stage": "parse"
+    },
+    {
+      "at": 313,
+      "bit": 6,
+      "error": "",
+      "message": "loaded and linked, not run",
+      "mutant": 178,
+      "region": "methods",
+      "stage": "accepted"
+    },
+    {
+      "at": 34,
+      "bit": 0,
+      "error": "java.lang.ClassFormatError",
+      "message": "Unknown constant tag 0 in class file Target",
+      "mutant": 179,
+      "region": "constant pool",
+      "stage": "parse"
+    },
+    {
+      "at": 134,
+      "bit": 1,
+      "error": "",
+      "message": "loaded and linked, not run",
+      "mutant": 180,
+      "region": "constant pool",
+      "stage": "accepted"
+    },
+    {
+      "at": 223,
+      "bit": 3,
+      "error": "java.lang.ClassCircularityError",
+      "message": "Target",
+      "mutant": 181,
+      "region": "class, super and interfaces",
+      "stage": "parse"
+    },
+    {
+      "at": 303,
+      "bit": 6,
+      "error": "java.lang.ClassFormatError",
+      "message": "Truncated class file",
+      "mutant": 182,
+      "region": "methods",
+      "stage": "parse"
+    },
+    {
+      "at": 24,
+      "bit": 0,
+      "error": "java.lang.ClassFormatError",
+      "message": "Unknown constant tag 84 in class file Target",
+      "mutant": 183,
+      "region": "constant pool",
+      "stage": "parse"
+    },
+    {
+      "at": 124,
+      "bit": 2,
+      "error": "java.lang.ClassFormatError",
+      "message": "Invalid constant pool index 1030 in class file Target",
+      "mutant": 184,
+      "region": "constant pool",
+      "stage": "parse"
+    },
+    {
+      "at": 213,
+      "bit": 4,
+      "error": "java.lang.VerifyError",
+      "message": "Expecting a stackmap frame at branch target 13 Exception Details:   Location:     Target.go()I @5: if_icmplt   Reason:     Expected stackmap frame at this location.   Bytecode:     0000000: b200 1410 0aa1 0008 1014 a700 0510 07ac     0000010:",
+      "mutant": 185,
+      "region": "constant pool",
+      "stage": "link"
+    },
+    {
+      "at": 293,
+      "bit": 7,
+      "error": "java.lang.ClassFormatError",
+      "message": "Code segment has wrong length in class file Target",
+      "mutant": 186,
+      "region": "methods",
+      "stage": "parse"
+    },
+    {
+      "at": 15,
+      "bit": 1,
+      "error": "java.lang.NoClassDefFoundError",
+      "message": "Target (wrong name: Tapget)",
+      "mutant": 187,
+      "region": "constant pool",
+      "stage": "parse"
+    },
+    {
+      "at": 114,
+      "bit": 2,
+      "error": "",
+      "message": "loaded and linked, not run",
+      "mutant": 188,
+      "region": "constant pool",
+      "stage": "accepted"
+    },
+    {
+      "at": 203,
+      "bit": 5,
+      "error": "java.lang.ClassFormatError",
+      "message": "Illegal UTF8 string in constant pool in class file Target",
+      "mutant": 189,
+      "region": "constant pool",
+      "stage": "parse"
+    },
+    {
+      "at": 283,
+      "bit": 7,
+      "error": "",
+      "message": "loaded and linked, not run",
+      "mutant": 190,
+      "region": "methods",
+      "stage": "accepted"
+    },
+    {
+      "at": 5,
+      "bit": 2,
+      "error": "java.lang.UnsupportedClassVersionError",
+      "message": "Target (class file version 71.4) was compiled with an invalid non-zero minor version",
+      "mutant": 191,
+      "region": "header",
+      "stage": "parse"
+    },
+    {
+      "at": 104,
+      "bit": 3,
+      "error": "java.lang.ClassFormatError",
+      "message": "Unknown constant tag 2 in class file Target",
+      "mutant": 192,
+      "region": "constant pool",
+      "stage": "parse"
+    },
+    {
+      "at": 194,
+      "bit": 5,
+      "error": "java.lang.ClassFormatError",
+      "message": "Unknown constant tag 33 in class file Target",
+      "mutant": 193,
+      "region": "constant pool",
+      "stage": "parse"
+    },
+    {
+      "at": 195,
+      "bit": 5,
+      "error": "java.lang.ClassFormatError",
+      "message": "Truncated class file",
+      "mutant": 194,
+      "region": "constant pool",
+      "stage": "parse"
+    },
+    {
+      "at": 285,
+      "bit": 7,
+      "error": "java.lang.ClassFormatError",
+      "message": "Illegal constant pool index 145 for method name in class file Target",
+      "mutant": 195,
+      "region": "methods",
+      "stage": "parse"
+    },
+    {
+      "at": 16,
+      "bit": 1,
+      "error": "java.lang.NoClassDefFoundError",
+      "message": "Target (wrong name: Tareet)",
+      "mutant": 196,
+      "region": "constant pool",
+      "stage": "parse"
+    },
+    {
+      "at": 105,
+      "bit": 3,
+      "error": "java.lang.ClassFormatError",
+      "message": "Invalid constant pool index 2058 in class file Target",
+      "mutant": 197,
+      "region": "constant pool",
+      "stage": "parse"
+    },
+    {
+      "at": 185,
+      "bit": 5,
+      "error": "java.lang.ClassFormatError",
+      "message": "Invalid constant pool index 8209 in class file Target",
+      "mutant": 198,
+      "region": "constant pool",
+      "stage": "parse"
+    },
+    {
+      "at": 275,
+      "bit": 0,
+      "error": "java.lang.VerifyError",
+      "message": "Illegal constant pool index 272 in class Target Exception Details:   Location:     Target.<init>()V @7: putfield   Reason:     Constant pool index 272 is invalid   Bytecode:     0000000: 2ab7 000c 2a12 0eb5 0110 b1",
+      "mutant": 199,
+      "region": "methods",
+      "stage": "link"
+    },
+    {
+      "at": 6,
+      "bit": 1,
+      "error": "java.lang.UnsupportedClassVersionError",
+      "message": "Target has been compiled by a more recent version of the Java Runtime (class file version 583.0), this version of the Java Runtime only recognizes class file versions up to 71.0",
+      "mutant": 200,
+      "region": "header",
+      "stage": "parse"
+    },
+    {
+      "at": 96,
+      "bit": 3,
+      "error": "java.lang.ClassFormatError",
+      "message": "Unknown constant tag 0 in class file Target",
+      "mutant": 201,
+      "region": "constant pool",
+      "stage": "parse"
+    },
+    {
+      "at": 175,
+      "bit": 6,
+      "error": "",
+      "message": "loaded and linked, not run",
+      "mutant": 202,
+      "region": "constant pool",
+      "stage": "accepted"
+    },
+    {
+      "at": 265,
+      "bit": 0,
+      "error": "java.lang.ClassFormatError",
+      "message": "Truncated class file",
+      "mutant": 203,
+      "region": "methods",
+      "stage": "parse"
+    },
+    {
+      "at": 364,
+      "bit": 2,
+      "error": "java.lang.ClassFormatError",
+      "message": "Truncated class file",
+      "mutant": 204,
+      "region": "methods",
+      "stage": "parse"
+    },
+    {
+      "at": 86,
+      "bit": 4,
+      "error": "java.lang.NoClassDefFoundError",
+      "message": "java/lqng/Object",
+      "mutant": 205,
+      "region": "constant pool",
+      "stage": "parse"
+    },
+    {
+      "at": 166,
+      "bit": 7,
+      "error": "java.lang.ClassFormatError",
+      "message": "Illegal UTF8 string in constant pool in class file Target",
+      "mutant": 206,
+      "region": "constant pool",
+      "stage": "parse"
+    },
+    {
+      "at": 255,
+      "bit": 1,
+      "error": "java.lang.ClassFormatError",
+      "message": "Code segment has wrong length in class file Target",
+      "mutant": 207,
+      "region": "methods",
+      "stage": "parse"
+    },
+    {
+      "at": 355,
+      "bit": 2,
+      "error": "java.lang.ClassFormatError",
+      "message": "Truncated class file",
+      "mutant": 208,
+      "region": "methods",
+      "stage": "parse"
+    },
+    {
+      "at": 76,
+      "bit": 5,
+      "error": "java.lang.ClassFormatError",
+      "message": "Method \"<init>\" in class Target has illegal signature \"()v\"",
+      "mutant": 209,
+      "region": "constant pool",
+      "stage": "parse"
+    },
+    {
+      "at": 234,
+      "bit": 2,
+      "error": "java.lang.ClassFormatError",
+      "message": "Invalid field attribute index 2 in class file Target",
+      "mutant": 210,
+      "region": "fields",
+      "stage": "parse"
+    },
+    {
+      "at": 324,
+      "bit": 5,
+      "error": "java.lang.ClassFormatError",
+      "message": "Invalid code attribute name index 8218 in class file Target",
+      "mutant": 211,
+      "region": "methods",
+      "stage": "parse"
+    },
+    {
+      "at": 55,
+      "bit": 6,
+      "error": "java.lang.NoClassDefFoundError",
+      "message": "java/lang/\u0013tring",
+      "mutant": 212,
+      "region": "constant pool",
+      "stage": "link"
+    },
+    {
+      "at": 145,
+      "bit": 0,
+      "error": "java.lang.ClassFormatError",
+      "message": "Invalid constant pool index 260 in class file Target",
+      "mutant": 213,
+      "region": "constant pool",
+      "stage": "parse"
+    },
+    {
+      "at": 224,
+      "bit": 3,
+      "error": "java.lang.ClassCircularityError",
+      "message": "Target",
+      "mutant": 214,
+      "region": "class, super and interfaces",
+      "stage": "parse"
+    },
+    {
+      "at": 314,
+      "bit": 5,
+      "error": "java.lang.VerifyError",
+      "message": "Operand stack overflow Exception Details:   Location:     Target.go()I @12: iconst_2   Reason:     Exceeded max stack size.   Current Frame:     bci: @12     flags: { }     locals: { }     stack: { double, double_2nd }   Bytecode:     0000000: b200 1410 0aa1 0008 1014 8700 0510 07ac     0000010:                                           Stackmap Table:     same_frame(@13)     same_locals_1_stack_item_frame(@15,Integer)",
+      "mutant": 215,
+      "region": "methods",
+      "stage": "link"
+    },
+    {
+      "at": 45,
+      "bit": 7,
+      "error": "java.lang.ClassFormatError",
+      "message": "Illegal UTF8 string in constant pool in class file Target",
+      "mutant": 216,
+      "region": "constant pool",
+      "stage": "parse"
+    },
+    {
+      "at": 135,
+      "bit": 1,
+      "error": "",
+      "message": "loaded and linked, not run",
+      "mutant": 217,
+      "region": "constant pool",
+      "stage": "accepted"
+    },
+    {
+      "at": 215,
+      "bit": 4,
+      "error": "java.lang.VerifyError",
+      "message": "Expecting a stackmap frame at branch target 13 Exception Details:   Location:     Target.go()I @5: if_icmplt   Reason:     Expected stackmap frame at this location.   Bytecode:     0000000: b200 1410 0aa1 0008 1014 a700 0510 07ac     0000010:",
+      "mutant": 218,
+      "region": "constant pool",
+      "stage": "link"
+    },
+    {
+      "at": 304,
+      "bit": 6,
+      "error": "java.lang.VerifyError",
+      "message": "Bad instruction Exception Details:   Location:     Target.go()I @0: <illegal>   Reason:     Error exists in the bytecode   Bytecode:     0000000: f200 1410 0aa1 0008 1014 a700 0510 07ac     0000010:                                           Stackmap Table:     same_frame(@13)     same_locals_1_stack_item_frame(@15,Integer)",
+      "mutant": 219,
+      "region": "methods",
+      "stage": "link"
+    },
+    {
+      "at": 36,
+      "bit": 7,
+      "error": "java.lang.ClassFormatError",
+      "message": "Illegal UTF8 string in constant pool in class file Target",
+      "mutant": 220,
+      "region": "constant pool",
+      "stage": "parse"
+    },
+    {
+      "at": 125,
+      "bit": 2,
+      "error": "java.lang.ClassFormatError",
+      "message": "Invalid constant pool index 2 in class file Target",
+      "mutant": 221,
+      "region": "constant pool",
+      "stage": "parse"
+    },
+    {
+      "at": 205,
+      "bit": 4,
+      "error": "java.lang.VerifyError",
+      "message": "Expecting a stackmap frame at branch target 13 Exception Details:   Location:     Target.go()I @5: if_icmplt   Reason:     Expected stackmap frame at this location.   Bytecode:     0000000: b200 1410 0aa1 0008 1014 a700 0510 07ac     0000010:",
+      "mutant": 222,
+      "region": "constant pool",
+      "stage": "link"
+    },
+    {
+      "at": 294,
+      "bit": 6,
+      "error": "java.lang.ClassFormatError",
+      "message": "Code segment has wrong length in class file Target",
+      "mutant": 223,
+      "region": "methods",
+      "stage": "parse"
+    },
+    {
+      "at": 26,
+      "bit": 0,
+      "error": "",
+      "message": "loaded and linked, not run",
+      "mutant": 224,
+      "region": "constant pool",
+      "stage": "accepted"
+    },
+    {
+      "at": 115,
+      "bit": 2,
+      "error": "",
+      "message": "loaded and linked, not run",
+      "mutant": 225,
+      "region": "constant pool",
+      "stage": "accepted"
+    },
+    {
+      "at": 117,
+      "bit": 2,
+      "error": "",
+      "message": "loaded and linked, not run",
+      "mutant": 226,
+      "region": "constant pool",
+      "stage": "accepted"
+    },
+    {
+      "at": 206,
+      "bit": 4,
+      "error": "java.lang.VerifyError",
+      "message": "Expecting a stackmap frame at branch target 13 Exception Details:   Location:     Target.go()I @5: if_icmplt   Reason:     Expected stackmap frame at this location.   Bytecode:     0000000: b200 1410 0aa1 0008 1014 a700 0510 07ac     0000010:",
+      "mutant": 227,
+      "region": "constant pool",
+      "stage": "link"
+    },
+    {
+      "at": 306,
+      "bit": 5,
+      "error": "java.lang.VerifyError",
+      "message": "Illegal constant pool index 52 in class Target Exception Details:   Location:     Target.go()I @0: getstatic   Reason:     Constant pool index 52 is invalid   Bytecode:     0000000: b200 3410 0aa1 0008 1014 a700 0510 07ac     0000010:                                           Stackmap Table:     same_frame(@13)     same_locals_1_stack_item_frame(@15,Integer)",
+      "mutant": 228,
+      "region": "methods",
+      "stage": "link"
+    },
+    {
+      "at": 27,
+      "bit": 0,
+      "error": "",
+      "message": "loaded and linked, not run",
+      "mutant": 229,
+      "region": "constant pool",
+      "stage": "accepted"
+    },
+    {
+      "at": 107,
+      "bit": 2,
+      "error": "java.lang.ClassFormatError",
+      "message": "Invalid constant pool index 1035 in class file Target",
+      "mutant": 230,
+      "region": "constant pool",
+      "stage": "parse"
+    },
+    {
+      "at": 196,
+      "bit": 5,
+      "error": "java.lang.ClassFormatError",
+      "message": "Illegal UTF8 string in constant pool in class file Target",
+      "mutant": 231,
+      "region": "constant pool",
+      "stage": "parse"
+    },
+    {
+      "at": 296,
+      "bit": 6,
+      "error": "",
+      "message": "loaded and linked, not run",
+      "mutant": 232,
+      "region": "methods",
+      "stage": "accepted"
+    },
+    {
+      "at": 17,
+      "bit": 0,
+      "error": "java.lang.NoClassDefFoundError",
+      "message": "Target (wrong name: Targdt)",
+      "mutant": 233,
+      "region": "constant pool",
+      "stage": "parse"
+    },
+    {
+      "at": 97,
+      "bit": 3,
+      "error": "java.lang.ClassFormatError",
+      "message": "Invalid constant pool index 2057 in class file Target",
+      "mutant": 234,
+      "region": "constant pool",
+      "stage": "parse"
+    },
+    {
+      "at": 187,
+      "bit": 5,
+      "error": "java.lang.ClassFormatError",
+      "message": "Invalid constant pool index 8210 in class file Target",
+      "mutant": 235,
+      "region": "constant pool",
+      "stage": "parse"
+    },
+    {
+      "at": 286,
+      "bit": 7,
+      "error": "java.lang.ClassFormatError",
+      "message": "Illegal constant pool index 32786 for method signature in class file Target",
+      "mutant": 236,
+      "region": "methods",
+      "stage": "parse"
+    },
+    {
+      "at": 7,
+      "bit": 1,
+      "error": "",
+      "message": "loaded and linked, not run",
+      "mutant": 237,
+      "region": "header",
+      "stage": "accepted"
+    },
+    {
+      "at": 87,
+      "bit": 4,
+      "error": "java.lang.NoClassDefFoundError",
+      "message": "java/la~g/Object",
+      "mutant": 238,
+      "region": "constant pool",
+      "stage": "parse"
+    },
+    {
+      "at": 177,
+      "bit": 6,
+      "error": "",
+      "message": "loaded and linked, not run",
+      "mutant": 239,
+      "region": "constant pool",
+      "stage": "accepted"
+    },
+    {
+      "at": 276,
+      "bit": 7,
+      "error": "java.lang.VerifyError",
+      "message": "Illegal constant pool index 144 in class Target Exception Details:   Location:     Target.<init>()V @7: putfield   Reason:     Constant pool index 144 is invalid   Bytecode:     0000000: 2ab7 000c 2a12 0eb5 0090 b1",
+      "mutant": 240,
+      "region": "methods",
+      "stage": "link"
+    },
+    {
+      "at": 366,
+      "bit": 1,
+      "error": "java.lang.ClassFormatError",
+      "message": "Truncated class file",
+      "mutant": 241,
+      "region": "class attributes",
+      "stage": "parse"
+    },
+    {
+      "at": 156,
+      "bit": 7,
+      "error": "java.lang.ClassFormatError",
+      "message": "Illegal UTF8 string in constant pool in class file Target",
+      "mutant": 242,
+      "region": "constant pool",
+      "stage": "parse"
+    },
+    {
+      "at": 245,
+      "bit": 1,
+      "error": "",
+      "message": "loaded and linked, not run",
+      "mutant": 243,
+      "region": "methods",
+      "stage": "accepted"
+    },
+    {
+      "at": 345,
+      "bit": 3,
+      "error": "java.lang.ClassFormatError",
+      "message": "Code segment has wrong length in class file Target",
+      "mutant": 244,
+      "region": "methods",
+      "stage": "parse"
+    },
+    {
+      "at": 66,
+      "bit": 5,
+      "error": "java.lang.ClassFormatError",
+      "message": "Illegal method name \"<Init>\" in class Target",
+      "mutant": 245,
+      "region": "constant pool",
+      "stage": "parse"
+    },
+    {
+      "at": 146,
+      "bit": 0,
+      "error": "java.lang.ClassFormatError",
+      "message": "Field \"COUNT\" in class Target has illegal signature \"name\"",
+      "mutant": 246,
+      "region": "constant pool",
+      "stage": "parse"
+    },
+    {
+      "at": 236,
+      "bit": 2,
+      "error": "java.lang.ClassFormatError",
+      "message": "Illegal field modifiers in class Target: 0x6",
+      "mutant": 247,
+      "region": "fields",
+      "stage": "parse"
+    },
+    {
+      "at": 335,
+      "bit": 4,
+      "error": "",
+      "message": "loaded and linked, not run",
+      "mutant": 248,
+      "region": "methods",
+      "stage": "accepted"
+    },
+    {
+      "at": 56,
+      "bit": 6,
+      "error": "java.lang.NoClassDefFoundError",
+      "message": "java/lang/S4ring",
+      "mutant": 249,
+      "region": "constant pool",
+      "stage": "link"
+    },
+    {
+      "at": 136,
+      "bit": 1,
+      "error": "java.lang.ClassFormatError",
+      "message": "Unknown constant tag 73 in class file Target",
+      "mutant": 250,
+      "region": "constant pool",
+      "stage": "parse"
+    },
+    {
+      "at": 226,
+      "bit": 3,
+      "error": "java.lang.ClassFormatError",
+      "message": "Illegal field modifiers in class Target: 0x3",
+      "mutant": 251,
+      "region": "fields",
+      "stage": "parse"
+    },
+    {
+      "at": 325,
+      "bit": 4,
+      "error": "java.lang.ClassFormatError",
+      "message": "Invalid code attribute name index 10 in class file Target",
+      "mutant": 252,
+      "region": "methods",
+      "stage": "parse"
+    },
+    {
+      "at": 47,
+      "bit": 6,
+      "error": "java.lang.NoClassDefFoundError",
+      "message": "ja6a/lang/String",
+      "mutant": 253,
+      "region": "constant pool",
+      "stage": "link"
+    },
+    {
+      "at": 126,
+      "bit": 1,
+      "error": "java.lang.ClassFormatError",
+      "message": "Method \"name\" in class Target has illegal signature \"Ljava/lang/String;\"",
+      "mutant": 254,
+      "region": "constant pool",
+      "stage": "parse"
+    },
+    {
+      "at": 216,
+      "bit": 3,
+      "error": "java.lang.VerifyError",
+      "message": "Expecting a stackmap frame at branch target 13 Exception Details:   Location:     Target.go()I @5: if_icmplt   Reason:     Expected stackmap frame at this location.   Bytecode:     0000000: b200 1410 0aa1 0008 1014 a700 0510 07ac     0000010:",
+      "mutant": 255,
+      "region": "constant pool",
+      "stage": "link"
+    }
+  ],
+  "regions": {
+    "class attributes": {
+      "at": 366,
+      "bytes": 2
+    },
+    "class, super and interfaces": {
+      "at": 217,
+      "bytes": 8
+    },
+    "constant pool": {
+      "at": 10,
+      "bytes": 207
+    },
+    "fields": {
+      "at": 225,
+      "bytes": 18
+    },
+    "header": {
+      "at": 0,
+      "bytes": 10
+    },
+    "methods": {
+      "at": 243,
+      "bytes": 123
+    }
+  },
+  "seed": 20260906,
+  "seed_bytes": 368,
+  "seed_class": "Target",
+  "seed_run": {
+    "answer": "go returned 7",
+    "stage": "accepted"
+  }
+}
