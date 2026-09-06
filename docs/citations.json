@@ -78,12 +78,44 @@
       "line": "define_pd_global(intx, CompilerThreadStackSize,  2040);",
       "tag": "jdk-27+35"
     },
+    "src/hotspot/share/classfile/classFileParser.cpp:2290": {
+      "cited_in": [
+        "docs/probes/classfile-fuzz.md"
+      ],
+      "context_sha256": "4f0a96ed22ddf84b217fc940f5dadd9bc22d39efab2236ca9c6d87224230cc79",
+      "line": "        guarantee_property(args_size <= max_locals,",
+      "tag": "jdk-27+35"
+    },
     "src/hotspot/share/classfile/javaClasses.hpp:57": {
       "cited_in": [
         "docs/probes/fieldlayout.md"
       ],
       "context_sha256": "564fead1a1315c7544cdca25cdc172fcd0bb730949386af34e753e36aff2befa",
       "line": "#define STRING_INJECTED_FIELDS(macro) \\",
+      "tag": "jdk-27+35"
+    },
+    "src/hotspot/share/classfile/stackMapTable.cpp:298": {
+      "cited_in": [
+        "docs/probes/classfile-fuzz.md"
+      ],
+      "context_sha256": "b95d266fc4ba188634d1ec20b181af75e28d83204b35d490e7edc3acc439f408",
+      "line": "    check_verification_type_array_size(",
+      "tag": "jdk-27+35"
+    },
+    "src/hotspot/share/classfile/stackMapTable.hpp:139": {
+      "cited_in": [
+        "docs/probes/classfile-fuzz.md"
+      ],
+      "context_sha256": "baaa74a61aa34c059ae929695ddee32d384f5459f791e6fff95eb09c12aeb49b",
+      "line": "  void check_verification_type_array_size(",
+      "tag": "jdk-27+35"
+    },
+    "src/hotspot/share/classfile/verifier.cpp:2073": {
+      "cited_in": [
+        "docs/probes/classfile-fuzz.md"
+      ],
+      "context_sha256": "cfab07aa30d5ece49c41f52c26cb612d123545463558b2b702c89fc22678c78c",
+      "line": "  _exception_type = vmSymbols::java_lang_ClassFormatError();",
       "tag": "jdk-27+35"
     },
     "src/hotspot/share/oops/instanceKlass.cpp:1084": {
