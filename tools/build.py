@@ -91,7 +91,18 @@ KNOWN_FRONT_MATTER = REQUIRED_FRONT_MATTER | {
     "flags",
     "terms",
     "status",
+    "kind",
 }
+
+# A playground is a notebook that is not a lesson. It teaches by being open ended:
+# there is nothing to predict, because the reader decides what to try, and nothing to
+# grade, because there is no single thing they were meant to arrive at. Three of the
+# rules below exist to stop a lesson drifting into a tour, and all three are wrong for
+# a playground, so a playground says so in its front matter and is exempted from
+# exactly those three. Everything else, the ids, the generated cells, the bootstrap
+# coming first and the pin agreeing, holds for both, because those are about the
+# notebook working rather than about what kind of thing it is.
+KINDS = {"lesson", "playground"}
 
 # Caps from the authoring guide. Enforced here rather than in review, because a cap
 # that only a reviewer enforces is a cap that slips on the week everyone is busy.
@@ -360,6 +371,14 @@ class Lesson:
         return str(self.front["id"])
 
     @property
+    def kind(self) -> str:
+        return str(self.front.get("kind", "lesson"))
+
+    @property
+    def is_playground(self) -> bool:
+        return self.kind == "playground"
+
+    @property
     def dir(self) -> pathlib.Path:
         return self.path.parent
 
@@ -386,6 +405,17 @@ def load_lesson(path: pathlib.Path) -> Lesson:
             f"{path}:1: front matter id is {front['id']!r} but the directory is "
             f"{path.parent.name!r}, and they have to agree"
         )
+    if front.get("kind", "lesson") not in KINDS:
+        raise LessonError(
+            f"{path}:1: kind is {front['kind']!r}, and it is one of {sorted(KINDS)}"
+        )
+    expected = "playground" if path.name == "playground.py" else "lesson"
+    if front.get("kind", "lesson") != expected:
+        raise LessonError(
+            f"{path}:1: the file is {path.name}, so kind is {expected!r}, and the front "
+            f"matter says {front.get('kind', 'lesson')!r}. The two decide different "
+            f"things, which is one thing too many"
+        )
 
     cells = parse_cells(lines, end, path)
     if not cells:
@@ -394,12 +424,17 @@ def load_lesson(path: pathlib.Path) -> Lesson:
 
 
 def load_all(root: pathlib.Path) -> list[Lesson]:
-    lessons_dir = root / "lessons"
-    if not lessons_dir.is_dir():
-        return []
+    """Every notebook source in the repository, lessons first and playgrounds after.
+
+    Two directories and one loader. A playground is compiled by the same code as a
+    lesson and checked by nearly the same rules, and the moment it gets its own
+    compiler is the moment the bootstrap cell in a playground stops being the bootstrap
+    cell in a lesson.
+    """
     out = []
-    for source in sorted(lessons_dir.glob("*/lesson.py")):
-        out.append(load_lesson(source))
+    for pattern in ("lessons/*/lesson.py", "playgrounds/*/playground.py"):
+        for source in sorted(root.glob(pattern)):
+            out.append(load_lesson(source))
     return out
 
 
@@ -545,9 +580,13 @@ class Context:
         return self._bootstrap
 
     def badge(self, lesson: Lesson) -> str:
+        # Asked of notebook_path rather than spelled out, because a badge that points at
+        # a path the build does not write is a link that 404s for every reader and works
+        # for the person who wrote it, since they have the file locally.
+        where = notebook_path(self.root, lesson).relative_to(self.root).as_posix()
         url = (
             f"https://colab.research.google.com/github/{REPO}/blob/"
-            f"{DEFAULT_BRANCH}/notebooks/{lesson.id}/lesson.ipynb"
+            f"{DEFAULT_BRANCH}/{where}"
         )
         return "\n".join(
             [
@@ -682,6 +721,8 @@ def build_notebook(lesson: Lesson, ctx: Context) -> str:
 
 
 def notebook_path(root: pathlib.Path, lesson: Lesson) -> pathlib.Path:
+    if lesson.is_playground:
+        return root / "notebooks" / "playgrounds" / f"{lesson.id}.ipynb"
     return root / "notebooks" / lesson.id / "lesson.ipynb"
 
 
@@ -762,7 +803,7 @@ def check_structure(root: pathlib.Path, lessons: list[Lesson]) -> list[str]:
             )
 
         e0_cells =[c for c in lesson.cells if c.cell_type == "code" and c.env == "E0"]
-        if len(e0_cells) > CAP_E0_CELLS:
+        if len(e0_cells) > CAP_E0_CELLS and not lesson.is_playground:
             problems.append(
                 f"{path}: {len(e0_cells)} tier 0 code cells, the cap is {CAP_E0_CELLS}. "
                 f"This is two lessons"
@@ -774,7 +815,7 @@ def check_structure(root: pathlib.Path, lessons: list[Lesson]) -> list[str]:
                 f"{path}: {len(gates)} prediction gates, the cap is {CAP_PREDICT_GATES}. "
                 f"Past that it reads as a quiz"
             )
-        if lesson.front.get("status") != "draft" and not gates:
+        if lesson.front.get("status") != "draft" and not gates and not lesson.is_playground:
             problems.append(
                 f"{path}: no prediction gate. Every lesson has at least one, because a "
                 f"reader who has not committed to an answer does not read the reveal"
@@ -817,7 +858,11 @@ def check_structure(root: pathlib.Path, lessons: list[Lesson]) -> list[str]:
             )
 
         grader = lesson.dir / "grade.py"
-        if lesson.front.get("status") != "draft" and not grader.is_file():
+        if (
+            lesson.front.get("status") != "draft"
+            and not lesson.is_playground
+            and not grader.is_file()
+        ):
             problems.append(f"{lesson.dir}: no grade.py, so the boss fight has no grader")
 
     problems.extend(check_requires_dag(lessons))
@@ -990,14 +1035,16 @@ def cmd_check(root: pathlib.Path) -> int:
         if committed != built:
             problems.append(
                 f"{path.relative_to(root)}: differs from a rebuild of "
-                f"lessons/{lesson.id}/lesson.py. {describe_drift(committed, built)}. "
+                f"{lesson.path.relative_to(root)}. {describe_drift(committed, built)}. "
                 f"Notebooks are output. Edit the lesson source and run build.py notebooks"
             )
 
     for problem in problems:
         print(problem)
+    playgrounds = len([lesson for lesson in lessons if lesson.is_playground])
     print(
-        f"build.py check: {len(lessons)} lessons, {len(problems)} problems",
+        f"build.py check: {len(lessons) - playgrounds} lessons, {playgrounds} "
+        f"playgrounds, {len(problems)} problems",
         file=sys.stderr,
     )
     return 1 if problems else 0
@@ -1067,8 +1114,9 @@ def cmd_list(root: pathlib.Path) -> int:
         baked = len([c for c in lesson.cells if "bake" in c.tags])
         status = lesson.front.get("status", "written")
         print(
-            f"{lesson.id:<{width}}  {status:<8}  {len(lesson.cells):>2} cells  "
-            f"{gates} gates  {baked} baked  {lesson.front['title']}"
+            f"{lesson.id:<{width}}  {lesson.kind:<10}  {status:<8}  "
+            f"{len(lesson.cells):>2} cells  {gates} gates  {baked} baked  "
+            f"{lesson.front['title']}"
         )
     return 0
 

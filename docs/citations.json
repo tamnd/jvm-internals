@@ -230,7 +230,8 @@
         "docs/blueprint-format.md",
         "docs/blueprints/BP-CLASSFILE.md",
         "docs/generated/conformance.json",
-        "docs/probes/classfile-fuzz.md"
+        "docs/probes/classfile-fuzz.md",
+        "playgrounds/classfile/playground.py"
       ],
       "context_sha256": "4f0a96ed22ddf84b217fc940f5dadd9bc22d39efab2236ca9c6d87224230cc79",
       "line": "        guarantee_property(args_size <= max_locals,",

@@ -21,9 +21,9 @@ Five rules:
 A line ending in the comment <!-- prose-ok --> is exempt from em-dash and
 banned, which is how a document quotes a rule in order to state it.
 
-Every .md file is checked, and so are the markdown cells inside
-lessons/<id>/lesson.py and the comments in jvx/*.jsh, reported against their real line
-in the file they came from. Lesson prose is the prose readers actually read, and the
+Every .md file is checked, and so are the markdown cells inside lessons/<id>/lesson.py
+and playgrounds/<id>/playground.py, and the comments in jvx/*.jsh, reported against
+their real line in the file they came from. That prose is the prose readers read, and the
 jvx comments are inlined verbatim into the bootstrap cell of every notebook, so
 exempting either because it does not live in a .md file would be exempting the part
 that matters.
@@ -219,8 +219,9 @@ def main() -> int:
         if p.is_dir():
             targets.extend(sorted(q for q in p.rglob("*.md") if ".git" not in q.parts))
             targets.extend(sorted(p.glob("lessons/*/lesson.py")))
+            targets.extend(sorted(p.glob("playgrounds/*/playground.py")))
             targets.extend(sorted(p.glob("jvx/*.jsh")))
-        elif p.suffix in {".md", ".jsh"} or p.name == "lesson.py":
+        elif p.suffix in {".md", ".jsh"} or p.name in {"lesson.py", "playground.py"}:
             targets.append(p)
 
     root = pathlib.Path(__file__).resolve().parent.parent

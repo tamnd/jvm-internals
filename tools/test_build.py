@@ -291,6 +291,109 @@ class TestCheck(Harness):
         self.assertTrue(any("the cap is" in p for p in problems))
 
 
+class TestPlaygrounds(Harness):
+    """A playground is a lesson with three rules taken off and no others.
+
+    Those three are the prediction gate, the grader and the tier zero cell cap, and each
+    is off for a reason that is about what a playground is rather than about convenience.
+    Everything else has to keep applying, because the ways a notebook breaks do not care
+    what kind of notebook it is, so most of these tests are that a rule still bites.
+    """
+
+    def playground(self, text: str | None = None) -> pathlib.Path:
+        where = self.root / "playgrounds" / "P01"
+        where.mkdir(parents=True, exist_ok=True)
+        source = (text or LESSON).replace("# id: X01", "# id: P01\n# kind: playground")
+        (where / "playground.py").write_text(source, encoding="utf-8")
+        return where / "playground.py"
+
+    def test_a_playground_is_loaded_alongside_the_lessons(self) -> None:
+        self.playground()
+        found = {lesson.id: lesson.kind for lesson in build.load_all(self.root)}
+        self.assertEqual(found, {"X01": "lesson", "P01": "playground"})
+
+    def test_a_playground_notebook_goes_somewhere_else(self) -> None:
+        lesson = build.load_lesson(self.playground())
+        self.assertEqual(
+            build.notebook_path(self.root, lesson),
+            self.root / "notebooks" / "playgrounds" / "P01.ipynb",
+        )
+
+    def test_the_colab_badge_points_at_the_file_the_build_writes(self) -> None:
+        # The badge is the only link a reader in Colab follows, and it is built from a
+        # path rather than from a pattern, so a new kind of notebook cannot 404 quietly.
+        lesson = build.load_lesson(self.playground())
+        badge = self.ctx().badge(lesson)
+        self.assertIn("notebooks/playgrounds/P01.ipynb", badge)
+
+    def test_a_playground_needs_no_gate_and_no_grader(self) -> None:
+        self.playground(LESSON.replace("tags=[predict]", ""))
+        problems = build.check_structure(self.root, build.load_all(self.root))
+        self.assertEqual([p for p in problems if "P01" in p or "playgrounds" in p], [])
+
+    def test_a_lesson_still_needs_both(self) -> None:
+        # The same edit, in the other directory. Without this the exemption could be
+        # switched on for everything and every test above would still pass.
+        self.write(LESSON.replace("tags=[predict]", ""))
+        problems = build.check_structure(self.root, build.load_all(self.root))
+        self.assertTrue(any("no prediction gate" in p for p in problems))
+
+    def test_a_playground_may_be_longer_than_a_lesson(self) -> None:
+        extra = "".join(
+            f"\n# %% id=filler_{n} env=E0\nvar f{n} = {n};\n"
+            for n in range(build.CAP_E0_CELLS + 1)
+        )
+        self.playground(LESSON + extra)
+        problems = build.check_structure(self.root, build.load_all(self.root))
+        self.assertEqual([p for p in problems if "the cap is" in p], [])
+
+    def test_a_playground_still_has_to_have_unique_cell_ids(self) -> None:
+        self.playground(LESSON.replace("id=gate_1 tags=[predict]", "id=setup"))
+        problems = build.check_structure(self.root, build.load_all(self.root))
+        self.assertTrue(any("already used" in p for p in problems))
+
+    def test_a_playground_still_has_to_bootstrap_first(self) -> None:
+        moved = LESSON.replace(
+            "# %% id=bootstrap generated=bootstrap env=E0\n", ""
+        ).replace(
+            "# %% id=setup env=E0",
+            "# %% id=setup env=E0\nvar early = 1;\n\n# %% id=bootstrap generated=bootstrap env=E0",
+        )
+        self.playground(moved)
+        problems = build.check_structure(self.root, build.load_all(self.root))
+        self.assertTrue(any("not the first code cell" in p for p in problems))
+
+    def test_a_playground_still_has_to_agree_with_the_pin(self) -> None:
+        self.playground(LESSON.replace("# pin: jdk-27+35", "# pin: jdk-26-ga"))
+        problems = build.check_structure(self.root, build.load_all(self.root))
+        self.assertTrue(any("docs/pin.json says" in p for p in problems))
+
+    def test_the_filename_and_the_kind_have_to_agree(self) -> None:
+        # Two things could decide what a source is, and one of them has to win. A
+        # lesson.py claiming to be a playground would be exempted from the rules that
+        # make it a lesson while sitting in the lessons directory.
+        self.write(LESSON.replace("# id: X01", "# id: X01\n# kind: playground"))
+        with self.assertRaises(build.LessonError) as caught:
+            build.load_lesson(self.lesson_dir / "lesson.py")
+        self.assertIn("kind is 'lesson'", str(caught.exception))
+
+    def test_an_unknown_kind_is_refused(self) -> None:
+        self.write(LESSON.replace("# id: X01", "# id: X01\n# kind: tour"))
+        with self.assertRaises(build.LessonError) as caught:
+            build.load_lesson(self.lesson_dir / "lesson.py")
+        self.assertIn("'tour'", str(caught.exception))
+
+    def test_check_builds_and_compares_a_playground_too(self) -> None:
+        self.playground()
+        self.assertEqual(build.cmd_check(self.root), 1)
+        build.cmd_notebooks(self.root)
+        self.assertEqual(build.cmd_check(self.root), 0)
+        built = self.root / "notebooks" / "playgrounds" / "P01.ipynb"
+        text = built.read_text(encoding="utf-8")
+        built.write_text(text.replace("var x = 1;", "var x = 2;"), encoding="utf-8")
+        self.assertEqual(build.cmd_check(self.root), 1)
+
+
 class TestScaffold(Harness):
     def test_new_creates_a_lesson_that_parses(self) -> None:
         self.assertEqual(build.cmd_new(self.root, "X02"), 0)

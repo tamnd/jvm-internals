@@ -207,6 +207,20 @@ jobs:
             echo "the markup tests skipped with the pinned JDK installed"
             exit 1
           fi
+      # The playground's promise is that a reader can type a class file by hand and
+      # javap will agree with it. Nothing about that is checkable by reading the
+      # source, so this takes the code cells out of the committed notebook, runs them
+      # in a real jshell on the pinned JDK, and reads the output back: the file javap
+      # disassembles, the class that loads, the fresh JVM that prints, and the two
+      # deliberately broken files that have to be refused for the stated reason.
+      - name: the class file playground runs, and javap agrees with it
+        run: |
+          set -euo pipefail
+          python tools/test_classfile_playground.py 2>&1 | tee /tmp/playground.log
+          if grep -q "skipped=" /tmp/playground.log; then
+            echo "the playground tests skipped with the pinned JDK installed"
+            exit 1
+          fi
 
   # Numbers that came out of HotSpot's own headers have to keep coming out of
   # them, and lines this repository points at have to keep saying what they said.

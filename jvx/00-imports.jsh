@@ -22,3 +22,12 @@ import com.sun.management.VMOption;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
+
+// The third group is the class file playground's, and it is the JDK's own class file
+// library rather than anything this project wrote. Every opcode number, constant pool
+// tag and access flag bit a reader meets comes from here, read off the JDK they are
+// running, so the playground cannot disagree with the platform it is teaching.
+import java.lang.classfile.ClassFile;
+import java.lang.classfile.Opcode;
+import java.lang.classfile.constantpool.PoolEntry;
+import java.util.spi.ToolProvider;
