@@ -1,0 +1,9401 @@
+{
+  "counts": {
+    "by_kind": {
+      "ARCH": 21,
+      "C1": 16,
+      "C2": 149,
+      "diagnostic": 264,
+      "experimental": 74,
+      "lp64_product": 4,
+      "manageable": 14,
+      "pd": 53,
+      "product": 464
+    },
+    "by_origin": {
+      "command line": 1,
+      "default": 784,
+      "ergonomic": 31
+    },
+    "by_type": {
+      "bool": 421,
+      "ccstr": 32,
+      "ccstrlist": 8,
+      "double": 28,
+      "int": 42,
+      "intx": 115,
+      "size_t": 51,
+      "uint": 80,
+      "uint64_t": 4,
+      "uintx": 35
+    },
+    "reported": 816,
+    "reported_when_unlocked": 816,
+    "unstable_between_runs": 1,
+    "with_a_range": 325
+  },
+  "flags": {
+    "AOTAdapterCaching": {
+      "assigned": false,
+      "kind": [
+        "diagnostic"
+      ],
+      "origin": "ergonomic",
+      "type": "bool",
+      "value": "false"
+    },
+    "AOTCache": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "ccstr",
+      "value": ""
+    },
+    "AOTCacheOutput": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "ccstr",
+      "value": ""
+    },
+    "AOTCacheParallelRelocation": {
+      "assigned": false,
+      "kind": [
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "true"
+    },
+    "AOTClassLinking": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "AOTCodeMaxSize": {
+      "assigned": false,
+      "kind": [
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "uint",
+      "value": "10485760"
+    },
+    "AOTCompatibleOopCompression": {
+      "assigned": false,
+      "kind": [
+        "diagnostic",
+        "lp64_product"
+      ],
+      "origin": "ergonomic",
+      "type": "bool",
+      "value": "false"
+    },
+    "AOTCompileEagerly": {
+      "assigned": false,
+      "kind": [
+        "experimental"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "AOTConfiguration": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "ccstr",
+      "value": ""
+    },
+    "AOTEagerlyLoadObjects": {
+      "assigned": false,
+      "kind": [
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "AOTInvokeDynamicLinking": {
+      "assigned": false,
+      "kind": [
+        "diagnostic"
+      ],
+      "origin": "ergonomic",
+      "type": "bool",
+      "value": "false"
+    },
+    "AOTMode": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "ccstr",
+      "value": ""
+    },
+    "AOTPrintTrainingInfo": {
+      "assigned": false,
+      "kind": [
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "AOTRecordTraining": {
+      "assigned": false,
+      "kind": [
+        "diagnostic"
+      ],
+      "origin": "ergonomic",
+      "type": "bool",
+      "value": "false"
+    },
+    "AOTReplayTraining": {
+      "assigned": false,
+      "kind": [
+        "diagnostic"
+      ],
+      "origin": "ergonomic",
+      "type": "bool",
+      "value": "false"
+    },
+    "AOTStreamableObjects": {
+      "assigned": false,
+      "kind": [
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "AOTStubCaching": {
+      "assigned": false,
+      "kind": [
+        "diagnostic"
+      ],
+      "origin": "ergonomic",
+      "type": "bool",
+      "value": "false"
+    },
+    "AOTVerifyTrainingData": {
+      "assigned": false,
+      "kind": [
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "AbortVMOnAOTCodeFailure": {
+      "assigned": false,
+      "kind": [
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "AbortVMOnCompilationFailure": {
+      "assigned": false,
+      "kind": [
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "AbortVMOnException": {
+      "assigned": false,
+      "kind": [
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "ccstr",
+      "value": ""
+    },
+    "AbortVMOnExceptionMessage": {
+      "assigned": false,
+      "kind": [
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "ccstr",
+      "value": ""
+    },
+    "AbortVMOnSafepointTimeout": {
+      "assigned": false,
+      "kind": [
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "AbortVMOnSafepointTimeoutDelay": {
+      "assigned": false,
+      "kind": [
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "uint64_t",
+      "value": "0"
+    },
+    "AbortVMOnVMOperationTimeout": {
+      "assigned": false,
+      "kind": [
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "AbortVMOnVMOperationTimeoutDelay": {
+      "assigned": false,
+      "kind": [
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "intx",
+      "value": "1000"
+    },
+    "ActiveProcessorCount": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "int",
+      "value": "-1"
+    },
+    "AdaptiveSizeDecrementScaleFactor": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "uintx",
+      "value": "4"
+    },
+    "AdaptiveSizePolicyWeight": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "uint",
+      "value": "10"
+    },
+    "AdjustStackSizeForTLS": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "AggressiveUnboxing": {
+      "assigned": false,
+      "kind": [
+        "C2",
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "true"
+    },
+    "AlignVector": {
+      "assigned": false,
+      "kind": [
+        "C2",
+        "product"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "AllocateHeapAt": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "ccstr",
+      "value": ""
+    },
+    "AllocateInstancePrefetchLines": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "int",
+      "value": "1"
+    },
+    "AllocatePrefetchDistance": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "int",
+      "value": "192"
+    },
+    "AllocatePrefetchInstr": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "intx",
+      "value": "0"
+    },
+    "AllocatePrefetchLines": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "int",
+      "value": "3"
+    },
+    "AllocatePrefetchStepSize": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "int",
+      "value": "64"
+    },
+    "AllocatePrefetchStyle": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "int",
+      "value": "1"
+    },
+    "AllowParallelDefineClass": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "AllowRedefinitionToAddDeleteMethods": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "AllowUserSignalHandlers": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "AllowVectorizeOnDemand": {
+      "assigned": false,
+      "kind": [
+        "C2",
+        "product"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "true"
+    },
+    "AlwaysCompileLoopMethods": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "AlwaysMergeDMB": {
+      "assigned": false,
+      "kind": [
+        "ARCH",
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "true"
+    },
+    "AlwaysPreTouch": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "AlwaysPreTouchStacks": {
+      "assigned": false,
+      "kind": [
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "AlwaysRecordEvolDependencies": {
+      "assigned": false,
+      "kind": [
+        "experimental"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "true"
+    },
+    "AlwaysRestoreFPU": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "AlwaysSafeConstructors": {
+      "assigned": false,
+      "kind": [
+        "experimental"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "AlwaysTenure": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "ArchiveClassesAtExit": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "ccstr",
+      "value": ""
+    },
+    "ArchiveRelocationMode": {
+      "assigned": false,
+      "kind": [
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "int",
+      "value": "1"
+    },
+    "ArrayCopyLoadStoreMaxElem": {
+      "assigned": false,
+      "kind": [
+        "C2",
+        "product"
+      ],
+      "origin": "default",
+      "type": "intx",
+      "value": "8"
+    },
+    "ArrayMarkingMinStride": {
+      "assigned": false,
+      "kind": [
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "uintx",
+      "value": "64"
+    },
+    "ArrayOperationPartialInlineSize": {
+      "assigned": false,
+      "kind": [
+        "C2",
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "intx",
+      "value": "0"
+    },
+    "AsyncDeflationInterval": {
+      "assigned": false,
+      "kind": [
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "intx",
+      "value": "250"
+    },
+    "AsyncLogBufferSize": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "size_t",
+      "value": "2097152"
+    },
+    "AutoBoxCacheMax": {
+      "assigned": false,
+      "kind": [
+        "C2",
+        "product"
+      ],
+      "origin": "default",
+      "type": "intx",
+      "value": "128"
+    },
+    "AutoCreateSharedArchive": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "AutoVectorizationOverrideProfitability": {
+      "assigned": false,
+      "kind": [
+        "C2",
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "uint",
+      "value": "1"
+    },
+    "AvgMonitorsPerThreadEstimate": {
+      "assigned": false,
+      "kind": [
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "size_t",
+      "value": "1024"
+    },
+    "AvoidUnalignedAccesses": {
+      "assigned": false,
+      "kind": [
+        "ARCH",
+        "product"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "BCEATraceLevel": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "intx",
+      "value": "0"
+    },
+    "BackgroundCompilation": {
+      "assigned": false,
+      "kind": [
+        "pd",
+        "product"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "true"
+    },
+    "BlockLayoutByFrequency": {
+      "assigned": false,
+      "kind": [
+        "C2",
+        "product"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "true"
+    },
+    "BlockLayoutMinDiamondPercentage": {
+      "assigned": false,
+      "kind": [
+        "C2",
+        "product"
+      ],
+      "origin": "default",
+      "type": "intx",
+      "value": "20"
+    },
+    "BlockLayoutRotateLoops": {
+      "assigned": false,
+      "kind": [
+        "C2",
+        "product"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "true"
+    },
+    "BlockZeroingLowLimit": {
+      "assigned": false,
+      "kind": [
+        "ARCH",
+        "product"
+      ],
+      "origin": "default",
+      "type": "intx",
+      "value": "256"
+    },
+    "BytecodeVerificationLocal": {
+      "assigned": false,
+      "kind": [
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "BytecodeVerificationRemote": {
+      "assigned": false,
+      "kind": [
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "true"
+    },
+    "C1InlineStackLimit": {
+      "assigned": false,
+      "kind": [
+        "C1",
+        "product"
+      ],
+      "origin": "default",
+      "type": "intx",
+      "value": "5"
+    },
+    "C1MaxInlineLevel": {
+      "assigned": false,
+      "kind": [
+        "C1",
+        "product"
+      ],
+      "origin": "default",
+      "type": "intx",
+      "value": "9"
+    },
+    "C1MaxInlineSize": {
+      "assigned": false,
+      "kind": [
+        "C1",
+        "product"
+      ],
+      "origin": "default",
+      "type": "intx",
+      "value": "35"
+    },
+    "C1MaxRecursiveInlineLevel": {
+      "assigned": false,
+      "kind": [
+        "C1",
+        "product"
+      ],
+      "origin": "default",
+      "type": "intx",
+      "value": "1"
+    },
+    "C1MaxTrivialSize": {
+      "assigned": false,
+      "kind": [
+        "C1",
+        "product"
+      ],
+      "origin": "default",
+      "type": "intx",
+      "value": "6"
+    },
+    "C1OptimizeVirtualCallProfiling": {
+      "assigned": false,
+      "kind": [
+        "C1",
+        "product"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "true"
+    },
+    "C1ProfileBranches": {
+      "assigned": false,
+      "kind": [
+        "C1",
+        "product"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "true"
+    },
+    "C1ProfileCalls": {
+      "assigned": false,
+      "kind": [
+        "C1",
+        "product"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "true"
+    },
+    "C1ProfileCheckcasts": {
+      "assigned": false,
+      "kind": [
+        "C1",
+        "product"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "true"
+    },
+    "C1ProfileInlinedCalls": {
+      "assigned": false,
+      "kind": [
+        "C1",
+        "product"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "true"
+    },
+    "C1ProfileVirtualCalls": {
+      "assigned": false,
+      "kind": [
+        "C1",
+        "product"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "true"
+    },
+    "C1UpdateMethodData": {
+      "assigned": false,
+      "kind": [
+        "C1",
+        "product"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "true"
+    },
+    "CICompilerCount": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "ergonomic",
+      "type": "intx",
+      "value": "3"
+    },
+    "CICompilerCountPerCPU": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "true"
+    },
+    "CIPrintCompileQueue": {
+      "assigned": false,
+      "kind": [
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "CIPrintCompilerName": {
+      "assigned": false,
+      "kind": [
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "CITime": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "CaptureBailoutInformation": {
+      "assigned": false,
+      "kind": [
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "CheckIntrinsics": {
+      "assigned": false,
+      "kind": [
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "true"
+    },
+    "CheckJNICalls": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "ClassUnloading": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "true"
+    },
+    "ClassUnloadingWithConcurrentMark": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "true"
+    },
+    "ClipInlining": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "true"
+    },
+    "CodeCacheExpansionSize": {
+      "assigned": false,
+      "kind": [
+        "pd",
+        "product"
+      ],
+      "origin": "default",
+      "type": "size_t",
+      "value": "65536"
+    },
+    "CodeCacheMinBlockLength": {
+      "assigned": false,
+      "kind": [
+        "pd",
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "size_t",
+      "value": "6"
+    },
+    "CodeCacheSegmentSize": {
+      "assigned": false,
+      "kind": [
+        "pd",
+        "experimental"
+      ],
+      "origin": "default",
+      "type": "size_t",
+      "value": "64"
+    },
+    "CodeEntryAlignment": {
+      "assigned": false,
+      "kind": [
+        "pd",
+        "experimental"
+      ],
+      "origin": "default",
+      "type": "uint",
+      "value": "64"
+    },
+    "CompactStrings": {
+      "assigned": false,
+      "kind": [
+        "pd",
+        "product"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "true"
+    },
+    "CompilationMode": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "ccstr",
+      "value": "default"
+    },
+    "CompileCommand": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "ccstrlist",
+      "value": ""
+    },
+    "CompileCommandFile": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "ccstr",
+      "value": ""
+    },
+    "CompileOnly": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "ccstrlist",
+      "value": ""
+    },
+    "CompileThreshold": {
+      "assigned": false,
+      "kind": [
+        "pd",
+        "product"
+      ],
+      "origin": "default",
+      "type": "intx",
+      "value": "10000"
+    },
+    "CompileThresholdScaling": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "double",
+      "value": "1.000000"
+    },
+    "CompilerDirectivesFile": {
+      "assigned": false,
+      "kind": [
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "ccstr",
+      "value": ""
+    },
+    "CompilerDirectivesIgnoreCompileCommands": {
+      "assigned": false,
+      "kind": [
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "CompilerDirectivesLimit": {
+      "assigned": false,
+      "kind": [
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "int",
+      "value": "50"
+    },
+    "CompilerDirectivesPrint": {
+      "assigned": false,
+      "kind": [
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "CompilerThreadPriority": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "int",
+      "value": "-1"
+    },
+    "CompilerThreadStackSize": {
+      "assigned": false,
+      "kind": [
+        "pd",
+        "product"
+      ],
+      "origin": "default",
+      "type": "intx",
+      "value": "2040"
+    },
+    "CompressedClassSpaceSize": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "size_t",
+      "value": "1073741824"
+    },
+    "ConcGCThreads": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "ergonomic",
+      "type": "uint",
+      "value": "1"
+    },
+    "ConditionalMoveLimit": {
+      "assigned": false,
+      "kind": [
+        "C2",
+        "pd",
+        "product"
+      ],
+      "origin": "default",
+      "type": "intx",
+      "value": "3"
+    },
+    "ContendedPaddingWidth": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "int",
+      "value": "128"
+    },
+    "ControlIntrinsic": {
+      "assigned": false,
+      "kind": [
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "ccstrlist",
+      "value": ""
+    },
+    "CrashOnOutOfMemoryError": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "CreateCoredumpOnCrash": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "true"
+    },
+    "DTraceAllocProbes": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "DTraceMethodProbes": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "DTraceMonitorProbes": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "DebugInlinedCalls": {
+      "assigned": false,
+      "kind": [
+        "C2",
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "true"
+    },
+    "DebugNonSafepoints": {
+      "assigned": false,
+      "kind": [
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "DelayAfterInliningCutoff": {
+      "assigned": false,
+      "kind": [
+        "C2",
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "DelayCompilerStubsGeneration": {
+      "assigned": false,
+      "kind": [
+        "pd",
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "true"
+    },
+    "DeoptimizeNMethodBarriersALot": {
+      "assigned": false,
+      "kind": [
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "DeoptimizeOnAllocationException": {
+      "assigned": false,
+      "kind": [
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "DiagnoseSyncOnValueBasedClasses": {
+      "assigned": false,
+      "kind": [
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "int",
+      "value": "0"
+    },
+    "DisableAttachMechanism": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "DisableExplicitGC": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "DisableIntrinsic": {
+      "assigned": false,
+      "kind": [
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "ccstrlist",
+      "value": ""
+    },
+    "DisablePrimordialThreadGuardPages": {
+      "assigned": false,
+      "kind": [
+        "experimental"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "DisplayVMOutput": {
+      "assigned": false,
+      "kind": [
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "true"
+    },
+    "DisplayVMOutputToStderr": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "DisplayVMOutputToStdout": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "DoEscapeAnalysis": {
+      "assigned": false,
+      "kind": [
+        "C2",
+        "product"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "true"
+    },
+    "DoJVMTIVirtualThreadTransitions": {
+      "assigned": false,
+      "kind": [
+        "experimental"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "true"
+    },
+    "DominatorSearchLimit": {
+      "assigned": false,
+      "kind": [
+        "C2",
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "intx",
+      "value": "1000"
+    },
+    "DontCompileHugeMethods": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "true"
+    },
+    "DumpLoadedClassList": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "ccstr",
+      "value": ""
+    },
+    "DumpPerfMapAtExit": {
+      "assigned": false,
+      "kind": [
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "DumpPrivateMappingsInCore": {
+      "assigned": false,
+      "kind": [
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "true"
+    },
+    "DumpReplayDataOnError": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "true"
+    },
+    "DumpSharedMappingsInCore": {
+      "assigned": false,
+      "kind": [
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "true"
+    },
+    "DuplicateBackedge": {
+      "assigned": false,
+      "kind": [
+        "C2",
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "true"
+    },
+    "EagerXrunInit": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "EliminateAllocationArraySizeLimit": {
+      "assigned": false,
+      "kind": [
+        "C2",
+        "product"
+      ],
+      "origin": "default",
+      "type": "intx",
+      "value": "64"
+    },
+    "EliminateAllocationFieldsLimit": {
+      "assigned": false,
+      "kind": [
+        "C2",
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "intx",
+      "value": "512"
+    },
+    "EliminateAllocations": {
+      "assigned": false,
+      "kind": [
+        "C2",
+        "product"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "true"
+    },
+    "EliminateAutoBox": {
+      "assigned": false,
+      "kind": [
+        "C2",
+        "product"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "true"
+    },
+    "EliminateLocks": {
+      "assigned": false,
+      "kind": [
+        "C2",
+        "product"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "true"
+    },
+    "EliminateNestedLocks": {
+      "assigned": false,
+      "kind": [
+        "C2",
+        "product"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "true"
+    },
+    "EnableContended": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "true"
+    },
+    "EnableDynamicAgentLoading": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "true"
+    },
+    "EnableThreadSMRStatistics": {
+      "assigned": false,
+      "kind": [
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "EnableVectorAggressiveReboxing": {
+      "assigned": false,
+      "kind": [
+        "C2",
+        "experimental"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "EnableVectorReboxing": {
+      "assigned": false,
+      "kind": [
+        "C2",
+        "experimental"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "EnableVectorSupport": {
+      "assigned": false,
+      "kind": [
+        "C2",
+        "experimental"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "EpsilonElasticTLAB": {
+      "assigned": false,
+      "kind": [
+        "experimental"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "true"
+    },
+    "EpsilonElasticTLABDecay": {
+      "assigned": false,
+      "kind": [
+        "experimental"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "true"
+    },
+    "EpsilonMaxTLABSize": {
+      "assigned": false,
+      "kind": [
+        "experimental"
+      ],
+      "origin": "default",
+      "type": "size_t",
+      "value": "4194304"
+    },
+    "EpsilonMinHeapExpand": {
+      "assigned": false,
+      "kind": [
+        "experimental"
+      ],
+      "origin": "default",
+      "type": "size_t",
+      "value": "134217728"
+    },
+    "EpsilonPrintHeapSteps": {
+      "assigned": false,
+      "kind": [
+        "experimental"
+      ],
+      "origin": "default",
+      "type": "size_t",
+      "value": "20"
+    },
+    "EpsilonTLABDecayTime": {
+      "assigned": false,
+      "kind": [
+        "experimental"
+      ],
+      "origin": "default",
+      "type": "size_t",
+      "value": "1000"
+    },
+    "EpsilonTLABElasticity": {
+      "assigned": false,
+      "kind": [
+        "experimental"
+      ],
+      "origin": "default",
+      "type": "double",
+      "value": "1.100000"
+    },
+    "EpsilonUpdateCountersStep": {
+      "assigned": false,
+      "kind": [
+        "experimental"
+      ],
+      "origin": "default",
+      "type": "size_t",
+      "value": "1048576"
+    },
+    "ErgoHeapSizeLimit": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "size_t",
+      "value": "0"
+    },
+    "ErrorFile": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "ccstr",
+      "value": ""
+    },
+    "ErrorFileToStderr": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "ErrorFileToStdout": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "ErrorLogPrintCodeLimit": {
+      "assigned": false,
+      "kind": [
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "int",
+      "value": "3"
+    },
+    "ErrorLogSecondaryErrorDetails": {
+      "assigned": false,
+      "kind": [
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "ErrorLogTimeout": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "uint64_t",
+      "value": "120"
+    },
+    "EscapeAnalysisTimeout": {
+      "assigned": false,
+      "kind": [
+        "C2",
+        "product"
+      ],
+      "origin": "default",
+      "type": "double",
+      "value": "20.000000"
+    },
+    "EstimateArgEscape": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "true"
+    },
+    "ExecutingUnitTests": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "ExitOnOutOfMemoryError": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "ExplicitGCInvokesConcurrent": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "ExtensiveErrorReports": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "ExtraSharedClassListFile": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "ccstr",
+      "value": ""
+    },
+    "FastLockingSpins": {
+      "assigned": false,
+      "kind": [
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "int",
+      "value": "8"
+    },
+    "FlightRecorder": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "FlightRecorderOptions": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "ccstr",
+      "value": ""
+    },
+    "FoldStableValues": {
+      "assigned": false,
+      "kind": [
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "true"
+    },
+    "ForceTimeHighResolution": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "ForceUnreachable": {
+      "assigned": false,
+      "kind": [
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "FreqInlineSize": {
+      "assigned": false,
+      "kind": [
+        "C2",
+        "pd",
+        "product"
+      ],
+      "origin": "default",
+      "type": "intx",
+      "value": "325"
+    },
+    "FullGCHeapDumpLimit": {
+      "assigned": false,
+      "kind": [
+        "manageable"
+      ],
+      "origin": "default",
+      "type": "uint",
+      "value": "0"
+    },
+    "G1AdaptiveIHOPNumInitialSamples": {
+      "assigned": false,
+      "kind": [
+        "experimental"
+      ],
+      "origin": "default",
+      "type": "size_t",
+      "value": "3"
+    },
+    "G1CPUUsageDeviationPercent": {
+      "assigned": false,
+      "kind": [
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "uint",
+      "value": "25"
+    },
+    "G1CPUUsageExpandThreshold": {
+      "assigned": false,
+      "kind": [
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "uint",
+      "value": "4"
+    },
+    "G1CPUUsageShrinkThreshold": {
+      "assigned": false,
+      "kind": [
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "uint",
+      "value": "8"
+    },
+    "G1ConcMarkStepDurationMillis": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "double",
+      "value": "10.000000"
+    },
+    "G1ConcRefinementThreads": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "ergonomic",
+      "type": "uint",
+      "value": "4"
+    },
+    "G1ConfidencePercent": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "uint",
+      "value": "50"
+    },
+    "G1EagerReclaimRemSetThreshold": {
+      "assigned": false,
+      "kind": [
+        "experimental"
+      ],
+      "origin": "ergonomic",
+      "type": "uint",
+      "value": "10"
+    },
+    "G1ExpandByPercentOfAvailable": {
+      "assigned": false,
+      "kind": [
+        "experimental"
+      ],
+      "origin": "default",
+      "type": "uint",
+      "value": "20"
+    },
+    "G1HeapRegionSize": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "ergonomic",
+      "type": "size_t",
+      "value": "1048576"
+    },
+    "G1HeapWastePercent": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "uint",
+      "value": "5"
+    },
+    "G1IHOP": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "uint",
+      "value": "45"
+    },
+    "G1LastPLABAverageOccupancy": {
+      "assigned": false,
+      "kind": [
+        "experimental"
+      ],
+      "origin": "default",
+      "type": "double",
+      "value": "50.000000"
+    },
+    "G1MaxNewSizePercent": {
+      "assigned": false,
+      "kind": [
+        "experimental"
+      ],
+      "origin": "default",
+      "type": "uint",
+      "value": "60"
+    },
+    "G1MixedGCCountTarget": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "uintx",
+      "value": "8"
+    },
+    "G1MixedGCLiveThresholdPercent": {
+      "assigned": false,
+      "kind": [
+        "experimental"
+      ],
+      "origin": "default",
+      "type": "uint",
+      "value": "85"
+    },
+    "G1NewSizePercent": {
+      "assigned": false,
+      "kind": [
+        "experimental"
+      ],
+      "origin": "default",
+      "type": "uint",
+      "value": "5"
+    },
+    "G1NumCardsCostSampleThreshold": {
+      "assigned": false,
+      "kind": [
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "uint",
+      "value": "1000"
+    },
+    "G1NumCodeRootsCostSampleThreshold": {
+      "assigned": false,
+      "kind": [
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "uint",
+      "value": "100"
+    },
+    "G1NumCollectionsKeepPinned": {
+      "assigned": false,
+      "kind": [
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "uint",
+      "value": "8"
+    },
+    "G1OldCSetGroupSize": {
+      "assigned": false,
+      "kind": [
+        "experimental"
+      ],
+      "origin": "default",
+      "type": "uint",
+      "value": "5"
+    },
+    "G1OldCSetRegionThresholdPercent": {
+      "assigned": false,
+      "kind": [
+        "experimental"
+      ],
+      "origin": "default",
+      "type": "uint",
+      "value": "10"
+    },
+    "G1PerThreadPendingCardThreshold": {
+      "assigned": false,
+      "kind": [
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "size_t",
+      "value": "256"
+    },
+    "G1PeriodicGCInterval": {
+      "assigned": false,
+      "kind": [
+        "manageable"
+      ],
+      "origin": "default",
+      "type": "uintx",
+      "value": "0"
+    },
+    "G1PeriodicGCInvokesConcurrent": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "true"
+    },
+    "G1PeriodicGCSystemLoadThreshold": {
+      "assigned": false,
+      "kind": [
+        "manageable"
+      ],
+      "origin": "default",
+      "type": "double",
+      "value": "0.000000"
+    },
+    "G1RSetUpdatingPauseTimePercent": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "uint",
+      "value": "10"
+    },
+    "G1RebuildRemSetChunkSize": {
+      "assigned": false,
+      "kind": [
+        "experimental"
+      ],
+      "origin": "default",
+      "type": "size_t",
+      "value": "262144"
+    },
+    "G1RefProcDrainInterval": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "uint",
+      "value": "1000"
+    },
+    "G1RemSetArrayOfCardsEntries": {
+      "assigned": false,
+      "kind": [
+        "experimental"
+      ],
+      "origin": "ergonomic",
+      "type": "uint",
+      "value": "10"
+    },
+    "G1RemSetCoarsenHowlBitmapToHowlFullPercent": {
+      "assigned": false,
+      "kind": [
+        "experimental"
+      ],
+      "origin": "default",
+      "type": "uint",
+      "value": "90"
+    },
+    "G1RemSetCoarsenHowlToFullPercent": {
+      "assigned": false,
+      "kind": [
+        "experimental"
+      ],
+      "origin": "default",
+      "type": "uint",
+      "value": "90"
+    },
+    "G1RemSetFreeMemoryKeepExcessRatio": {
+      "assigned": false,
+      "kind": [
+        "experimental"
+      ],
+      "origin": "default",
+      "type": "double",
+      "value": "0.100000"
+    },
+    "G1RemSetFreeMemoryRescheduleDelayMillis": {
+      "assigned": false,
+      "kind": [
+        "experimental"
+      ],
+      "origin": "default",
+      "type": "uint",
+      "value": "10"
+    },
+    "G1RemSetFreeMemoryStepDurationMillis": {
+      "assigned": false,
+      "kind": [
+        "experimental"
+      ],
+      "origin": "default",
+      "type": "double",
+      "value": "1.000000"
+    },
+    "G1RemSetHowlMaxNumBuckets": {
+      "assigned": false,
+      "kind": [
+        "experimental"
+      ],
+      "origin": "ergonomic",
+      "type": "uint",
+      "value": "8"
+    },
+    "G1RemSetHowlNumBuckets": {
+      "assigned": false,
+      "kind": [
+        "experimental"
+      ],
+      "origin": "ergonomic",
+      "type": "uint",
+      "value": "4"
+    },
+    "G1ReservePercent": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "uint",
+      "value": "10"
+    },
+    "G1RestoreRetainedRegionChunksPerWorker": {
+      "assigned": false,
+      "kind": [
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "uint",
+      "value": "16"
+    },
+    "G1RetainRegionLiveThresholdPercent": {
+      "assigned": false,
+      "kind": [
+        "experimental"
+      ],
+      "origin": "default",
+      "type": "uint",
+      "value": "85"
+    },
+    "G1SATBBufferEnqueueingThresholdPercent": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "uint",
+      "value": "60"
+    },
+    "G1SATBBufferSize": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "size_t",
+      "value": "1024"
+    },
+    "G1ShrinkByPercentOfAvailable": {
+      "assigned": false,
+      "kind": [
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "uint",
+      "value": "50"
+    },
+    "G1SummarizeRSetStatsPeriod": {
+      "assigned": false,
+      "kind": [
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "uintx",
+      "value": "0"
+    },
+    "G1UseAdaptiveIHOP": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "true"
+    },
+    "G1UseConcRefinement": {
+      "assigned": false,
+      "kind": [
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "true"
+    },
+    "G1UseReferencePrecleaning": {
+      "assigned": false,
+      "kind": [
+        "experimental"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "true"
+    },
+    "G1VerifyBitmaps": {
+      "assigned": false,
+      "kind": [
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "G1VerifyHeapRegionCodeRoots": {
+      "assigned": false,
+      "kind": [
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "GCCardSizeInBytes": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "uint",
+      "value": "512"
+    },
+    "GCDrainStackTargetSize": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "uint",
+      "value": "64"
+    },
+    "GCHeapFreeLimit": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "uint",
+      "value": "2"
+    },
+    "GCPauseIntervalMillis": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "uintx",
+      "value": "201"
+    },
+    "GCTimeLimit": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "uint",
+      "value": "98"
+    },
+    "GCTimeRatio": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "uint",
+      "value": "24"
+    },
+    "GuaranteedAsyncDeflationInterval": {
+      "assigned": false,
+      "kind": [
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "intx",
+      "value": "60000"
+    },
+    "GuaranteedSafepointInterval": {
+      "assigned": false,
+      "kind": [
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "intx",
+      "value": "0"
+    },
+    "HandshakeALot": {
+      "assigned": false,
+      "kind": [
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "HandshakeTimeout": {
+      "assigned": false,
+      "kind": [
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "uint",
+      "value": "0"
+    },
+    "HeapBaseMinAddress": {
+      "assigned": false,
+      "kind": [
+        "pd",
+        "product"
+      ],
+      "origin": "default",
+      "type": "size_t",
+      "value": "2147483648"
+    },
+    "HeapDumpAfterFullGC": {
+      "assigned": false,
+      "kind": [
+        "manageable"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "HeapDumpBeforeFullGC": {
+      "assigned": false,
+      "kind": [
+        "manageable"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "HeapDumpGzipLevel": {
+      "assigned": false,
+      "kind": [
+        "manageable"
+      ],
+      "origin": "default",
+      "type": "int",
+      "value": "0"
+    },
+    "HeapDumpOnOutOfMemoryError": {
+      "assigned": false,
+      "kind": [
+        "manageable"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "HeapDumpPath": {
+      "assigned": false,
+      "kind": [
+        "manageable"
+      ],
+      "origin": "default",
+      "type": "ccstr",
+      "value": ""
+    },
+    "HeapSearchSteps": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "uintx",
+      "value": "3"
+    },
+    "HeapSizePerGCThread": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "size_t",
+      "value": "43620760"
+    },
+    "HotCodeCallLevel": {
+      "assigned": false,
+      "kind": [
+        "C2",
+        "experimental"
+      ],
+      "origin": "default",
+      "type": "uint",
+      "value": "1"
+    },
+    "HotCodeHeap": {
+      "assigned": false,
+      "kind": [
+        "C2",
+        "experimental"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "HotCodeHeapSize": {
+      "assigned": false,
+      "kind": [
+        "experimental"
+      ],
+      "origin": "ergonomic",
+      "type": "size_t",
+      "value": "0"
+    },
+    "HotCodeIntervalSeconds": {
+      "assigned": false,
+      "kind": [
+        "C2",
+        "experimental"
+      ],
+      "origin": "default",
+      "type": "uint",
+      "value": "300"
+    },
+    "HotCodeMaxSamplingMs": {
+      "assigned": false,
+      "kind": [
+        "C2",
+        "experimental"
+      ],
+      "origin": "default",
+      "type": "uint",
+      "value": "15"
+    },
+    "HotCodeMinSamplingMs": {
+      "assigned": false,
+      "kind": [
+        "C2",
+        "experimental"
+      ],
+      "origin": "default",
+      "type": "uint",
+      "value": "5"
+    },
+    "HotCodeSamplePercent": {
+      "assigned": false,
+      "kind": [
+        "C2",
+        "experimental"
+      ],
+      "origin": "default",
+      "type": "double",
+      "value": "80.000000"
+    },
+    "HotCodeSampleSeconds": {
+      "assigned": false,
+      "kind": [
+        "C2",
+        "experimental"
+      ],
+      "origin": "default",
+      "type": "uint",
+      "value": "120"
+    },
+    "HotCodeStablePercent": {
+      "assigned": false,
+      "kind": [
+        "C2",
+        "experimental"
+      ],
+      "origin": "default",
+      "type": "double",
+      "value": "5.000000"
+    },
+    "HotCodeStartupDelaySeconds": {
+      "assigned": false,
+      "kind": [
+        "C2",
+        "experimental"
+      ],
+      "origin": "default",
+      "type": "uint",
+      "value": "120"
+    },
+    "IFGEdgesLimit": {
+      "assigned": false,
+      "kind": [
+        "C2",
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "uint",
+      "value": "10000000"
+    },
+    "IdealizeClearArrayNode": {
+      "assigned": false,
+      "kind": [
+        "C2",
+        "pd",
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "true"
+    },
+    "IgnoreEmptyClassPaths": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "IgnoreUnrecognizedVMOptions": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "ImplicitNullChecks": {
+      "assigned": false,
+      "kind": [
+        "pd",
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "true"
+    },
+    "IncreaseFirstTierCompileThresholdAt": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "uintx",
+      "value": "50"
+    },
+    "IncrementalInline": {
+      "assigned": false,
+      "kind": [
+        "C2",
+        "product"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "true"
+    },
+    "IncrementalInlineForceCleanup": {
+      "assigned": false,
+      "kind": [
+        "C2",
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "IncrementalInlineMH": {
+      "assigned": false,
+      "kind": [
+        "C2",
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "true"
+    },
+    "IncrementalInlineVirtual": {
+      "assigned": false,
+      "kind": [
+        "C2",
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "true"
+    },
+    "InitArrayShortSize": {
+      "assigned": false,
+      "kind": [
+        "pd",
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "intx",
+      "value": "8"
+    },
+    "InitialCodeCacheSize": {
+      "assigned": false,
+      "kind": [
+        "pd",
+        "product"
+      ],
+      "origin": "default",
+      "type": "size_t",
+      "value": "2555904"
+    },
+    "InitialHeapSize": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "ergonomic",
+      "type": "size_t",
+      "value": "8388608"
+    },
+    "InitialRAMPercentage": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "double",
+      "value": "0.000000"
+    },
+    "InitialSurvivorRatio": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "uintx",
+      "value": "8"
+    },
+    "InitialTenuringThreshold": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "uint",
+      "value": "7"
+    },
+    "InitiatingHeapOccupancyPercent": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "uint",
+      "value": "45"
+    },
+    "InjectGCWorkerCreationFailure": {
+      "assigned": false,
+      "kind": [
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "Inline": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "true"
+    },
+    "InlineArrayCopy": {
+      "assigned": false,
+      "kind": [
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "true"
+    },
+    "InlineClassNatives": {
+      "assigned": false,
+      "kind": [
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "true"
+    },
+    "InlineDataFile": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "ccstr",
+      "value": ""
+    },
+    "InlineFrequencyRatio": {
+      "assigned": false,
+      "kind": [
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "double",
+      "value": "0.250000"
+    },
+    "InlineMathNatives": {
+      "assigned": false,
+      "kind": [
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "true"
+    },
+    "InlineNatives": {
+      "assigned": false,
+      "kind": [
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "true"
+    },
+    "InlineObjectCopy": {
+      "assigned": false,
+      "kind": [
+        "C2",
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "true"
+    },
+    "InlineObjectHash": {
+      "assigned": false,
+      "kind": [
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "true"
+    },
+    "InlineReflectionGetCallerClass": {
+      "assigned": false,
+      "kind": [
+        "C2",
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "true"
+    },
+    "InlineSecondarySupersTest": {
+      "assigned": false,
+      "kind": [
+        "C2",
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "true"
+    },
+    "InlineSmallCode": {
+      "assigned": false,
+      "kind": [
+        "C2",
+        "pd",
+        "product"
+      ],
+      "origin": "default",
+      "type": "intx",
+      "value": "2500"
+    },
+    "InlineSynchronizedMethods": {
+      "assigned": false,
+      "kind": [
+        "C1",
+        "product"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "true"
+    },
+    "InlineThreadNatives": {
+      "assigned": false,
+      "kind": [
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "true"
+    },
+    "InlineUnsafeOps": {
+      "assigned": false,
+      "kind": [
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "true"
+    },
+    "InteriorEntryAlignment": {
+      "assigned": false,
+      "kind": [
+        "C2",
+        "pd",
+        "product"
+      ],
+      "origin": "default",
+      "type": "intx",
+      "value": "16"
+    },
+    "InterpreterProfilePercentage": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "intx",
+      "value": "33"
+    },
+    "JavaMonitorsInStackTrace": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "true"
+    },
+    "JavaPriority10_To_OSPriority": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "int",
+      "value": "-1"
+    },
+    "JavaPriority1_To_OSPriority": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "int",
+      "value": "-1"
+    },
+    "JavaPriority2_To_OSPriority": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "int",
+      "value": "-1"
+    },
+    "JavaPriority3_To_OSPriority": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "int",
+      "value": "-1"
+    },
+    "JavaPriority4_To_OSPriority": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "int",
+      "value": "-1"
+    },
+    "JavaPriority5_To_OSPriority": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "int",
+      "value": "-1"
+    },
+    "JavaPriority6_To_OSPriority": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "int",
+      "value": "-1"
+    },
+    "JavaPriority7_To_OSPriority": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "int",
+      "value": "-1"
+    },
+    "JavaPriority8_To_OSPriority": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "int",
+      "value": "-1"
+    },
+    "JavaPriority9_To_OSPriority": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "int",
+      "value": "-1"
+    },
+    "LargePageHeapSizeThreshold": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "size_t",
+      "value": "134217728"
+    },
+    "LargePageSizeInBytes": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "size_t",
+      "value": "0"
+    },
+    "LiveNodeCountInliningCutoff": {
+      "assigned": false,
+      "kind": [
+        "C2",
+        "product"
+      ],
+      "origin": "default",
+      "type": "intx",
+      "value": "40000"
+    },
+    "LoadExecStackDllInVMThread": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "true"
+    },
+    "LogClassLoadingCauseFor": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "ccstr",
+      "value": ""
+    },
+    "LogCompilation": {
+      "assigned": false,
+      "kind": [
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "LogEvents": {
+      "assigned": false,
+      "kind": [
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "true"
+    },
+    "LogEventsBufferEntries": {
+      "assigned": false,
+      "kind": [
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "int",
+      "value": "20"
+    },
+    "LogFile": {
+      "assigned": false,
+      "kind": [
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "ccstr",
+      "value": ""
+    },
+    "LogVMOutput": {
+      "assigned": false,
+      "kind": [
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "LoopMaxUnroll": {
+      "assigned": false,
+      "kind": [
+        "C2",
+        "product"
+      ],
+      "origin": "default",
+      "type": "intx",
+      "value": "16"
+    },
+    "LoopMultiversioning": {
+      "assigned": false,
+      "kind": [
+        "C2",
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "true"
+    },
+    "LoopOptsCount": {
+      "assigned": false,
+      "kind": [
+        "C2",
+        "product"
+      ],
+      "origin": "default",
+      "type": "intx",
+      "value": "43"
+    },
+    "LoopPeeling": {
+      "assigned": false,
+      "kind": [
+        "C2",
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "uint",
+      "value": "1"
+    },
+    "LoopPercentProfileLimit": {
+      "assigned": false,
+      "kind": [
+        "C2",
+        "pd",
+        "product"
+      ],
+      "origin": "default",
+      "type": "intx",
+      "value": "10"
+    },
+    "LoopStripMiningIter": {
+      "assigned": false,
+      "kind": [
+        "C2",
+        "product"
+      ],
+      "origin": "default",
+      "type": "uintx",
+      "value": "1000"
+    },
+    "LoopStripMiningIterShortLoop": {
+      "assigned": false,
+      "kind": [
+        "C2",
+        "product"
+      ],
+      "origin": "default",
+      "type": "uintx",
+      "value": "100"
+    },
+    "LoopUnrollLimit": {
+      "assigned": false,
+      "kind": [
+        "C2",
+        "pd",
+        "product"
+      ],
+      "origin": "default",
+      "type": "intx",
+      "value": "60"
+    },
+    "LoopUnrollMin": {
+      "assigned": false,
+      "kind": [
+        "C2",
+        "product"
+      ],
+      "origin": "default",
+      "type": "intx",
+      "value": "4"
+    },
+    "LoopUnswitching": {
+      "assigned": false,
+      "kind": [
+        "C2",
+        "product"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "true"
+    },
+    "MallocLimit": {
+      "assigned": false,
+      "kind": [
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "ccstr",
+      "value": ""
+    },
+    "ManagementServer": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "MarkStackSize": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "ergonomic",
+      "type": "size_t",
+      "value": "4194304"
+    },
+    "MarkStackSizeMax": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "size_t",
+      "value": "536870912"
+    },
+    "MarkSweepAlwaysCompactCount": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "uint",
+      "value": "4"
+    },
+    "MarkSweepDeadRatio": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "uint",
+      "value": "5"
+    },
+    "MaxBCEAEstimateLevel": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "intx",
+      "value": "5"
+    },
+    "MaxBCEAEstimateSize": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "intx",
+      "value": "150"
+    },
+    "MaxDirectMemorySize": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "uint64_t",
+      "value": "0"
+    },
+    "MaxFDLimit": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "true"
+    },
+    "MaxGCPauseMillis": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "uintx",
+      "value": "200"
+    },
+    "MaxHeapFreeRatio": {
+      "assigned": false,
+      "kind": [
+        "manageable"
+      ],
+      "origin": "default",
+      "type": "uintx",
+      "value": "100"
+    },
+    "MaxHeapSize": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "ergonomic",
+      "type": "size_t",
+      "value": "1549795328"
+    },
+    "MaxInlineLevel": {
+      "assigned": false,
+      "kind": [
+        "C2",
+        "product"
+      ],
+      "origin": "default",
+      "type": "intx",
+      "value": "15"
+    },
+    "MaxInlineSize": {
+      "assigned": false,
+      "kind": [
+        "C2",
+        "product"
+      ],
+      "origin": "default",
+      "type": "intx",
+      "value": "35"
+    },
+    "MaxJNILocalCapacity": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "intx",
+      "value": "65536"
+    },
+    "MaxJavaStackTraceDepth": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "int",
+      "value": "1024"
+    },
+    "MaxJumpTableSize": {
+      "assigned": false,
+      "kind": [
+        "C2",
+        "product"
+      ],
+      "origin": "default",
+      "type": "intx",
+      "value": "65000"
+    },
+    "MaxJumpTableSparseness": {
+      "assigned": false,
+      "kind": [
+        "C2",
+        "product"
+      ],
+      "origin": "default",
+      "type": "intx",
+      "value": "5"
+    },
+    "MaxLabelRootDepth": {
+      "assigned": false,
+      "kind": [
+        "C2",
+        "product"
+      ],
+      "origin": "default",
+      "type": "intx",
+      "value": "1100"
+    },
+    "MaxLoopPad": {
+      "assigned": false,
+      "kind": [
+        "C2",
+        "product"
+      ],
+      "origin": "default",
+      "type": "intx",
+      "value": "15"
+    },
+    "MaxMetaspaceExpansion": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "size_t",
+      "value": "5439488"
+    },
+    "MaxMetaspaceFreeRatio": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "uint",
+      "value": "70"
+    },
+    "MaxMetaspaceSize": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "size_t",
+      "value": "18446744073709551615"
+    },
+    "MaxNewSize": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "ergonomic",
+      "type": "size_t",
+      "value": "929038336"
+    },
+    "MaxNodeLimit": {
+      "assigned": false,
+      "kind": [
+        "C2",
+        "product"
+      ],
+      "origin": "default",
+      "type": "intx",
+      "value": "80000"
+    },
+    "MaxRAMPercentage": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "double",
+      "value": "25.000000"
+    },
+    "MaxRecursiveInlineLevel": {
+      "assigned": false,
+      "kind": [
+        "C2",
+        "product"
+      ],
+      "origin": "default",
+      "type": "intx",
+      "value": "1"
+    },
+    "MaxTenuringThreshold": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "uint",
+      "value": "15"
+    },
+    "MaxTrivialSize": {
+      "assigned": false,
+      "kind": [
+        "C2",
+        "product"
+      ],
+      "origin": "default",
+      "type": "intx",
+      "value": "6"
+    },
+    "MaxVectorSize": {
+      "assigned": false,
+      "kind": [
+        "C2",
+        "product"
+      ],
+      "origin": "default",
+      "type": "intx",
+      "value": "16"
+    },
+    "MergeStores": {
+      "assigned": false,
+      "kind": [
+        "C2",
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "true"
+    },
+    "MetaspaceSize": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "size_t",
+      "value": "22020096"
+    },
+    "MethodFlushing": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "true"
+    },
+    "MinHeapDeltaBytes": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "ergonomic",
+      "type": "size_t",
+      "value": "1048576"
+    },
+    "MinHeapFreeRatio": {
+      "assigned": false,
+      "kind": [
+        "manageable"
+      ],
+      "origin": "default",
+      "type": "uintx",
+      "value": "0"
+    },
+    "MinHeapSize": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "ergonomic",
+      "type": "size_t",
+      "value": "8388608"
+    },
+    "MinInlineFrequencyRatio": {
+      "assigned": false,
+      "kind": [
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "double",
+      "value": "0.008500"
+    },
+    "MinJumpTableSize": {
+      "assigned": false,
+      "kind": [
+        "C2",
+        "pd",
+        "product"
+      ],
+      "origin": "default",
+      "type": "intx",
+      "value": "10"
+    },
+    "MinMetaspaceExpansion": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "size_t",
+      "value": "327680"
+    },
+    "MinMetaspaceFreeRatio": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "uint",
+      "value": "40"
+    },
+    "MinPassesBeforeFlush": {
+      "assigned": false,
+      "kind": [
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "intx",
+      "value": "10"
+    },
+    "MinRAMPercentage": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "double",
+      "value": "50.000000"
+    },
+    "MinSurvivorRatio": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "uintx",
+      "value": "3"
+    },
+    "MinTLABSize": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "size_t",
+      "value": "2048"
+    },
+    "MonitorDeflationMax": {
+      "assigned": false,
+      "kind": [
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "intx",
+      "value": "1000000"
+    },
+    "MonitorUnlinkBatch": {
+      "assigned": false,
+      "kind": [
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "intx",
+      "value": "500"
+    },
+    "MonitorUsedDeflationThreshold": {
+      "assigned": false,
+      "kind": [
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "int",
+      "value": "90"
+    },
+    "MultiArrayExpandLimit": {
+      "assigned": false,
+      "kind": [
+        "C2",
+        "product"
+      ],
+      "origin": "default",
+      "type": "intx",
+      "value": "6"
+    },
+    "NMethodRelocation": {
+      "assigned": false,
+      "kind": [
+        "experimental"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "NUMAChunkResizeWeight": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "uintx",
+      "value": "20"
+    },
+    "NUMAInterleaveGranularity": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "size_t",
+      "value": "2097152"
+    },
+    "NUMASpaceResizeRate": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "size_t",
+      "value": "1073741824"
+    },
+    "NUMAStats": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "NativeMemoryTracking": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "ccstr",
+      "value": "off"
+    },
+    "NeoverseN1ICacheErratumMitigation": {
+      "assigned": false,
+      "kind": [
+        "ARCH",
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "NeverTenure": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "NewRatio": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "uintx",
+      "value": "2"
+    },
+    "NewSize": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "size_t",
+      "value": "1363144"
+    },
+    "NmethodSweepActivity": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "intx",
+      "value": "4"
+    },
+    "NoAsyncDeflationProgressMax": {
+      "assigned": false,
+      "kind": [
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "uintx",
+      "value": "3"
+    },
+    "NodeLimitFudgeFactor": {
+      "assigned": false,
+      "kind": [
+        "C2",
+        "product"
+      ],
+      "origin": "default",
+      "type": "intx",
+      "value": "2000"
+    },
+    "NonNMethodCodeHeapSize": {
+      "assigned": false,
+      "kind": [
+        "pd",
+        "product"
+      ],
+      "origin": "ergonomic",
+      "type": "size_t",
+      "value": "5836800"
+    },
+    "NonProfiledCodeHeapSize": {
+      "assigned": false,
+      "kind": [
+        "pd",
+        "product"
+      ],
+      "origin": "ergonomic",
+      "type": "size_t",
+      "value": "122912768"
+    },
+    "NumberOfLoopInstrToAlign": {
+      "assigned": false,
+      "kind": [
+        "C2",
+        "product"
+      ],
+      "origin": "default",
+      "type": "intx",
+      "value": "4"
+    },
+    "ObjectAlignmentInBytes": {
+      "assigned": false,
+      "kind": [
+        "product",
+        "lp64_product"
+      ],
+      "origin": "default",
+      "type": "int",
+      "value": "8"
+    },
+    "ObjectCountCutOffPercent": {
+      "assigned": false,
+      "kind": [
+        "experimental"
+      ],
+      "origin": "default",
+      "type": "double",
+      "value": "0.500000"
+    },
+    "OldPLABSize": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "size_t",
+      "value": "1024"
+    },
+    "OmitStackTraceInFastThrow": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "true"
+    },
+    "OnError": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "ccstrlist",
+      "value": ""
+    },
+    "OnOutOfMemoryError": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "ccstrlist",
+      "value": ""
+    },
+    "OnSpinWaitDelay": {
+      "assigned": false,
+      "kind": [
+        "ARCH",
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "uint",
+      "value": "40"
+    },
+    "OnSpinWaitInst": {
+      "assigned": false,
+      "kind": [
+        "ARCH",
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "ccstr",
+      "value": "yield"
+    },
+    "OnSpinWaitInstCount": {
+      "assigned": false,
+      "kind": [
+        "ARCH",
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "uint",
+      "value": "1"
+    },
+    "OnStackReplacePercentage": {
+      "assigned": false,
+      "kind": [
+        "pd",
+        "product"
+      ],
+      "origin": "default",
+      "type": "intx",
+      "value": "140"
+    },
+    "OptimizeExpensiveOps": {
+      "assigned": false,
+      "kind": [
+        "C2",
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "true"
+    },
+    "OptimizeFill": {
+      "assigned": false,
+      "kind": [
+        "C2",
+        "product"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "true"
+    },
+    "OptimizePtrCompare": {
+      "assigned": false,
+      "kind": [
+        "C2",
+        "product"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "true"
+    },
+    "OptimizeReachabilityFences": {
+      "assigned": false,
+      "kind": [
+        "C2",
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "true"
+    },
+    "OptimizeStringConcat": {
+      "assigned": false,
+      "kind": [
+        "C2",
+        "product"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "true"
+    },
+    "OptimizeUnstableIf": {
+      "assigned": false,
+      "kind": [
+        "C2",
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "true"
+    },
+    "OptoBundling": {
+      "assigned": false,
+      "kind": [
+        "C2",
+        "pd",
+        "product"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "OptoLoopAlignment": {
+      "assigned": false,
+      "kind": [
+        "pd",
+        "product"
+      ],
+      "origin": "default",
+      "type": "intx",
+      "value": "16"
+    },
+    "OptoRegScheduling": {
+      "assigned": false,
+      "kind": [
+        "C2",
+        "pd",
+        "product"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "OptoScheduling": {
+      "assigned": false,
+      "kind": [
+        "C2",
+        "pd",
+        "product"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "true"
+    },
+    "PLABWeight": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "uint",
+      "value": "75"
+    },
+    "ParGCArrayScanChunk": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "int",
+      "value": "50"
+    },
+    "ParallelGCBufferWastePct": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "uint",
+      "value": "10"
+    },
+    "ParallelGCThreads": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "uint",
+      "value": "4"
+    },
+    "PartialPeelAtUnsignedTests": {
+      "assigned": false,
+      "kind": [
+        "C2",
+        "product"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "true"
+    },
+    "PartialPeelLoop": {
+      "assigned": false,
+      "kind": [
+        "C2",
+        "product"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "true"
+    },
+    "PartialPeelNewPhiDelta": {
+      "assigned": false,
+      "kind": [
+        "C2",
+        "product"
+      ],
+      "origin": "default",
+      "type": "intx",
+      "value": "0"
+    },
+    "PauseAtExit": {
+      "assigned": false,
+      "kind": [
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "PauseAtStartup": {
+      "assigned": false,
+      "kind": [
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "PauseAtStartupFile": {
+      "assigned": false,
+      "kind": [
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "ccstr",
+      "value": ""
+    },
+    "PerBytecodeRecompilationCutoff": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "intx",
+      "value": "200"
+    },
+    "PerBytecodeTrapLimit": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "intx",
+      "value": "4"
+    },
+    "PerMethodRecompilationCutoff": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "intx",
+      "value": "400"
+    },
+    "PerMethodSpecTrapLimit": {
+      "assigned": false,
+      "kind": [
+        "experimental"
+      ],
+      "origin": "default",
+      "type": "intx",
+      "value": "5000"
+    },
+    "PerMethodTrapLimit": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "intx",
+      "value": "100"
+    },
+    "PerfAllowAtExitRegistration": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "PerfBypassFileSystemCheck": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "PerfDataMemorySize": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "int",
+      "value": "32768"
+    },
+    "PerfDataSaveFile": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "ccstr",
+      "value": ""
+    },
+    "PerfDataSaveToFile": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "PerfDisableSharedMem": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "PerfMaxStringConstLength": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "int",
+      "value": "1024"
+    },
+    "PreTouchParallelChunkSize": {
+      "assigned": false,
+      "kind": [
+        "pd",
+        "product"
+      ],
+      "origin": "default",
+      "type": "size_t",
+      "value": "4194304"
+    },
+    "PreferInterpreterNativeStubs": {
+      "assigned": false,
+      "kind": [
+        "pd",
+        "product"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "PrefetchCopyIntervalInBytes": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "intx",
+      "value": "192"
+    },
+    "PrefetchScanIntervalInBytes": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "intx",
+      "value": "192"
+    },
+    "PreserveFramePointer": {
+      "assigned": false,
+      "kind": [
+        "pd",
+        "product"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "PreserveReachabilityFencesOnConstants": {
+      "assigned": false,
+      "kind": [
+        "C2",
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "PrintAdapterHandlers": {
+      "assigned": false,
+      "kind": [
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "PrintAssembly": {
+      "assigned": false,
+      "kind": [
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "PrintAssemblyOptions": {
+      "assigned": false,
+      "kind": [
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "ccstr",
+      "value": ""
+    },
+    "PrintClassHistogram": {
+      "assigned": false,
+      "kind": [
+        "manageable"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "PrintCodeCache": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "PrintCodeCacheOnCompilation": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "PrintCodeHeapAnalytics": {
+      "assigned": false,
+      "kind": [
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "PrintCommandLineFlags": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "PrintCompilation": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "PrintCompilation2": {
+      "assigned": false,
+      "kind": [
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "PrintCompilerMemoryStatisticsAtExit": {
+      "assigned": false,
+      "kind": [
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "PrintConcurrentLocks": {
+      "assigned": false,
+      "kind": [
+        "manageable"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "PrintExtendedThreadInfo": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "PrintFlagsFinal": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "command line",
+      "type": "bool",
+      "value": "true"
+    },
+    "PrintFlagsInitial": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "PrintFlagsRanges": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "PrintGC": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "PrintGCDetails": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "PrintHeapAtSIGBREAK": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "true"
+    },
+    "PrintInlining": {
+      "assigned": false,
+      "kind": [
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "PrintInterpreter": {
+      "assigned": false,
+      "kind": [
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "PrintIntrinsics": {
+      "assigned": false,
+      "kind": [
+        "C2",
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "PrintMemoryMapAtExit": {
+      "assigned": false,
+      "kind": [
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "PrintMetaspaceStatisticsAtExit": {
+      "assigned": false,
+      "kind": [
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "PrintMethodData": {
+      "assigned": false,
+      "kind": [
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "PrintMethodHandleStubs": {
+      "assigned": false,
+      "kind": [
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "PrintNMTStatistics": {
+      "assigned": false,
+      "kind": [
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "PrintNMethods": {
+      "assigned": false,
+      "kind": [
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "PrintNativeNMethods": {
+      "assigned": false,
+      "kind": [
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "PrintOptoAssembly": {
+      "assigned": false,
+      "kind": [
+        "C2",
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "PrintSharedArchiveAndExit": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "PrintSignatureHandlers": {
+      "assigned": false,
+      "kind": [
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "PrintStringTableStatistics": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "PrintStubCode": {
+      "assigned": false,
+      "kind": [
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "PrintTieredEvents": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "PrintVMInfoAtExit": {
+      "assigned": false,
+      "kind": [
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "PrintVMOptions": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "PrintWarnings": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "true"
+    },
+    "ProfileDynamicTypes": {
+      "assigned": false,
+      "kind": [
+        "C2",
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "true"
+    },
+    "ProfileExceptionHandlers": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "true"
+    },
+    "ProfileInterpreter": {
+      "assigned": false,
+      "kind": [
+        "pd",
+        "product"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "true"
+    },
+    "ProfileMaturityPercentage": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "intx",
+      "value": "20"
+    },
+    "ProfiledCodeHeapSize": {
+      "assigned": false,
+      "kind": [
+        "pd",
+        "product"
+      ],
+      "origin": "ergonomic",
+      "type": "size_t",
+      "value": "122912768"
+    },
+    "PromotedPadding": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "uint",
+      "value": "3"
+    },
+    "QueuedAllocationWarningCount": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "uintx",
+      "value": "0"
+    },
+    "RangeCheckElimination": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "true"
+    },
+    "ReassociateInvariants": {
+      "assigned": false,
+      "kind": [
+        "C2",
+        "product"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "true"
+    },
+    "RecordDynamicDumpInfo": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "ReduceAllocationMerges": {
+      "assigned": false,
+      "kind": [
+        "C2",
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "true"
+    },
+    "ReduceBulkZeroing": {
+      "assigned": false,
+      "kind": [
+        "C2",
+        "product"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "true"
+    },
+    "ReduceFieldZeroing": {
+      "assigned": false,
+      "kind": [
+        "C2",
+        "product"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "true"
+    },
+    "ReduceInitialCardMarks": {
+      "assigned": false,
+      "kind": [
+        "C2",
+        "product"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "true"
+    },
+    "ReduceNumberOfCompilerThreads": {
+      "assigned": false,
+      "kind": [
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "true"
+    },
+    "ReduceSignalUsage": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "ReferencesPerThread": {
+      "assigned": false,
+      "kind": [
+        "experimental"
+      ],
+      "origin": "default",
+      "type": "size_t",
+      "value": "1000"
+    },
+    "RelaxAccessControlCheck": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "RepeatCompilation": {
+      "assigned": false,
+      "kind": [
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "intx",
+      "value": "0"
+    },
+    "ReplayCompiles": {
+      "assigned": false,
+      "kind": [
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "ReplayDataFile": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "ccstr",
+      "value": ""
+    },
+    "ReplayIgnoreInitErrors": {
+      "assigned": false,
+      "kind": [
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "ReplayReduce": {
+      "assigned": false,
+      "kind": [
+        "experimental"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "ReplaySuppressInitializers": {
+      "assigned": false,
+      "kind": [
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "intx",
+      "value": "2"
+    },
+    "ReservedCodeCacheSize": {
+      "assigned": false,
+      "kind": [
+        "pd",
+        "product"
+      ],
+      "origin": "ergonomic",
+      "type": "size_t",
+      "value": "251662336"
+    },
+    "ResizePLAB": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "true"
+    },
+    "ResizeTLAB": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "true"
+    },
+    "RestoreMXCSROnJNICalls": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "RestrictContended": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "true"
+    },
+    "RestrictReservedStack": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "true"
+    },
+    "RewriteBytecodes": {
+      "assigned": false,
+      "kind": [
+        "pd",
+        "product"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "true"
+    },
+    "RewriteFrequentPairs": {
+      "assigned": false,
+      "kind": [
+        "pd",
+        "product"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "true"
+    },
+    "SafepointALot": {
+      "assigned": false,
+      "kind": [
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "SafepointTimeout": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "SafepointTimeoutDelay": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "double",
+      "value": "10000.000000"
+    },
+    "ScavengeRootsInCode": {
+      "assigned": false,
+      "kind": [
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "intx",
+      "value": "2"
+    },
+    "SegmentedCodeCache": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "ergonomic",
+      "type": "bool",
+      "value": "true"
+    },
+    "SelfDestructTimer": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "double",
+      "value": "0.000000"
+    },
+    "SerializeVMOutput": {
+      "assigned": false,
+      "kind": [
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "true"
+    },
+    "ServiceThreadCleanupInterval": {
+      "assigned": false,
+      "kind": [
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "intx",
+      "value": "1000"
+    },
+    "SharedArchiveConfigFile": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "ccstr",
+      "value": ""
+    },
+    "SharedArchiveFile": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "ccstr",
+      "value": ""
+    },
+    "SharedBaseAddress": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "size_t",
+      "unstable": true,
+      "value": null
+    },
+    "SharedClassListFile": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "ccstr",
+      "value": ""
+    },
+    "SharedSymbolTableBucketSize": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "uint",
+      "value": "4"
+    },
+    "ShortRunningLongLoop": {
+      "assigned": false,
+      "kind": [
+        "C2",
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "true"
+    },
+    "ShowCarrierFrames": {
+      "assigned": false,
+      "kind": [
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "ShowCodeDetailsInExceptionMessages": {
+      "assigned": false,
+      "kind": [
+        "manageable"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "true"
+    },
+    "ShowHiddenFrames": {
+      "assigned": false,
+      "kind": [
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "ShowMessageBoxOnError": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "ShowRegistersOnAssert": {
+      "assigned": false,
+      "kind": [
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "true"
+    },
+    "ShrinkHeapInSteps": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "true"
+    },
+    "SkipTier2IfPossible": {
+      "assigned": false,
+      "kind": [
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "SoftMaxHeapSize": {
+      "assigned": false,
+      "kind": [
+        "manageable"
+      ],
+      "origin": "ergonomic",
+      "type": "size_t",
+      "value": "1549795328"
+    },
+    "SoftRefLRUPolicyMSPerMB": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "intx",
+      "value": "1000"
+    },
+    "SoftwarePrefetchHintDistance": {
+      "assigned": false,
+      "kind": [
+        "ARCH",
+        "product"
+      ],
+      "origin": "default",
+      "type": "int",
+      "value": "192"
+    },
+    "SpecTrapLimitExtraEntries": {
+      "assigned": false,
+      "kind": [
+        "experimental"
+      ],
+      "origin": "default",
+      "type": "int",
+      "value": "3"
+    },
+    "SpecialArraysEquals": {
+      "assigned": false,
+      "kind": [
+        "C2",
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "true"
+    },
+    "SpecialEncodeISOArray": {
+      "assigned": false,
+      "kind": [
+        "C2",
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "true"
+    },
+    "SpecialStringCompareTo": {
+      "assigned": false,
+      "kind": [
+        "C2",
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "true"
+    },
+    "SpecialStringEquals": {
+      "assigned": false,
+      "kind": [
+        "C2",
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "true"
+    },
+    "SpecialStringIndexOf": {
+      "assigned": false,
+      "kind": [
+        "C2",
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "true"
+    },
+    "SplitIfBlocks": {
+      "assigned": false,
+      "kind": [
+        "C2",
+        "product"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "true"
+    },
+    "StackRedPages": {
+      "assigned": false,
+      "kind": [
+        "pd",
+        "product"
+      ],
+      "origin": "default",
+      "type": "intx",
+      "value": "1"
+    },
+    "StackReservedPages": {
+      "assigned": false,
+      "kind": [
+        "pd",
+        "product"
+      ],
+      "origin": "default",
+      "type": "intx",
+      "value": "1"
+    },
+    "StackShadowPages": {
+      "assigned": false,
+      "kind": [
+        "pd",
+        "product"
+      ],
+      "origin": "default",
+      "type": "intx",
+      "value": "20"
+    },
+    "StackTraceInThrowable": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "true"
+    },
+    "StackYellowPages": {
+      "assigned": false,
+      "kind": [
+        "pd",
+        "product"
+      ],
+      "origin": "default",
+      "type": "intx",
+      "value": "2"
+    },
+    "StartAggressiveSweepingAt": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "uintx",
+      "value": "10"
+    },
+    "StartAttachListener": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "StartFlightRecording": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "ccstr",
+      "value": ""
+    },
+    "StressCCP": {
+      "assigned": false,
+      "kind": [
+        "C2",
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "StressGCM": {
+      "assigned": false,
+      "kind": [
+        "C2",
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "StressIGVN": {
+      "assigned": false,
+      "kind": [
+        "C2",
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "StressIncrementalInlining": {
+      "assigned": false,
+      "kind": [
+        "C2",
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "StressLCM": {
+      "assigned": false,
+      "kind": [
+        "C2",
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "StressLdcRewrite": {
+      "assigned": false,
+      "kind": [
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "StressMacroElimination": {
+      "assigned": false,
+      "kind": [
+        "C2",
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "StressMacroExpansion": {
+      "assigned": false,
+      "kind": [
+        "C2",
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "StressReachabilityFences": {
+      "assigned": false,
+      "kind": [
+        "C2",
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "StressSecondarySupers": {
+      "assigned": false,
+      "kind": [
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "StressSeed": {
+      "assigned": false,
+      "kind": [
+        "C2",
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "uint",
+      "value": "0"
+    },
+    "StressUnstableIfTraps": {
+      "assigned": false,
+      "kind": [
+        "C2",
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "StringDeduplicationAgeThreshold": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "uint",
+      "value": "3"
+    },
+    "StringDeduplicationCleanupDeadMinimum": {
+      "assigned": false,
+      "kind": [
+        "experimental"
+      ],
+      "origin": "default",
+      "type": "size_t",
+      "value": "100"
+    },
+    "StringDeduplicationCleanupDeadPercent": {
+      "assigned": false,
+      "kind": [
+        "experimental"
+      ],
+      "origin": "default",
+      "type": "int",
+      "value": "5"
+    },
+    "StringDeduplicationGrowTableLoad": {
+      "assigned": false,
+      "kind": [
+        "experimental"
+      ],
+      "origin": "default",
+      "type": "double",
+      "value": "14.000000"
+    },
+    "StringDeduplicationHashSeed": {
+      "assigned": false,
+      "kind": [
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "uint64_t",
+      "value": "0"
+    },
+    "StringDeduplicationInitialTableSize": {
+      "assigned": false,
+      "kind": [
+        "experimental"
+      ],
+      "origin": "default",
+      "type": "size_t",
+      "value": "500"
+    },
+    "StringDeduplicationResizeALot": {
+      "assigned": false,
+      "kind": [
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "StringDeduplicationShrinkTableLoad": {
+      "assigned": false,
+      "kind": [
+        "experimental"
+      ],
+      "origin": "default",
+      "type": "double",
+      "value": "1.000000"
+    },
+    "StringDeduplicationTargetTableLoad": {
+      "assigned": false,
+      "kind": [
+        "experimental"
+      ],
+      "origin": "default",
+      "type": "double",
+      "value": "7.000000"
+    },
+    "StringTableSize": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "uintx",
+      "value": "65536"
+    },
+    "SuperWordAutomaticAlignment": {
+      "assigned": false,
+      "kind": [
+        "C2",
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "uint",
+      "value": "1"
+    },
+    "SuperWordLoopUnrollAnalysis": {
+      "assigned": false,
+      "kind": [
+        "C2",
+        "pd",
+        "product"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "true"
+    },
+    "SuperWordReductions": {
+      "assigned": false,
+      "kind": [
+        "C2",
+        "product"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "true"
+    },
+    "SuperWordStoreToLoadForwardingFailureDetection": {
+      "assigned": false,
+      "kind": [
+        "C2",
+        "pd",
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "uint",
+      "value": "8"
+    },
+    "SuppressFatalErrorMessage": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "SurvivorRatio": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "uintx",
+      "value": "8"
+    },
+    "SweeperThreshold": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "double",
+      "value": "15.000000"
+    },
+    "SymbolTableSize": {
+      "assigned": false,
+      "kind": [
+        "experimental"
+      ],
+      "origin": "default",
+      "type": "uintx",
+      "value": "32768"
+    },
+    "THPStackMitigation": {
+      "assigned": false,
+      "kind": [
+        "diagnostic"
+      ],
+      "origin": "ergonomic",
+      "type": "bool",
+      "value": "false"
+    },
+    "TLABAllocationWeight": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "uintx",
+      "value": "35"
+    },
+    "TLABRefillWasteFraction": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "uintx",
+      "value": "64"
+    },
+    "TLABSize": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "size_t",
+      "value": "0"
+    },
+    "TLABWasteIncrement": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "uintx",
+      "value": "4"
+    },
+    "TLABWasteTargetPercent": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "uintx",
+      "value": "1"
+    },
+    "TargetPLABWastePct": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "uint",
+      "value": "10"
+    },
+    "TargetSurvivorRatio": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "uint",
+      "value": "50"
+    },
+    "ThreadPriorityPolicy": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "int",
+      "value": "0"
+    },
+    "ThreadPriorityVerbose": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "ThreadStackSize": {
+      "assigned": false,
+      "kind": [
+        "pd",
+        "product"
+      ],
+      "origin": "default",
+      "type": "intx",
+      "value": "2040"
+    },
+    "ThresholdTolerance": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "uint",
+      "value": "10"
+    },
+    "Tier0BackedgeNotifyFreqLog": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "intx",
+      "value": "10"
+    },
+    "Tier0Delay": {
+      "assigned": false,
+      "kind": [
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "intx",
+      "value": "20"
+    },
+    "Tier0InvokeNotifyFreqLog": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "intx",
+      "value": "7"
+    },
+    "Tier0ProfilingStartPercentage": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "intx",
+      "value": "200"
+    },
+    "Tier23InlineeNotifyFreqLog": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "intx",
+      "value": "20"
+    },
+    "Tier2BackEdgeThreshold": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "intx",
+      "value": "0"
+    },
+    "Tier2BackedgeNotifyFreqLog": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "intx",
+      "value": "14"
+    },
+    "Tier2CompileThreshold": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "intx",
+      "value": "0"
+    },
+    "Tier2InvokeNotifyFreqLog": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "intx",
+      "value": "11"
+    },
+    "Tier3BackEdgeThreshold": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "intx",
+      "value": "60000"
+    },
+    "Tier3BackedgeNotifyFreqLog": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "intx",
+      "value": "13"
+    },
+    "Tier3CompileThreshold": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "intx",
+      "value": "2000"
+    },
+    "Tier3DelayOff": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "intx",
+      "value": "2"
+    },
+    "Tier3DelayOn": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "intx",
+      "value": "5"
+    },
+    "Tier3InvocationThreshold": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "intx",
+      "value": "200"
+    },
+    "Tier3InvokeNotifyFreqLog": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "intx",
+      "value": "10"
+    },
+    "Tier3LoadFeedback": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "intx",
+      "value": "5"
+    },
+    "Tier3MinInvocationThreshold": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "intx",
+      "value": "100"
+    },
+    "Tier4BackEdgeThreshold": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "intx",
+      "value": "40000"
+    },
+    "Tier4CompileThreshold": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "intx",
+      "value": "15000"
+    },
+    "Tier4InvocationThreshold": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "intx",
+      "value": "5000"
+    },
+    "Tier4LoadFeedback": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "intx",
+      "value": "3"
+    },
+    "Tier4MinInvocationThreshold": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "intx",
+      "value": "600"
+    },
+    "TieredCompilation": {
+      "assigned": false,
+      "kind": [
+        "pd",
+        "product"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "true"
+    },
+    "TieredCompileTaskTimeout": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "intx",
+      "value": "50"
+    },
+    "TieredOldPercentage": {
+      "assigned": false,
+      "kind": [
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "intx",
+      "value": "1000"
+    },
+    "TieredRateUpdateMaxTime": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "intx",
+      "value": "25"
+    },
+    "TieredRateUpdateMinTime": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "intx",
+      "value": "1"
+    },
+    "TieredStopAtLevel": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "intx",
+      "value": "4"
+    },
+    "TimerSlack": {
+      "assigned": false,
+      "kind": [
+        "experimental"
+      ],
+      "origin": "default",
+      "type": "intx",
+      "value": "-1"
+    },
+    "TraceCompilerThreads": {
+      "assigned": false,
+      "kind": [
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "TraceDeoptimization": {
+      "assigned": false,
+      "kind": [
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "TraceJVMTI": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "ccstr",
+      "value": ""
+    },
+    "TraceSpilling": {
+      "assigned": false,
+      "kind": [
+        "C2",
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "TraceTraps": {
+      "assigned": false,
+      "kind": [
+        "ARCH",
+        "product"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "TraceTypeProfile": {
+      "assigned": false,
+      "kind": [
+        "C2",
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "TrackedInitializationLimit": {
+      "assigned": false,
+      "kind": [
+        "C2",
+        "product"
+      ],
+      "origin": "default",
+      "type": "intx",
+      "value": "50"
+    },
+    "TrapBasedNullChecks": {
+      "assigned": false,
+      "kind": [
+        "pd",
+        "product"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "TrapBasedRangeChecks": {
+      "assigned": false,
+      "kind": [
+        "C2",
+        "pd",
+        "product"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "TrimNativeHeapInterval": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "uint",
+      "value": "0"
+    },
+    "TrustFinalNonStaticFields": {
+      "assigned": false,
+      "kind": [
+        "experimental"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "TypeProfileArgsLimit": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "int",
+      "value": "2"
+    },
+    "TypeProfileLevel": {
+      "assigned": false,
+      "kind": [
+        "pd",
+        "product"
+      ],
+      "origin": "default",
+      "type": "uint",
+      "value": "111"
+    },
+    "TypeProfileMajorReceiverPercent": {
+      "assigned": false,
+      "kind": [
+        "C2",
+        "product"
+      ],
+      "origin": "default",
+      "type": "intx",
+      "value": "90"
+    },
+    "TypeProfileParmsLimit": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "int",
+      "value": "2"
+    },
+    "TypeProfileSubTypeCheckCommonThreshold": {
+      "assigned": false,
+      "kind": [
+        "C2",
+        "product"
+      ],
+      "origin": "default",
+      "type": "intx",
+      "value": "50"
+    },
+    "TypeProfileWidth": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "intx",
+      "value": "2"
+    },
+    "UnguardOnExecutionViolation": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "int",
+      "value": "0"
+    },
+    "UnlockDiagnosticVMOptions": {
+      "assigned": false,
+      "kind": [
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "UnlockExperimentalVMOptions": {
+      "assigned": false,
+      "kind": [
+        "experimental"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "UseAES": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "true"
+    },
+    "UseAESCTRIntrinsics": {
+      "assigned": false,
+      "kind": [
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "true"
+    },
+    "UseAESIntrinsics": {
+      "assigned": false,
+      "kind": [
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "true"
+    },
+    "UseAdaptiveNUMAChunkSizing": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "true"
+    },
+    "UseAdaptiveSizePolicy": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "true"
+    },
+    "UseAdler32Intrinsics": {
+      "assigned": false,
+      "kind": [
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "true"
+    },
+    "UseAutoVectorizationPredicate": {
+      "assigned": false,
+      "kind": [
+        "C2",
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "true"
+    },
+    "UseAutoVectorizationSpeculativeAliasingChecks": {
+      "assigned": false,
+      "kind": [
+        "C2",
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "true"
+    },
+    "UseBASE64Intrinsics": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "true"
+    },
+    "UseBimorphicInlining": {
+      "assigned": false,
+      "kind": [
+        "C2",
+        "product"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "true"
+    },
+    "UseBlockZeroing": {
+      "assigned": false,
+      "kind": [
+        "ARCH",
+        "product"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "true"
+    },
+    "UseBootstrapCallInfo": {
+      "assigned": false,
+      "kind": [
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "int",
+      "value": "1"
+    },
+    "UseBranchProtection": {
+      "assigned": false,
+      "kind": [
+        "ARCH",
+        "product"
+      ],
+      "origin": "default",
+      "type": "ccstr",
+      "value": "none"
+    },
+    "UseCMoveUnconditionally": {
+      "assigned": false,
+      "kind": [
+        "C2",
+        "product"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "UseCRC32": {
+      "assigned": false,
+      "kind": [
+        "ARCH",
+        "product"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "true"
+    },
+    "UseCRC32CIntrinsics": {
+      "assigned": false,
+      "kind": [
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "true"
+    },
+    "UseCRC32Intrinsics": {
+      "assigned": false,
+      "kind": [
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "true"
+    },
+    "UseChaCha20Intrinsics": {
+      "assigned": false,
+      "kind": [
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "true"
+    },
+    "UseCharacterCompareIntrinsics": {
+      "assigned": false,
+      "kind": [
+        "C2",
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "UseCodeCacheFlushing": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "true"
+    },
+    "UseCompactObjectHeaders": {
+      "assigned": false,
+      "kind": [
+        "product",
+        "lp64_product"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "true"
+    },
+    "UseCompiler": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "true"
+    },
+    "UseCompressedOops": {
+      "assigned": false,
+      "kind": [
+        "product",
+        "lp64_product"
+      ],
+      "origin": "ergonomic",
+      "type": "bool",
+      "value": "true"
+    },
+    "UseCondCardMark": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "ergonomic",
+      "type": "bool",
+      "value": "true"
+    },
+    "UseContainerSupport": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "true"
+    },
+    "UseCopySignIntrinsic": {
+      "assigned": false,
+      "kind": [
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "UseCountedLoopSafepoints": {
+      "assigned": false,
+      "kind": [
+        "C2",
+        "product"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "true"
+    },
+    "UseCpuAllocPath": {
+      "assigned": false,
+      "kind": [
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "UseCriticalCompilerThreadPriority": {
+      "assigned": false,
+      "kind": [
+        "experimental"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "UseCriticalJavaThreadPriority": {
+      "assigned": false,
+      "kind": [
+        "experimental"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "UseCryptoPmullForCRC32": {
+      "assigned": false,
+      "kind": [
+        "ARCH",
+        "product"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "UseDilithiumIntrinsics": {
+      "assigned": false,
+      "kind": [
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "true"
+    },
+    "UseDivMod": {
+      "assigned": false,
+      "kind": [
+        "C2",
+        "product"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "true"
+    },
+    "UseDynamicNumberOfCompilerThreads": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "true"
+    },
+    "UseDynamicNumberOfGCThreads": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "true"
+    },
+    "UseEpsilonGC": {
+      "assigned": false,
+      "kind": [
+        "experimental"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "UseFMA": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "true"
+    },
+    "UseFPUForSpilling": {
+      "assigned": false,
+      "kind": [
+        "C2",
+        "product"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "UseFastJNIAccessors": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "true"
+    },
+    "UseFastUnorderedTimeStamps": {
+      "assigned": false,
+      "kind": [
+        "experimental"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "UseG1GC": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "ergonomic",
+      "type": "bool",
+      "value": "true"
+    },
+    "UseGCOverheadLimit": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "true"
+    },
+    "UseGHASHIntrinsics": {
+      "assigned": false,
+      "kind": [
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "true"
+    },
+    "UseInlineCaches": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "true"
+    },
+    "UseInlineDepthForSpeculativeTypes": {
+      "assigned": false,
+      "kind": [
+        "C2",
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "true"
+    },
+    "UseIntPolyIntrinsics": {
+      "assigned": false,
+      "kind": [
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "UseInterpreter": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "true"
+    },
+    "UseJumpTables": {
+      "assigned": false,
+      "kind": [
+        "C2",
+        "product"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "true"
+    },
+    "UseKyberIntrinsics": {
+      "assigned": false,
+      "kind": [
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "true"
+    },
+    "UseLSE": {
+      "assigned": false,
+      "kind": [
+        "ARCH",
+        "product"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "true"
+    },
+    "UseLargePages": {
+      "assigned": false,
+      "kind": [
+        "pd",
+        "product"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "UseLargePagesIndividualAllocation": {
+      "assigned": false,
+      "kind": [
+        "pd",
+        "product"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "UseLoopCounter": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "true"
+    },
+    "UseLoopInvariantCodeMotion": {
+      "assigned": false,
+      "kind": [
+        "C1",
+        "product"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "true"
+    },
+    "UseLoopPredicate": {
+      "assigned": false,
+      "kind": [
+        "C2",
+        "product"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "true"
+    },
+    "UseMD5Intrinsics": {
+      "assigned": false,
+      "kind": [
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "true"
+    },
+    "UseMadvPopulateWrite": {
+      "assigned": false,
+      "kind": [
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "true"
+    },
+    "UseMathExactIntrinsics": {
+      "assigned": false,
+      "kind": [
+        "C2",
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "true"
+    },
+    "UseMaximumCompactionOnSystemGC": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "true"
+    },
+    "UseMontgomeryMultiplyIntrinsic": {
+      "assigned": false,
+      "kind": [
+        "C2",
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "true"
+    },
+    "UseMontgomerySquareIntrinsic": {
+      "assigned": false,
+      "kind": [
+        "C2",
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "true"
+    },
+    "UseMulAddIntrinsic": {
+      "assigned": false,
+      "kind": [
+        "C2",
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "true"
+    },
+    "UseMultiplyToLenIntrinsic": {
+      "assigned": false,
+      "kind": [
+        "C2",
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "true"
+    },
+    "UseNUMA": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "UseNUMAInterleaving": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "UseNewCode": {
+      "assigned": false,
+      "kind": [
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "UseNewCode2": {
+      "assigned": false,
+      "kind": [
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "UseNewCode3": {
+      "assigned": false,
+      "kind": [
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "UseObjectMonitorTable": {
+      "assigned": false,
+      "kind": [
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "true"
+    },
+    "UseOnStackReplacement": {
+      "assigned": false,
+      "kind": [
+        "pd",
+        "product"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "true"
+    },
+    "UseOnlyInlinedBimorphic": {
+      "assigned": false,
+      "kind": [
+        "C2",
+        "product"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "true"
+    },
+    "UseParallelGC": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "UsePerfData": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "true"
+    },
+    "UsePoly1305Intrinsics": {
+      "assigned": false,
+      "kind": [
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "true"
+    },
+    "UsePopCountInstruction": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "true"
+    },
+    "UseProfiledLoopPredicate": {
+      "assigned": false,
+      "kind": [
+        "C2",
+        "product"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "true"
+    },
+    "UseSHA": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "true"
+    },
+    "UseSHA1Intrinsics": {
+      "assigned": false,
+      "kind": [
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "true"
+    },
+    "UseSHA256Intrinsics": {
+      "assigned": false,
+      "kind": [
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "true"
+    },
+    "UseSHA3Intrinsics": {
+      "assigned": false,
+      "kind": [
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "true"
+    },
+    "UseSHA512Intrinsics": {
+      "assigned": false,
+      "kind": [
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "true"
+    },
+    "UseSIMDForArrayEquals": {
+      "assigned": false,
+      "kind": [
+        "ARCH",
+        "product"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "true"
+    },
+    "UseSIMDForBigIntegerShiftIntrinsics": {
+      "assigned": false,
+      "kind": [
+        "ARCH",
+        "product"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "true"
+    },
+    "UseSIMDForMemoryOps": {
+      "assigned": false,
+      "kind": [
+        "ARCH",
+        "product"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "UseSIMDForSHA3Intrinsic": {
+      "assigned": false,
+      "kind": [
+        "ARCH",
+        "product"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "true"
+    },
+    "UseSVE": {
+      "assigned": false,
+      "kind": [
+        "ARCH",
+        "product"
+      ],
+      "origin": "default",
+      "type": "uint",
+      "value": "0"
+    },
+    "UseSecondarySupersCache": {
+      "assigned": false,
+      "kind": [
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "true"
+    },
+    "UseSecondarySupersTable": {
+      "assigned": false,
+      "kind": [
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "true"
+    },
+    "UseSerialGC": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "UseShenandoahGC": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "UseSignalChaining": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "true"
+    },
+    "UseSignumIntrinsic": {
+      "assigned": false,
+      "kind": [
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "true"
+    },
+    "UseSimpleArrayEquals": {
+      "assigned": false,
+      "kind": [
+        "ARCH",
+        "product"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "UseSingleICacheInvalidation": {
+      "assigned": false,
+      "kind": [
+        "ARCH",
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "UseSquareToLenIntrinsic": {
+      "assigned": false,
+      "kind": [
+        "C2",
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "true"
+    },
+    "UseStoreStoreForCtor": {
+      "assigned": false,
+      "kind": [
+        "C2",
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "true"
+    },
+    "UseStringDeduplication": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "UseSubwordForMaxVector": {
+      "assigned": false,
+      "kind": [
+        "C2",
+        "product"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "true"
+    },
+    "UseSuperWord": {
+      "assigned": false,
+      "kind": [
+        "C2",
+        "product"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "true"
+    },
+    "UseSwitchProfiling": {
+      "assigned": false,
+      "kind": [
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "true"
+    },
+    "UseSystemMemoryBarrier": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "UseTLAB": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "true"
+    },
+    "UseThreadPriorities": {
+      "assigned": false,
+      "kind": [
+        "pd",
+        "product"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "true"
+    },
+    "UseThreadsLockThrottleLock": {
+      "assigned": false,
+      "kind": [
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "true"
+    },
+    "UseTransparentHugePages": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "UseTypeProfile": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "true"
+    },
+    "UseTypeSpeculation": {
+      "assigned": false,
+      "kind": [
+        "C2",
+        "product"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "true"
+    },
+    "UseUnalignedAccesses": {
+      "assigned": false,
+      "kind": [
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "true"
+    },
+    "UseVectorCmov": {
+      "assigned": false,
+      "kind": [
+        "C2",
+        "product"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "UseVectorMacroLogic": {
+      "assigned": false,
+      "kind": [
+        "C2",
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "true"
+    },
+    "UseVectorizedHashCodeIntrinsic": {
+      "assigned": false,
+      "kind": [
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "true"
+    },
+    "UseVectorizedMismatchIntrinsic": {
+      "assigned": false,
+      "kind": [
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "UseZGC": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "UserThreadWaitAttemptsAtExit": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "intx",
+      "value": "30"
+    },
+    "VMContinuations": {
+      "assigned": false,
+      "kind": [
+        "pd",
+        "experimental"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "true"
+    },
+    "VMThreadPriority": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "int",
+      "value": "-1"
+    },
+    "VMThreadStackSize": {
+      "assigned": false,
+      "kind": [
+        "pd",
+        "product"
+      ],
+      "origin": "default",
+      "type": "intx",
+      "value": "2040"
+    },
+    "ValueMapInitialSize": {
+      "assigned": false,
+      "kind": [
+        "C1",
+        "product"
+      ],
+      "origin": "default",
+      "type": "intx",
+      "value": "11"
+    },
+    "ValueMapMaxLoopSize": {
+      "assigned": false,
+      "kind": [
+        "C1",
+        "product"
+      ],
+      "origin": "default",
+      "type": "intx",
+      "value": "8"
+    },
+    "ValueSearchLimit": {
+      "assigned": false,
+      "kind": [
+        "C2",
+        "product"
+      ],
+      "origin": "default",
+      "type": "intx",
+      "value": "1000"
+    },
+    "VerifyAfterGC": {
+      "assigned": false,
+      "kind": [
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "VerifyArchivedFields": {
+      "assigned": false,
+      "kind": [
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "int",
+      "value": "0"
+    },
+    "VerifyBeforeExit": {
+      "assigned": false,
+      "kind": [
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "VerifyBeforeGC": {
+      "assigned": false,
+      "kind": [
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "VerifyBeforeIteration": {
+      "assigned": false,
+      "kind": [
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "VerifyConstraintCasts": {
+      "assigned": false,
+      "kind": [
+        "C2",
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "uint",
+      "value": "0"
+    },
+    "VerifyDuringGC": {
+      "assigned": false,
+      "kind": [
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "VerifyDuringStartup": {
+      "assigned": false,
+      "kind": [
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "VerifyGCStartAt": {
+      "assigned": false,
+      "kind": [
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "uintx",
+      "value": "0"
+    },
+    "VerifyGCType": {
+      "assigned": false,
+      "kind": [
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "ccstrlist",
+      "value": ""
+    },
+    "VerifyMethodHandles": {
+      "assigned": false,
+      "kind": [
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "VerifyReceiverTypes": {
+      "assigned": false,
+      "kind": [
+        "C2",
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "VerifySecondarySupers": {
+      "assigned": false,
+      "kind": [
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "VerifySharedSpaces": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "VerifyStringTableAtExit": {
+      "assigned": false,
+      "kind": [
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "VerifySubSet": {
+      "assigned": false,
+      "kind": [
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "ccstrlist",
+      "value": ""
+    },
+    "WhiteBoxAPI": {
+      "assigned": false,
+      "kind": [
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "WorkStealingHardSpins": {
+      "assigned": false,
+      "kind": [
+        "experimental"
+      ],
+      "origin": "default",
+      "type": "uintx",
+      "value": "4096"
+    },
+    "WorkStealingSleepMillis": {
+      "assigned": false,
+      "kind": [
+        "experimental"
+      ],
+      "origin": "default",
+      "type": "uintx",
+      "value": "1"
+    },
+    "WorkStealingSpinToYieldRatio": {
+      "assigned": false,
+      "kind": [
+        "experimental"
+      ],
+      "origin": "default",
+      "type": "uintx",
+      "value": "10"
+    },
+    "WorkStealingYieldsBeforeSleep": {
+      "assigned": false,
+      "kind": [
+        "experimental"
+      ],
+      "origin": "default",
+      "type": "uintx",
+      "value": "5000"
+    },
+    "YoungGenerationSizeIncrement": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "uint",
+      "value": "20"
+    },
+    "YoungGenerationSizeSupplement": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "uint",
+      "value": "80"
+    },
+    "YoungGenerationSizeSupplementDecay": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "uintx",
+      "value": "8"
+    },
+    "YoungPLABSize": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "size_t",
+      "value": "4096"
+    },
+    "ZAllocationSpikeTolerance": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "double",
+      "value": "2.000000"
+    },
+    "ZBufferStoreBarriers": {
+      "assigned": false,
+      "kind": [
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "true"
+    },
+    "ZCollectionInterval": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "double",
+      "value": "0.000000"
+    },
+    "ZCollectionIntervalMajor": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "double",
+      "value": "-1.000000"
+    },
+    "ZCollectionIntervalMinor": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "double",
+      "value": "-1.000000"
+    },
+    "ZCollectionIntervalOnly": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "ZFragmentationLimit": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "double",
+      "value": "5.000000"
+    },
+    "ZIndexDistributorStrategy": {
+      "assigned": false,
+      "kind": [
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "uintx",
+      "value": "0"
+    },
+    "ZOldGCThreads": {
+      "assigned": false,
+      "kind": [
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "uint",
+      "value": "0"
+    },
+    "ZProactive": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "true"
+    },
+    "ZStatisticsInterval": {
+      "assigned": false,
+      "kind": [
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "uint",
+      "value": "10"
+    },
+    "ZStressFastMediumPageAllocation": {
+      "assigned": false,
+      "kind": [
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "ZStressRelocateInPlace": {
+      "assigned": false,
+      "kind": [
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "ZTenuringThreshold": {
+      "assigned": false,
+      "kind": [
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "int",
+      "value": "-1"
+    },
+    "ZUncommit": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "true"
+    },
+    "ZUncommitDelay": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "uintx",
+      "value": "300"
+    },
+    "ZUseMediumPageSizeRange": {
+      "assigned": false,
+      "kind": [
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "true"
+    },
+    "ZVerifyForwarding": {
+      "assigned": false,
+      "kind": [
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "ZVerifyMarking": {
+      "assigned": false,
+      "kind": [
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "ZVerifyObjects": {
+      "assigned": false,
+      "kind": [
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "ZVerifyRemembered": {
+      "assigned": false,
+      "kind": [
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "ZVerifyRoots": {
+      "assigned": false,
+      "kind": [
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "ZYoungCompactionLimit": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "double",
+      "value": "25.000000"
+    },
+    "ZYoungGCThreads": {
+      "assigned": false,
+      "kind": [
+        "diagnostic"
+      ],
+      "origin": "default",
+      "type": "uint",
+      "value": "0"
+    },
+    "ZeroTLAB": {
+      "assigned": false,
+      "kind": [
+        "product"
+      ],
+      "origin": "default",
+      "type": "bool",
+      "value": "false"
+    },
+    "hashCode": {
+      "assigned": false,
+      "kind": [
+        "experimental"
+      ],
+      "origin": "default",
+      "type": "intx",
+      "value": "5"
+    }
+  },
+  "gates": [
+    {
+      "exit": 1,
+      "lines": [
+        "Unrecognized VM option 'NoSuchFlagHere'",
+        "Error: Could not create the Java Virtual Machine.",
+        "Error: A fatal exception has occurred. Program will exit."
+      ],
+      "message": "Unrecognized VM option 'NoSuchFlagHere'",
+      "name": "no such flag",
+      "options": [
+        "-XX:+NoSuchFlagHere"
+      ]
+    },
+    {
+      "exit": 1,
+      "lines": [
+        "Error: VM option 'TraceBytecodes' is develop and is available only in debug version of VM.",
+        "Improperly specified VM option 'TraceBytecodes'",
+        "Error: Could not create the Java Virtual Machine.",
+        "Error: A fatal exception has occurred. Program will exit."
+      ],
+      "message": "Error: VM option 'TraceBytecodes' is develop and is available only in debug version of VM.",
+      "name": "a develop flag",
+      "options": [
+        "-XX:+TraceBytecodes"
+      ]
+    },
+    {
+      "exit": 1,
+      "lines": [
+        "Error: VM option 'PrintInlining' is diagnostic and must be enabled via -XX:+UnlockDiagnosticVMOptions.",
+        "Error: The unlock option must precede 'PrintInlining'.",
+        "Improperly specified VM option 'PrintInlining'",
+        "Error: Could not create the Java Virtual Machine.",
+        "Error: A fatal exception has occurred. Program will exit."
+      ],
+      "message": "Error: VM option 'PrintInlining' is diagnostic and must be enabled via -XX:+UnlockDiagnosticVMOptions.",
+      "name": "a diagnostic flag",
+      "options": [
+        "-XX:+PrintInlining"
+      ]
+    },
+    {
+      "exit": 1,
+      "lines": [
+        "Error: VM option 'AlwaysSafeConstructors' is experimental and must be enabled via -XX:+UnlockExperimentalVMOptions.",
+        "Error: The unlock option must precede 'AlwaysSafeConstructors'.",
+        "Improperly specified VM option 'AlwaysSafeConstructors'",
+        "Error: Could not create the Java Virtual Machine.",
+        "Error: A fatal exception has occurred. Program will exit."
+      ],
+      "message": "Error: VM option 'AlwaysSafeConstructors' is experimental and must be enabled via -XX:+UnlockExperimentalVMOptions.",
+      "name": "an experimental flag",
+      "options": [
+        "-XX:+AlwaysSafeConstructors"
+      ]
+    },
+    {
+      "exit": 1,
+      "lines": [
+        "int ObjectAlignmentInBytes=7 is outside the allowed range [ 8 ... 256 ]",
+        "Improperly specified VM option 'ObjectAlignmentInBytes=7'",
+        "Error: Could not create the Java Virtual Machine.",
+        "Error: A fatal exception has occurred. Program will exit."
+      ],
+      "message": "int ObjectAlignmentInBytes=7 is outside the allowed range [ 8 ... 256 ]",
+      "name": "outside the range",
+      "options": [
+        "-XX:ObjectAlignmentInBytes=7"
+      ]
+    },
+    {
+      "exit": 1,
+      "lines": [
+        "ObjectAlignmentInBytes (9) must be power of 2",
+        "Improperly specified VM option 'ObjectAlignmentInBytes=9'",
+        "Error: Could not create the Java Virtual Machine.",
+        "Error: A fatal exception has occurred. Program will exit."
+      ],
+      "message": "ObjectAlignmentInBytes (9) must be power of 2",
+      "name": "inside the range and refused",
+      "options": [
+        "-XX:ObjectAlignmentInBytes=9"
+      ]
+    },
+    {
+      "exit": 1,
+      "lines": [
+        "Error occurred during initialization of VM",
+        "Option -XX:+UseShenandoahGC not supported"
+      ],
+      "message": "Option -XX:+UseShenandoahGC not supported",
+      "name": "a collector that is not in this build",
+      "options": [
+        "-XX:+UseShenandoahGC"
+      ]
+    },
+    {
+      "exit": 0,
+      "lines": [],
+      "message": "",
+      "name": "the same diagnostic flag, unlocked",
+      "options": [
+        "-XX:+UnlockDiagnosticVMOptions",
+        "-XX:-PrintInlining"
+      ]
+    }
+  ],
+  "issue": 15,
+  "java_build": "27+35-2325",
+  "measured": "2026-09-06",
+  "platform": "linux-aarch64",
+  "probe": "vmflags",
+  "processors": 4,
+  "ranges": {
+    "AOTCodeMaxSize": {
+      "max": "2147483648",
+      "min": "1048576"
+    },
+    "AbortVMOnSafepointTimeoutDelay": {
+      "max": "9223372036854775807",
+      "min": "0"
+    },
+    "AbortVMOnVMOperationTimeoutDelay": {
+      "max": "9223372036854775807",
+      "min": "0"
+    },
+    "AdaptiveSizeDecrementScaleFactor": {
+      "max": "18446744073709551615",
+      "min": "1"
+    },
+    "AdaptiveSizePolicyWeight": {
+      "max": "100",
+      "min": "0"
+    },
+    "AllocateInstancePrefetchLines": {
+      "max": "64",
+      "min": "1"
+    },
+    "AllocatePrefetchDistance": {
+      "max": "512",
+      "min": "-1"
+    },
+    "AllocatePrefetchInstr": {
+      "max": "9223372036854775807",
+      "min": "-9223372036854775808"
+    },
+    "AllocatePrefetchLines": {
+      "max": "64",
+      "min": "1"
+    },
+    "AllocatePrefetchStepSize": {
+      "max": "512",
+      "min": "1"
+    },
+    "AllocatePrefetchStyle": {
+      "max": "3",
+      "min": "0"
+    },
+    "ArchiveRelocationMode": {
+      "max": "2",
+      "min": "0"
+    },
+    "ArrayCopyLoadStoreMaxElem": {
+      "max": "9223372036854775807",
+      "min": "0"
+    },
+    "ArrayMarkingMinStride": {
+      "max": "18446744073709551615",
+      "min": "0"
+    },
+    "ArrayOperationPartialInlineSize": {
+      "max": "256",
+      "min": "0"
+    },
+    "AsyncDeflationInterval": {
+      "max": "2147483647",
+      "min": "0"
+    },
+    "AsyncLogBufferSize": {
+      "max": "52428800",
+      "min": "102400"
+    },
+    "AutoBoxCacheMax": {
+      "max": "2147483647",
+      "min": "0"
+    },
+    "AutoVectorizationOverrideProfitability": {
+      "max": "2",
+      "min": "0"
+    },
+    "AvgMonitorsPerThreadEstimate": {
+      "max": "18446744073709551615",
+      "min": "0"
+    },
+    "BCEATraceLevel": {
+      "max": "3",
+      "min": "0"
+    },
+    "BlockLayoutMinDiamondPercentage": {
+      "max": "100",
+      "min": "0"
+    },
+    "BlockZeroingLowLimit": {
+      "max": "2147483647",
+      "min": "8"
+    },
+    "C1InlineStackLimit": {
+      "max": "2147483647",
+      "min": "0"
+    },
+    "C1MaxInlineLevel": {
+      "max": "2147483647",
+      "min": "0"
+    },
+    "C1MaxInlineSize": {
+      "max": "2147483647",
+      "min": "0"
+    },
+    "C1MaxRecursiveInlineLevel": {
+      "max": "2147483647",
+      "min": "0"
+    },
+    "C1MaxTrivialSize": {
+      "max": "2147483647",
+      "min": "0"
+    },
+    "CICompilerCount": {
+      "max": "2147483647",
+      "min": "0"
+    },
+    "CodeCacheExpansionSize": {
+      "max": "18446744073709551615",
+      "min": "32768"
+    },
+    "CodeCacheMinBlockLength": {
+      "max": "100",
+      "min": "1"
+    },
+    "CodeCacheSegmentSize": {
+      "max": "1024",
+      "min": "1"
+    },
+    "CodeEntryAlignment": {
+      "max": "4294967295",
+      "min": "0"
+    },
+    "CompileThreshold": {
+      "max": "9223372036854775807",
+      "min": "-9223372036854775808"
+    },
+    "CompileThresholdScaling": {
+      "max": "179769313486231570814527423731704356798070567525844996598917476803157260780028538760589558632766878171540458953514382464234321326889464182768467546703537516986049910576551282076245490090389328944075868508455133942304583236903222948165808559332123348274797826204144723168738177180919299881250404026184124858368.000",
+      "min": "0.000"
+    },
+    "CompilerThreadPriority": {
+      "max": "2147483647",
+      "min": "-2147483648"
+    },
+    "CompilerThreadStackSize": {
+      "max": "9007199254740991",
+      "min": "0"
+    },
+    "CompressedClassSpaceSize": {
+      "max": "4294967296",
+      "min": "1048576"
+    },
+    "ConditionalMoveLimit": {
+      "max": "2147483647",
+      "min": "0"
+    },
+    "ContendedPaddingWidth": {
+      "max": "8192",
+      "min": "0"
+    },
+    "DiagnoseSyncOnValueBasedClasses": {
+      "max": "2",
+      "min": "0"
+    },
+    "DominatorSearchLimit": {
+      "max": "2147483647",
+      "min": "0"
+    },
+    "EliminateAllocationArraySizeLimit": {
+      "max": "2147483647",
+      "min": "0"
+    },
+    "EliminateAllocationFieldsLimit": {
+      "max": "2147483647",
+      "min": "0"
+    },
+    "EpsilonMaxTLABSize": {
+      "max": "9223372036854775807",
+      "min": "1"
+    },
+    "EpsilonMinHeapExpand": {
+      "max": "9223372036854775807",
+      "min": "1"
+    },
+    "EpsilonPrintHeapSteps": {
+      "max": "9223372036854775807",
+      "min": "0"
+    },
+    "EpsilonTLABDecayTime": {
+      "max": "9223372036854775807",
+      "min": "1"
+    },
+    "EpsilonTLABElasticity": {
+      "max": "179769313486231570814527423731704356798070567525844996598917476803157260780028538760589558632766878171540458953514382464234321326889464182768467546703537516986049910576551282076245490090389328944075868508455133942304583236903222948165808559332123348274797826204144723168738177180919299881250404026184124858368.000",
+      "min": "1.000"
+    },
+    "EpsilonUpdateCountersStep": {
+      "max": "9223372036854775807",
+      "min": "1"
+    },
+    "ErgoHeapSizeLimit": {
+      "max": "18446744073709551615",
+      "min": "0"
+    },
+    "ErrorLogPrintCodeLimit": {
+      "max": "10",
+      "min": "0"
+    },
+    "ErrorLogTimeout": {
+      "max": "9223372036854775",
+      "min": "0"
+    },
+    "EscapeAnalysisTimeout": {
+      "max": "179769313486231570814527423731704356798070567525844996598917476803157260780028538760589558632766878171540458953514382464234321326889464182768467546703537516986049910576551282076245490090389328944075868508455133942304583236903222948165808559332123348274797826204144723168738177180919299881250404026184124858368.000",
+      "min": "0.000"
+    },
+    "FastLockingSpins": {
+      "max": "30",
+      "min": "1"
+    },
+    "FreqInlineSize": {
+      "max": "2147483647",
+      "min": "0"
+    },
+    "G1AdaptiveIHOPNumInitialSamples": {
+      "max": "9223372036854775807",
+      "min": "1"
+    },
+    "G1CPUUsageDeviationPercent": {
+      "max": "100",
+      "min": "0"
+    },
+    "G1CPUUsageExpandThreshold": {
+      "max": "4294967295",
+      "min": "0"
+    },
+    "G1CPUUsageShrinkThreshold": {
+      "max": "4294967295",
+      "min": "0"
+    },
+    "G1ConcMarkStepDurationMillis": {
+      "max": "179769313486231570814527423731704356798070567525844996598917476803157260780028538760589558632766878171540458953514382464234321326889464182768467546703537516986049910576551282076245490090389328944075868508455133942304583236903222948165808559332123348274797826204144723168738177180919299881250404026184124858368.000",
+      "min": "1.000"
+    },
+    "G1ConcRefinementThreads": {
+      "max": "268435455",
+      "min": "0"
+    },
+    "G1ConfidencePercent": {
+      "max": "100",
+      "min": "1"
+    },
+    "G1ExpandByPercentOfAvailable": {
+      "max": "100",
+      "min": "0"
+    },
+    "G1HeapRegionSize": {
+      "max": "536870912",
+      "min": "0"
+    },
+    "G1HeapWastePercent": {
+      "max": "100",
+      "min": "0"
+    },
+    "G1IHOP": {
+      "max": "100",
+      "min": "0"
+    },
+    "G1LastPLABAverageOccupancy": {
+      "max": "100.000",
+      "min": "0.001"
+    },
+    "G1MaxNewSizePercent": {
+      "max": "100",
+      "min": "0"
+    },
+    "G1MixedGCCountTarget": {
+      "max": "18446744073709551615",
+      "min": "0"
+    },
+    "G1MixedGCLiveThresholdPercent": {
+      "max": "100",
+      "min": "0"
+    },
+    "G1NewSizePercent": {
+      "max": "100",
+      "min": "0"
+    },
+    "G1OldCSetGroupSize": {
+      "max": "256",
+      "min": "1"
+    },
+    "G1OldCSetRegionThresholdPercent": {
+      "max": "100",
+      "min": "0"
+    },
+    "G1PerThreadPendingCardThreshold": {
+      "max": "4294967295",
+      "min": "0"
+    },
+    "G1PeriodicGCSystemLoadThreshold": {
+      "max": "18446744073709551616.000",
+      "min": "0.000"
+    },
+    "G1RSetUpdatingPauseTimePercent": {
+      "max": "100",
+      "min": "0"
+    },
+    "G1RebuildRemSetChunkSize": {
+      "max": "33554432",
+      "min": "4096"
+    },
+    "G1RefProcDrainInterval": {
+      "max": "2147483647",
+      "min": "1"
+    },
+    "G1RemSetArrayOfCardsEntries": {
+      "max": "65536",
+      "min": "0"
+    },
+    "G1RemSetCoarsenHowlBitmapToHowlFullPercent": {
+      "max": "100",
+      "min": "1"
+    },
+    "G1RemSetCoarsenHowlToFullPercent": {
+      "max": "100",
+      "min": "1"
+    },
+    "G1RemSetFreeMemoryKeepExcessRatio": {
+      "max": "1.000",
+      "min": "0.000"
+    },
+    "G1RemSetFreeMemoryRescheduleDelayMillis": {
+      "max": "4294967295",
+      "min": "1"
+    },
+    "G1RemSetFreeMemoryStepDurationMillis": {
+      "max": "1000000.000",
+      "min": "0.001"
+    },
+    "G1RemSetHowlMaxNumBuckets": {
+      "max": "1024",
+      "min": "1"
+    },
+    "G1RemSetHowlNumBuckets": {
+      "max": "1024",
+      "min": "0"
+    },
+    "G1ReservePercent": {
+      "max": "50",
+      "min": "0"
+    },
+    "G1RestoreRetainedRegionChunksPerWorker": {
+      "max": "256",
+      "min": "1"
+    },
+    "G1RetainRegionLiveThresholdPercent": {
+      "max": "100",
+      "min": "0"
+    },
+    "G1SATBBufferEnqueueingThresholdPercent": {
+      "max": "100",
+      "min": "0"
+    },
+    "G1SATBBufferSize": {
+      "max": "18446744073709551615",
+      "min": "0"
+    },
+    "G1ShrinkByPercentOfAvailable": {
+      "max": "100",
+      "min": "0"
+    },
+    "G1SummarizeRSetStatsPeriod": {
+      "max": "9223372036854775807",
+      "min": "0"
+    },
+    "GCCardSizeInBytes": {
+      "max": "1024",
+      "min": "128"
+    },
+    "GCDrainStackTargetSize": {
+      "max": "8192",
+      "min": "0"
+    },
+    "GCHeapFreeLimit": {
+      "max": "100",
+      "min": "0"
+    },
+    "GCPauseIntervalMillis": {
+      "max": "18446744073709551615",
+      "min": "0"
+    },
+    "GCTimeLimit": {
+      "max": "100",
+      "min": "0"
+    },
+    "GCTimeRatio": {
+      "max": "4294967295",
+      "min": "0"
+    },
+    "GuaranteedAsyncDeflationInterval": {
+      "max": "2147483647",
+      "min": "0"
+    },
+    "GuaranteedSafepointInterval": {
+      "max": "2147483647",
+      "min": "0"
+    },
+    "HeapBaseMinAddress": {
+      "max": "18446744073709551615",
+      "min": "0"
+    },
+    "HeapDumpGzipLevel": {
+      "max": "9",
+      "min": "0"
+    },
+    "HeapSearchSteps": {
+      "max": "18446744073709551615",
+      "min": "1"
+    },
+    "HeapSizePerGCThread": {
+      "max": "18446744073709551615",
+      "min": "4096"
+    },
+    "HotCodeCallLevel": {
+      "max": "4294967295",
+      "min": "0"
+    },
+    "HotCodeHeapSize": {
+      "max": "18446744073709551615",
+      "min": "0"
+    },
+    "HotCodeIntervalSeconds": {
+      "max": "4294967295",
+      "min": "0"
+    },
+    "HotCodeMaxSamplingMs": {
+      "max": "4294967295",
+      "min": "0"
+    },
+    "HotCodeMinSamplingMs": {
+      "max": "4294967295",
+      "min": "0"
+    },
+    "HotCodeSamplePercent": {
+      "max": "100.000",
+      "min": "0.000"
+    },
+    "HotCodeSampleSeconds": {
+      "max": "4294967295",
+      "min": "0"
+    },
+    "HotCodeStablePercent": {
+      "max": "179769313486231570814527423731704356798070567525844996598917476803157260780028538760589558632766878171540458953514382464234321326889464182768467546703537516986049910576551282076245490090389328944075868508455133942304583236903222948165808559332123348274797826204144723168738177180919299881250404026184124858368.000",
+      "min": "-1.000"
+    },
+    "HotCodeStartupDelaySeconds": {
+      "max": "4294967295",
+      "min": "0"
+    },
+    "IFGEdgesLimit": {
+      "max": "4294967295",
+      "min": "0"
+    },
+    "IncreaseFirstTierCompileThresholdAt": {
+      "max": "99",
+      "min": "0"
+    },
+    "InitArrayShortSize": {
+      "max": "9223372036854775807",
+      "min": "0"
+    },
+    "InitialCodeCacheSize": {
+      "max": "18446744073709551615",
+      "min": "4096"
+    },
+    "InitialHeapSize": {
+      "max": "18446744073709551615",
+      "min": "0"
+    },
+    "InitialRAMPercentage": {
+      "max": "100.000",
+      "min": "0.000"
+    },
+    "InitialSurvivorRatio": {
+      "max": "18446744073709551615",
+      "min": "3"
+    },
+    "InitialTenuringThreshold": {
+      "max": "16",
+      "min": "0"
+    },
+    "InitiatingHeapOccupancyPercent": {
+      "max": "100",
+      "min": "0"
+    },
+    "InlineSmallCode": {
+      "max": "2147483647",
+      "min": "0"
+    },
+    "InteriorEntryAlignment": {
+      "max": "9223372036854775807",
+      "min": "-9223372036854775808"
+    },
+    "InterpreterProfilePercentage": {
+      "max": "100",
+      "min": "0"
+    },
+    "JavaPriority10_To_OSPriority": {
+      "max": "2147483647",
+      "min": "-2147483648"
+    },
+    "JavaPriority1_To_OSPriority": {
+      "max": "2147483647",
+      "min": "-2147483648"
+    },
+    "JavaPriority2_To_OSPriority": {
+      "max": "2147483647",
+      "min": "-2147483648"
+    },
+    "JavaPriority3_To_OSPriority": {
+      "max": "2147483647",
+      "min": "-2147483648"
+    },
+    "JavaPriority4_To_OSPriority": {
+      "max": "2147483647",
+      "min": "-2147483648"
+    },
+    "JavaPriority5_To_OSPriority": {
+      "max": "2147483647",
+      "min": "-2147483648"
+    },
+    "JavaPriority6_To_OSPriority": {
+      "max": "2147483647",
+      "min": "-2147483648"
+    },
+    "JavaPriority7_To_OSPriority": {
+      "max": "2147483647",
+      "min": "-2147483648"
+    },
+    "JavaPriority8_To_OSPriority": {
+      "max": "2147483647",
+      "min": "-2147483648"
+    },
+    "JavaPriority9_To_OSPriority": {
+      "max": "2147483647",
+      "min": "-2147483648"
+    },
+    "LargePageHeapSizeThreshold": {
+      "max": "18446744073709551615",
+      "min": "0"
+    },
+    "LargePageSizeInBytes": {
+      "max": "18446744073709551615",
+      "min": "0"
+    },
+    "LiveNodeCountInliningCutoff": {
+      "max": "536870911",
+      "min": "0"
+    },
+    "LogEventsBufferEntries": {
+      "max": "1048576",
+      "min": "1"
+    },
+    "LoopMaxUnroll": {
+      "max": "2147483647",
+      "min": "0"
+    },
+    "LoopOptsCount": {
+      "max": "2147483647",
+      "min": "5"
+    },
+    "LoopPeeling": {
+      "max": "2",
+      "min": "0"
+    },
+    "LoopPercentProfileLimit": {
+      "max": "100",
+      "min": "10"
+    },
+    "LoopStripMiningIter": {
+      "max": "4294967295",
+      "min": "0"
+    },
+    "LoopStripMiningIterShortLoop": {
+      "max": "4294967295",
+      "min": "0"
+    },
+    "LoopUnrollLimit": {
+      "max": "536870911",
+      "min": "0"
+    },
+    "LoopUnrollMin": {
+      "max": "2147483647",
+      "min": "0"
+    },
+    "MarkStackSize": {
+      "max": "2147483646",
+      "min": "1"
+    },
+    "MarkStackSizeMax": {
+      "max": "2147483646",
+      "min": "1"
+    },
+    "MarkSweepAlwaysCompactCount": {
+      "max": "4294967295",
+      "min": "1"
+    },
+    "MarkSweepDeadRatio": {
+      "max": "100",
+      "min": "0"
+    },
+    "MaxBCEAEstimateLevel": {
+      "max": "2147483647",
+      "min": "0"
+    },
+    "MaxBCEAEstimateSize": {
+      "max": "2147483647",
+      "min": "0"
+    },
+    "MaxDirectMemorySize": {
+      "max": "9223372036854775807",
+      "min": "0"
+    },
+    "MaxGCPauseMillis": {
+      "max": "18446744073709551614",
+      "min": "1"
+    },
+    "MaxHeapFreeRatio": {
+      "max": "100",
+      "min": "0"
+    },
+    "MaxHeapSize": {
+      "max": "18446744073709551615",
+      "min": "0"
+    },
+    "MaxInlineLevel": {
+      "max": "2147483647",
+      "min": "0"
+    },
+    "MaxInlineSize": {
+      "max": "2147483647",
+      "min": "0"
+    },
+    "MaxJNILocalCapacity": {
+      "max": "9223372036854775807",
+      "min": "-9223372036854775808"
+    },
+    "MaxJavaStackTraceDepth": {
+      "max": "1073741823",
+      "min": "0"
+    },
+    "MaxJumpTableSize": {
+      "max": "9223372036854775807",
+      "min": "0"
+    },
+    "MaxJumpTableSparseness": {
+      "max": "2305843009213693951",
+      "min": "0"
+    },
+    "MaxLabelRootDepth": {
+      "max": "2147483647",
+      "min": "100"
+    },
+    "MaxLoopPad": {
+      "max": "2147483647",
+      "min": "0"
+    },
+    "MaxMetaspaceExpansion": {
+      "max": "18446744073709551615",
+      "min": "0"
+    },
+    "MaxMetaspaceFreeRatio": {
+      "max": "100",
+      "min": "0"
+    },
+    "MaxMetaspaceSize": {
+      "max": "18446744073709551615",
+      "min": "0"
+    },
+    "MaxNewSize": {
+      "max": "18446744073709551615",
+      "min": "0"
+    },
+    "MaxNodeLimit": {
+      "max": "715827882",
+      "min": "1000"
+    },
+    "MaxRAMPercentage": {
+      "max": "100.000",
+      "min": "0.000"
+    },
+    "MaxRecursiveInlineLevel": {
+      "max": "2147483647",
+      "min": "0"
+    },
+    "MaxTenuringThreshold": {
+      "max": "16",
+      "min": "0"
+    },
+    "MaxTrivialSize": {
+      "max": "2147483647",
+      "min": "0"
+    },
+    "MaxVectorSize": {
+      "max": "2147483647",
+      "min": "0"
+    },
+    "MetaspaceSize": {
+      "max": "18446744073709551615",
+      "min": "0"
+    },
+    "MinHeapDeltaBytes": {
+      "max": "9223372036854775808",
+      "min": "0"
+    },
+    "MinHeapFreeRatio": {
+      "max": "100",
+      "min": "0"
+    },
+    "MinHeapSize": {
+      "max": "18446744073709551615",
+      "min": "0"
+    },
+    "MinJumpTableSize": {
+      "max": "9223372036854775807",
+      "min": "0"
+    },
+    "MinMetaspaceExpansion": {
+      "max": "18446744073709551615",
+      "min": "0"
+    },
+    "MinMetaspaceFreeRatio": {
+      "max": "99",
+      "min": "0"
+    },
+    "MinPassesBeforeFlush": {
+      "max": "9223372036854775807",
+      "min": "0"
+    },
+    "MinRAMPercentage": {
+      "max": "100.000",
+      "min": "0.000"
+    },
+    "MinSurvivorRatio": {
+      "max": "18446744073709551615",
+      "min": "3"
+    },
+    "MinTLABSize": {
+      "max": "9223372036854775807",
+      "min": "1"
+    },
+    "MonitorDeflationMax": {
+      "max": "2147483647",
+      "min": "1024"
+    },
+    "MonitorUnlinkBatch": {
+      "max": "2147483647",
+      "min": "1"
+    },
+    "MonitorUsedDeflationThreshold": {
+      "max": "100",
+      "min": "0"
+    },
+    "MultiArrayExpandLimit": {
+      "max": "2147483647",
+      "min": "0"
+    },
+    "NUMAChunkResizeWeight": {
+      "max": "100",
+      "min": "0"
+    },
+    "NUMAInterleaveGranularity": {
+      "max": "8796093022208",
+      "min": "4096"
+    },
+    "NUMASpaceResizeRate": {
+      "max": "18446744073709551615",
+      "min": "0"
+    },
+    "NewRatio": {
+      "max": "18446744073709551614",
+      "min": "0"
+    },
+    "NewSize": {
+      "max": "18446744073709551615",
+      "min": "0"
+    },
+    "NmethodSweepActivity": {
+      "max": "2000",
+      "min": "0"
+    },
+    "NoAsyncDeflationProgressMax": {
+      "max": "18446744073709551615",
+      "min": "0"
+    },
+    "NodeLimitFudgeFactor": {
+      "max": "9223372036854775807",
+      "min": "-9223372036854775808"
+    },
+    "NonNMethodCodeHeapSize": {
+      "max": "18446744073709551615",
+      "min": "4096"
+    },
+    "NonProfiledCodeHeapSize": {
+      "max": "18446744073709551615",
+      "min": "0"
+    },
+    "NumberOfLoopInstrToAlign": {
+      "max": "2147483647",
+      "min": "0"
+    },
+    "ObjectAlignmentInBytes": {
+      "max": "256",
+      "min": "8"
+    },
+    "ObjectCountCutOffPercent": {
+      "max": "100.000",
+      "min": "0.000"
+    },
+    "OldPLABSize": {
+      "max": "18446744073709551615",
+      "min": "0"
+    },
+    "OnSpinWaitDelay": {
+      "max": "1000",
+      "min": "1"
+    },
+    "OnSpinWaitInstCount": {
+      "max": "99",
+      "min": "1"
+    },
+    "OnStackReplacePercentage": {
+      "max": "9223372036854775807",
+      "min": "-9223372036854775808"
+    },
+    "OptoLoopAlignment": {
+      "max": "128",
+      "min": "1"
+    },
+    "PLABWeight": {
+      "max": "100",
+      "min": "0"
+    },
+    "ParGCArrayScanChunk": {
+      "max": "715827882",
+      "min": "1"
+    },
+    "ParallelGCBufferWastePct": {
+      "max": "100",
+      "min": "0"
+    },
+    "ParallelGCThreads": {
+      "max": "2147483647",
+      "min": "0"
+    },
+    "PartialPeelNewPhiDelta": {
+      "max": "2147483647",
+      "min": "0"
+    },
+    "PerBytecodeRecompilationCutoff": {
+      "max": "9223372036854775807",
+      "min": "-1"
+    },
+    "PerBytecodeTrapLimit": {
+      "max": "2147483647",
+      "min": "0"
+    },
+    "PerMethodRecompilationCutoff": {
+      "max": "9223372036854775807",
+      "min": "-1"
+    },
+    "PerMethodSpecTrapLimit": {
+      "max": "2147483647",
+      "min": "0"
+    },
+    "PerMethodTrapLimit": {
+      "max": "2147483647",
+      "min": "0"
+    },
+    "PerfDataMemorySize": {
+      "max": "2097152",
+      "min": "128"
+    },
+    "PerfMaxStringConstLength": {
+      "max": "32768",
+      "min": "32"
+    },
+    "PreTouchParallelChunkSize": {
+      "max": "9223372036854775807",
+      "min": "4096"
+    },
+    "PrefetchCopyIntervalInBytes": {
+      "max": "2147483647",
+      "min": "-1"
+    },
+    "PrefetchScanIntervalInBytes": {
+      "max": "2147483647",
+      "min": "-1"
+    },
+    "ProfileMaturityPercentage": {
+      "max": "100",
+      "min": "0"
+    },
+    "ProfiledCodeHeapSize": {
+      "max": "18446744073709551615",
+      "min": "0"
+    },
+    "PromotedPadding": {
+      "max": "4294967295",
+      "min": "0"
+    },
+    "QueuedAllocationWarningCount": {
+      "max": "18446744073709551615",
+      "min": "0"
+    },
+    "RepeatCompilation": {
+      "max": "2147483647",
+      "min": "0"
+    },
+    "ReplaySuppressInitializers": {
+      "max": "3",
+      "min": "0"
+    },
+    "ReservedCodeCacheSize": {
+      "max": "18446744073709551615",
+      "min": "4096"
+    },
+    "SafepointTimeoutDelay": {
+      "max": "9218868437227.000",
+      "min": "0.000"
+    },
+    "ScavengeRootsInCode": {
+      "max": "2",
+      "min": "0"
+    },
+    "SelfDestructTimer": {
+      "max": "9223372036854775808.000",
+      "min": "0.000"
+    },
+    "ServiceThreadCleanupInterval": {
+      "max": "2147483647",
+      "min": "0"
+    },
+    "SharedBaseAddress": {
+      "max": "18446744073709551615",
+      "min": "0"
+    },
+    "SharedSymbolTableBucketSize": {
+      "max": "246",
+      "min": "2"
+    },
+    "SoftMaxHeapSize": {
+      "max": "18446744073709551615",
+      "min": "0"
+    },
+    "SoftRefLRUPolicyMSPerMB": {
+      "max": "9223372036854775807",
+      "min": "0"
+    },
+    "SoftwarePrefetchHintDistance": {
+      "max": "4096",
+      "min": "-1"
+    },
+    "SpecTrapLimitExtraEntries": {
+      "max": "100",
+      "min": "0"
+    },
+    "StackRedPages": {
+      "max": "3",
+      "min": "1"
+    },
+    "StackReservedPages": {
+      "max": "11",
+      "min": "0"
+    },
+    "StackShadowPages": {
+      "max": "50",
+      "min": "20"
+    },
+    "StackYellowPages": {
+      "max": "7",
+      "min": "2"
+    },
+    "StartAggressiveSweepingAt": {
+      "max": "100",
+      "min": "0"
+    },
+    "StressSeed": {
+      "max": "4294967295",
+      "min": "0"
+    },
+    "StringDeduplicationAgeThreshold": {
+      "max": "15",
+      "min": "1"
+    },
+    "StringDeduplicationCleanupDeadPercent": {
+      "max": "100",
+      "min": "1"
+    },
+    "StringDeduplicationGrowTableLoad": {
+      "max": "1000.000",
+      "min": "0.100"
+    },
+    "StringDeduplicationInitialTableSize": {
+      "max": "1073741824",
+      "min": "1"
+    },
+    "StringDeduplicationShrinkTableLoad": {
+      "max": "100.000",
+      "min": "0.010"
+    },
+    "StringDeduplicationTargetTableLoad": {
+      "max": "1000.000",
+      "min": "0.010"
+    },
+    "StringTableSize": {
+      "max": "16777216",
+      "min": "128"
+    },
+    "SuperWordAutomaticAlignment": {
+      "max": "2",
+      "min": "0"
+    },
+    "SuperWordStoreToLoadForwardingFailureDetection": {
+      "max": "4096",
+      "min": "0"
+    },
+    "SurvivorRatio": {
+      "max": "18446744073709551613",
+      "min": "1"
+    },
+    "SweeperThreshold": {
+      "max": "100.000",
+      "min": "0.000"
+    },
+    "SymbolTableSize": {
+      "max": "16777216",
+      "min": "1024"
+    },
+    "TLABAllocationWeight": {
+      "max": "100",
+      "min": "0"
+    },
+    "TLABRefillWasteFraction": {
+      "max": "4294967295",
+      "min": "1"
+    },
+    "TLABSize": {
+      "max": "18446744073709551615",
+      "min": "0"
+    },
+    "TLABWasteIncrement": {
+      "max": "2147483647",
+      "min": "0"
+    },
+    "TLABWasteTargetPercent": {
+      "max": "100",
+      "min": "1"
+    },
+    "TargetPLABWastePct": {
+      "max": "100",
+      "min": "1"
+    },
+    "TargetSurvivorRatio": {
+      "max": "100",
+      "min": "0"
+    },
+    "ThreadPriorityPolicy": {
+      "max": "1",
+      "min": "0"
+    },
+    "ThreadStackSize": {
+      "max": "1048576",
+      "min": "0"
+    },
+    "ThresholdTolerance": {
+      "max": "100",
+      "min": "0"
+    },
+    "Tier0BackedgeNotifyFreqLog": {
+      "max": "30",
+      "min": "0"
+    },
+    "Tier0Delay": {
+      "max": "2147483647",
+      "min": "0"
+    },
+    "Tier0InvokeNotifyFreqLog": {
+      "max": "30",
+      "min": "0"
+    },
+    "Tier0ProfilingStartPercentage": {
+      "max": "2147483647",
+      "min": "0"
+    },
+    "Tier23InlineeNotifyFreqLog": {
+      "max": "30",
+      "min": "0"
+    },
+    "Tier2BackEdgeThreshold": {
+      "max": "2147483647",
+      "min": "0"
+    },
+    "Tier2BackedgeNotifyFreqLog": {
+      "max": "30",
+      "min": "0"
+    },
+    "Tier2CompileThreshold": {
+      "max": "2147483647",
+      "min": "0"
+    },
+    "Tier2InvokeNotifyFreqLog": {
+      "max": "30",
+      "min": "0"
+    },
+    "Tier3BackEdgeThreshold": {
+      "max": "2147483647",
+      "min": "0"
+    },
+    "Tier3BackedgeNotifyFreqLog": {
+      "max": "30",
+      "min": "0"
+    },
+    "Tier3CompileThreshold": {
+      "max": "2147483647",
+      "min": "0"
+    },
+    "Tier3DelayOff": {
+      "max": "2147483647",
+      "min": "0"
+    },
+    "Tier3DelayOn": {
+      "max": "2147483647",
+      "min": "0"
+    },
+    "Tier3InvocationThreshold": {
+      "max": "2147483647",
+      "min": "0"
+    },
+    "Tier3InvokeNotifyFreqLog": {
+      "max": "30",
+      "min": "0"
+    },
+    "Tier3LoadFeedback": {
+      "max": "2147483647",
+      "min": "0"
+    },
+    "Tier3MinInvocationThreshold": {
+      "max": "2147483647",
+      "min": "0"
+    },
+    "Tier4BackEdgeThreshold": {
+      "max": "2147483647",
+      "min": "0"
+    },
+    "Tier4CompileThreshold": {
+      "max": "2147483647",
+      "min": "0"
+    },
+    "Tier4InvocationThreshold": {
+      "max": "2147483647",
+      "min": "0"
+    },
+    "Tier4LoadFeedback": {
+      "max": "2147483647",
+      "min": "0"
+    },
+    "Tier4MinInvocationThreshold": {
+      "max": "2147483647",
+      "min": "0"
+    },
+    "TieredCompileTaskTimeout": {
+      "max": "9223372036854775807",
+      "min": "0"
+    },
+    "TieredOldPercentage": {
+      "max": "2147483647",
+      "min": "0"
+    },
+    "TieredRateUpdateMaxTime": {
+      "max": "9223372036854775807",
+      "min": "1"
+    },
+    "TieredRateUpdateMinTime": {
+      "max": "9223372036854775807",
+      "min": "1"
+    },
+    "TieredStopAtLevel": {
+      "max": "4",
+      "min": "0"
+    },
+    "TrackedInitializationLimit": {
+      "max": "65535",
+      "min": "0"
+    },
+    "TrimNativeHeapInterval": {
+      "max": "4294967295",
+      "min": "0"
+    },
+    "TypeProfileArgsLimit": {
+      "max": "16",
+      "min": "0"
+    },
+    "TypeProfileLevel": {
+      "max": "4294967295",
+      "min": "0"
+    },
+    "TypeProfileMajorReceiverPercent": {
+      "max": "100",
+      "min": "0"
+    },
+    "TypeProfileParmsLimit": {
+      "max": "64",
+      "min": "-1"
+    },
+    "TypeProfileSubTypeCheckCommonThreshold": {
+      "max": "100",
+      "min": "0"
+    },
+    "TypeProfileWidth": {
+      "max": "8",
+      "min": "0"
+    },
+    "UnguardOnExecutionViolation": {
+      "max": "2",
+      "min": "0"
+    },
+    "UseSVE": {
+      "max": "2",
+      "min": "0"
+    },
+    "UserThreadWaitAttemptsAtExit": {
+      "max": "1000",
+      "min": "0"
+    },
+    "VMThreadPriority": {
+      "max": "2147483647",
+      "min": "-2147483648"
+    },
+    "VMThreadStackSize": {
+      "max": "9007199254740991",
+      "min": "0"
+    },
+    "ValueMapInitialSize": {
+      "max": "32768",
+      "min": "1"
+    },
+    "ValueMapMaxLoopSize": {
+      "max": "128",
+      "min": "0"
+    },
+    "ValueSearchLimit": {
+      "max": "2147483647",
+      "min": "0"
+    },
+    "VerifyArchivedFields": {
+      "max": "2",
+      "min": "0"
+    },
+    "VerifyConstraintCasts": {
+      "max": "2",
+      "min": "0"
+    },
+    "VerifyGCStartAt": {
+      "max": "18446744073709551615",
+      "min": "0"
+    },
+    "YoungGenerationSizeIncrement": {
+      "max": "100",
+      "min": "0"
+    },
+    "YoungGenerationSizeSupplement": {
+      "max": "100",
+      "min": "0"
+    },
+    "YoungGenerationSizeSupplementDecay": {
+      "max": "18446744073709551615",
+      "min": "1"
+    },
+    "YoungPLABSize": {
+      "max": "18446744073709551615",
+      "min": "0"
+    },
+    "ZFragmentationLimit": {
+      "max": "100.000",
+      "min": "0.000"
+    },
+    "ZStatisticsInterval": {
+      "max": "4294967295",
+      "min": "1"
+    },
+    "ZTenuringThreshold": {
+      "max": "15",
+      "min": "-1"
+    },
+    "ZYoungCompactionLimit": {
+      "max": "100.000",
+      "min": "0.000"
+    }
+  },
+  "scenarios": [
+    {
+      "changed": {
+        "CICompilerCount": {
+          "from": "3",
+          "to": "0"
+        },
+        "CICompilerCountPerCPU": {
+          "from": "true",
+          "to": "false"
+        },
+        "InlineSmallCode": {
+          "from": "2500",
+          "to": "1000"
+        },
+        "NonNMethodCodeHeapSize": {
+          "from": "5836800",
+          "to": "4096"
+        },
+        "NonProfiledCodeHeapSize": {
+          "from": "122912768",
+          "to": "0"
+        },
+        "ProfileInterpreter": {
+          "from": "true",
+          "to": "false"
+        },
+        "ProfiledCodeHeapSize": {
+          "from": "122912768",
+          "to": "0"
+        },
+        "ReservedCodeCacheSize": {
+          "from": "251662336",
+          "to": "50331648"
+        },
+        "SegmentedCodeCache": {
+          "from": "true",
+          "to": "false"
+        },
+        "TieredCompilation": {
+          "from": "true",
+          "to": "false"
+        },
+        "UseCompiler": {
+          "from": "true",
+          "to": "false"
+        },
+        "UseLoopCounter": {
+          "from": "true",
+          "to": "false"
+        },
+        "UseOnStackReplacement": {
+          "from": "true",
+          "to": "false"
+        }
+      },
+      "name": "interpreter only",
+      "only_here": [],
+      "only_in_baseline": [],
+      "options": [
+        "-Xint"
+      ],
+      "origins": {
+        "command line": 3,
+        "default": 785,
+        "ergonomic": 28
+      },
+      "reported": 816,
+      "supported": true
+    },
+    {
+      "changed": {
+        "MaxHeapSize": {
+          "from": "1549795328",
+          "to": "268435456"
+        },
+        "MaxNewSize": {
+          "from": "929038336",
+          "to": "160432128"
+        },
+        "SoftMaxHeapSize": {
+          "from": "1549795328",
+          "to": "268435456"
+        }
+      },
+      "name": "a small heap",
+      "only_here": [],
+      "only_in_baseline": [],
+      "options": [
+        "-Xmx256m"
+      ],
+      "origins": {
+        "command line": 2,
+        "default": 784,
+        "ergonomic": 30
+      },
+      "reported": 816,
+      "supported": true
+    },
+    {
+      "changed": {
+        "ActiveProcessorCount": {
+          "from": "-1",
+          "to": "1"
+        },
+        "CICompilerCount": {
+          "from": "3",
+          "to": "2"
+        },
+        "G1ConcRefinementThreads": {
+          "from": "4",
+          "to": "1"
+        },
+        "NonNMethodCodeHeapSize": {
+          "from": "5836800",
+          "to": "5828608"
+        },
+        "NonProfiledCodeHeapSize": {
+          "from": "122912768",
+          "to": "122916864"
+        },
+        "ParallelGCThreads": {
+          "from": "4",
+          "to": "1"
+        },
+        "ProfiledCodeHeapSize": {
+          "from": "122912768",
+          "to": "122916864"
+        }
+      },
+      "name": "one processor",
+      "only_here": [],
+      "only_in_baseline": [],
+      "options": [
+        "-XX:ActiveProcessorCount=1"
+      ],
+      "origins": {
+        "command line": 2,
+        "default": 783,
+        "ergonomic": 31
+      },
+      "reported": 816,
+      "supported": true
+    },
+    {
+      "changed": {
+        "ConcGCThreads": {
+          "from": "1",
+          "to": "0"
+        },
+        "G1ConcRefinementThreads": {
+          "from": "4",
+          "to": "0"
+        },
+        "G1EagerReclaimRemSetThreshold": {
+          "from": "10",
+          "to": "0"
+        },
+        "G1HeapRegionSize": {
+          "from": "1048576",
+          "to": "0"
+        },
+        "G1RemSetArrayOfCardsEntries": {
+          "from": "10",
+          "to": "0"
+        },
+        "G1RemSetHowlNumBuckets": {
+          "from": "4",
+          "to": "0"
+        },
+        "GCPauseIntervalMillis": {
+          "from": "201",
+          "to": "0"
+        },
+        "GCTimeRatio": {
+          "from": "24",
+          "to": "99"
+        },
+        "LoopStripMiningIter": {
+          "from": "1000",
+          "to": "0"
+        },
+        "LoopStripMiningIterShortLoop": {
+          "from": "100",
+          "to": "0"
+        },
+        "MaxGCPauseMillis": {
+          "from": "200",
+          "to": "18446744073709551614"
+        },
+        "MaxHeapFreeRatio": {
+          "from": "100",
+          "to": "70"
+        },
+        "MaxNewSize": {
+          "from": "929038336",
+          "to": "516554752"
+        },
+        "MinHeapDeltaBytes": {
+          "from": "1048576",
+          "to": "196608"
+        },
+        "MinHeapFreeRatio": {
+          "from": "0",
+          "to": "40"
+        },
+        "NewSize": {
+          "from": "1363144",
+          "to": "2752512"
+        },
+        "ParallelGCThreads": {
+          "from": "4",
+          "to": "0"
+        },
+        "UseCondCardMark": {
+          "from": "true",
+          "to": "false"
+        },
+        "UseCountedLoopSafepoints": {
+          "from": "true",
+          "to": "false"
+        },
+        "UseG1GC": {
+          "from": "true",
+          "to": "false"
+        },
+        "UseSerialGC": {
+          "from": "false",
+          "to": "true"
+        }
+      },
+      "name": "the serial collector",
+      "only_here": [],
+      "only_in_baseline": [],
+      "options": [
+        "-XX:+UseSerialGC"
+      ],
+      "origins": {
+        "command line": 2,
+        "default": 792,
+        "ergonomic": 22
+      },
+      "reported": 816,
+      "supported": true
+    },
+    {
+      "changed": {
+        "AOTStreamableObjects": {
+          "from": "false",
+          "to": "true"
+        },
+        "G1ConcRefinementThreads": {
+          "from": "4",
+          "to": "0"
+        },
+        "G1EagerReclaimRemSetThreshold": {
+          "from": "10",
+          "to": "0"
+        },
+        "G1HeapRegionSize": {
+          "from": "1048576",
+          "to": "0"
+        },
+        "G1RemSetArrayOfCardsEntries": {
+          "from": "10",
+          "to": "0"
+        },
+        "G1RemSetHowlNumBuckets": {
+          "from": "4",
+          "to": "0"
+        },
+        "GCPauseIntervalMillis": {
+          "from": "201",
+          "to": "0"
+        },
+        "GCTimeRatio": {
+          "from": "24",
+          "to": "99"
+        },
+        "LogEventsBufferEntries": {
+          "from": "20",
+          "to": "250"
+        },
+        "MaxGCPauseMillis": {
+          "from": "200",
+          "to": "18446744073709551614"
+        },
+        "MaxHeapFreeRatio": {
+          "from": "100",
+          "to": "70"
+        },
+        "MaxNewSize": {
+          "from": "929038336",
+          "to": "18446744073709551615"
+        },
+        "MinHeapDeltaBytes": {
+          "from": "1048576",
+          "to": "2097152"
+        },
+        "MinHeapFreeRatio": {
+          "from": "0",
+          "to": "40"
+        },
+        "ParallelGCThreads": {
+          "from": "4",
+          "to": "3"
+        },
+        "SoftMaxHeapSize": {
+          "from": "1549795328",
+          "to": "1394815795"
+        },
+        "TLABSize": {
+          "from": "0",
+          "to": "262144"
+        },
+        "UseCompressedOops": {
+          "from": "true",
+          "to": "false"
+        },
+        "UseCondCardMark": {
+          "from": "true",
+          "to": "false"
+        },
+        "UseG1GC": {
+          "from": "true",
+          "to": "false"
+        },
+        "UseZGC": {
+          "from": "false",
+          "to": "true"
+        },
+        "ZOldGCThreads": {
+          "from": "0",
+          "to": "1"
+        },
+        "ZYoungGCThreads": {
+          "from": "0",
+          "to": "1"
+        }
+      },
+      "name": "the Z collector",
+      "only_here": [],
+      "only_in_baseline": [],
+      "options": [
+        "-XX:+UseZGC"
+      ],
+      "origins": {
+        "command line": 2,
+        "default": 790,
+        "ergonomic": 24
+      },
+      "reported": 816,
+      "supported": true
+    }
+  ],
+  "unstable_between_runs": [
+    "SharedBaseAddress"
+  ]
+}
