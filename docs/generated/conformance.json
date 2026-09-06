@@ -3178,6 +3178,993 @@
           "requirement": "determines the instruction boundaries of the code array before decoding the frames, which is checked by presenting an `Uninitialized_variable_info` whose offset is a valid instruction offset holding something other than a `new`."
         }
       ]
+    },
+    {
+      "id": "BP-VERIFY",
+      "title": "The verification type system",
+      "status": "draft",
+      "page": "docs/blueprints/BP-VERIFY.md",
+      "clauses": [
+        {
+          "id": "4a.1",
+          "part": "4a",
+          "kinds": [
+            "JVMS"
+          ],
+          "citations": [
+            "\u00a74.10.1.2@SE25"
+          ],
+          "text": "Assignability is reflexive on every verification type, and `top` is a supertype of every other type, so the pairs in which the two types are equal and the pairs whose target is `top` are settled by two rules that load nothing and examine nothing .",
+          "observed_by": [
+            "5.1"
+          ],
+          "tested_by": [
+            "8.2.1"
+          ]
+        },
+        {
+          "id": "4a.2",
+          "part": "4a",
+          "kinds": [
+            "JVMS"
+          ],
+          "citations": [
+            "\u00a74.10.1.2@SE25",
+            "\u00a74.7.4@SE25"
+          ],
+          "text": "Four of the fourteen type terms, `top`, `oneWord`, `twoWord` and `reference`, denote abstract unions of other types and exist to shorten the rules, and no `verification_type_info` can name any of the four, so a class file can present ten of the fourteen and no more .",
+          "observed_by": [
+            "5.2"
+          ],
+          "tested_by": [
+            "8.2.2"
+          ]
+        },
+        {
+          "id": "4a.3",
+          "part": "4a",
+          "kinds": [
+            "JVMS"
+          ],
+          "citations": [
+            "\u00a74.10.1.2@SE25"
+          ],
+          "text": "The primitive verification types reach `top` and nothing else. `int` and `float` are subtypes of `oneWord`, `long` and `double` of `twoWord`, and no rule relates any two of the four, so there is no widening between primitive verification types and `int` to `long` is refused .",
+          "observed_by": [
+            "5.3"
+          ],
+          "tested_by": [
+            "8.2.3"
+          ]
+        },
+        {
+          "id": "4a.4",
+          "part": "4a",
+          "kinds": [
+            "JVMS"
+          ],
+          "citations": [
+            "\u00a74.10.1.2@SE25"
+          ],
+          "text": "Any class or interface type may be widened to any interface type. The rule that says so leaves the source unbound, so no property of the source is consulted, and the specification states the consequence in prose: there is no requirement that a reference stored by a variable of an interface type refers to an object that actually implements that interface .",
+          "observed_by": [
+            "5.4"
+          ],
+          "tested_by": [
+            "8.2.4"
+          ]
+        },
+        {
+          "id": "4a.5",
+          "part": "4a",
+          "kinds": [
+            "JVMS"
+          ],
+          "citations": [
+            "\u00a74.10.1.2@SE25",
+            "\u00a76.5@SE25"
+          ],
+          "text": "The soundness of 4a.4 rests outside this relation, on the check `invokeinterface` makes on its receiver every time it runs, so an implementation that accepts what 4a.4 requires and omits that check has built an unsound machine out of a conforming verifier .",
+          "observed_by": [
+            "5.4"
+          ],
+          "tested_by": [
+            "8.2.4"
+          ]
+        },
+        {
+          "id": "4a.6",
+          "part": "4a",
+          "kinds": [
+            "JVMS"
+          ],
+          "citations": [
+            "\u00a74.10.1.2@SE25",
+            "\u00a75.3@SE25"
+          ],
+          "text": "A class type widens to another class type when the second names a loaded superclass of the first, and separately when the two carry the same name under two different initiating loaders that resolve to the same loaded class, so a verification type is a name together with a loader and two types with equal names are not necessarily the same type .",
+          "observed_by": [
+            "5.5"
+          ],
+          "tested_by": [
+            "8.2.5"
+          ]
+        },
+        {
+          "id": "4a.7",
+          "part": "4a",
+          "kinds": [
+            "JVMS"
+          ],
+          "citations": [
+            "\u00a74.10.1.2@SE25"
+          ],
+          "text": "An array type widens to exactly three class types, `java.lang.Object`, `java.lang.Cloneable` and `java.io.Serializable`, and only when the class named is the one the bootstrap loader defines, so an array reaches no other interface however many interfaces an array class implements .",
+          "observed_by": [
+            "5.6"
+          ],
+          "tested_by": [
+            "8.2.6"
+          ]
+        },
+        {
+          "id": "4a.8",
+          "part": "4a",
+          "kinds": [
+            "JVMS"
+          ],
+          "citations": [
+            "\u00a74.10.1.2@SE25"
+          ],
+          "text": "Widening between array types is covariant in the component and is defined by a rule that requires the components themselves to widen, and there is no rule for an array whose component is a primitive, so an array of `int` reaches an array of `int` by reflexivity alone and reaches no other array type .",
+          "observed_by": [
+            "5.7"
+          ],
+          "tested_by": [
+            "8.2.7"
+          ]
+        },
+        {
+          "id": "4a.9",
+          "part": "4a",
+          "kinds": [
+            "JVMS"
+          ],
+          "citations": [
+            "\u00a74.10.1.2@SE25",
+            "\u00a72.9.1@SE25"
+          ],
+          "text": "The three uninitialized types are assignable to whatever `reference` is assignable to, and `reference` reaches only `oneWord` and `top`, and no rule makes any of the three assignable to a class type or an array type, so an unconstructed object satisfies no declared reference type at all .",
+          "observed_by": [
+            "5.8"
+          ],
+          "tested_by": [
+            "8.2.8"
+          ]
+        },
+        {
+          "id": "4a.10",
+          "part": "4a",
+          "kinds": [
+            "JVMS"
+          ],
+          "citations": [
+            "\u00a74.10.1.2@SE25"
+          ],
+          "text": "`null` is a subtype of every class type and every array type by two rules of its own, and nothing other than `null` is assignable to `null`, so the relation has a bottom on the reference side and it is not reachable from anywhere else .",
+          "observed_by": [
+            "5.9"
+          ],
+          "tested_by": [
+            "8.2.9"
+          ]
+        },
+        {
+          "id": "4a.11",
+          "part": "4a",
+          "kinds": [
+            "JVMS"
+          ],
+          "citations": [
+            "\u00a74.10.1.2@SE25"
+          ],
+          "text": "The types `byte`, `char`, `short` and `boolean` have no verification type of their own and are all described by `int`, while the array types whose component is one of the four do have verification types of their own, which is the asymmetry that makes 4a.8's silence about primitive components load bearing rather than an oversight .",
+          "observed_by": [
+            "5.10"
+          ],
+          "tested_by": [
+            "8.2.10"
+          ]
+        },
+        {
+          "id": "4a.12",
+          "part": "4a",
+          "kinds": [
+            "JVMS"
+          ],
+          "citations": [
+            "\u00a74.10.1.2@SE25"
+          ],
+          "text": "Widening between references is not reflexive and applies only between two distinct reference types, so it is not the whole relation and an implementation that treats it as the whole relation has lost every pair 4a.1 settles .",
+          "observed_by": [
+            "5.11"
+          ],
+          "tested_by": [
+            "8.2.11"
+          ]
+        },
+        {
+          "id": "4a.13",
+          "part": "4a",
+          "kinds": [
+            "JVMS"
+          ],
+          "citations": [
+            "\u00a74.10.1.4@SE25"
+          ],
+          "text": "Frame assignability is the pointwise lifting of assignability over the locals and over the operand stack, with an explicit check that the two operand stacks have the same length because the stack grows and shrinks, and with the locals lists required to be the same length by the mapping itself .",
+          "observed_by": [
+            "5.12"
+          ],
+          "tested_by": [
+            "8.2.12"
+          ]
+        },
+        {
+          "id": "4a.14",
+          "part": "4a",
+          "kinds": [
+            "JVMS"
+          ],
+          "citations": [
+            "\u00a74.10.1.4@SE25"
+          ],
+          "text": "A frame's flags are either empty or hold the single element `flagThisUninit`, which is present exactly when some local variable holds `uninitializedThis`, and frame assignability requires the source's flags to be a subset of the target's, so a frame in which `this` is unconstructed is not assignable to one in which it is constructed and the reverse is allowed .",
+          "observed_by": [
+            "5.13"
+          ],
+          "tested_by": [
+            "8.2.13"
+          ]
+        },
+        {
+          "id": "4a.15",
+          "part": "4a",
+          "kinds": [
+            "JVMS"
+          ],
+          "citations": [
+            "\u00a74.10.1.4@SE25"
+          ],
+          "text": "A `long` or a `double` occupies two positions in both a locals array and an operand stack, and the two are written in opposite orders: in locals the type comes first and `top` second, and on the stack `top` comes first and the type second, so the pointwise comparison of 4a.13 is over positions and an implementation that compares values has to have expanded them the same way at both ends .",
+          "observed_by": [
+            "5.14"
+          ],
+          "tested_by": [
+            "8.2.14"
+          ]
+        },
+        {
+          "id": "4a.16",
+          "part": "4a",
+          "kinds": [
+            "JVMS"
+          ],
+          "citations": [
+            "\u00a74.10.1.2@SE25",
+            "\u00a74.10.1.1@SE25"
+          ],
+          "text": "Answering the relation for two distinct reference types requires both classes loaded, and the rules are split between the reference types and everything else so that a query with an atom on either side can be answered without loading anything, which is stated as a goal of the formulation rather than as an optimisation an implementation may skip .",
+          "observed_by": [
+            "5.15"
+          ],
+          "tested_by": [
+            "8.2.15"
+          ]
+        },
+        {
+          "id": "4b.1",
+          "part": "4b",
+          "kinds": [
+            "HOTSPOT"
+          ],
+          "citations": [
+            "src/hotspot/share/classfile/verificationType.hpp:266@jdk-27+35",
+            "src/hotspot/share/classfile/verificationType.hpp:269@jdk-27+35"
+          ],
+          "text": "The entry point carries a comment calling itself the whole point of the type system, and its first line is the whole of 3.1: if the two types are equal or the target is the bogus type, the answer is yes before anything else is looked at .",
+          "observed_by": [
+            "5.1"
+          ],
+          "tested_by": [
+            "8.2.1"
+          ]
+        },
+        {
+          "id": "4b.2",
+          "part": "4b",
+          "kinds": [
+            "HOTSPOT"
+          ],
+          "citations": [
+            "src/hotspot/share/classfile/verificationType.hpp:280@jdk-27+35"
+          ],
+          "text": "HotSpot's verification types include three query types that no class file can name, and the reference query accepts an uninitialized type as well as a reference, which is what lets one function answer both the questions a frame comparison asks and the questions an instruction's type rule asks .",
+          "observed_by": [
+            "5.16"
+          ],
+          "tested_by": [
+            "8.2.16"
+          ]
+        },
+        {
+          "id": "4b.3",
+          "part": "4b",
+          "kinds": [
+            "HOTSPOT"
+          ],
+          "citations": [
+            "src/hotspot/share/classfile/verificationType.hpp:286@jdk-27+35"
+          ],
+          "text": "The four narrow integral component types are verification types in HotSpot and are not in the file format, and an `int` is assignable to each of them, which is the rule that lets a store into an array of `boolean` be accepted .",
+          "observed_by": [
+            "5.3"
+          ],
+          "tested_by": [
+            "8.2.3"
+          ]
+        },
+        {
+          "id": "4b.4",
+          "part": "4b",
+          "kinds": [
+            "HOTSPOT"
+          ],
+          "citations": [
+            "src/hotspot/share/classfile/verificationType.hpp:293@jdk-27+35",
+            "src/hotspot/share/classfile/verificationType.cpp:142@jdk-27+35"
+          ],
+          "text": "Every refusal in the relation reaches one of two bare returns with no record of which test failed, which is why the message a refused class produces names two types and a location and never names the rule that refused .",
+          "observed_by": [
+            "5.11"
+          ],
+          "tested_by": [
+            "8.2.11"
+          ]
+        },
+        {
+          "id": "4b.5",
+          "part": "4b",
+          "kinds": [
+            "HOTSPOT"
+          ],
+          "citations": [
+            "src/hotspot/share/classfile/verificationType.hpp:301@jdk-27+35",
+            "src/hotspot/share/classfile/verificationType.hpp:312@jdk-27+35"
+          ],
+          "text": "Component assignability is the same function with one difference: the four narrow integral types refuse everything they are not equal to, so an `int` standing in for a `byte` is accepted as a value and refused as an array component .",
+          "observed_by": [
+            "5.3"
+          ],
+          "tested_by": [
+            "8.2.3"
+          ]
+        },
+        {
+          "id": "4b.6",
+          "part": "4b",
+          "kinds": [
+            "HOTSPOT"
+          ],
+          "citations": [
+            "src/hotspot/share/classfile/verificationType.cpp:104@jdk-27+35",
+            "src/hotspot/share/classfile/verificationType.cpp:107@jdk-27+35"
+          ],
+          "text": "`null` is assignable to any reference and nothing is assignable to `null`, and both are decided at the top of the reference case before any name is compared and before anything is loaded .",
+          "observed_by": [
+            "5.9"
+          ],
+          "tested_by": [
+            "8.2.9"
+          ]
+        },
+        {
+          "id": "4b.7",
+          "part": "4b",
+          "kinds": [
+            "HOTSPOT"
+          ],
+          "citations": [
+            "src/hotspot/share/classfile/verificationType.cpp:109@jdk-27+35"
+          ],
+          "text": "Two reference types with equal names are assignable in both directions and no loader is compared anywhere in the function, so a verification type here is a symbol rather than a name together with a loader, and the question two loaders raise is answered by the loader constraint machinery outside this relation .",
+          "observed_by": [
+            "5.5"
+          ],
+          "tested_by": [
+            "8.2.5"
+          ]
+        },
+        {
+          "id": "4b.8",
+          "part": "4b",
+          "kinds": [
+            "HOTSPOT"
+          ],
+          "citations": [
+            "src/hotspot/share/classfile/verificationType.cpp:113@jdk-27+35"
+          ],
+          "text": "Any reference, including any array, is assignable to `java.lang.Object`, decided by comparing the target's symbol against a well known one with neither class loaded .",
+          "observed_by": [
+            "5.6"
+          ],
+          "tested_by": [
+            "8.2.6"
+          ]
+        },
+        {
+          "id": "4b.9",
+          "part": "4b",
+          "kinds": [
+            "HOTSPOT"
+          ],
+          "citations": [
+            "src/hotspot/share/classfile/verificationType.cpp:74@jdk-27+35",
+            "src/hotspot/share/classfile/verificationType.cpp:80@jdk-27+35"
+          ],
+          "text": "The interface rule is one `return` statement with a comment over it saying that interfaces are treated as `java.lang.Object`, and the same statement carries the array carve out, so an array reaches an interface only when that interface is `java.lang.Cloneable` or `java.io.Serializable` .",
+          "observed_by": [
+            "5.4"
+          ],
+          "tested_by": [
+            "8.2.4"
+          ]
+        },
+        {
+          "id": "4b.10",
+          "part": "4b",
+          "kinds": [
+            "HOTSPOT"
+          ],
+          "citations": [
+            "src/hotspot/share/classfile/verificationType.cpp:74@jdk-27+35",
+            "src/hotspot/share/classfile/verificationType.cpp:55@jdk-27+35"
+          ],
+          "text": "The interface shortcut is skipped in one case, when the access being checked is of a protected member and the source type is `java.lang.Object`, which puts a rule about who may see a member inside the function that answers about types .",
+          "observed_by": [
+            "5.17"
+          ],
+          "tested_by": [
+            "8.2.17"
+          ]
+        },
+        {
+          "id": "4b.11",
+          "part": "4b",
+          "kinds": [
+            "HOTSPOT"
+          ],
+          "citations": [
+            "src/hotspot/share/classfile/verificationType.cpp:62@jdk-27+35"
+          ],
+          "text": "The target class is resolved before anything about the pair is decided, so asking whether one type is assignable to another can load a class, can run a user supplied loader, and can fail with a linkage error rather than return an answer .",
+          "observed_by": [
+            "5.15"
+          ],
+          "tested_by": [
+            "8.2.15"
+          ]
+        },
+        {
+          "id": "4b.12",
+          "part": "4b",
+          "kinds": [
+            "HOTSPOT"
+          ],
+          "citations": [
+            "src/hotspot/share/classfile/verificationType.cpp:83@jdk-27+35",
+            "src/hotspot/share/classfile/verificationType.cpp:88@jdk-27+35"
+          ],
+          "text": "The source class is loaded only when the target is neither an interface nor `java.lang.Object`, so the commonest reference to reference question in a real class file resolves one class rather than two .",
+          "observed_by": [
+            "5.15"
+          ],
+          "tested_by": [
+            "8.2.15"
+          ]
+        },
+        {
+          "id": "4b.13",
+          "part": "4b",
+          "kinds": [
+            "HOTSPOT"
+          ],
+          "citations": [
+            "src/hotspot/share/classfile/verificationType.cpp:94@jdk-27+35"
+          ],
+          "text": "The class to class case is a walk of the source's superclass chain and nothing else, so the interfaces the source implements are never consulted, which they could not usefully be, since every interface target was already answered yes .",
+          "observed_by": [
+            "5.6"
+          ],
+          "tested_by": [
+            "8.2.6"
+          ]
+        },
+        {
+          "id": "4b.14",
+          "part": "4b",
+          "kinds": [
+            "HOTSPOT"
+          ],
+          "citations": [
+            "src/hotspot/share/classfile/verificationType.cpp:119@jdk-27+35",
+            "src/hotspot/share/classfile/verificationType.cpp:127@jdk-27+35"
+          ],
+          "text": "While a class data archive is being dumped, an unresolvable pair is recorded as a constraint and the answer is yes without the check being made, so a run that dumps an archive accepts assignments a run that does not would have to resolve, and the check is deferred to the run that uses the archive .",
+          "observed_by": [
+            "5.18"
+          ],
+          "tested_by": [
+            "8.2.18"
+          ]
+        },
+        {
+          "id": "4b.15",
+          "part": "4b",
+          "kinds": [
+            "HOTSPOT"
+          ],
+          "citations": [
+            "src/hotspot/share/classfile/verificationType.cpp:134@jdk-27+35",
+            "src/hotspot/share/classfile/verificationType.cpp:137@jdk-27+35",
+            "src/hotspot/share/classfile/verificationType.cpp:169@jdk-27+35"
+          ],
+          "text": "Two array types are compared by component under the rule of 4b.5, and a component that cannot be parsed out of the signature becomes the bogus type rather than an error, which is why the comparison is guarded against a bogus component on either side: without the guard an unparsable component would be assignable to everything  .",
+          "observed_by": [
+            "5.7"
+          ],
+          "tested_by": [
+            "8.2.7"
+          ]
+        },
+        {
+          "id": "4b.16",
+          "part": "4b",
+          "kinds": [
+            "HOTSPOT"
+          ],
+          "citations": [
+            "src/hotspot/share/classfile/verificationType.cpp:37@jdk-27+35",
+            "src/hotspot/share/classfile/verificationType.cpp:46@jdk-27+35"
+          ],
+          "text": "The function that turns a class file tag into a verification type handles six tags and calls an abort for everything else, because the two tags that carry a payload are built by the caller out of a constant pool entry or a bytecode offset .",
+          "observed_by": [
+            "5.2"
+          ],
+          "tested_by": [
+            "8.2.2"
+          ]
+        },
+        {
+          "id": "4b.17",
+          "part": "4b",
+          "kinds": [
+            "HOTSPOT"
+          ],
+          "citations": [
+            "src/hotspot/share/classfile/stackMapFrame.cpp:161@jdk-27+35",
+            "src/hotspot/share/classfile/stackMapFrame.cpp:166@jdk-27+35"
+          ],
+          "text": "Frame assignability refuses on a locals width mismatch and on an operand stack depth mismatch before comparing a single type, and the two produce different error contexts, so those two failures are distinguishable in a message where the type failures under them are not .",
+          "observed_by": [
+            "5.12"
+          ],
+          "tested_by": [
+            "8.2.12"
+          ]
+        },
+        {
+          "id": "4b.18",
+          "part": "4b",
+          "kinds": [
+            "HOTSPOT"
+          ],
+          "citations": [
+            "src/hotspot/share/classfile/stackMapFrame.cpp:148@jdk-27+35"
+          ],
+          "text": "The pointwise comparison returns the index of the first position that refused rather than a set, so a frame with three wrong locals is reported as one wrong local at the lowest index and a person fixing them one at a time gets three rounds of the same message .",
+          "observed_by": [
+            "5.19"
+          ],
+          "tested_by": [
+            "8.2.20"
+          ]
+        },
+        {
+          "id": "4b.19",
+          "part": "4b",
+          "kinds": [
+            "HOTSPOT"
+          ],
+          "citations": [
+            "src/hotspot/share/classfile/stackMapFrame.cpp:171@jdk-27+35",
+            "src/hotspot/share/classfile/stackMapFrame.cpp:176@jdk-27+35"
+          ],
+          "text": "Only as many locals as the target declares are compared, on the stated grounds that anything past them is assignable to the bogus type, so a source frame carrying live types beyond the target's declared locals is not refused for carrying them .",
+          "observed_by": [
+            "5.19"
+          ],
+          "tested_by": [
+            "8.2.20"
+          ]
+        },
+        {
+          "id": "4b.20",
+          "part": "4b",
+          "kinds": [
+            "HOTSPOT"
+          ],
+          "citations": [
+            "src/hotspot/share/classfile/stackMapFrame.cpp:191@jdk-27+35"
+          ],
+          "text": "The subset test on the flags is a bit test rather than a list operation and it runs last, after every type in both arrays has been compared, so a frame that is wrong in its types and its flags is reported for its types .",
+          "observed_by": [
+            "5.13"
+          ],
+          "tested_by": [
+            "8.2.13"
+          ]
+        },
+        {
+          "id": "4b.21",
+          "part": "4b",
+          "kinds": [
+            "HOTSPOT"
+          ],
+          "citations": [
+            "src/hotspot/share/classfile/verifier.hpp:40@jdk-27+35",
+            "src/hotspot/share/classfile/verifier.cpp:66@jdk-27+35"
+          ],
+          "text": "Two compile time constants decide which verifier answers and whether its refusal is final, and neither has a flag: the first is 50 and lives in an enum beside three other version boundaries, and the second is 51 and is a macro in the implementation file .",
+          "observed_by": [
+            "5.20"
+          ],
+          "tested_by": [
+            "8.2.19"
+          ]
+        },
+        {
+          "id": "4b.22",
+          "part": "4b",
+          "kinds": [
+            "HOTSPOT"
+          ],
+          "citations": [
+            "src/hotspot/share/classfile/verifier.cpp:219@jdk-27+35",
+            "src/hotspot/share/classfile/verifier.cpp:254@jdk-27+35"
+          ],
+          "text": "A class below major version 50 is never offered to the type checking verifier, so none of 4b.1 to 4b.20 runs for it and the relation this document describes has no bearing on whether it loads .",
+          "observed_by": [
+            "5.20"
+          ],
+          "tested_by": [
+            "8.2.19"
+          ]
+        },
+        {
+          "id": "4b.23",
+          "part": "4b",
+          "kinds": [
+            "HOTSPOT"
+          ],
+          "citations": [
+            "src/hotspot/share/classfile/verifier.cpp:227@jdk-27+35",
+            "src/hotspot/share/classfile/verifier.cpp:230@jdk-27+35",
+            "src/hotspot/share/classfile/verifier.cpp:233@jdk-27+35",
+            "src/hotspot/share/classfile/verifier.cpp:245@jdk-27+35"
+          ],
+          "text": "The type checking verifier reports failure by returning a symbol rather than by throwing, which is what makes failover possible at all: at major version 50, with no static archive being dumped, a `VerifyError` or a `ClassFormatError` sends the class to the inference verifier, and the only trace outside the log is that the class loaded  .",
+          "observed_by": [
+            "5.20"
+          ],
+          "tested_by": [
+            "8.2.19"
+          ]
+        },
+        {
+          "id": "4b.24",
+          "part": "4b",
+          "kinds": [
+            "HOTSPOT"
+          ],
+          "citations": [
+            "src/hotspot/share/classfile/verifier.cpp:117@jdk-27+35"
+          ],
+          "text": "Whether verification runs at all is decided per class from the defining loader by two flags, so in a default configuration the classes of the runtime image are loaded without this relation being consulted about them once .",
+          "observed_by": [
+            "5.21"
+          ],
+          "tested_by": [
+            "8.2.21"
+          ]
+        },
+        {
+          "id": "4c.1",
+          "part": "4c",
+          "kinds": [
+            "HOTSPOT"
+          ],
+          "citations": [
+            "src/hotspot/share/classfile/verifier.cpp:219@jdk-27+35"
+          ],
+          "text": "The class file major version is known before the relation is consulted for a class, because below one version it is never consulted and at one version a refusal from it is not final, and neither fact can be recovered afterwards .",
+          "observed_by": [
+            "5.20"
+          ],
+          "tested_by": [
+            "8.2.19"
+          ]
+        },
+        {
+          "id": "4c.2",
+          "part": "4c",
+          "kinds": [
+            "JVMS"
+          ],
+          "citations": [
+            "\u00a74.10.1.2@SE25"
+          ],
+          "text": "Both classes are loaded before a pair of distinct reference types that name, `null` and `java.lang.Object` have not already settled can be answered, so the relation cannot be evaluated in an environment that has no loading and cannot be tabulated ahead of the classes it is about .",
+          "observed_by": [
+            "5.15"
+          ],
+          "tested_by": [
+            "8.2.15"
+          ]
+        },
+        {
+          "id": "4c.3",
+          "part": "4c",
+          "kinds": [
+            "HOTSPOT"
+          ],
+          "citations": [
+            "src/hotspot/share/classfile/verificationType.cpp:69@jdk-27+35"
+          ],
+          "text": "The target is examined before the source, because whether the target is an interface decides whether the source is loaded at all, and an implementation that resolves the source first has loaded a class it does not need and may throw a linkage error where a conforming machine returns yes .",
+          "observed_by": [
+            "5.15"
+          ],
+          "tested_by": [
+            "8.2.15"
+          ]
+        },
+        {
+          "id": "4c.4",
+          "part": "4c",
+          "kinds": [
+            "HOTSPOT"
+          ],
+          "citations": [
+            "src/hotspot/share/classfile/stackMapFrame.cpp:161@jdk-27+35"
+          ],
+          "text": "The shapes of two frames are compared before any of their types, so a frame that is both the wrong width and holding a wrong type is reported for its width and the type is never reached .",
+          "observed_by": [
+            "5.12"
+          ],
+          "tested_by": [
+            "8.2.12"
+          ]
+        },
+        {
+          "id": "4c.5",
+          "part": "4c",
+          "kinds": [
+            "HOTSPOT"
+          ],
+          "citations": [
+            "src/hotspot/share/classfile/stackMapFrame.cpp:191@jdk-27+35"
+          ],
+          "text": "The flags are compared after every type, so the two failures cannot both be reported and the type one wins, which is the opposite order from 4c.4 and is worth writing down because an implementation that checks the cheap thing first gets both orders wrong .",
+          "observed_by": [
+            "5.13"
+          ],
+          "tested_by": [
+            "8.2.13"
+          ]
+        },
+        {
+          "id": "4c.6",
+          "part": "4c",
+          "kinds": [
+            "HOTSPOT"
+          ],
+          "citations": [
+            "src/hotspot/share/classfile/verificationType.cpp:119@jdk-27+35"
+          ],
+          "text": "The answer for a pair may be produced in one run and checked in another, so the obligation in 4c.2 holds within a single run and not across the two runs an archive spans, and an implementation that caches answers has to know which of the two it is in .",
+          "observed_by": [
+            "5.18"
+          ],
+          "tested_by": [
+            "8.2.18"
+          ]
+        }
+      ],
+      "checklist": [
+        {
+          "id": "8.2.1",
+          "clauses": [
+            "4a.1",
+            "4b.1"
+          ],
+          "requirement": "answers yes for every type paired with itself and for every type paired with `top`, and reaches both answers without loading any class, which is checked by asking about two class types that do not exist."
+        },
+        {
+          "id": "8.2.2",
+          "clauses": [
+            "4a.2",
+            "4b.16"
+          ],
+          "requirement": "accepts every verification type the class file format can express and provides no way for a caller reading a class file to name `top`, `oneWord`, `twoWord`, `reference` or a bare `uninitialized`, so the abstract unions cannot enter through a file."
+        },
+        {
+          "id": "8.2.3",
+          "clauses": [
+            "4a.3",
+            "4b.3",
+            "4b.5"
+          ],
+          "requirement": "refuses every ordered pair of two distinct primitive verification types, in both directions, including `int` to `long` and `float` to `double`, and states whether it has narrow integral types of its own and if so that an `int` satisfies one as a value and does not satisfy one as an array component."
+        },
+        {
+          "id": "8.2.4",
+          "clauses": [
+            "4a.4",
+            "4a.5",
+            "4b.9"
+          ],
+          "requirement": "accepts a frame declaring a local as an interface the value's class does not implement, accepts an `invokeinterface` through that local, refuses the same frame when the declared type is a class rather than an interface, and throws `IncompatibleClassChangeError` when the call runs rather than allowing the call to dispatch."
+        },
+        {
+          "id": "8.2.5",
+          "clauses": [
+            "4a.6",
+            "4b.7"
+          ],
+          "requirement": "states whether a verification type carries a loader, and if it does, distinguishes two class types with the same name under two loaders that resolve to different classes, and if it does not, names where the obligation that they be the same class is discharged instead."
+        },
+        {
+          "id": "8.2.6",
+          "clauses": [
+            "4a.7",
+            "4b.8",
+            "4b.13"
+          ],
+          "requirement": "accepts every array type where `java.lang.Object`, `java.lang.Cloneable` or `java.io.Serializable` is expected, refuses every array type where any other interface is expected including one that an array class does implement, and never consults the source's interfaces when the target is a class."
+        },
+        {
+          "id": "8.2.7",
+          "clauses": [
+            "4a.8",
+            "4b.15"
+          ],
+          "requirement": "accepts an array of a subclass where an array of a superclass is expected, refuses the reverse, refuses an array of a primitive where any other array is expected, and refuses rather than accepts an array whose component signature does not parse."
+        },
+        {
+          "id": "8.2.8",
+          "clauses": [
+            "4a.9"
+          ],
+          "requirement": "refuses `uninitializedThis` and `uninitialized(Offset)` everywhere except against `top` and against themselves, and in particular refuses both against `java.lang.Object`, which is checked by presenting a frame that declares an unconstructed local as `java.lang.Object`."
+        },
+        {
+          "id": "8.2.9",
+          "clauses": [
+            "4a.10",
+            "4b.6"
+          ],
+          "requirement": "accepts `null` where any class type or any array type is expected, refuses everything but `null` where `null` is expected, and reaches both without loading the class named on the other side."
+        },
+        {
+          "id": "8.2.10",
+          "clauses": [
+            "4a.11"
+          ],
+          "requirement": "accepts a `boolean`, a `byte`, a `short` and a `char` where `int` is expected, since none of the four has a verification type, and refuses an array of any of the four where an array of `int` is expected, since each of those does."
+        },
+        {
+          "id": "8.2.11",
+          "clauses": [
+            "4a.12",
+            "4b.4"
+          ],
+          "requirement": "reaches the same answer for a pair of identical reference types as for a pair of identical atoms, without entering the widening rules, and either names the rule that refused in its message or states that it does not."
+        },
+        {
+          "id": "8.2.12",
+          "clauses": [
+            "4a.13",
+            "4b.17",
+            "4c.4"
+          ],
+          "requirement": "refuses two frames whose locals arrays differ in width and two whose operand stacks differ in depth, before comparing any type in either, so a frame that is both the wrong width and holding a wrong type is refused for its width."
+        },
+        {
+          "id": "8.2.13",
+          "clauses": [
+            "4a.14",
+            "4b.20",
+            "4c.5"
+          ],
+          "requirement": "refuses a frame in which `this` is unconstructed where one in which it is constructed is expected, accepts the reverse, and compares the flags after every type, so a frame wrong in both is refused for its type."
+        },
+        {
+          "id": "8.2.14",
+          "clauses": [
+            "4a.15"
+          ],
+          "requirement": "expands a `long` and a `double` into two positions in both a locals array and an operand stack, with the type first in locals and `top` first on the stack, and compares positions rather than values so that a frame legal by value count and wrong by position is refused."
+        },
+        {
+          "id": "8.2.15",
+          "clauses": [
+            "4a.16",
+            "4b.11",
+            "4b.12",
+            "4c.2",
+            "4c.3"
+          ],
+          "requirement": "answers a pair with an atom on either side without loading anything, loads only the target when the target is an interface, loads both when both are class types, and propagates the failure to load rather than converting it into a refusal."
+        },
+        {
+          "id": "8.2.16",
+          "clauses": [
+            "4b.2"
+          ],
+          "requirement": "accepts a read of a local holding `uninitializedThis` where a reference is expected by an instruction's type rule, or states that it has no query types and answers those questions another way."
+        },
+        {
+          "id": "8.2.17",
+          "clauses": [
+            "4b.10"
+          ],
+          "requirement": "states what it does when the access being checked is of a protected member of `java.lang.Object` through a receiver declared as an interface, since this is the one pair for which 4a.4 does not decide the answer on the pinned build."
+        },
+        {
+          "id": "8.2.18",
+          "clauses": [
+            "4b.14",
+            "4c.6"
+          ],
+          "requirement": "states whether it ever answers a pair without establishing it, and if it does, names the mechanism that makes the check later and what happens when that later check fails."
+        },
+        {
+          "id": "8.2.19",
+          "clauses": [
+            "4b.21",
+            "4b.22",
+            "4b.23",
+            "4c.1"
+          ],
+          "requirement": "states whether a refusal by this relation ends the load, and if it does not, names the exact set of class file versions for which it does not, so that a conformance run of wrong frames can be read as a set of refusals rather than as a set of passes."
+        },
+        {
+          "id": "8.2.20",
+          "clauses": [
+            "4b.18",
+            "4b.19"
+          ],
+          "requirement": "reports a frame with three wrong locals in a way whose behaviour is stated, either one position at a time or all three, and accepts a source frame carrying live types at positions past the target's declared locals."
+        },
+        {
+          "id": "8.2.21",
+          "clauses": [
+            "4b.24"
+          ],
+          "requirement": "either consults this relation for every class it loads or names the configuration in which it does not, so that a measurement of how often the relation is asked can be read against the set of classes it was asked about."
+        }
+      ]
     }
   ]
 }
