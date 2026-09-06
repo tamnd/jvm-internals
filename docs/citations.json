@@ -4,6 +4,80 @@
     "jdk-27-ga"
   ],
   "citations": {
+    "src/hotspot/cpu/aarch64/vm_version_aarch64.cpp:125": {
+      "cited_in": [
+        "docs/probes/vmflags.md"
+      ],
+      "context_sha256": "6f2725e5872a0924f15666df8968f6e9138fcfa67e2557a46935dee33858b5fe",
+      "line": "  if (FLAG_IS_DEFAULT(AllocatePrefetchDistance))",
+      "tag": "jdk-27+35"
+    },
+    "src/hotspot/os/bsd/globals_bsd.hpp:61": {
+      "cited_in": [
+        "docs/generated/flags.md"
+      ],
+      "context_sha256": "26bca1a3ae8cf928e3541cd7c4eec5f022cb214cb50c86e10d9c812402d814d1",
+      "line": "define_pd_global(size_t, PreTouchParallelChunkSize, 1 * G);",
+      "tag": "jdk-27+35"
+    },
+    "src/hotspot/os/linux/globals_linux.hpp:103": {
+      "cited_in": [
+        "docs/generated/flags.md"
+      ],
+      "context_sha256": "4453a2901427f93f9da1bf6b10e3628f020d635be9c7474d757994738f818728",
+      "line": "define_pd_global(size_t, PreTouchParallelChunkSize, 4 * M);",
+      "tag": "jdk-27+35"
+    },
+    "src/hotspot/os_cpu/bsd_aarch64/globals_bsd_aarch64.hpp:34": {
+      "cited_in": [
+        "docs/generated/flags.md",
+        "docs/probes/vmflags.md"
+      ],
+      "context_sha256": "3bc7c164e3094003b8fb08882ee4282a52910f34e7b66deac3eaa6e5205eada7",
+      "line": "define_pd_global(intx, ThreadStackSize,          2048); // 0 => use system default",
+      "tag": "jdk-27+35"
+    },
+    "src/hotspot/os_cpu/bsd_aarch64/globals_bsd_aarch64.hpp:35": {
+      "cited_in": [
+        "docs/generated/flags.md"
+      ],
+      "context_sha256": "e4f8ed494183a712f468428674dd37125db5a3a82567258b750244bff7cfba71",
+      "line": "define_pd_global(intx, VMThreadStackSize,        2048);",
+      "tag": "jdk-27+35"
+    },
+    "src/hotspot/os_cpu/bsd_aarch64/globals_bsd_aarch64.hpp:37": {
+      "cited_in": [
+        "docs/generated/flags.md"
+      ],
+      "context_sha256": "5b678d8865ae735defe0c56f60936ce53453681a4ea09b23a1e439a7207d0d33",
+      "line": "define_pd_global(intx, CompilerThreadStackSize,  2048);",
+      "tag": "jdk-27+35"
+    },
+    "src/hotspot/os_cpu/linux_aarch64/globals_linux_aarch64.hpp:39": {
+      "cited_in": [
+        "docs/generated/flags.md",
+        "docs/probes/vmflags.md"
+      ],
+      "context_sha256": "3cce6657d1e3e19b45a72a282593e8bb5c23dacdf235612bfb43722c49b83e63",
+      "line": "define_pd_global(intx, ThreadStackSize,          2040); // 0 => use system default",
+      "tag": "jdk-27+35"
+    },
+    "src/hotspot/os_cpu/linux_aarch64/globals_linux_aarch64.hpp:40": {
+      "cited_in": [
+        "docs/generated/flags.md"
+      ],
+      "context_sha256": "15681cf237ed56968f354c9e5af56d27944ca876b115124b7ed5732c9158fa75",
+      "line": "define_pd_global(intx, VMThreadStackSize,        2040);",
+      "tag": "jdk-27+35"
+    },
+    "src/hotspot/os_cpu/linux_aarch64/globals_linux_aarch64.hpp:42": {
+      "cited_in": [
+        "docs/generated/flags.md"
+      ],
+      "context_sha256": "7e537961f5230038bc16e73cc4560af6d7f84837d5136fe9d00ea8735a2238a1",
+      "line": "define_pd_global(intx, CompilerThreadStackSize,  2040);",
+      "tag": "jdk-27+35"
+    },
     "src/hotspot/share/classfile/javaClasses.hpp:57": {
       "cited_in": [
         "docs/probes/fieldlayout.md"
@@ -149,6 +223,14 @@
       "line": "//  64 bits (with compact headers):",
       "tag": "jdk-27+35"
     },
+    "src/hotspot/share/runtime/arguments.cpp:3508": {
+      "cited_in": [
+        "docs/probes/vmflags.md"
+      ],
+      "context_sha256": "e98dfc893c669e2d7d8a17113501c49526b9419d88500a7773239f0eb57071b8",
+      "line": "    FLAG_SET_DEFAULT(UseSecondarySupersTable, VM_Version::supports_secondary_supers_table());",
+      "tag": "jdk-27+35"
+    },
     "src/hotspot/share/runtime/globals.hpp:131": {
       "cited_in": [
         "lessons/O01/claims.json",
@@ -160,10 +242,27 @@
     },
     "src/hotspot/share/runtime/globals.hpp:134": {
       "cited_in": [
+        "docs/generated/flags.md",
         "lessons/O01/claims.json"
       ],
       "context_sha256": "0682192f4ac8096ffd8cda34e0db634fc505e91e8680d747ad59605233d48873",
       "line": "  product(int, ObjectAlignmentInBytes, 8,                                   \\",
+      "tag": "jdk-27+35"
+    },
+    "src/hotspot/share/runtime/globals_extension.hpp:82": {
+      "cited_in": [
+        "docs/probes/vmflags.md"
+      ],
+      "context_sha256": "67d6296f71d1e9ec94da4d29b5a47011ae353bcdbb9c16021c021575050a26e3",
+      "line": "#define FLAG_SET_DEFAULT(name, value) ((name) = (value))",
+      "tag": "jdk-27+35"
+    },
+    "src/hotspot/share/runtime/globals_extension.hpp:90": {
+      "cited_in": [
+        "docs/probes/vmflags.md"
+      ],
+      "context_sha256": "b10b5227eebb0fd597f5e9a951378ee32a9790fb03116c8847701081985461d5",
+      "line": "#define FLAG_SET_ERGO(name, value)     (void)(FLAG_MEMBER_SETTER(name)((value), JVMFlagOrigin::ERGONOMIC))",
       "tag": "jdk-27+35"
     },
     "src/hotspot/share/utilities/align.hpp:125": {

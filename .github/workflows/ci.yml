@@ -65,6 +65,7 @@ jobs:
           python tools/test_gen_handoff.py
           python tools/test_gen_opcodes.py
           python tools/test_gen_classfile.py
+          python tools/test_gen_flags.py
           python tools/test_fetch_jdk.py
       - name: rebuild and compare
         run: python tools/build.py check
@@ -257,6 +258,13 @@ jobs:
       # tag number, a flag mask or where an attribute may appear stops this step.
       - name: the class file structure section matches all three sources
         run: python tools/gen_classfile.py --check
+      # BP-FLAGS, joined from 22 globals headers fetched here and two committed
+      # measurements of a running VM. The generator stops on any disagreement between
+      # what a header declares and what a VM reports: a flag with no declaration, a type
+      # or an attribute that does not match, a declared range the VM does not enforce.
+      # So a failure here says one of the headers moved, rather than that a file is old.
+      - name: the flag table still matches the headers and the measurements
+        run: python tools/gen_flags.py --check
       - name: every citation still says what it said
         run: python tools/refcheck.py --report
 
